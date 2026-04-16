@@ -7,7 +7,7 @@
 <meta name="description" content="BAWi Coffee Shop — Café de especialidad, postres wellness y productos naturales. Arequipa, Perú."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,600;0,800;1,300;1,400&family=Manrope:wght@300;400;500;600;700&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Nunito:wght@300;400;500;600;700;800&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet"/>
 
 <style>
 /* ══════════════════════════════
@@ -59,7 +59,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
   100% { opacity: 0; transform: translateY(-30px) scaleX(1.5); }
 }
 .pre-text {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: .8rem; font-weight: 300; letter-spacing: .35em;
   text-transform: uppercase; color: var(--teal);
   animation: pulse 1.5s ease-in-out infinite;
@@ -94,7 +94,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
    WARM TEXTURED BACKGROUND
 ══════════════════════════════ */
 body {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Nunito', sans-serif;
   color: var(--text);
   overflow-x: hidden;
   background-color: var(--cream);
@@ -311,25 +311,35 @@ html, body, *, *::before, *::after { cursor: none !important; }
 }
 /* LOGO — blends with background, no circle */
 .nav-logo { display:flex; align-items:center; gap:.6rem; text-decoration:none; }
-.logo-svg  { width:48px; height:48px; transition:transform .3s; }
+.logo-svg  { width:58px; height:58px; transition:transform .3s; }
 .nav-logo:hover .logo-svg { transform:rotate(-5deg) scale(1.05); }
 /* Logo text with animated underline glow */
 .logo-text {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 1.35rem; font-weight: 800;
-  letter-spacing: -.01em; color: var(--teal);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.85rem; font-weight: 800;
+  letter-spacing: .03em; color: var(--teal);
   position: relative;
-  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-lt) 50%, var(--kraft) 100%);
+  background: linear-gradient(135deg, var(--teal-dim) 0%, var(--teal) 30%, var(--teal-lt) 60%, var(--kraft) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   animation: logoShimmer 5s ease-in-out infinite;
-  filter: drop-shadow(0 0 8px rgba(42,82,73,.25));
+  filter: drop-shadow(0 0 8px rgba(42,82,73,.3));
 }
 @keyframes logoShimmer {
-  0%,100% { filter: drop-shadow(0 0 4px rgba(42,82,73,.2)); }
-  50%      { filter: drop-shadow(0 0 12px rgba(42,82,73,.5)) drop-shadow(0 0 20px rgba(160,118,74,.3)); }
+  0%,100% { filter: drop-shadow(0 0 6px rgba(42,82,73,.25)); background-position: 0% 50%; }
+  33%     { filter: drop-shadow(0 0 16px rgba(42,82,73,.6)) drop-shadow(0 0 30px rgba(160,118,74,.35)); }
+  66%     { filter: drop-shadow(0 0 10px rgba(61,112,102,.4)) drop-shadow(0 0 22px rgba(42,82,73,.2)); }
+}
+.logo-text {
+  background-size: 200% 200%;
+  animation: logoShimmer 5s ease-in-out infinite, logoSlide 8s linear infinite;
+}
+@keyframes logoSlide {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 .logo-sub {
-  font-family: 'Manrope', sans-serif; font-size: .55rem; font-weight: 700;
+  font-family: 'Nunito', sans-serif; font-size: .55rem; font-weight: 700;
   letter-spacing: .3em; text-transform: uppercase;
   color: var(--kraft);
   display: block; margin-top: -2px;
@@ -338,10 +348,11 @@ html, body, *, *::before, *::after { cursor: none !important; }
 
 .nav-links { display:flex; gap:2rem; list-style:none; }
 .nav-links a {
-  font-family: 'Manrope', sans-serif; font-size: .78rem; font-weight: 500;
+  font-family: 'Nunito', sans-serif; font-size: .78rem; font-weight: 700;
   letter-spacing: .12em; text-transform: uppercase; text-decoration: none;
-  color: var(--text-mid); position: relative; padding-bottom: 2px;
+  color: var(--teal); position: relative; padding-bottom: 2px;
   transition: color .3s;
+  text-shadow: 0 1px 4px rgba(42,82,73,.08);
 }
 .nav-links a::after {
   content:''; position:absolute; bottom:0; left:0; width:0; height:1.5px;
@@ -351,7 +362,7 @@ html, body, *, *::before, *::after { cursor: none !important; }
 .nav-links a:hover::after { width:100%; }
 .nav-order {
   padding: .6rem 1.5rem; background: var(--teal); color: var(--white);
-  font-family: 'Manrope', sans-serif; font-size: .72rem; font-weight: 600;
+  font-family: 'Nunito', sans-serif; font-size: .72rem; font-weight: 600;
   letter-spacing: .15em; text-transform: uppercase; text-decoration: none;
   border-radius: 50px; transition: all .3s;
   box-shadow: 0 4px 15px rgba(42,82,73,.3);
@@ -389,7 +400,7 @@ html, body, *, *::before, *::after { cursor: none !important; }
 }
 #hero-img-wrap img {
   width:100%; height:100%; object-fit:cover; object-position:center 30%;
-  filter:brightness(.45) saturate(1.1);
+  filter:brightness(.6) contrast(1.08) saturate(1.25);
 }
 /* warm teal overlay + animated shimmer */
 #hero-img-wrap::after {
@@ -820,6 +831,99 @@ footer {
 .foot-social a:hover { background:rgba(255,255,255,.1); color:#fff; border-color:rgba(255,255,255,.4); }
 
 /* ══════════════════════════════
+   FLOATING WHATSAPP BUTTON
+══════════════════════════════ */
+#wa-float {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 9990;
+  width: 58px; height: 58px; border-radius: 50%;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 30px rgba(37,211,102,.45), 0 2px 10px rgba(0,0,0,.15);
+  text-decoration: none;
+  animation: waFloat 3s ease-in-out infinite;
+  transition: transform .3s, box-shadow .3s;
+}
+#wa-float:hover {
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 12px 40px rgba(37,211,102,.6), 0 4px 15px rgba(0,0,0,.2);
+}
+#wa-float svg { width: 30px; height: 30px; fill: #fff; }
+#wa-float::before {
+  content: '';
+  position: absolute; inset: -4px; border-radius: 50%;
+  border: 2px solid rgba(37,211,102,.35);
+  animation: waPulse 2.5s ease-out infinite;
+}
+@keyframes waFloat {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+@keyframes waPulse {
+  0%   { transform: scale(1);   opacity: .8; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+.wa-tooltip {
+  position: absolute; right: calc(100% + 12px); top: 50%; transform: translateY(-50%);
+  background: var(--teal-dim); color: #fff;
+  font-family: 'Nunito', sans-serif; font-size: .72rem; font-weight: 700;
+  white-space: nowrap; padding: .45rem .9rem; border-radius: 8px;
+  opacity: 0; pointer-events: none;
+  transition: opacity .25s;
+  box-shadow: 0 4px 15px rgba(0,0,0,.2);
+}
+.wa-tooltip::after {
+  content: ''; position: absolute; right: -6px; top: 50%; transform: translateY(-50%);
+  border: 6px solid transparent; border-right: none;
+  border-left-color: var(--teal-dim);
+}
+#wa-float:hover .wa-tooltip { opacity: 1; }
+
+/* ══════════════════════════════
+   GOOGLE MAPS
+══════════════════════════════ */
+.map-wrap {
+  border-radius: 20px; overflow: hidden;
+  box-shadow: 0 20px 60px rgba(42,82,73,.18);
+  height: 380px; position: relative;
+}
+.map-wrap iframe {
+  width: 100%; height: 100%; border: 0; display: block;
+  filter: saturate(.9) contrast(1.05);
+}
+.map-badge {
+  position: absolute; top: 1rem; left: 1rem;
+  background: rgba(247,242,232,.96); backdrop-filter: blur(8px);
+  border-radius: 10px; padding: .7rem .9rem;
+  display: flex; align-items: center; gap: .6rem;
+  box-shadow: 0 4px 20px rgba(42,82,73,.12);
+  font-family: 'Nunito', sans-serif;
+}
+.map-badge-icon { font-size: 1.3rem; }
+.map-badge-title { font-size: .82rem; font-weight: 800; color: var(--teal); line-height: 1.2; }
+.map-badge-sub   { font-size: .7rem; color: var(--text-lt); }
+
+/* ══════════════════════════════
+   MENU CATEGORY HEADER
+══════════════════════════════ */
+.mcat-header {
+  display: flex; align-items: center; gap: 1rem;
+  margin: 2.5rem 0 1.2rem; padding-bottom: .8rem;
+  border-bottom: 2px solid rgba(42,82,73,.08);
+}
+.mcat-icon { font-size: 1.6rem; }
+.mcat-title {
+  font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700;
+  color: var(--teal);
+}
+.mcat-title em { font-style: italic; font-weight: 400; color: var(--kraft); font-size: 1rem; }
+.mcat-note {
+  font-size: .75rem; color: var(--text-lt); font-style: italic;
+  line-height: 1.5; margin-bottom: 1rem; padding: .6rem .9rem;
+  background: rgba(42,82,73,.04); border-left: 3px solid var(--teal);
+  border-radius: 0 8px 8px 0;
+}
+
+/* ══════════════════════════════
    RESPONSIVE
 ══════════════════════════════ */
 @media (max-width:1000px) {
@@ -1063,86 +1167,194 @@ footer {
 <section id="menu">
   <div class="menu-head rv">
     <span class="sec-eye">Carta Completa</span>
-    <h2 class="sec-title">El <em>Menú</em></h2>
+    <h2 class="sec-title">Nuestra <em>Carta</em></h2>
     <div class="sec-line c"></div>
-    <p class="sec-lead" style="max-width:480px;margin:0 auto;">Todo artesanal, todo con amor. Precios en soles peruanos.</p>
+    <p class="sec-lead" style="max-width:500px;margin:0 auto;">Todo artesanal, todo con amor. Precios en soles peruanos · S/</p>
   </div>
   <div class="menu-tabs rv">
-    <button class="tab on" data-tab="cafe">☕ Café</button>
-    <button class="tab" data-tab="wellness">🌿 Wellness</button>
-    <button class="tab" data-tab="detox">🍃 Detox</button>
-    <button class="tab" data-tab="brunch">🥪 Brunch</button>
-    <button class="tab" data-tab="postres">🎂 Postres</button>
+    <button class="tab on"  data-tab="cafe">☕ Café</button>
+    <button class="tab"     data-tab="wellness">🌿 Wellness</button>
+    <button class="tab"     data-tab="frias">🥤 Bebidas Frías</button>
+    <button class="tab"     data-tab="funcionales">💪 Funcionales</button>
+    <button class="tab"     data-tab="desayunos">🌅 Desayunos</button>
+    <button class="tab"     data-tab="brunch">🥪 Brunch</button>
+    <button class="tab"     data-tab="postres">🎂 Postres</button>
   </div>
 
-  <!-- CAFÉ -->
+  <!-- ── CAFÉ ── -->
   <div class="mpanel on" id="tab-cafe">
-    <p class="mpanel-title"><span class="tag">Café</span> Nuestros Espressos</p>
+    <div class="mcat-header"><span class="mcat-icon">☕</span><div class="mcat-title">Café <em>— Especialidad</em></div></div>
     <div class="mgrid">
       <div class="mi"><div><div class="mi-name">Espresso</div><div class="mi-desc">Concentrado puro, el corazón de BAWi</div></div><div class="mi-price">S/ 7</div></div>
       <div class="mi"><div><div class="mi-name">Americano</div><div class="mi-desc">Espresso suavizado con agua caliente</div></div><div class="mi-price">S/ 8</div></div>
       <div class="mi"><div><div class="mi-name">Flat White</div><div class="mi-desc">Doble espresso con leche sedosa</div></div><div class="mi-price">S/ 10</div></div>
       <div class="mi star"><div><div class="mi-name">Cappuccino / Latte</div><div class="mi-desc">Cremoso y equilibrado — los favoritos</div></div><div class="mi-price">S/ 12</div></div>
+      <div class="mi star"><div><div class="mi-name">Caramel Latte / Mocaccino</div><div class="mi-desc">Con sirope de caramelo o chocolate</div></div><div class="mi-price">S/ 14</div></div>
       <div class="mi star"><div><div class="mi-name">Orange Coffee</div><div class="mi-desc">Espresso con naranja fresca — sorpresa cítrica</div></div><div class="mi-price">S/ 12</div></div>
       <div class="mi star"><div><div class="mi-name">Coffee Tonic</div><div class="mi-desc">Espresso sobre agua tónica con hielo</div></div><div class="mi-price">S/ 12</div></div>
+      <div class="mi star"><div><div class="mi-name">Tiramisú Latte / Cinnamon Latte</div><div class="mi-desc">Sabor a postre o canela con espresso</div></div><div class="mi-price">S/ 17</div></div>
     </div>
-  </div>
-
-  <!-- WELLNESS -->
-  <div class="mpanel" id="tab-wellness">
-    <p class="mpanel-title"><span class="tag">Wellness</span> Bebidas Funcionales</p>
+    <div class="mcat-header" style="margin-top:2.5rem"><span class="mcat-icon">🍵</span><div class="mcat-title">Bebidas Calientes</div></div>
     <div class="mgrid">
-      <div class="mi star"><div><div class="mi-name">Matcha Latte Mango Fresa</div><div class="mi-desc">Matcha premium con mango y fresa</div></div><div class="mi-price">S/ 14</div></div>
-      <div class="mi star"><div><div class="mi-name">Butterfly Tea Latte Mango Fresa</div><div class="mi-desc">Té azul mariposa con leche y frutas</div></div><div class="mi-price">S/ 14</div></div>
-      <div class="mi star"><div><div class="mi-name">Blue Latte</div><div class="mi-desc">Latte azul vibrante con superfoods</div></div><div class="mi-price">S/ 14</div></div>
-      <div class="mi"><div><div class="mi-name">Limonada</div><div class="mi-desc">Refrescante, natural y sin azúcar añadida</div></div><div class="mi-price">S/ 12</div></div>
-      <div class="mi"><div><div class="mi-name">Pink Dragon Sparkle</div><div class="mi-desc">Bebida con pitahaya rosa y gas</div></div><div class="mi-price">Consultar</div></div>
-      <div class="mi"><div><div class="mi-name">Indigo Serenity Tea</div><div class="mi-desc">Té índigo para la calma y el bienestar</div></div><div class="mi-price">Consultar</div></div>
-      <div class="mi"><div><div class="mi-name">Blue Volcano Refresh</div><div class="mi-desc">Erupción de sabores azules y frescos</div></div><div class="mi-price">Consultar</div></div>
       <div class="mi"><div><div class="mi-name">Chai Latte</div><div class="mi-desc">Especias cálidas con leche vegetal</div></div><div class="mi-price">S/ 12</div></div>
       <div class="mi"><div><div class="mi-name">Golden Milk</div><div class="mi-desc">Cúrcuma, canela y leche — antiinflamatorio</div></div><div class="mi-price">S/ 14</div></div>
-      <div class="mi star"><div><div class="mi-name">Batido Proteico</div><div class="mi-desc">Proteína natural, hecho en casa</div></div><div class="mi-price">S/ 18</div></div>
+      <div class="mi"><div><div class="mi-name">Matcha Latte</div><div class="mi-desc">Matcha ceremonial con leche cremosa</div></div><div class="mi-price">S/ 12</div></div>
+      <div class="mi"><div><div class="mi-name">Infusión "La Fidelia"</div><div class="mi-desc">Mezcla especial de hierbas aromáticas</div></div><div class="mi-price">S/ 8</div></div>
+      <div class="mi"><div><div class="mi-name">Chocolate Caliente</div><div class="mi-desc">Cacao puro con leche cremosa</div></div><div class="mi-price">S/ 10</div></div>
     </div>
   </div>
 
-  <!-- DETOX -->
-  <div class="mpanel" id="tab-detox">
-    <p class="mpanel-title"><span class="tag">Detox</span> Shots y Bebidas Funcionales</p>
+  <!-- ── WELLNESS ── -->
+  <div class="mpanel" id="tab-wellness">
+    <div class="mcat-header"><span class="mcat-icon">🌿</span><div class="mcat-title">Bebidas Wellness</div></div>
     <div class="mgrid">
-      <div class="mi star"><div><div class="mi-name">Fresa Salvaje</div><div class="mi-desc">Shot de fresa con superfoods</div></div><div class="mi-price">S/ 15</div></div>
-      <div class="mi"><div><div class="mi-name">Green Detox</div><div class="mi-desc">Verde limpiador con espirulina y pepino</div></div><div class="mi-price">Consultar</div></div>
-      <div class="mi"><div><div class="mi-name">Inmune Boost</div><div class="mi-desc">Jengibre, cúrcuma y cítricos</div></div><div class="mi-price">Consultar</div></div>
-      <div class="mi"><div><div class="mi-name">Energy Plus</div><div class="mi-desc">Energía natural sin cafeína sintética</div></div><div class="mi-price">Consultar</div></div>
-      <div class="mi"><div><div class="mi-name">Golden Propric</div><div class="mi-desc">Propóleo y dorado — defensa natural</div></div><div class="mi-price">Consultar</div></div>
+      <div class="mi star"><div><div class="mi-name">Matcha Latte: Mango o Fresa</div><div class="mi-desc">Matcha ceremonial, pulpa de fruta y leche cremosa</div></div><div class="mi-price">S/ 14</div></div>
+      <div class="mi star"><div><div class="mi-name">Butterfly Pea Tea Latte: Fresa o Mango</div><div class="mi-desc">Infusión de butterfly pea tea, pulpa de fruta y leche</div></div><div class="mi-price">S/ 14</div></div>
+      <div class="mi star"><div><div class="mi-name">Blue Latte</div><div class="mi-desc">Espirulina azul con leche cremosa</div></div><div class="mi-price">S/ 14</div></div>
+      <div class="mi"><div><div class="mi-name">Blue Power</div><div class="mi-desc">Refrescante limonada con espirulina azul</div></div><div class="mi-price">S/ 12</div></div>
+      <div class="mi"><div><div class="mi-name">Pink Dragon Sparkle</div><div class="mi-desc">Burbujeante limonada de pitahaya rosa</div></div><div class="mi-price">S/ 12</div></div>
+      <div class="mi"><div><div class="mi-name">Indigo Serenity Tea</div><div class="mi-desc">Infusión de butterfly pea tea con pulpa de maracuyá</div></div><div class="mi-price">S/ 12</div></div>
+      <div class="mi"><div><div class="mi-name">Blue Volcano Refresh</div><div class="mi-desc">Cold brew, espirulina azul y limón</div></div><div class="mi-price">S/ 12</div></div>
     </div>
-    <p class="mnote">* Consulta disponibilidad del día en tienda</p>
+    <div class="mcat-header" style="margin-top:2rem"><span class="mcat-icon">🍃</span><div class="mcat-title">Detox <em>— S/ 15</em></div></div>
+    <p class="mcat-note">Todos los detox a S/ 15 · Consultar disponibilidad del día</p>
+    <div class="mgrid">
+      <div class="mi star"><div><div class="mi-name">Fresa Salvaje</div><div class="mi-desc">Fresa, papaya y jamaica</div></div><div class="mi-price">S/ 15</div></div>
+      <div class="mi"><div><div class="mi-name">Green Detox</div><div class="mi-desc">Apio, manzana, pepino, jengibre, espinaca, limón</div></div><div class="mi-price">S/ 15</div></div>
+      <div class="mi"><div><div class="mi-name">Inmune Boost</div><div class="mi-desc">Naranja, jengibre, zanahoria, cúrcuma y limón</div></div><div class="mi-price">S/ 15</div></div>
+      <div class="mi"><div><div class="mi-name">Energy Plus</div><div class="mi-desc">Espinaca, zanahoria, beterraga y naranja</div></div><div class="mi-price">S/ 15</div></div>
+      <div class="mi"><div><div class="mi-name">Golden Tropic</div><div class="mi-desc">Cúrcuma, piña y maracuyá</div></div><div class="mi-price">S/ 15</div></div>
+    </div>
   </div>
 
-  <!-- BRUNCH -->
+  <!-- ── BEBIDAS FRÍAS ── -->
+  <div class="mpanel" id="tab-frias">
+    <div class="mcat-header"><span class="mcat-icon">🥤</span><div class="mcat-title">Bebidas Frías</div></div>
+    <div class="mgrid">
+      <div class="mi star"><div><div class="mi-name">Batido Protéico</div><div class="mi-desc">Proteína de vainilla o chocolate con leche vegetal y lúcuma / fresa / plátano</div></div><div class="mi-price">S/ 18</div></div>
+      <div class="mi"><div><div class="mi-name">Frappé de Fresa</div><div class="mi-desc">Cremoso frappé de fresa natural</div></div><div class="mi-price">S/ 16</div></div>
+      <div class="mi"><div><div class="mi-name">Frappuccino</div><div class="mi-desc">Café frío cremoso con hielo</div></div><div class="mi-price">S/ 16</div></div>
+      <div class="mi star"><div><div class="mi-name">Frappé de Nutella / Caramel / Frutos Rojos</div><div class="mi-desc">Frappé en tres sabores especiales</div></div><div class="mi-price">S/ 18</div></div>
+      <div class="mi"><div><div class="mi-name">Milkshake de Fresa / Plátano</div><div class="mi-desc">Milkshake cremoso en dos sabores</div></div><div class="mi-price">S/ 16</div></div>
+      <div class="mi"><div><div class="mi-name">Refresher de Fresa / Limón</div><div class="mi-desc">Refrescante y ligero, perfecto para el calor</div></div><div class="mi-price">S/ 13</div></div>
+    </div>
+    <div class="mcat-header" style="margin-top:2rem"><span class="mcat-icon">🍊</span><div class="mcat-title">Jugos Naturales</div></div>
+    <div class="mgrid">
+      <div class="mi"><div><div class="mi-name">Piña, Papaya o Fresa</div><div class="mi-desc">Jugos naturales de temporada</div></div><div class="mi-price">S/ 8</div></div>
+      <div class="mi"><div><div class="mi-name">Coco · Piña y Leche</div><div class="mi-desc">Tropical y cremoso</div></div><div class="mi-price">S/ 12</div></div>
+      <div class="mi"><div><div class="mi-name">Chirimoya con Leche</div><div class="mi-desc">Chirimoya peruana con leche fresca</div></div><div class="mi-price">S/ 12</div></div>
+    </div>
+    <div class="mcat-header" style="margin-top:2rem"><span class="mcat-icon">🍶</span><div class="mcat-title">Embotellados</div></div>
+    <div class="mgrid">
+      <div class="mi"><div><div class="mi-name">Agua con Gas Socosani</div><div class="mi-desc">Botella estándar</div></div><div class="mi-price">S/ 4</div></div>
+      <div class="mi"><div><div class="mi-name">Agua con Gas Socosani (vidrio)</div><div class="mi-desc">Botella de vidrio premium</div></div><div class="mi-price">S/ 5</div></div>
+      <div class="mi"><div><div class="mi-name">Agua Sin Gas San Luis / Fontevita</div><div class="mi-desc">Botella estándar / vidrio</div></div><div class="mi-price">S/ 4 / 5</div></div>
+      <div class="mi"><div><div class="mi-name">Kombucha</div><div class="mi-desc">Fermentada natural, probióticos</div></div><div class="mi-price">S/ 14</div></div>
+      <div class="mi"><div><div class="mi-name">Cerveza Artesanal</div><div class="mi-desc">Selección local artesanal</div></div><div class="mi-price">S/ 14</div></div>
+      <div class="mi"><div><div class="mi-name">Cerveza 0° Alcohol</div><div class="mi-desc">Sin alcohol, todo el sabor</div></div><div class="mi-price">S/ 9</div></div>
+      <div class="mi"><div><div class="mi-name">Powerade / Red Bull</div><div class="mi-desc">Bebidas energéticas y deportivas</div></div><div class="mi-price">S/ 5 / 9</div></div>
+    </div>
+  </div>
+
+  <!-- ── FUNCIONALES ── -->
+  <div class="mpanel" id="tab-funcionales">
+    <div class="mcat-header"><span class="mcat-icon">💪</span><div class="mcat-title">Bebidas Funcionales <em>— Sport & Wellness</em></div></div>
+    <p class="mcat-note">Bebidas diseñadas para rendir mejor — antes, durante y después del ejercicio. Ingredientes naturales y funcionales.</p>
+    <div class="mgrid">
+      <div class="mi star"><div><div class="mi-name">PRE SPORT</div><div class="mi-desc">Citrulina de sandía, beta-alanina de betarraga, L-creatina nitrato, mix isotónico + hierba mate. Aumenta resistencia y reduce fatiga.</div></div><div class="mi-price">S/ 11</div></div>
+      <div class="mi star"><div><div class="mi-name">XTRA MILE</div><div class="mi-desc">Palatinose + agua de coco + sal de Maras + electrolitos. Mantiene energía estable durante el ejercicio.</div></div><div class="mi-price">S/ 11</div></div>
+      <div class="mi star"><div><div class="mi-name">POST SPORT</div><div class="mi-desc">BCAAs + glutamina + acerola + granada + agua de coco. Repara y fortalece fibras musculares.</div></div><div class="mi-price">S/ 11</div></div>
+      <div class="mi"><div><div class="mi-name">Thermo T3</div><div class="mi-desc">Tés verde/negro/rojo + cetonas de frambuesa + L-carnitina. Promueve metabolismo óptimo.</div></div><div class="mi-price">S/ 9</div></div>
+      <div class="mi"><div><div class="mi-name">Nocarb-T</div><div class="mi-desc">Fibras solubles + yacon + acacia + inulina. Reduce absorción de carbohidratos.</div></div><div class="mi-price">S/ 9</div></div>
+      <div class="mi"><div><div class="mi-name">Alpha Balance</div><div class="mi-desc">Equilibrio hormonal y adaptogénico</div></div><div class="mi-price">S/ 9</div></div>
+      <div class="mi"><div><div class="mi-name">Vita Xtra T</div><div class="mi-desc">Vitaminas y minerales esenciales</div></div><div class="mi-price">S/ 9</div></div>
+      <div class="mi"><div><div class="mi-name">Youth Elixir</div><div class="mi-desc">Antioxidantes premium para vitalidad</div></div><div class="mi-price">S/ 9</div></div>
+      <div class="mi"><div><div class="mi-name">Berry Balance</div><div class="mi-desc">Mix de berries con superfoods</div></div><div class="mi-price">S/ 11</div></div>
+      <div class="mi"><div><div class="mi-name">Golden FLX</div><div class="mi-desc">Cúrcuma, jengibre y superfoods dorados</div></div><div class="mi-price">S/ 10</div></div>
+      <div class="mi"><div><div class="mi-name">Passion</div><div class="mi-desc">Maracuyá y superfoods tropicales</div></div><div class="mi-price">S/ 9</div></div>
+      <div class="mi star"><div><div class="mi-name">Chocolate Fit</div><div class="mi-desc">Cacao puro con proteína vegetal y superfoods</div></div><div class="mi-price">S/ 14</div></div>
+    </div>
+  </div>
+
+  <!-- ── DESAYUNOS ── -->
+  <div class="mpanel" id="tab-desayunos">
+    <div class="mcat-header"><span class="mcat-icon">🌅</span><div class="mcat-title">Desayunos <em>— Fit & Completos</em></div></div>
+    <div class="mgrid">
+      <div class="mi"><div><div class="mi-name">Amanecer Fit</div><div class="mi-desc">Huevos revueltos, pan campesino, mix de hojas, jugo de estación, café o infusión</div></div><div class="mi-price">S/ 16</div></div>
+      <div class="mi star"><div><div class="mi-name">Equilibrio Perfecto</div><div class="mi-desc">Huevos revueltos, pan campesino, mix de hojas, bowl de avena, café o infusión</div></div><div class="mi-price">S/ 20</div></div>
+      <div class="mi star"><div><div class="mi-name">American Power</div><div class="mi-desc">Huevos revueltos, jamón inglés, pan campesino, mix de hojas, jugo de estación, café o infusión</div></div><div class="mi-price">S/ 20</div></div>
+      <div class="mi"><div><div class="mi-name">Desayuno Veggie</div><div class="mi-desc">Pan de semillas, champiñones salteados, tomate y palta, jugo de estación y café</div></div><div class="mi-price">S/ 21</div></div>
+    </div>
+    <div class="mcat-header" style="margin-top:2rem"><span class="mcat-icon">🥣</span><div class="mcat-title">Bowls & Tostadas</div></div>
+    <div class="mgrid">
+      <div class="mi star"><div><div class="mi-name">Bowl de Avena, Chía, Frutas y Granola</div><div class="mi-desc">Nutritivo y energizante — hecho en casa</div></div><div class="mi-price">S/ 15</div></div>
+      <div class="mi star"><div><div class="mi-name">Ensalada de Frutas, Yogurt Griego, Granola y Miel</div><div class="mi-desc">Frescura con cremosidad natural</div></div><div class="mi-price">S/ 15</div></div>
+      <div class="mi"><div><div class="mi-name">Tostada Francesa</div><div class="mi-desc">Clásica tostada francesa con toque artesanal</div></div><div class="mi-price">S/ 18</div></div>
+    </div>
+  </div>
+
+  <!-- ── BRUNCH ── -->
   <div class="mpanel" id="tab-brunch">
-    <p class="mpanel-title"><span class="tag">Brunch</span> Focaccias Artesanales</p>
+    <div class="mcat-header"><span class="mcat-icon">🍞</span><div class="mcat-title">Focaccias de Masa Madre</div></div>
+    <p class="mcat-note">Todas las focaccias son de masa madre artesanal, horneadas al momento.</p>
     <div class="mgrid">
-      <div class="mi"><div><div class="mi-name">Focaccia Mixto</div><div class="mi-desc">Combinación de embutidos y queso</div></div><div class="mi-price">Consultar</div></div>
-      <div class="mi star"><div><div class="mi-name">Focaccia Pepperoni</div><div class="mi-desc">Pepperoni con queso mozzarella</div></div><div class="mi-price">Consultar</div></div>
-      <div class="mi star"><div><div class="mi-name">Focaccia Pollo y Palta</div><div class="mi-desc">Pollo a la plancha con aguacate fresco</div></div><div class="mi-price">Consultar</div></div>
-      <div class="mi"><div><div class="mi-name">Focaccia Veggie</div><div class="mi-desc">Vegetales de temporada y queso</div></div><div class="mi-price">Consultar</div></div>
-      <div class="mi"><div><div class="mi-name">Focaccia Roast Beef</div><div class="mi-desc">Roast beef con mostaza y vegetales</div></div><div class="mi-price">Consultar</div></div>
+      <div class="mi star"><div><div class="mi-name">Focaccia de Peperoni</div><div class="mi-desc">Pepperoni, queso andino, queso tilsit, tomate, lechuga y alioli</div></div><div class="mi-price">S/ 17</div></div>
+      <div class="mi star"><div><div class="mi-name">Focaccia de Pollo y Palta</div><div class="mi-desc">Pollo deshilachado, palta, tomate confitado, lechuga y mayonesa de la casa</div></div><div class="mi-price">S/ 17</div></div>
+      <div class="mi"><div><div class="mi-name">Focaccia Mixto</div><div class="mi-desc">Lonjas de pavita y queso fundido, espinaca</div></div><div class="mi-price">S/ 12</div></div>
+      <div class="mi"><div><div class="mi-name">Focaccia de Jamón Serrano & Pesto</div><div class="mi-desc">Jamón serrano, queso fundido, salsa pesto y tomate</div></div><div class="mi-price">S/ 18</div></div>
+      <div class="mi star"><div><div class="mi-name">Focaccia Roast Beef</div><div class="mi-desc">Tierno roast beef, lechuga, alcaparras, tomate, salsa vitel toné</div></div><div class="mi-price">S/ 21</div></div>
+      <div class="mi"><div><div class="mi-name">Focaccia Veggie</div><div class="mi-desc">Champiñones salteados, palta, lechuga y tomate</div></div><div class="mi-price">S/ 21</div></div>
+      <div class="mi star"><div><div class="mi-name">Focaccia Doble Chocolate</div><div class="mi-desc">Relleno de nutella o crema de pistacho</div></div><div class="mi-price">S/ 14</div></div>
     </div>
-    <p class="mnote">* Todas las focaccias son horneadas al momento</p>
+    <div class="mcat-header" style="margin-top:2rem"><span class="mcat-icon">🥗</span><div class="mcat-title">Ensaladas</div></div>
+    <div class="mgrid">
+      <div class="mi"><div><div class="mi-name">Ensalada Hawaiana</div><div class="mi-desc">Lechuga, piña, naranja, palta, pollo y salsa agridulce</div></div><div class="mi-price">S/ 21</div></div>
+      <div class="mi"><div><div class="mi-name">Andina Quinua</div><div class="mi-desc">Quinua, zanahoria, pimiento, aceituna, pollo y salsa de mostaza</div></div><div class="mi-price">S/ 21</div></div>
+      <div class="mi star"><div><div class="mi-name">Gaucha</div><div class="mi-desc">Lechuga, palta, choclito, tomate, pepinillo, res y aceite de oliva</div></div><div class="mi-price">S/ 28</div></div>
+    </div>
+    <div class="mcat-header" style="margin-top:2rem"><span class="mcat-icon">🍽️</span><div class="mcat-title">Fondos <em>— S/ 21</em></div></div>
+    <div class="mgrid">
+      <div class="mi"><div><div class="mi-name">Filete de Pollo</div><div class="mi-desc">Filete jugoso con acompañamiento</div></div><div class="mi-price">S/ 21</div></div>
+      <div class="mi star"><div><div class="mi-name">Pollo en Salsa Teriyaki</div><div class="mi-desc">Pollo bañado en salsa teriyaki casera</div></div><div class="mi-price">S/ 21</div></div>
+      <div class="mi"><div><div class="mi-name">Lasaña Napolitana</div><div class="mi-desc">Lasaña artesanal con salsa napolitana</div></div><div class="mi-price">S/ 21</div></div>
+    </div>
+    <div class="mcat-header" style="margin-top:2rem"><span class="mcat-icon">🫶</span><div class="mcat-title">Para Compartir</div></div>
+    <div class="mgrid">
+      <div class="mi star"><div><div class="mi-name">Trío Perfecto</div><div class="mi-desc">Americano, keke artesanal y sándwich de pollo</div></div><div class="mi-price">S/ 19</div></div>
+      <div class="mi star"><div><div class="mi-name">Club Sándwich BAWi</div><div class="mi-desc">Focaccia masa madre, pollo, jamón, queso y tomate</div></div><div class="mi-price">S/ 20</div></div>
+      <div class="mi"><div><div class="mi-name">Tequeños de Queso o Tocino y Queso</div><div class="mi-desc">Crujientes tequeños artesanales</div></div><div class="mi-price">S/ 18</div></div>
+      <div class="mi"><div><div class="mi-name">Wrap Fit</div><div class="mi-desc">Wrap relleno de pollo, pepino, lechuga, tomate y queso</div></div><div class="mi-price">S/ 15</div></div>
+      <div class="mi"><div><div class="mi-name">Empanada de la Casa</div><div class="mi-desc">Queso / Champiñones y queso / Árabe</div></div><div class="mi-price">S/ 9</div></div>
+    </div>
   </div>
 
-  <!-- POSTRES -->
+  <!-- ── POSTRES ── -->
   <div class="mpanel" id="tab-postres">
-    <p class="mpanel-title"><span class="tag">Postres</span> Wellness & Artesanales</p>
+    <div class="mcat-header"><span class="mcat-icon">🍰</span><div class="mcat-title">Postres Wellness <em>— Sin Gluten</em></div></div>
+    <p class="mcat-note">Libres de gluten y sin azúcar. Hechos con harina de arroz, harina de almendra, maicena y endulzados con eritritol, fruto del monje y alulosa.</p>
     <div class="mgrid">
-      <div class="mi star"><div><div class="mi-name">Cuchareable Chocolate</div><div class="mi-desc">Postre en tarro de chocolate intenso</div></div><div class="mi-price">Consultar</div></div>
-      <div class="mi star"><div><div class="mi-name">Cuchareable Chocopistagho</div><div class="mi-desc">Chocolate con pistacho — el más pedido</div></div><div class="mi-price">Consultar</div></div>
-      <div class="mi star"><div><div class="mi-name">Cuchareable Dubai</div><div class="mi-desc">Inspirado en el famoso postre viral</div></div><div class="mi-price">Consultar</div></div>
-      <div class="mi"><div><div class="mi-name">Tiramisú Clásico</div><div class="mi-desc">La receta original con café BAWi</div></div><div class="mi-price">Consultar</div></div>
-      <div class="mi"><div><div class="mi-name">Tiramisú Pistacho</div><div class="mi-desc">Versión de pistacho — delicadamente dulce</div></div><div class="mi-price">Consultar</div></div>
-      <div class="mi"><div><div class="mi-name">Purple Chia Pudding</div><div class="mi-desc">Pudding de chía morada, 100% natural</div></div><div class="mi-price">Consultar</div></div>
+      <div class="mi star"><div><div class="mi-name">Tiramisú Clásico</div><div class="mi-desc">Bizcotelas embebidas en café BAWi con crema de tiramisú y cacao orgánico</div></div><div class="mi-price">S/ 15</div></div>
+      <div class="mi star"><div><div class="mi-name">Tiramisú de Pistacho</div><div class="mi-desc">Bizcotelas en café con crema de tiramisú, pistacho y cacao orgánico</div></div><div class="mi-price">S/ 18</div></div>
+      <div class="mi star"><div><div class="mi-name">Cuchareable de Chocolate</div><div class="mi-desc">Húmedo bizcocho de cacao, dulce de leche de la casa y fudge casero</div></div><div class="mi-price">S/ 15</div></div>
+      <div class="mi star"><div><div class="mi-name">Cuchareable Chocopistacho</div><div class="mi-desc">Bizcocho de cacao, fudge casero, crema de pistacho y pistachos crocantes</div></div><div class="mi-price">S/ 15</div></div>
+      <div class="mi star"><div><div class="mi-name">Cuchareable Dubái</div><div class="mi-desc">Bizcocho de cacao, fudge casero, crema dubai y pistachos tostados</div></div><div class="mi-price">S/ 16</div></div>
+      <div class="mi star"><div><div class="mi-name">Purple Chia Pudding</div><div class="mi-desc">Chía con butterfly pea tea, yogurt griego, pulpa de fruta, granola y fruta fresca</div></div><div class="mi-price">S/ 18</div></div>
     </div>
-    <p class="mnote">* Postres con disponibilidad limitada — ¡Primero el postre!</p>
+    <div class="mcat-header" style="margin-top:2rem"><span class="mcat-icon">🎂</span><div class="mcat-title">Dulces & Snacks</div></div>
+    <div class="mgrid">
+      <div class="mi"><div><div class="mi-name">Keke Artesanal - Saludable</div><div class="mi-desc">Zanahoria, cacao, limón o almendras</div></div><div class="mi-price">S/ 10</div></div>
+      <div class="mi"><div><div class="mi-name">Molde Keke Artesanal (entero)</div><div class="mi-desc">Para llevar — perfecto para regalar</div></div><div class="mi-price">S/ 64</div></div>
+      <div class="mi"><div><div class="mi-name">Brownie de Coco o Avena</div><div class="mi-desc">Vegano y artesanal</div></div><div class="mi-price">S/ 9</div></div>
+      <div class="mi"><div><div class="mi-name">Porción de Torta</div><div class="mi-desc">Sabor según disponibilidad en vitrina</div></div><div class="mi-price">S/ 12</div></div>
+      <div class="mi"><div><div class="mi-name">Cheesecake Frío</div><div class="mi-desc">Sabor según disponibilidad en vitrina</div></div><div class="mi-price">S/ 12</div></div>
+      <div class="mi"><div><div class="mi-name">Tartaleta</div><div class="mi-desc">Sabor según disponibilidad en vitrina</div></div><div class="mi-price">S/ 12</div></div>
+      <div class="mi"><div><div class="mi-name">Snicker Vegano - Maní</div><div class="mi-desc">Snicker vegano con maní</div></div><div class="mi-price">S/ 7</div></div>
+      <div class="mi star"><div><div class="mi-name">Snicker Vegano - Pistacho y Limón / Chocolúcuma</div><div class="mi-desc">En dos sabores especiales</div></div><div class="mi-price">S/ 8</div></div>
+      <div class="mi star"><div><div class="mi-name">Snicker Dubái</div><div class="mi-desc">Vegano relleno de crema de pistacho, kataifi bañado en cacao al 53%</div></div><div class="mi-price">S/ 10.50</div></div>
+      <div class="mi star"><div><div class="mi-name">Brownie Dubái</div><div class="mi-desc">Brownie vegano con crema de pistacho y kataifi en cacao al 53%</div></div><div class="mi-price">S/ 11</div></div>
+      <div class="mi"><div><div class="mi-name">Galletones Fit</div><div class="mi-desc">Avena con stevia — sabor chocolate o choco chips</div></div><div class="mi-price">S/ 5</div></div>
+    </div>
+    <p class="mnote" style="margin-top:1.5rem">✦ ¡Primero el postre! — Disponibilidad limitada, consulta en vitrina</p>
   </div>
 </section>
 
@@ -1239,8 +1451,8 @@ footer {
         <div class="con-item">
           <div class="con-icon">📍</div>
           <div>
-            <div class="con-label">Ubicación</div>
-            <div class="con-val">Arequipa, Perú<br/><span style="font-size:.8rem;color:var(--text-lt);">¡Búscanos en Google Maps como BAWi Coffee Shop!</span></div>
+            <div class="con-label">Dirección</div>
+            <div class="con-val">Av. Víctor Andrés Belaunde 245<br/><span style="font-size:.85rem;color:var(--text-lt);">Arequipa, Perú</span></div>
           </div>
         </div>
         <div class="con-item">
@@ -1253,8 +1465,8 @@ footer {
         <div class="con-item">
           <div class="con-icon">📱</div>
           <div>
-            <div class="con-label">WhatsApp / Teléfono</div>
-            <div class="con-val">+51 966 465 547<br/>+51 952 387 311</div>
+            <div class="con-label">WhatsApp</div>
+            <div class="con-val"><a href="https://wa.me/51941616620" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:none;font-weight:700;">+51 941 616 620</a></div>
           </div>
         </div>
         <div class="con-item">
@@ -1277,34 +1489,45 @@ footer {
       </div>
     </div>
     <div class="rvr">
-      <p style="font-size:.65rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--text-lt);margin-bottom:1.5rem;">Envíanos un mensaje</p>
-      <form class="con-form" onsubmit="submitForm(event)">
-        <div>
-          <label class="cf-label">Tu nombre</label>
-          <input class="cf-input" type="text" placeholder="¿Cómo te llamas?" required/>
+      <p style="font-size:.65rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--kraft);margin-bottom:1.2rem;">Cómo llegar</p>
+      <div class="map-wrap">
+        <iframe
+          src="https://maps.google.com/maps?q=Av.+Victor+Andr%C3%A9s+Belaunde+245,+Arequipa,+Peru&t=&z=17&ie=UTF8&iwloc=&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="BAWi Coffee Shop en Google Maps"
+          allowfullscreen>
+        </iframe>
+        <div class="map-badge">
+          <span class="map-badge-icon">📍</span>
+          <div>
+            <div class="map-badge-title">BAWi Coffee Shop</div>
+            <div class="map-badge-sub">Av. Víctor Andrés Belaunde 245, Arequipa</div>
+          </div>
         </div>
-        <div>
-          <label class="cf-label">WhatsApp / Teléfono</label>
-          <input class="cf-input" type="tel" placeholder="+51 999 999 999"/>
-        </div>
-        <div>
-          <label class="cf-label">Email</label>
-          <input class="cf-input" type="email" placeholder="tu@email.com"/>
-        </div>
-        <div>
-          <label class="cf-label">¿En qué te podemos ayudar?</label>
-          <textarea class="cf-input" placeholder="Cuéntanos..."></textarea>
-        </div>
-        <button class="cf-btn" type="submit">Enviar mensaje ✉</button>
-      </form>
-      <!-- Sign quote card -->
-      <div style="margin-top:1.5rem;background:var(--teal);border-radius:16px;padding:1.5rem;text-align:center;">
-        <p style="font-family:'Caveat',cursive;font-size:1.5rem;color:#fff;line-height:1.4;">"Disfruta las pequeñas cosas"</p>
-        <p style="font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.5rem;letter-spacing:.15em;text-transform:uppercase;">BAWi Coffee Shop</p>
+      </div>
+      <!-- Quote card -->
+      <div style="margin-top:1.5rem;background:linear-gradient(135deg,var(--teal-dim),var(--teal));border-radius:16px;padding:1.75rem;text-align:center;box-shadow:0 12px 40px rgba(42,82,73,.25);">
+        <p style="font-family:'Caveat',cursive;font-size:1.6rem;color:#fff;line-height:1.4;">"Disfruta las pequeñas cosas"</p>
+        <p style="font-family:'Nunito',sans-serif;font-size:.68rem;color:rgba(255,255,255,.5);margin-top:.6rem;letter-spacing:.2em;text-transform:uppercase;">BAWi Coffee Shop · Arequipa</p>
+        <a href="https://wa.me/51941616620" target="_blank" rel="noopener"
+          style="display:inline-flex;align-items:center;gap:.5rem;margin-top:1rem;background:#25d366;color:#fff;text-decoration:none;padding:.65rem 1.5rem;border-radius:50px;font-family:'Nunito',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.1em;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:all .3s;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.656 1.432 5.165L2 22l4.954-1.414C8.38 21.467 10.14 22 11.999 22 17.523 22 22 17.523 22 12S17.523 2 11.999 2z" fill-rule="evenodd" clip-rule="evenodd" opacity=".3"/></svg>
+          Escríbenos por WhatsApp
+        </a>
       </div>
     </div>
   </div>
 </section>
+
+<!-- ══ FLOATING WHATSAPP ══ -->
+<a id="wa-float" href="https://wa.me/51941616620?text=Hola%20BAWi%20Coffee%20Shop!%20Quisiera%20más%20información%20🌿☕"
+   target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <span class="wa-tooltip">¡Escríbenos!</span>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741 1.026 1-3.658-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
+  </svg>
+</a>
 
 <!-- ══ FOOTER ══ -->
 <footer>
@@ -1334,8 +1557,8 @@ footer {
     </div>
     <div class="foot-col">
       <div class="foot-col-title">Contacto</div>
-      <div class="foot-contact-item"><span class="foot-contact-icon">📱</span><span>+51 966 465 547</span></div>
-      <div class="foot-contact-item"><span class="foot-contact-icon">📱</span><span>+51 952 387 311</span></div>
+      <div class="foot-contact-item"><span class="foot-contact-icon">📱</span><span>+51 941 616 620</span></div>
+      <div class="foot-contact-item"><span class="foot-contact-icon">📱</span><span>@bawi.coffee.shop</span></div>
       <div class="foot-contact-item"><span class="foot-contact-icon">📍</span><span>Arequipa, Perú</span></div>
       <div class="foot-contact-item"><span class="foot-contact-icon">📸</span><span>@bawi.coffee.shop</span></div>
     </div>
@@ -1344,7 +1567,7 @@ footer {
     <span class="foot-copy">© 2024 BAWi Coffee Shop · Naturalmente hecho en casa</span>
     <div class="foot-social">
       <a href="https://www.instagram.com/bawi.coffee.shop/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
-      <a href="https://wa.me/51966465547" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
+      <a href="https://wa.me/51941616620" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
     </div>
   </div>
 </footer>
