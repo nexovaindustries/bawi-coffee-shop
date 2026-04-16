@@ -1,663 +1,1216 @@
 <!DOCTYPE html>
-<html class="light" lang="es">
+<html lang="es">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Bawi Coffee Shop | El Arte del Momento</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;600;800&family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          "error-container": "#fe8b70",
-          "surface-variant": "#e2e3d9",
-          "surface-dim": "#d9dbcf",
-          "inverse-primary": "#f4fde2",
-          "tertiary-dim": "#545353",
-          "tertiary-container": "#f6f3f2",
-          "on-surface-variant": "#5e6058",
-          "surface": "#fbf9f4",
-          "on-primary-fixed": "#3a422f",
-          "surface-container-highest": "#e2e3d9",
-          "on-secondary": "#fff8f0",
-          "on-tertiary-fixed-variant": "#676666",
-          "on-tertiary-container": "#5c5b5b",
-          "surface-container-low": "#f5f4ed",
-          "primary-fixed-dim": "#cfd8be",
-          "on-surface": "#31332c",
-          "on-primary-fixed-variant": "#565e4a",
-          "error-dim": "#5c1202",
-          "tertiary-fixed": "#f6f3f2",
-          "secondary-fixed": "#ede1cd",
-          "surface-container-lowest": "#ffffff",
-          "on-tertiary": "#fbf8f8",
-          "outline": "#797c73",
-          "primary-container": "#dde6cb",
-          "inverse-on-surface": "#9e9d99",
-          "on-background": "#31332c",
-          "on-secondary-fixed": "#463e30",
-          "on-primary": "#f3fbe0",
-          "on-error": "#fff7f6",
-          "primary-dim": "#4d5541",
-          "on-primary-container": "#4c5540",
-          "on-tertiary-fixed": "#4a4949",
-          "secondary-fixed-dim": "#dfd3c0",
-          "background": "#fbf9f4",
-          "error": "#9e422c",
-          "secondary-dim": "#5a5243",
-          "on-secondary-container": "#595142",
-          "surface-container-high": "#e8e9e0",
-          "outline-variant": "#b1b3a9",
-          "surface-container": "#efeee6",
-          "secondary-container": "#ede1cd",
-          "surface-bright": "#fbf9f4",
-          "surface-tint": "#59614c",
-          "primary": "#59614c",
-          "secondary": "#675e4f",
-          "tertiary-fixed-dim": "#e8e5e4",
-          "primary-fixed": "#dde6cb",
-          "tertiary": "#605f5f",
-          "on-error-container": "#742410",
-          "inverse-surface": "#0e0e0c",
-          "on-secondary-fixed-variant": "#635a4b"
-        },
-        borderRadius: {
-          "DEFAULT": "0.125rem",
-          "lg": "0.25rem",
-          "xl": "0.5rem",
-          "full": "0.75rem"
-        },
-        fontFamily: {
-          "headline": ["Plus Jakarta Sans"],
-          "body": ["Manrope"],
-          "label": ["Manrope"]
-        }
-      }
-    }
-  }
-</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BAWi Coffee Shop | Todo el placer, cero drama</title>
+<meta name="description" content="BAWi Coffee Shop — Café de especialidad, postres wellness y productos naturales. Arequipa, Perú."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,600;0,800;1,300;1,400&family=Manrope:wght@300;400;500;600;700&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet"/>
+
 <style>
-  .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
-    font-size: 20px;
-  }
-  .aurora-reveal {
-    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-  }
+/* ══════════════════════════════
+   VARIABLES & RESET
+══════════════════════════════ */
+:root {
+  --teal:     #2A5249;
+  --teal-lt:  #3d7066;
+  --teal-dim: #1c3832;
+  --cream:    #F7F2E8;
+  --cream-dk: #EDE7D9;
+  --kraft:    #A0764A;
+  --kraft-lt: #C8976A;
+  --text:     #1C2B27;
+  --text-mid: #4A5E58;
+  --text-lt:  #7A8F89;
+  --white:    #FFFFFF;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
 
-  /* ── Scroll reveal ── */
-  .sr { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
-  .sr.visible { opacity: 1; transform: none; }
-  .sr-left  { opacity: 0; transform: translateX(-30px); transition: opacity .7s ease, transform .7s ease; }
-  .sr-left.visible  { opacity: 1; transform: none; }
-  .sr-right { opacity: 0; transform: translateX(30px); transition: opacity .7s ease, transform .7s ease; }
-  .sr-right.visible { opacity: 1; transform: none; }
+/* ══════════════════════════════
+   PRELOADER
+══════════════════════════════ */
+#preloader {
+  position: fixed; inset: 0; z-index: 99999;
+  background: var(--cream);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 1.5rem;
+  transition: opacity .6s ease, visibility .6s ease;
+}
+#preloader.hide { opacity: 0; visibility: hidden; }
+.pre-cup {
+  position: relative; width: 70px;
+}
+.pre-cup-svg { width: 70px; }
+.steam-line {
+  position: absolute; bottom: 100%; left: 50%; transform-origin: bottom center;
+}
+.steam-line:nth-child(1) { margin-left: -12px; animation: steam 2s ease-in-out infinite; }
+.steam-line:nth-child(2) { margin-left: 0px;  animation: steam 2s ease-in-out infinite .3s; }
+.steam-line:nth-child(3) { margin-left: 12px; animation: steam 2s ease-in-out infinite .6s; }
+@keyframes steam {
+  0%   { opacity: 0; transform: translateY(0) scaleX(1); }
+  30%  { opacity: .7; }
+  100% { opacity: 0; transform: translateY(-30px) scaleX(1.5); }
+}
+.pre-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: .8rem; font-weight: 300; letter-spacing: .35em;
+  text-transform: uppercase; color: var(--teal);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:1} }
 
-  /* ── Smooth underline nav ── */
-  .nav-link {
-    position: relative; padding-bottom: 2px;
-  }
-  .nav-link::after {
-    content: ''; position: absolute; bottom: 0; left: 0;
-    width: 0; height: 1px; background: #59614c;
-    transition: width .35s ease;
-  }
-  .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+/* ══════════════════════════════
+   WARM TEXTURED BACKGROUND
+══════════════════════════════ */
+body {
+  font-family: 'Manrope', sans-serif;
+  color: var(--text);
+  overflow-x: hidden;
+  background-color: var(--cream);
+  /* Paper grain texture */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+}
 
-  /* ── Mobile menu ── */
-  #mobile-menu {
-    max-height: 0; overflow: hidden;
-    transition: max-height .4s cubic-bezier(.4,0,.2,1);
-  }
-  #mobile-menu.open { max-height: 320px; }
+/* ══════════════════════════════
+   CURSOR
+══════════════════════════════ */
+html, body, *, *::before, *::after { cursor: none !important; }
+@media (hover:none),(pointer:coarse) { html,body,*,*::before,*::after { cursor: auto !important; } #cur-dot,#cur-ring { display:none!important; } }
+#cur-dot {
+  position: fixed; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--teal); pointer-events: none; z-index: 99998;
+  transform: translate(-50%,-50%); mix-blend-mode: multiply;
+  transition: transform .1s;
+}
+#cur-ring {
+  position: fixed; width: 30px; height: 30px; border-radius: 50%;
+  border: 1.5px solid var(--teal); pointer-events: none; z-index: 99997;
+  transform: translate(-50%,-50%); opacity: .5;
+  transition: width .3s, height .3s, opacity .3s;
+}
+#cur-dot.big { transform: translate(-50%,-50%) scale(3); opacity: .3; }
+#cur-ring.big { width: 50px; height: 50px; }
 
-  /* ── Product card shimmer ── */
-  .card-shimmer::after {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.25) 50%, transparent 70%);
-    transform: translateX(-100%); transition: transform .6s ease;
-  }
-  .group:hover .card-shimmer::after { transform: translateX(100%); }
+/* ══════════════════════════════
+   REVEAL ANIMATIONS
+══════════════════════════════ */
+.rv  { opacity:0; transform:translateY(32px); transition:opacity .75s ease,transform .75s ease; }
+.rvl { opacity:0; transform:translateX(-32px); transition:opacity .75s ease,transform .75s ease; }
+.rvr { opacity:0; transform:translateX(32px);  transition:opacity .75s ease,transform .75s ease; }
+.rvs { opacity:0; transform:scale(.93);         transition:opacity .75s ease,transform .75s ease; }
+.rv.on,.rvl.on,.rvr.on,.rvs.on { opacity:1; transform:none; }
+.d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s} .d4{transition-delay:.4s} .d5{transition-delay:.5s}
 
-  /* ── Hero scroll parallax ── */
-  #hero-img { will-change: transform; }
+/* ══════════════════════════════
+   NAVBAR
+══════════════════════════════ */
+#nav {
+  position: fixed; top:0; left:0; right:0; z-index:9000;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 3rem;
+  transition: background .4s, backdrop-filter .4s, box-shadow .4s, padding .3s;
+}
+#nav.solid {
+  background: rgba(247,242,232,.94);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(42,82,73,.08);
+  padding: .7rem 3rem;
+}
+/* LOGO — blends with background, no circle */
+.nav-logo { display:flex; align-items:center; gap:.6rem; text-decoration:none; }
+.logo-svg  { width:48px; height:48px; transition:transform .3s; }
+.nav-logo:hover .logo-svg { transform:rotate(-5deg) scale(1.05); }
+/* Logo text with animated underline glow */
+.logo-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.35rem; font-weight: 800;
+  letter-spacing: -.01em; color: var(--teal);
+  position: relative;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-lt) 50%, var(--kraft) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  animation: logoShimmer 5s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(42,82,73,.25));
+}
+@keyframes logoShimmer {
+  0%,100% { filter: drop-shadow(0 0 4px rgba(42,82,73,.2)); }
+  50%      { filter: drop-shadow(0 0 12px rgba(42,82,73,.5)) drop-shadow(0 0 20px rgba(160,118,74,.3)); }
+}
+.logo-sub {
+  font-family: 'Manrope', sans-serif; font-size: .55rem; font-weight: 500;
+  letter-spacing: .3em; text-transform: uppercase; color: var(--text-lt);
+  display: block; margin-top: -2px;
+}
 
-  /* ── Bento hover ── */
-  .bento-item { overflow: hidden; transition: transform .4s cubic-bezier(.4,0,.2,1); }
-  .bento-item:hover { transform: scale(1.01); }
-  .bento-item img { transition: transform .7s cubic-bezier(.4,0,.2,1); }
-  .bento-item:hover img { transform: scale(1.06); }
+.nav-links { display:flex; gap:2rem; list-style:none; }
+.nav-links a {
+  font-family: 'Manrope', sans-serif; font-size: .78rem; font-weight: 500;
+  letter-spacing: .12em; text-transform: uppercase; text-decoration: none;
+  color: var(--text-mid); position: relative; padding-bottom: 2px;
+  transition: color .3s;
+}
+.nav-links a::after {
+  content:''; position:absolute; bottom:0; left:0; width:0; height:1.5px;
+  background: var(--teal); transition: width .35s ease;
+}
+.nav-links a:hover { color: var(--teal); }
+.nav-links a:hover::after { width:100%; }
+.nav-order {
+  padding: .6rem 1.5rem; background: var(--teal); color: var(--white);
+  font-family: 'Manrope', sans-serif; font-size: .72rem; font-weight: 600;
+  letter-spacing: .15em; text-transform: uppercase; text-decoration: none;
+  border-radius: 50px; transition: all .3s;
+  box-shadow: 0 4px 15px rgba(42,82,73,.3);
+}
+.nav-order:hover { background: var(--teal-lt); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(42,82,73,.4); }
 
-  /* ── Cursor dot ── */
-  #cursor-dot {
-    position: fixed; width: 8px; height: 8px; border-radius: 50%;
-    background: #59614c; pointer-events: none; z-index: 9999;
-    transform: translate(-50%,-50%); transition: transform .1s ease, opacity .3s;
-    mix-blend-mode: multiply;
-  }
-  #cursor-ring {
-    position: fixed; width: 32px; height: 32px; border-radius: 50%;
-    border: 1px solid rgba(89,97,76,.5); pointer-events: none; z-index: 9998;
-    transform: translate(-50%,-50%); transition: transform .18s ease, width .3s ease, height .3s ease, opacity .3s;
-  }
-  body:hover #cursor-dot { opacity: 1; }
+/* hamburger */
+#burger { display:none; flex-direction:column; gap:5px; background:none; border:none; padding:4px; z-index:9100; }
+#burger span { display:block; width:24px; height:2px; background:var(--teal); transition:.3s; border-radius:2px; }
+#burger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+#burger.open span:nth-child(2) { opacity:0; }
+#burger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+#mob-menu {
+  display:none; position:fixed; inset:0; background:rgba(247,242,232,.97);
+  backdrop-filter:blur(16px); z-index:9050;
+  flex-direction:column; align-items:center; justify-content:center; gap:2rem;
+}
+#mob-menu.open { display:flex; }
+#mob-menu a {
+  font-family:'Plus Jakarta Sans',sans-serif; font-size:2rem; font-weight:600;
+  color:var(--teal); text-decoration:none; transition:color .3s;
+}
+#mob-menu a:hover { color:var(--kraft); }
 
-  /* ── Page load fade ── */
-  body { animation: pageIn .6s ease forwards; }
-  @keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+/* ══════════════════════════════
+   HERO
+══════════════════════════════ */
+#hero {
+  position:relative; min-height:100vh;
+  display:flex; align-items:center; overflow:hidden;
+  padding:0;
+}
+#hero-img-wrap {
+  position:absolute; inset:0; z-index:0;
+}
+#hero-img-wrap img {
+  width:100%; height:100%; object-fit:cover; object-position:center 30%;
+  filter:brightness(.45) saturate(1.1);
+}
+/* warm teal overlay */
+#hero-img-wrap::after {
+  content:''; position:absolute; inset:0;
+  background:
+    linear-gradient(to right, rgba(28,56,50,.85) 0%, rgba(28,56,50,.4) 60%, transparent 100%),
+    linear-gradient(to top, rgba(28,56,50,.7) 0%, transparent 50%);
+}
 
-  /* ── Active nav indicator ── */
-  .nav-link.active { color: #31332c; font-weight: 600; }
+.hero-inner {
+  position:relative; z-index:2;
+  padding: 9rem 3rem 5rem;
+  max-width: 720px;
+}
+.hero-tag {
+  display:inline-flex; align-items:center; gap:.75rem;
+  background: rgba(255,255,255,.1); backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.2); border-radius:50px;
+  padding:.4rem 1rem; margin-bottom:2rem;
+  font-size:.68rem; font-weight:600; letter-spacing:.3em; text-transform:uppercase;
+  color:rgba(255,255,255,.85);
+}
+.hero-tag-dot { width:6px; height:6px; border-radius:50%; background:#7FD4B8; animation:blink 2s ease-in-out infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+.hero-title {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size: clamp(2.8rem,7vw,5.5rem);
+  font-weight:800; line-height:1.0; color:#FFFFFF;
+  margin-bottom:1rem; letter-spacing:-.03em;
+}
+.hero-title em {
+  font-style:italic; font-weight:300;
+  background: linear-gradient(135deg,#7FD4B8,#B8E8D8);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.hero-slogan {
+  font-family:'Caveat',cursive; font-size:1.8rem; font-weight:600;
+  color:rgba(255,255,255,.75); margin-bottom:1.75rem; line-height:1.3;
+}
+.hero-desc {
+  font-size:.95rem; line-height:1.85; color:rgba(255,255,255,.65);
+  font-weight:300; max-width:480px; margin-bottom:2.5rem;
+}
+.hero-btns { display:flex; gap:.75rem; flex-wrap:wrap; }
+.btn-white {
+  padding:.85rem 2.2rem; background:#FFFFFF; border-radius:50px;
+  font-size:.78rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase;
+  text-decoration:none; color:var(--teal);
+  box-shadow: 0 6px 25px rgba(0,0,0,.2);
+  transition:all .35s;
+}
+.btn-white:hover { transform:translateY(-3px); box-shadow:0 12px 35px rgba(0,0,0,.3); }
+.btn-ghost {
+  padding:.85rem 2.2rem; background:transparent; border-radius:50px;
+  border:1.5px solid rgba(255,255,255,.4);
+  font-size:.78rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase;
+  text-decoration:none; color:rgba(255,255,255,.85);
+  transition:all .35s;
+}
+.btn-ghost:hover { background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.7); transform:translateY(-3px); }
+
+/* floating cards on hero */
+.hero-cards {
+  position:absolute; right:4rem; top:50%; transform:translateY(-50%);
+  display:flex; flex-direction:column; gap:1rem; z-index:3;
+}
+.h-card {
+  background:rgba(255,255,255,.12); backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.2); border-radius:16px;
+  padding:.9rem 1.2rem; display:flex; align-items:center; gap:.8rem;
+  transition:transform .3s;
+}
+.h-card:hover { transform:translateX(-5px); }
+.h-card-icon { font-size:1.5rem; }
+.h-card-text strong { display:block; font-size:.85rem; font-weight:700; color:#fff; }
+.h-card-text span  { font-size:.7rem; color:rgba(255,255,255,.6); font-weight:300; }
+
+/* scroll cue */
+.scroll-cue {
+  position:absolute; bottom:2rem; left:50%; transform:translateX(-50%);
+  z-index:3; display:flex; flex-direction:column; align-items:center; gap:.5rem;
+  opacity:.6; animation:fadeIn 1s ease 2s both;
+}
+@keyframes fadeIn { from{opacity:0} to{opacity:.6} }
+.scroll-cue span { font-size:.6rem; letter-spacing:.3em; text-transform:uppercase; color:rgba(255,255,255,.7); }
+.scroll-bar { width:1px; height:45px; background:linear-gradient(to bottom,rgba(255,255,255,.6),transparent); animation:barAnim 2s ease-in-out infinite; }
+@keyframes barAnim { 0%,100%{transform:scaleY(1);opacity:.8} 50%{transform:scaleY(.5);opacity:.3} }
+
+/* ══════════════════════════════
+   STATS STRIP
+══════════════════════════════ */
+#stats {
+  background: var(--teal); padding:3rem 2rem; position:relative; z-index:2;
+  overflow:hidden;
+}
+#stats::before {
+  content:''; position:absolute; inset:0;
+  background: radial-gradient(ellipse 60% 100% at 50% 50%, rgba(127,212,184,.08) 0%, transparent 70%);
+}
+.stats-grid {
+  max-width:900px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(4,1fr); text-align:center; gap:1rem;
+  position:relative; z-index:1;
+}
+.stat-n {
+  font-family:'Plus Jakarta Sans',sans-serif; font-size:2.8rem; font-weight:800;
+  color:#FFFFFF; line-height:1; display:block;
+}
+.stat-l { font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.6); margin-top:.35rem; display:block; }
+
+/* ══════════════════════════════
+   SECTION HELPERS
+══════════════════════════════ */
+.sec-eye {
+  display:block; font-size:.65rem; font-weight:700; letter-spacing:.45em;
+  text-transform:uppercase; color:var(--kraft); margin-bottom:.75rem;
+}
+.sec-title {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:clamp(1.9rem,4.5vw,3.2rem);
+  font-weight:800; line-height:1.1; color:var(--text); letter-spacing:-.02em;
+}
+.sec-title em { font-style:italic; font-weight:300; color:var(--teal); }
+.sec-line {
+  width:40px; height:3px; border-radius:2px; margin:1.2rem 0;
+  background:linear-gradient(to right, var(--teal), var(--kraft));
+}
+.sec-line.c { margin-left:auto; margin-right:auto; }
+.sec-lead { font-size:1.05rem; line-height:1.75; color:var(--text-mid); font-weight:300; }
+.sec-body { font-size:.9rem; line-height:1.9; color:var(--text-lt); font-weight:300; }
+
+/* ══════════════════════════════
+   NOSOTROS
+══════════════════════════════ */
+#nosotros { padding:8rem 3rem; }
+.nos-wrap {
+  max-width:1200px; margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center;
+}
+.nos-img-col { position:relative; }
+.nos-img-main {
+  width:100%; height:550px; object-fit:cover;
+  border-radius:20px;
+  box-shadow:0 30px 80px rgba(42,82,73,.2);
+  display:block;
+}
+.nos-img-float {
+  position:absolute; bottom:-2rem; right:-2rem;
+  width:180px; height:180px; object-fit:cover;
+  border-radius:16px; border:4px solid var(--cream);
+  box-shadow:0 12px 40px rgba(0,0,0,.15);
+}
+.nos-pill {
+  position:absolute; top:1.5rem; left:-1.5rem;
+  background:var(--teal); border-radius:12px; padding:1rem 1.25rem;
+  text-align:center; box-shadow:0 8px 30px rgba(42,82,73,.35);
+}
+.nos-pill strong { display:block; font-family:'Plus Jakarta Sans',sans-serif; font-size:1.8rem; font-weight:800; color:#fff; }
+.nos-pill span { font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; color:rgba(255,255,255,.7); }
+.nos-text { display:flex; flex-direction:column; gap:1.25rem; }
+.nos-slogan {
+  font-family:'Caveat',cursive; font-size:1.6rem; font-weight:600;
+  color:var(--kraft); line-height:1.4;
+}
+.nos-features { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; margin-top:.5rem; }
+.nos-feat {
+  padding:1rem; border-radius:12px; background:var(--cream-dk);
+  border:1px solid rgba(42,82,73,.08);
+  transition:all .3s;
+}
+.nos-feat:hover { background:#fff; border-color:rgba(42,82,73,.15); transform:translateY(-3px); box-shadow:0 8px 20px rgba(42,82,73,.08); }
+.nos-feat-icon { font-size:1.4rem; margin-bottom:.35rem; display:block; }
+.nos-feat-title { font-size:.82rem; font-weight:700; color:var(--teal); margin-bottom:.2rem; }
+.nos-feat-sub   { font-size:.73rem; color:var(--text-lt); }
+
+/* ══════════════════════════════
+   MENU
+══════════════════════════════ */
+#menu {
+  padding:8rem 3rem;
+  background:linear-gradient(180deg, var(--cream-dk) 0%, var(--cream) 100%);
+  position:relative;
+}
+/* chalkboard texture strip */
+#menu::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:6px;
+  background:linear-gradient(to right, var(--teal), var(--teal-lt), var(--teal));
+}
+.menu-head { text-align:center; margin-bottom:4rem; }
+.menu-tabs {
+  display:flex; flex-wrap:wrap; gap:.5rem; justify-content:center;
+  max-width:820px; margin:0 auto 3.5rem;
+}
+.tab {
+  padding:.55rem 1.3rem; border-radius:50px;
+  background:transparent; border:1.5px solid rgba(42,82,73,.2);
+  font-family:'Manrope',sans-serif; font-size:.7rem; font-weight:600;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--text-mid);
+  transition:all .3s; white-space:nowrap;
+}
+.tab:hover { border-color:var(--teal); color:var(--teal); }
+.tab.on { background:var(--teal); border-color:var(--teal); color:#fff; box-shadow:0 6px 20px rgba(42,82,73,.35); }
+.mpanel { display:none; max-width:1100px; margin:0 auto; }
+.mpanel.on { display:block; }
+.mpanel-title {
+  text-align:center; font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:1.3rem; font-weight:700; color:var(--teal); margin-bottom:2rem;
+}
+.mpanel-title .tag {
+  display:inline-block; font-size:.6rem; font-weight:700; letter-spacing:.2em;
+  text-transform:uppercase; background:var(--teal); color:#fff;
+  padding:.25rem .7rem; border-radius:50px; vertical-align:middle; margin-right:.5rem;
+}
+.mgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:.7rem; }
+.mi {
+  display:flex; justify-content:space-between; align-items:flex-start;
+  padding:1rem 1.25rem; background:#fff; border-radius:12px;
+  border:1px solid rgba(42,82,73,.06);
+  transition:all .3s; position:relative; overflow:hidden;
+}
+.mi::before {
+  content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+  background:linear-gradient(to bottom,var(--teal),var(--kraft));
+  transform:scaleY(0); transform-origin:bottom; transition:transform .3s;
+}
+.mi:hover { box-shadow:0 8px 25px rgba(42,82,73,.1); transform:translateY(-2px); }
+.mi:hover::before { transform:scaleY(1); }
+.mi-name { font-family:'Plus Jakarta Sans',sans-serif; font-size:.95rem; font-weight:600; color:var(--text); line-height:1.3; }
+.mi-desc { font-size:.75rem; color:var(--text-lt); margin-top:.2rem; font-style:italic; }
+.mi-price {
+  font-family:'Plus Jakarta Sans',sans-serif; font-size:1rem; font-weight:800;
+  color:var(--teal); white-space:nowrap; margin-left:1rem; flex-shrink:0;
+  transition:color .3s;
+}
+.mi:hover .mi-price { color:var(--kraft); }
+.mi.star { background:linear-gradient(135deg,rgba(42,82,73,.04),rgba(160,118,74,.04)); }
+.mnote { text-align:center; font-size:.78rem; color:var(--text-lt); font-style:italic; margin-bottom:1.5rem; margin-top:-.5rem; }
+
+/* ══════════════════════════════
+   GALLERY BENTO
+══════════════════════════════ */
+#galeria { padding:8rem 3rem; }
+.gal-head { text-align:center; margin-bottom:4rem; }
+.bento {
+  max-width:1300px; margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:280px 280px;
+  gap:8px; border-radius:20px; overflow:hidden;
+}
+.bi { overflow:hidden; position:relative; background:var(--cream-dk); }
+.bi img {
+  width:100%; height:100%; object-fit:cover;
+  filter:brightness(.9) saturate(1.1);
+  transition:transform .7s cubic-bezier(.4,0,.2,1),filter .5s;
+  display:block;
+}
+.bi:hover img { transform:scale(1.08); filter:brightness(1) saturate(1.3); }
+.bi-over {
+  position:absolute; inset:0;
+  background:linear-gradient(to top,rgba(28,43,39,.75) 0%,transparent 55%);
+  opacity:0; transition:opacity .4s;
+  display:flex; align-items:flex-end; padding:.9rem 1rem;
+}
+.bi:hover .bi-over { opacity:1; }
+.bi-label { font-family:'Caveat',cursive; font-size:1.1rem; color:#fff; }
+/* bento layout */
+.bi:nth-child(1) { grid-column:span 2; grid-row:span 2; }
+.bi:nth-child(6) { grid-column:span 2; }
+
+/* ══════════════════════════════
+   DOG FRIENDLY STRIP
+══════════════════════════════ */
+#doggy {
+  background:var(--teal); padding:3.5rem 3rem;
+  display:flex; align-items:center; justify-content:center; gap:3rem;
+  flex-wrap:wrap; text-align:center;
+}
+.doggy-icon { font-size:3.5rem; animation:waggle 2s ease-in-out infinite; }
+@keyframes waggle {
+  0%,100%{transform:rotate(0deg)} 25%{transform:rotate(8deg)} 75%{transform:rotate(-8deg)}
+}
+.doggy-text strong {
+  font-family:'Plus Jakarta Sans',sans-serif; font-size:1.6rem; font-weight:800;
+  color:#fff; display:block; margin-bottom:.3rem;
+}
+.doggy-text span { font-size:.9rem; color:rgba(255,255,255,.7); }
+
+/* ══════════════════════════════
+   PRODUCTOS BAWI
+══════════════════════════════ */
+#productos { padding:8rem 3rem; background:var(--cream-dk); }
+.prod-head { text-align:center; margin-bottom:4rem; }
+.prod-grid {
+  max-width:1200px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem;
+}
+.prod-card {
+  background:#fff; border-radius:16px; overflow:hidden;
+  border:1px solid rgba(42,82,73,.07);
+  transition:all .4s;
+}
+.prod-card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(42,82,73,.12); }
+.prod-img { width:100%; height:220px; object-fit:cover; display:block; filter:brightness(.95); }
+.prod-body { padding:1.25rem 1.4rem; }
+.prod-name { font-family:'Plus Jakarta Sans',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:.3rem; }
+.prod-desc { font-size:.8rem; color:var(--text-lt); line-height:1.6; }
+.prod-tag {
+  display:inline-block; font-size:.6rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase;
+  background:var(--cream-dk); color:var(--teal); padding:.25rem .7rem; border-radius:50px; margin-top:.6rem;
+}
+
+/* ══════════════════════════════
+   CONTACTO
+══════════════════════════════ */
+#contacto { padding:8rem 3rem; }
+.con-wrap {
+  max-width:1200px; margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start;
+}
+.con-img-wrap { position:relative; border-radius:20px; overflow:hidden; }
+.con-img { width:100%; height:480px; object-fit:cover; display:block; }
+.con-img-badge {
+  position:absolute; bottom:1.5rem; left:1.5rem; right:1.5rem;
+  background:rgba(247,242,232,.95); backdrop-filter:blur(8px);
+  border-radius:12px; padding:1rem 1.25rem;
+  display:flex; align-items:center; gap:1rem;
+}
+.con-badge-icon { font-size:2rem; }
+.con-badge-title { font-family:'Plus Jakarta Sans',sans-serif; font-size:.9rem; font-weight:700; color:var(--text); }
+.con-badge-sub   { font-size:.75rem; color:var(--text-lt); margin-top:.1rem; }
+.con-info { display:flex; flex-direction:column; gap:1.25rem; margin:2rem 0; }
+.con-item { display:flex; align-items:flex-start; gap:.9rem; }
+.con-icon {
+  width:40px; height:40px; border-radius:10px; background:var(--cream-dk);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:1.1rem;
+}
+.con-label { font-size:.65rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--kraft); margin-bottom:.2rem; }
+.con-val   { font-size:.9rem; color:var(--text); line-height:1.55; }
+/* form */
+.con-form { display:flex; flex-direction:column; gap:.8rem; margin-top:2rem; }
+.cf-label { font-size:.65rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--text-lt); margin-bottom:.25rem; display:block; }
+.cf-input {
+  width:100%; padding:.8rem 1rem; border-radius:10px;
+  background:#fff; border:1.5px solid rgba(42,82,73,.12); color:var(--text);
+  font-family:'Manrope',sans-serif; font-size:.9rem;
+  transition:border-color .3s, box-shadow .3s;
+}
+.cf-input::placeholder { color:var(--text-lt); }
+.cf-input:focus { outline:none; border-color:var(--teal); box-shadow:0 0 0 3px rgba(42,82,73,.1); }
+textarea.cf-input { resize:vertical; min-height:90px; }
+.cf-btn {
+  padding:1rem; border-radius:50px; background:var(--teal); color:#fff;
+  font-family:'Manrope',sans-serif; font-size:.8rem; font-weight:700;
+  letter-spacing:.15em; text-transform:uppercase; border:none;
+  transition:all .35s; box-shadow:0 6px 20px rgba(42,82,73,.3);
+}
+.cf-btn:hover { background:var(--teal-lt); transform:translateY(-2px); box-shadow:0 10px 30px rgba(42,82,73,.4); }
+
+/* ══════════════════════════════
+   FOOTER
+══════════════════════════════ */
+footer {
+  background:var(--teal-dim); padding:4rem 3rem 2rem;
+  color:rgba(255,255,255,.7);
+}
+.foot-grid {
+  max-width:1200px; margin:0 auto;
+  display:grid; grid-template-columns:2fr 1fr 1fr 1.2fr; gap:3rem;
+  padding-bottom:3rem; border-bottom:1px solid rgba(255,255,255,.08);
+}
+.foot-brand { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.25rem; font-weight:800; color:#fff; margin-bottom:.3rem; }
+.foot-slogan { font-family:'Caveat',cursive; font-size:1.1rem; color:rgba(255,255,255,.5); margin-bottom:1rem; }
+.foot-desc { font-size:.83rem; line-height:1.8; }
+.foot-col-title { font-size:.62rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:rgba(255,255,255,.4); margin-bottom:1.1rem; }
+.foot-col ul { list-style:none; display:flex; flex-direction:column; gap:.6rem; }
+.foot-col ul a { font-size:.84rem; color:rgba(255,255,255,.65); text-decoration:none; transition:color .3s; }
+.foot-col ul a:hover { color:#fff; }
+.foot-contact-item { display:flex; align-items:flex-start; gap:.6rem; margin-bottom:.75rem; font-size:.84rem; }
+.foot-contact-icon { flex-shrink:0; opacity:.6; }
+.foot-bottom {
+  max-width:1200px; margin:1.5rem auto 0;
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;
+}
+.foot-copy { font-size:.74rem; opacity:.4; }
+.foot-social { display:flex; gap:.6rem; }
+.foot-social a {
+  width:36px; height:36px; border-radius:50%; border:1px solid rgba(255,255,255,.15);
+  display:flex; align-items:center; justify-content:center;
+  color:rgba(255,255,255,.6); text-decoration:none; font-size:.72rem; font-weight:700;
+  transition:all .3s;
+}
+.foot-social a:hover { background:rgba(255,255,255,.1); color:#fff; border-color:rgba(255,255,255,.4); }
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media (max-width:1000px) {
+  .nos-wrap, .con-wrap { grid-template-columns:1fr; gap:3rem; }
+  .foot-grid { grid-template-columns:1fr 1fr; }
+  .prod-grid { grid-template-columns:1fr 1fr; }
+  .hero-cards { display:none; }
+}
+@media (max-width:767px) {
+  .rv,.rvl,.rvr,.rvs { opacity:1!important; transform:none!important; }
+  #nav { padding:.75rem 1.25rem; }
+  .nav-links, .nav-order { display:none!important; }
+  #burger { display:flex!important; }
+  .hero-inner { padding:7rem 1.5rem 4rem; }
+  .hero-title { font-size:clamp(2.2rem,10vw,3.5rem); }
+  #stats .stats-grid { grid-template-columns:repeat(2,1fr); gap:.5rem; }
+  .bento { grid-template-columns:repeat(2,1fr); grid-template-rows:auto; }
+  .bi { height:180px; }
+  .bi:nth-child(1) { grid-column:span 2; height:240px; }
+  .bi:nth-child(6) { grid-column:span 2; }
+  .menu-tabs { gap:.35rem; }
+  .tab { font-size:.62rem; padding:.45rem .9rem; }
+  .mgrid { grid-template-columns:1fr; }
+  .prod-grid { grid-template-columns:1fr; }
+  #nosotros, #menu, #galeria, #productos, #contacto { padding:5rem 1.25rem; }
+  .foot-grid { grid-template-columns:1fr; gap:2rem; }
+  .foot-bottom { flex-direction:column; text-align:center; }
+  #doggy { gap:1.5rem; }
+  .nos-img-float { display:none; }
+  .nos-pill { display:none; }
+}
 </style>
 </head>
-<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<body>
 
-<!-- Custom cursor (desktop) -->
-<div id="cursor-dot"></div>
-<div id="cursor-ring"></div>
+<!-- ══ PRELOADER ══ -->
+<div id="preloader">
+  <div class="pre-cup">
+    <!-- Steam lines -->
+    <svg class="steam-line" width="6" height="25" viewBox="0 0 6 25" style="left:22%">
+      <path d="M3 25 Q0 18 3 13 Q6 8 3 0" stroke="#2A5249" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </svg>
+    <svg class="steam-line" width="6" height="25" viewBox="0 0 6 25" style="left:47%">
+      <path d="M3 25 Q6 18 3 13 Q0 8 3 0" stroke="#2A5249" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </svg>
+    <svg class="steam-line" width="6" height="25" viewBox="0 0 6 25" style="left:72%">
+      <path d="M3 25 Q0 18 3 13 Q6 8 3 0" stroke="#2A5249" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </svg>
+    <!-- Cup SVG -->
+    <svg class="pre-cup-svg" viewBox="0 0 70 60" xmlns="http://www.w3.org/2000/svg">
+      <!-- Cup body -->
+      <path d="M8 18 L62 18 L56 52 L14 52 Z" fill="#2A5249" rx="4"/>
+      <!-- Cup rim -->
+      <rect x="6" y="13" width="58" height="7" rx="3.5" fill="#1c3832"/>
+      <!-- Liquid surface -->
+      <ellipse cx="35" cy="20" rx="24" ry="4" fill="#3d7066"/>
+      <!-- Handle -->
+      <path d="M56 28 Q72 28 72 38 Q72 48 56 48" stroke="#1c3832" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <!-- BAWi text on cup -->
+      <text x="35" y="38" font-family="sans-serif" font-size="8" font-weight="bold" fill="rgba(255,255,255,.5)" text-anchor="middle">BAWi</text>
+      <!-- Saucer -->
+      <ellipse cx="35" cy="54" rx="30" ry="5" fill="#c8976a" opacity=".6"/>
+    </svg>
+  </div>
+  <p class="pre-text">Preparando tu experiencia...</p>
+</div>
+
+<!-- CURSOR -->
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
 
 <!-- ══ NAVBAR ══ -->
-<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-stone-100/60 transition-shadow duration-300" id="navbar">
-  <div class="flex justify-between items-center px-6 md:px-12 py-4 max-w-screen-2xl mx-auto">
-    <!-- Logo -->
-    <a class="flex items-center gap-3 group" href="#">
-      <div class="h-10 w-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden ring-1 ring-primary/20 group-hover:ring-primary/50 transition-all duration-300">
-        <img
-          alt="Bawi Coffee Shop Logo"
-          class="h-10 w-10 object-contain rounded-full"
-          src="https://lh3.googleusercontent.com/aida/ADBb0ujEPYT_GOA9MzpAwHtpkzfQ4mUun5XHTZYk5MnlnukhackpKc2AALhxM3UsVEjrsauSIP3PK3QoK7t5dxcVnxi7PgIcoP2Xxdh9_Ez1Apr4eQpOZRSmOjdqRSpQq1XQBEJxZdGbUQjhnWc6mgx2FEGrWtvsgVAE81_WubxWVJQYIneDrq2lJde0sXFMQeTVy2ESxtmXfSs5T2xQSh2pobuZDo0JkTdVztDiTqiEcyP4Vpwcs4H6lZcZmArxx1MFnRWwBo4h_bTbqg"
-          onerror="this.style.display='none'"
-        />
-      </div>
-      <span class="font-headline uppercase text-lg font-light tracking-widest text-stone-800">Bawi Coffee</span>
-    </a>
-
-    <!-- Desktop links -->
-    <div class="hidden md:flex items-center space-x-10">
-      <a class="nav-link active text-sm font-label tracking-wide text-stone-900 transition-colors duration-300" href="#">Inicio</a>
-      <a class="nav-link text-sm font-label tracking-wide text-stone-500 hover:text-stone-900 transition-colors duration-300" href="#menu">Menú</a>
-      <a class="nav-link text-sm font-label tracking-wide text-stone-500 hover:text-stone-900 transition-colors duration-300" href="#nosotros">Nosotros</a>
-      <a class="nav-link text-sm font-label tracking-wide text-stone-500 hover:text-stone-900 transition-colors duration-300" href="#contacto">Contacto</a>
+<nav id="nav">
+  <a class="nav-logo" href="#">
+    <!-- Logo: leaf icon + text, no circle ring, blends with page -->
+    <svg class="logo-svg" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <!-- Coffee bean / leaf shape — matches brand -->
+      <path d="M24 6 C14 6 6 14 6 24 C6 34 14 42 24 42 C34 42 42 34 42 24 C42 14 34 6 24 6Z" fill="#2A5249" opacity=".12"/>
+      <!-- Two leaves (brand icon) -->
+      <path d="M20 30 C20 30 16 22 20 16 C24 10 30 14 28 22 C26 28 20 30 20 30Z" fill="#2A5249"/>
+      <path d="M20 30 C20 30 26 24 30 18 C34 12 38 16 34 22 C30 28 20 30 20 30Z" fill="#3d7066"/>
+      <!-- Coffee bean line -->
+      <path d="M20 30 C20 30 24 20 24 14" stroke="#1c3832" stroke-width="1" opacity=".5"/>
+    </svg>
+    <div>
+      <span class="logo-text">BAWi</span>
+      <span class="logo-sub">Coffee Shop</span>
     </div>
-
-    <div class="flex items-center gap-4">
-      <button class="bg-primary text-on-primary px-6 py-2.5 text-xs font-label tracking-widest uppercase rounded-sm hover:brightness-110 active:scale-95 transition-all duration-200 hidden md:block">
-        Ordenar
-      </button>
-      <!-- Hamburger -->
-      <button id="hamburger" class="md:hidden flex flex-col gap-[5px] p-1" aria-label="Abrir menú">
-        <span class="block w-6 h-[1.5px] bg-stone-700 transition-all duration-300 origin-center"></span>
-        <span class="block w-6 h-[1.5px] bg-stone-700 transition-all duration-300"></span>
-        <span class="block w-6 h-[1.5px] bg-stone-700 transition-all duration-300 origin-center"></span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile menu -->
-  <div id="mobile-menu" class="md:hidden bg-white/95 backdrop-blur-lg border-t border-stone-100">
-    <div class="flex flex-col px-6 py-4 space-y-4">
-      <a class="text-sm font-label tracking-wide text-stone-900 font-semibold" href="#" onclick="closeMobile()">Inicio</a>
-      <a class="text-sm font-label tracking-wide text-stone-500" href="#menu" onclick="closeMobile()">Menú</a>
-      <a class="text-sm font-label tracking-wide text-stone-500" href="#nosotros" onclick="closeMobile()">Nosotros</a>
-      <a class="text-sm font-label tracking-wide text-stone-500" href="#contacto" onclick="closeMobile()">Contacto</a>
-      <button class="bg-primary text-on-primary px-6 py-2.5 text-xs font-label tracking-widest uppercase rounded-sm w-full mt-2">
-        Ordenar
-      </button>
-    </div>
-  </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#menu">Menú</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#productos">Productos</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a class="nav-order" href="#contacto">Visítanos</a>
+  <button id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
 </nav>
 
-<main>
+<!-- MOBILE MENU -->
+<div id="mob-menu">
+  <a href="#nosotros"  onclick="closeMob()">Nosotros</a>
+  <a href="#menu"      onclick="closeMob()">Menú</a>
+  <a href="#galeria"   onclick="closeMob()">Galería</a>
+  <a href="#productos" onclick="closeMob()">Productos</a>
+  <a href="#contacto"  onclick="closeMob()">Contacto</a>
+</div>
 
-  <!-- ══ HERO ══ -->
-  <section class="relative min-h-screen flex items-center pt-20 px-6 md:px-12 overflow-hidden">
-    <!-- Subtle background grain -->
-    <div class="absolute inset-0 bg-surface opacity-60 pointer-events-none"></div>
-
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 max-w-screen-2xl mx-auto w-full items-center py-16 md:py-0">
-      <!-- Text -->
-      <div class="md:col-span-5 z-10 space-y-8">
-        <span class="sr text-xs font-label uppercase tracking-[0.4em] text-primary block">Establecido 2024</span>
-        <h1 class="sr text-5xl md:text-7xl lg:text-8xl font-headline font-light tracking-tighter leading-none text-on-surface" style="transition-delay:.1s">
-          Menos ruido,<br/>más café.
-        </h1>
-        <p class="sr text-base md:text-lg text-on-surface-variant max-w-sm leading-relaxed font-light" style="transition-delay:.2s">
-          Bienvenido a Bawi Coffee Shop. Una experiencia sensorial diseñada para la quietud. Granos de origen único, tostados con paciencia.
-        </p>
-        <div class="sr pt-2" style="transition-delay:.3s">
-          <a class="group inline-flex items-center gap-4 text-primary font-label tracking-widest uppercase text-xs hover:gap-6 transition-all duration-500" href="#menu">
-            Explorar la carta
-            <span class="h-[1px] w-10 bg-primary-fixed-dim group-hover:w-16 transition-all duration-500 inline-block"></span>
-          </a>
-        </div>
-        <!-- Stats strip -->
-        <div class="sr flex gap-8 pt-4 border-t border-outline-variant/20" style="transition-delay:.4s">
-          <div>
-            <div class="text-2xl font-headline font-light text-on-surface">18h</div>
-            <div class="text-xs text-on-surface-variant font-label tracking-wider mt-1">Cold Brew</div>
-          </div>
-          <div class="w-px bg-outline-variant/30"></div>
-          <div>
-            <div class="text-2xl font-headline font-light text-on-surface">3</div>
-            <div class="text-xs text-on-surface-variant font-label tracking-wider mt-1">Orígenes</div>
-          </div>
-          <div class="w-px bg-outline-variant/30"></div>
-          <div>
-            <div class="text-2xl font-headline font-light text-on-surface">100%</div>
-            <div class="text-xs text-on-surface-variant font-label tracking-wider mt-1">Sostenible</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Hero image -->
-      <div class="md:col-span-7 relative h-[500px] md:h-[820px]">
-        <div class="absolute inset-0 aurora-reveal rounded-sm overflow-hidden shadow-2xl shadow-on-surface/8">
-          <img
-            id="hero-img"
-            class="w-full h-full object-cover"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_qNggomeuLW9TIYhJjlVQYECe4enAvgFvl29bA0h7_eyzNGMupsVLAIWiM4nxM1NGe0KODNvsA8oaJc06agEk9s0LziycxPeRCFVHLWvsms9aFRmMciIm_yvUKf_D6NViPy5D3Ngq9npyxT0IGWAtC8Quhv4UTLiHTnaVFGUOCUeY7SRlZcMpk_egDLDtotMjNpMgPPn66THnu3ssftJCMEVMyGr7NvyEDlTzCWPqrjYmEGRJR74l3h4Q328BFUKhaC0SAXutx9G8"
-            alt="Latte con arte en taza cerámica"
-          />
-        </div>
-        <!-- Floating accent blobs -->
-        <div class="absolute -bottom-12 -left-12 w-52 h-52 bg-primary-container/25 backdrop-blur-3xl rounded-full mix-blend-multiply pointer-events-none"></div>
-        <div class="absolute -top-8 -right-8 w-32 h-32 bg-secondary-container/20 backdrop-blur-3xl rounded-full mix-blend-multiply pointer-events-none"></div>
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div id="hero-img-wrap">
+    <img src="./images/exterior.jpg"
+         onerror="this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600';this.onerror=null;"
+         alt="BAWi Coffee Shop exterior" id="hero-img" loading="eager"/>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-tag rv d1">
+      <div class="hero-tag-dot"></div>
+      <span>Arequipa, Perú · Abierto ahora</span>
+    </div>
+    <h1 class="hero-title rv d2">
+      Todo el placer,<br/><em>cero drama.</em>
+    </h1>
+    <p class="hero-slogan rv d3">"Café para llevar, vida para disfrutar"</p>
+    <p class="hero-desc rv d4">
+      Café de especialidad, postres wellness y productos naturales hechos en casa. Nuestra cocina es alquimia de amor.
+    </p>
+    <div class="hero-btns rv d5">
+      <a href="#menu" class="btn-white">Ver el Menú</a>
+      <a href="#contacto" class="btn-ghost">Visítanos</a>
+    </div>
+  </div>
+  <!-- Floating info cards -->
+  <div class="hero-cards">
+    <div class="h-card">
+      <span class="h-card-icon">🐾</span>
+      <div class="h-card-text">
+        <strong>Dog Friendly</strong>
+        <span>Doggy Bar incluido</span>
       </div>
     </div>
-
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40 animate-bounce">
-      <span class="text-xs font-label tracking-widest uppercase text-on-surface-variant">Scroll</span>
-      <span class="material-symbols-outlined text-on-surface-variant" style="font-size:16px">arrow_downward</span>
+    <div class="h-card">
+      <span class="h-card-icon">🌿</span>
+      <div class="h-card-text">
+        <strong>100% Natural</strong>
+        <span>Hecho en casa</span>
+      </div>
     </div>
-  </section>
+    <div class="h-card">
+      <span class="h-card-icon">☕</span>
+      <div class="h-card-text">
+        <strong>Para llevar</strong>
+        <span>Rápido y delicioso</span>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <div class="scroll-bar"></div>
+  </div>
+</section>
 
-  <!-- ══ NOSOTROS ══ -->
-  <section class="py-24 md:py-32 px-6 md:px-12 bg-surface-container-low" id="nosotros">
-    <div class="max-w-4xl mx-auto text-center space-y-10">
-      <h2 class="sr text-xs font-label uppercase tracking-[0.3em] text-outline">Nuestra Filosofía</h2>
-      <p class="sr text-2xl md:text-4xl lg:text-5xl font-headline font-extralight leading-tight text-on-surface italic" style="transition-delay:.1s">
-        "En Bawi Coffee Shop creemos en la belleza de lo simple. Cada taza es un diálogo silencioso entre la tierra y el paladar, un momento robado al caos del día."
+<!-- ══ STATS ══ -->
+<div id="stats">
+  <div class="stats-grid">
+    <div class="rv"><span class="stat-n" data-target="5">0</span><span class="stat-l">Cafés de especialidad</span></div>
+    <div class="rv d1"><span class="stat-n" data-target="12">0</span><span class="stat-l">Postres Wellness</span></div>
+    <div class="rv d2"><span class="stat-n" data-target="100">0</span><span class="stat-l">% Natural</span></div>
+    <div class="rv d3"><span class="stat-n">🐾</span><span class="stat-l">Dog Friendly</span></div>
+  </div>
+</div>
+
+<!-- ══ NOSOTROS ══ -->
+<section id="nosotros">
+  <div class="nos-wrap">
+    <div class="rvl">
+      <div class="nos-img-col">
+        <div class="nos-pill">
+          <strong>2024</strong>
+          <span>Fundados</span>
+        </div>
+        <img src="./images/interior-lights.jpg"
+             onerror="this.src='https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=900';this.onerror=null;"
+             alt="Interior BAWi" class="nos-img-main" loading="lazy"/>
+        <img src="./images/table-flowers.jpg"
+             onerror="this.src='https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400';this.onerror=null;"
+             alt="Mesa BAWi" class="nos-img-float" loading="lazy"/>
+      </div>
+    </div>
+    <div class="nos-text rvr">
+      <span class="sec-eye">Nuestra Historia</span>
+      <h2 class="sec-title">Un café donde la <em>naturaleza</em> se sirve en taza</h2>
+      <div class="sec-line"></div>
+      <p class="nos-slogan">"Nuestra cocina es alquimia de amor"</p>
+      <p class="sec-body">
+        BAWi Coffee Shop nació con una misión simple: hacer que cada visita sea un placer sin complicaciones. Café de especialidad, bebidas wellness, postres artesanales y productos 100% naturales hechos en nuestra cocina. Somos un espacio para todos — incluyendo a tus mascotas.
       </p>
-      <div class="sr flex justify-center" style="transition-delay:.2s">
-        <div class="w-16 h-px bg-outline-variant/40"></div>
-      </div>
-      <!-- Three pillars -->
-      <div class="sr grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 text-left" style="transition-delay:.3s">
-        <div class="space-y-3 p-6 bg-surface rounded-sm border border-outline-variant/10">
-          <span class="material-symbols-outlined text-primary">eco</span>
-          <h4 class="font-headline font-medium text-on-surface">Sostenibilidad</h4>
-          <p class="text-sm text-on-surface-variant font-light leading-relaxed">Trabajamos con fincas que respetan la tierra y a quienes la cultivan.</p>
+      <div class="nos-features">
+        <div class="nos-feat">
+          <span class="nos-feat-icon">☕</span>
+          <div class="nos-feat-title">Café de Especialidad</div>
+          <div class="nos-feat-sub">Espresso · Flat White · Cold Brew</div>
         </div>
-        <div class="space-y-3 p-6 bg-surface rounded-sm border border-outline-variant/10">
-          <span class="material-symbols-outlined text-primary">coffee</span>
-          <h4 class="font-headline font-medium text-on-surface">Artesanía</h4>
-          <p class="text-sm text-on-surface-variant font-light leading-relaxed">Cada extracción es una decisión consciente. Nada aquí es accidental.</p>
+        <div class="nos-feat">
+          <span class="nos-feat-icon">🌿</span>
+          <div class="nos-feat-title">Bebidas Wellness</div>
+          <div class="nos-feat-sub">Matcha · Butterfly Tea · Blue Latte</div>
         </div>
-        <div class="space-y-3 p-6 bg-surface rounded-sm border border-outline-variant/10">
-          <span class="material-symbols-outlined text-primary">spa</span>
-          <h4 class="font-headline font-medium text-on-surface">Quietud</h4>
-          <p class="text-sm text-on-surface-variant font-light leading-relaxed">Un espacio diseñado para desacelerar. Bawi es tu pausa en el día.</p>
+        <div class="nos-feat">
+          <span class="nos-feat-icon">🎂</span>
+          <div class="nos-feat-title">Postres Artesanales</div>
+          <div class="nos-feat-sub">Tiramisú · Cuchareable · Pudding</div>
+        </div>
+        <div class="nos-feat">
+          <span class="nos-feat-icon">🐶</span>
+          <div class="nos-feat-title">Dog Friendly</div>
+          <div class="nos-feat-sub">Doggy Bar con agua fresca</div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ══ MENÚ ══ -->
-  <section class="py-24 md:py-32 px-6 md:px-12 max-w-screen-2xl mx-auto" id="menu">
-    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
-      <div class="space-y-3 sr">
-        <span class="text-xs font-label uppercase tracking-widest text-primary">Selección de Autor</span>
-        <h3 class="text-3xl md:text-4xl font-headline font-light tracking-tight">El Menú</h3>
-      </div>
-      <p class="sr text-on-surface-variant max-w-xs text-sm font-light leading-relaxed" style="transition-delay:.1s">
-        Granos seleccionados de fincas sostenibles en Etiopía, Colombia y Brasil.
-      </p>
+<!-- ══ MENÚ ══ -->
+<section id="menu">
+  <div class="menu-head rv">
+    <span class="sec-eye">Carta Completa</span>
+    <h2 class="sec-title">El <em>Menú</em></h2>
+    <div class="sec-line c"></div>
+    <p class="sec-lead" style="max-width:480px;margin:0 auto;">Todo artesanal, todo con amor. Precios en soles peruanos.</p>
+  </div>
+  <div class="menu-tabs rv">
+    <button class="tab on" data-tab="cafe">☕ Café</button>
+    <button class="tab" data-tab="wellness">🌿 Wellness</button>
+    <button class="tab" data-tab="detox">🍃 Detox</button>
+    <button class="tab" data-tab="brunch">🥪 Brunch</button>
+    <button class="tab" data-tab="postres">🎂 Postres</button>
+  </div>
+
+  <!-- CAFÉ -->
+  <div class="mpanel on" id="tab-cafe">
+    <p class="mpanel-title"><span class="tag">Café</span> Nuestros Espressos</p>
+    <div class="mgrid">
+      <div class="mi"><div><div class="mi-name">Espresso</div><div class="mi-desc">Concentrado puro, el corazón de BAWi</div></div><div class="mi-price">S/ 7</div></div>
+      <div class="mi"><div><div class="mi-name">Americano</div><div class="mi-desc">Espresso suavizado con agua caliente</div></div><div class="mi-price">S/ 8</div></div>
+      <div class="mi"><div><div class="mi-name">Flat White</div><div class="mi-desc">Doble espresso con leche sedosa</div></div><div class="mi-price">S/ 10</div></div>
+      <div class="mi star"><div><div class="mi-name">Cappuccino / Latte</div><div class="mi-desc">Cremoso y equilibrado — los favoritos</div></div><div class="mi-price">S/ 12</div></div>
+      <div class="mi star"><div><div class="mi-name">Orange Coffee</div><div class="mi-desc">Espresso con naranja fresca — sorpresa cítrica</div></div><div class="mi-price">S/ 12</div></div>
+      <div class="mi star"><div><div class="mi-name">Coffee Tonic</div><div class="mi-desc">Espresso sobre agua tónica con hielo</div></div><div class="mi-price">S/ 12</div></div>
     </div>
+  </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-      <!-- Card 1 -->
-      <div class="sr group space-y-5" style="transition-delay:.05s">
-        <div class="aspect-[3/4] bg-surface-container overflow-hidden rounded-sm relative card-shimmer">
-          <img
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWs-ix3KTq8lWLxc2ThVCSjD_OxYqgO_krtfmdahSLGHNkTr9EJyaTZPZlEHH6mdgLVRLHvXMbCjt7ql0IZ7fE7b1co47C71dryGoVEbGYqOm0sa-SxKid9MVNEejLFRB14FqnvpkKBF4hYE0GCD8PX3-DhEFwKIlMpAQbNzHqsRFOxJfWRQvoVWa_X9XbStinEOOIjYxoaFdquNxPhiTOWe9ZJJJVe5bDui0i6mbmqj3kHI6uMAXcyhSj2YYfuch3meGLn0IRiFTP"
-            alt="Espresso"
-          />
-          <div class="absolute inset-0 bg-on-surface/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        </div>
-        <div class="flex justify-between items-start">
+  <!-- WELLNESS -->
+  <div class="mpanel" id="tab-wellness">
+    <p class="mpanel-title"><span class="tag">Wellness</span> Bebidas Funcionales</p>
+    <div class="mgrid">
+      <div class="mi star"><div><div class="mi-name">Matcha Latte Mango Fresa</div><div class="mi-desc">Matcha premium con mango y fresa</div></div><div class="mi-price">S/ 14</div></div>
+      <div class="mi star"><div><div class="mi-name">Butterfly Tea Latte Mango Fresa</div><div class="mi-desc">Té azul mariposa con leche y frutas</div></div><div class="mi-price">S/ 14</div></div>
+      <div class="mi star"><div><div class="mi-name">Blue Latte</div><div class="mi-desc">Latte azul vibrante con superfoods</div></div><div class="mi-price">S/ 14</div></div>
+      <div class="mi"><div><div class="mi-name">Limonada</div><div class="mi-desc">Refrescante, natural y sin azúcar añadida</div></div><div class="mi-price">S/ 12</div></div>
+      <div class="mi"><div><div class="mi-name">Pink Dragon Sparkle</div><div class="mi-desc">Bebida con pitahaya rosa y gas</div></div><div class="mi-price">Consultar</div></div>
+      <div class="mi"><div><div class="mi-name">Indigo Serenity Tea</div><div class="mi-desc">Té índigo para la calma y el bienestar</div></div><div class="mi-price">Consultar</div></div>
+      <div class="mi"><div><div class="mi-name">Blue Volcano Refresh</div><div class="mi-desc">Erupción de sabores azules y frescos</div></div><div class="mi-price">Consultar</div></div>
+      <div class="mi"><div><div class="mi-name">Chai Latte</div><div class="mi-desc">Especias cálidas con leche vegetal</div></div><div class="mi-price">S/ 12</div></div>
+      <div class="mi"><div><div class="mi-name">Golden Milk</div><div class="mi-desc">Cúrcuma, canela y leche — antiinflamatorio</div></div><div class="mi-price">S/ 14</div></div>
+      <div class="mi star"><div><div class="mi-name">Batido Proteico</div><div class="mi-desc">Proteína natural, hecho en casa</div></div><div class="mi-price">S/ 18</div></div>
+    </div>
+  </div>
+
+  <!-- DETOX -->
+  <div class="mpanel" id="tab-detox">
+    <p class="mpanel-title"><span class="tag">Detox</span> Shots y Bebidas Funcionales</p>
+    <div class="mgrid">
+      <div class="mi star"><div><div class="mi-name">Fresa Salvaje</div><div class="mi-desc">Shot de fresa con superfoods</div></div><div class="mi-price">S/ 15</div></div>
+      <div class="mi"><div><div class="mi-name">Green Detox</div><div class="mi-desc">Verde limpiador con espirulina y pepino</div></div><div class="mi-price">Consultar</div></div>
+      <div class="mi"><div><div class="mi-name">Inmune Boost</div><div class="mi-desc">Jengibre, cúrcuma y cítricos</div></div><div class="mi-price">Consultar</div></div>
+      <div class="mi"><div><div class="mi-name">Energy Plus</div><div class="mi-desc">Energía natural sin cafeína sintética</div></div><div class="mi-price">Consultar</div></div>
+      <div class="mi"><div><div class="mi-name">Golden Propric</div><div class="mi-desc">Propóleo y dorado — defensa natural</div></div><div class="mi-price">Consultar</div></div>
+    </div>
+    <p class="mnote">* Consulta disponibilidad del día en tienda</p>
+  </div>
+
+  <!-- BRUNCH -->
+  <div class="mpanel" id="tab-brunch">
+    <p class="mpanel-title"><span class="tag">Brunch</span> Focaccias Artesanales</p>
+    <div class="mgrid">
+      <div class="mi"><div><div class="mi-name">Focaccia Mixto</div><div class="mi-desc">Combinación de embutidos y queso</div></div><div class="mi-price">Consultar</div></div>
+      <div class="mi star"><div><div class="mi-name">Focaccia Pepperoni</div><div class="mi-desc">Pepperoni con queso mozzarella</div></div><div class="mi-price">Consultar</div></div>
+      <div class="mi star"><div><div class="mi-name">Focaccia Pollo y Palta</div><div class="mi-desc">Pollo a la plancha con aguacate fresco</div></div><div class="mi-price">Consultar</div></div>
+      <div class="mi"><div><div class="mi-name">Focaccia Veggie</div><div class="mi-desc">Vegetales de temporada y queso</div></div><div class="mi-price">Consultar</div></div>
+      <div class="mi"><div><div class="mi-name">Focaccia Roast Beef</div><div class="mi-desc">Roast beef con mostaza y vegetales</div></div><div class="mi-price">Consultar</div></div>
+    </div>
+    <p class="mnote">* Todas las focaccias son horneadas al momento</p>
+  </div>
+
+  <!-- POSTRES -->
+  <div class="mpanel" id="tab-postres">
+    <p class="mpanel-title"><span class="tag">Postres</span> Wellness & Artesanales</p>
+    <div class="mgrid">
+      <div class="mi star"><div><div class="mi-name">Cuchareable Chocolate</div><div class="mi-desc">Postre en tarro de chocolate intenso</div></div><div class="mi-price">Consultar</div></div>
+      <div class="mi star"><div><div class="mi-name">Cuchareable Chocopistagho</div><div class="mi-desc">Chocolate con pistacho — el más pedido</div></div><div class="mi-price">Consultar</div></div>
+      <div class="mi star"><div><div class="mi-name">Cuchareable Dubai</div><div class="mi-desc">Inspirado en el famoso postre viral</div></div><div class="mi-price">Consultar</div></div>
+      <div class="mi"><div><div class="mi-name">Tiramisú Clásico</div><div class="mi-desc">La receta original con café BAWi</div></div><div class="mi-price">Consultar</div></div>
+      <div class="mi"><div><div class="mi-name">Tiramisú Pistacho</div><div class="mi-desc">Versión de pistacho — delicadamente dulce</div></div><div class="mi-price">Consultar</div></div>
+      <div class="mi"><div><div class="mi-name">Purple Chia Pudding</div><div class="mi-desc">Pudding de chía morada, 100% natural</div></div><div class="mi-price">Consultar</div></div>
+    </div>
+    <p class="mnote">* Postres con disponibilidad limitada — ¡Primero el postre!</p>
+  </div>
+</section>
+
+<!-- ══ GALERÍA BENTO ══ -->
+<section id="galeria">
+  <div class="gal-head rv">
+    <span class="sec-eye">Nuestro Espacio</span>
+    <h2 class="sec-title">La <em>atmósfera</em> BAWi</h2>
+    <div class="sec-line c"></div>
+  </div>
+  <div class="bento">
+    <div class="bi">
+      <img src="./images/hero-window.jpg" onerror="this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900';this.onerror=null;" alt="Vitrina BAWi" loading="lazy"/>
+      <div class="bi-over"><span class="bi-label">Café para llevar, vida para disfrutar</span></div>
+    </div>
+    <div class="bi">
+      <img src="./images/pastry-case.jpg" onerror="this.src='https://images.unsplash.com/photo-1586500036706-41963de24d8b?w=600';this.onerror=null;" alt="Postres" loading="lazy" style="object-position:center top"/>
+      <div class="bi-over"><span class="bi-label">Postres artesanales</span></div>
+    </div>
+    <div class="bi">
+      <img src="./images/products-shelf.jpg" onerror="this.src='https://images.unsplash.com/photo-1531525645387-7f14be1bdbbd?w=600';this.onerror=null;" alt="Productos" loading="lazy"/>
+      <div class="bi-over"><span class="bi-label">Productos naturales</span></div>
+    </div>
+    <div class="bi">
+      <img src="./images/cookies-display.jpg" onerror="this.src='https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600';this.onerror=null;" alt="Cookies" loading="lazy"/>
+      <div class="bi-over"><span class="bi-label">Cookies artesanales</span></div>
+    </div>
+    <div class="bi">
+      <img src="./images/cup-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1607867377433-4b1bca38b35b?w=600';this.onerror=null;" alt="Taza BAWi" loading="lazy"/>
+      <div class="bi-over"><span class="bi-label">Todo el placer, cero drama</span></div>
+    </div>
+    <div class="bi">
+      <img src="./images/granola-shelf.jpg" onerror="this.src='https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=900';this.onerror=null;" alt="Granolas" loading="lazy"/>
+      <div class="bi-over"><span class="bi-label">Granolas naturalmente hecho en casa</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DOG FRIENDLY ══ -->
+<div id="doggy">
+  <div class="doggy-icon">🐶</div>
+  <div class="doggy-text">
+    <strong>¡Somos Dog Friendly!</strong>
+    <span>Trae a tu mejor amigo — tenemos Doggy Bar con agua fresca esperándolo</span>
+  </div>
+  <div class="doggy-icon">🐾</div>
+</div>
+
+<!-- ══ PRODUCTOS BAWI ══ -->
+<section id="productos">
+  <div class="prod-head rv">
+    <span class="sec-eye">Llevar a Casa</span>
+    <h2 class="sec-title">Productos <em>BAWi</em></h2>
+    <div class="sec-line c"></div>
+    <p class="sec-lead" style="max-width:480px;margin:0 auto;">Naturalmente hecho en casa. Granolas, barras energéticas y snacks wellness.</p>
+  </div>
+  <div class="prod-grid rv">
+    <div class="prod-card">
+      <img src="./images/granola-bag-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600';this.onerror=null;" alt="Granola BAWi" class="prod-img" loading="lazy"/>
+      <div class="prod-body">
+        <div class="prod-name">Granola BAWi</div>
+        <div class="prod-desc">Granola artesanal con ingredientes 100% naturales. Hecha en nuestra cocina con amor.</div>
+        <span class="prod-tag">100% Natural</span>
+      </div>
+    </div>
+    <div class="prod-card">
+      <img src="./images/granola-bag-2.jpg" onerror="this.src='https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600';this.onerror=null;" alt="Barras Energéticas" class="prod-img" loading="lazy" style="object-position:center top"/>
+      <div class="prod-body">
+        <div class="prod-name">Barras Energéticas</div>
+        <div class="prod-desc">Pistacho & Limón · CocaAvellana · Snickers Vegano. Energía limpia para tu día.</div>
+        <span class="prod-tag">Sin Aditivos</span>
+      </div>
+    </div>
+    <div class="prod-card">
+      <img src="./images/cups-case.jpg" onerror="this.src='https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600';this.onerror=null;" alt="Postres en tarro" class="prod-img" loading="lazy"/>
+      <div class="prod-body">
+        <div class="prod-name">Cuchareable para llevar</div>
+        <div class="prod-desc">Nuestros famosos postres wellness en tarro. Perfectos para llevar y disfrutar en casa.</div>
+        <span class="prod-tag">Hecho en Casa</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACTO ══ -->
+<section id="contacto">
+  <div class="con-wrap">
+    <div class="rvl">
+      <span class="sec-eye">Visítanos</span>
+      <h2 class="sec-title">Encuéntranos en <em>Arequipa</em></h2>
+      <div class="sec-line"></div>
+      <div class="con-info">
+        <div class="con-item">
+          <div class="con-icon">📍</div>
           <div>
-            <h4 class="text-base font-headline font-medium text-on-surface">Espresso</h4>
-            <p class="text-xs text-on-surface-variant font-light mt-1 leading-relaxed">Notas de chocolate amargo y cítricos.</p>
+            <div class="con-label">Ubicación</div>
+            <div class="con-val">Arequipa, Perú<br/><span style="font-size:.8rem;color:var(--text-lt);">¡Búscanos en Google Maps como BAWi Coffee Shop!</span></div>
           </div>
-          <span class="text-sm font-label font-bold text-primary ml-3 shrink-0">$3.50</span>
         </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="sr group space-y-5 lg:mt-12" style="transition-delay:.1s">
-        <div class="aspect-[3/4] bg-surface-container overflow-hidden rounded-sm relative card-shimmer">
-          <img
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkXeXVeM_iMsAeBnhB_dEib7DGPBsabxN71AeQNcIOXcZaKvFTeRQ-8t0Q9w4RsOXmKfNwW3HaprznP7adv06pa2rEH5K4bTWw59l3d78ElXbIWIREXCnZKz6mRzV7Dpdd0dfe4qxdvcxJQYqHX1lcvgkY_3RSLY4ME05zvpLk69zuPNjblrde9PKJjwdF6EaaqSSPVRclyQ7K-gSmkzuMokS-vSJhPhgkrJg2y77ceP1OdODN7Srk3h1aFDjRqw5M0SOim7PpTUw0"
-            alt="Latte"
-          />
-          <div class="absolute inset-0 bg-on-surface/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        </div>
-        <div class="flex justify-between items-start">
+        <div class="con-item">
+          <div class="con-icon">🕐</div>
           <div>
-            <h4 class="text-base font-headline font-medium text-on-surface">Latte</h4>
-            <p class="text-xs text-on-surface-variant font-light mt-1 leading-relaxed">Seda líquida con leche emulsionada.</p>
+            <div class="con-label">Horarios</div>
+            <div class="con-val">Lunes – Viernes: 8:00am – 8:00pm<br/>Sábados y Domingos: 9:00am – 9:00pm</div>
           </div>
-          <span class="text-sm font-label font-bold text-primary ml-3 shrink-0">$4.50</span>
         </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="sr group space-y-5" style="transition-delay:.15s">
-        <div class="aspect-[3/4] bg-surface-container overflow-hidden rounded-sm relative card-shimmer">
-          <img
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEJL2M8uQcx2A74afupwX9blRwjTGZ0J8dklKrcldmd3mnZTtoy4TUi3oD3wVLLneQokDUnaUi9qu_DtqedXjtZH6NP3IKR6jjYInAObf8e-C5V-XJ8seLL2piJxZwWDkas7uMP90Um5oqhAZl9zYz8VtiiI1eGOgd-vog4SijleQr-2-jy0wp1R-B_e7Y-EGGnAN4eZZJM-0vzv6KgIXp-nBhc5HircOcv2kp_ubJSZi0mGlTmEgdtJFkEmH1U8oFArg5o6tGGn1h"
-            alt="Cappuccino"
-          />
-          <div class="absolute inset-0 bg-on-surface/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        </div>
-        <div class="flex justify-between items-start">
+        <div class="con-item">
+          <div class="con-icon">📱</div>
           <div>
-            <h4 class="text-base font-headline font-medium text-on-surface">Cappuccino</h4>
-            <p class="text-xs text-on-surface-variant font-light mt-1 leading-relaxed">Equilibrio entre fuerza y suavidad.</p>
+            <div class="con-label">WhatsApp / Teléfono</div>
+            <div class="con-val">+51 966 465 547<br/>+51 952 387 311</div>
           </div>
-          <span class="text-sm font-label font-bold text-primary ml-3 shrink-0">$4.25</span>
         </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="sr group space-y-5 lg:mt-12" style="transition-delay:.2s">
-        <div class="aspect-[3/4] bg-surface-container overflow-hidden rounded-sm relative card-shimmer">
-          <img
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb7iVG6UW9MGzAO_Qd5HfytqfhaGR6inD1mDfqb2qUqAqACjz4TLghui-8OiQMlupmhai7_05_Ep1QbfW5YRlyckKG_l4AQE6zaPzzkR8iFUuMmxQSm13EuUWFN5meSGFb5wS4NqUJcltcPXQ0eBt9qt5wBjkLerGkA9BTxjuWWD8KVmn7Grci3TzNBQbP02zSfCKjZRonTz8It0NKQKvB8f-KJXitYSulj"
-            alt="Cold Brew"
-          />
-          <div class="absolute inset-0 bg-on-surface/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        </div>
-        <div class="flex justify-between items-start">
+        <div class="con-item">
+          <div class="con-icon">📸</div>
           <div>
-            <h4 class="text-base font-headline font-medium text-on-surface">Cold Brew</h4>
-            <p class="text-xs text-on-surface-variant font-light mt-1 leading-relaxed">Infusión en frío durante 18 horas.</p>
+            <div class="con-label">Instagram</div>
+            <div class="con-val"><a href="https://www.instagram.com/bawi.coffee.shop/" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:none;">@bawi.coffee.shop</a></div>
           </div>
-          <span class="text-sm font-label font-bold text-primary ml-3 shrink-0">$5.00</span>
+        </div>
+      </div>
+      <div class="con-img-wrap">
+        <img src="./images/exterior.jpg" onerror="this.src='https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800';this.onerror=null;" alt="Exterior BAWi" class="con-img" loading="lazy"/>
+        <div class="con-img-badge">
+          <span class="con-badge-icon">🐾</span>
+          <div>
+            <div class="con-badge-title">Dog Friendly · Doggy Bar</div>
+            <div class="con-badge-sub">Trae a tu mascota, también es bienvenida</div>
+          </div>
         </div>
       </div>
     </div>
-
-    <!-- CTA -->
-    <div class="sr text-center mt-16" style="transition-delay:.25s">
-      <a href="#contacto" class="inline-flex items-center gap-3 border border-outline-variant/40 px-8 py-3 text-xs font-label tracking-widest uppercase text-on-surface-variant hover:border-primary hover:text-primary transition-all duration-300 rounded-sm">
-        Ver carta completa
-        <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- ══ GALERÍA BENTO ══ -->
-  <section class="py-24 md:py-32 px-6 md:px-12 bg-surface">
-    <div class="max-w-screen-2xl mx-auto">
-      <div class="sr mb-12 flex justify-between items-end">
-        <div class="space-y-2">
-          <span class="text-xs font-label uppercase tracking-widest text-primary">Espacio & Ambiente</span>
-          <h3 class="text-3xl font-headline font-light tracking-tight">Nuestro Espacio</h3>
+    <div class="rvr">
+      <p style="font-size:.65rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--text-lt);margin-bottom:1.5rem;">Envíanos un mensaje</p>
+      <form class="con-form" onsubmit="submitForm(event)">
+        <div>
+          <label class="cf-label">Tu nombre</label>
+          <input class="cf-input" type="text" placeholder="¿Cómo te llamas?" required/>
         </div>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 md:h-[780px]">
-        <div class="bento-item md:col-span-2 md:row-span-2 bg-surface-container rounded-sm h-[350px] md:h-auto">
-          <img
-            class="w-full h-full object-cover"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbsMRkbGWBGSnMFFH3srlcJZ8vj0JaUzNUty0pU9rSjNCseUZ8_YRt8snYgam-Lj5xMIOifb5l5u98hiw8Vl3-IxydAFxUkcsfr9xFGlqMj9kgkvsrH6TSYLKiVg3kYcw_kTCOl_d9NYSv95nrAeOlZWveFMBEjaQpIWsFzrdFmMC00yIWAhYeUzv0eSplEaorAvE3fTo87EdtBvYFfiKH_kNOoylaC4MvD0dOSnIrzLcUWrpkYJPsUPE-viTpOMjO8Sh7yMz8xYpF"
-            alt="Interior café"
-          />
+        <div>
+          <label class="cf-label">WhatsApp / Teléfono</label>
+          <input class="cf-input" type="tel" placeholder="+51 999 999 999"/>
         </div>
-        <div class="bento-item md:col-span-1 bg-surface-container rounded-sm h-[220px] md:h-auto">
-          <img
-            class="w-full h-full object-cover"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjv5M2ukpH6tiwHAM2weiEBVmTpCgaWNCRUp7hxHvXO5pCauxOt7j-jXEqq_3AXMgyQrFvbVHXSjH0oG4Fxgu9llVCwKUb9E0A293ANOgpQ3mqCv22mThGfBU4x6fQ2cjuOcEVUm1T9hni4ZjQu1-72idfvM2cf74tKNJz_42ndRBL_wTnGgdS0p4d5Jv1It9DiJuYRrdVqvlZtYkNBOSww-OpYCbyhjJ4ZlvI5PjauCepEFP1Q2_B4JcxAufgPo4YcSZo_mDd3ayA"
-            alt="Barista"
-          />
+        <div>
+          <label class="cf-label">Email</label>
+          <input class="cf-input" type="email" placeholder="tu@email.com"/>
         </div>
-        <div class="bento-item md:col-span-1 bg-surface-container rounded-sm h-[220px] md:h-auto">
-          <img
-            class="w-full h-full object-cover"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoKlEuo9KAXqh1bJVMnn22Is4lLYxOGk4E-gor1Pz7lCNCfj-eynAyu1ol7lo7R3HLW_J2SCURTnHuCLuwMG2G6mnZAV-hqNyArev0I81_vvIbOqR5fuPA0pocm-SW2c-Li7hFbuuAEbg2zCCrPCjAaqWcscsR-GhZaPJ8YQVjQErJrw4eeka-_vZ0dwIkeMlBbZNSEENk5TyL7p-_QZVxiqQjE0SqtZXYn_0bLIRyOLoKhtKps02vX7zsak_mnxfY2kog_4_9OR2u"
-            alt="Granos de café"
-          />
+        <div>
+          <label class="cf-label">¿En qué te podemos ayudar?</label>
+          <textarea class="cf-input" placeholder="Cuéntanos..."></textarea>
         </div>
-        <div class="bento-item md:col-span-2 bg-surface-container rounded-sm h-[220px] md:h-auto">
-          <img
-            class="w-full h-full object-cover"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH2XB6aPA5ge49j65XW33x_Nf4GHXUPetD4NXZDf9yVifq-R_0L9aDR4TLi3DNaJYJppaA0eaawGcwn9FnRD7Lt21edq46RuKNaW-0oz2ulPsNJDnmeyC23l7ODBmgib9gOKJ5DChM64P6zJDUDWIyZUk8BtzsFBMjrL2OwV4TQjSBFqrFawy6WhS9FBqlBPJB-iNx7n1hzpa3HSVJTCTpc6Sa7OeRk7dUir-oTBICyhJEuQHCNb4V1WBVUUDMycvghzD0f73P6gu7"
-            alt="Café con libro"
-          />
-        </div>
+        <button class="cf-btn" type="submit">Enviar mensaje ✉</button>
+      </form>
+      <!-- Sign quote card -->
+      <div style="margin-top:1.5rem;background:var(--teal);border-radius:16px;padding:1.5rem;text-align:center;">
+        <p style="font-family:'Caveat',cursive;font-size:1.5rem;color:#fff;line-height:1.4;">"Disfruta las pequeñas cosas"</p>
+        <p style="font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.5rem;letter-spacing:.15em;text-transform:uppercase;">BAWi Coffee Shop</p>
       </div>
     </div>
-  </section>
-
-  <!-- ══ CONTACTO ══ -->
-  <section class="py-24 md:py-32 px-6 md:px-12 border-t border-outline-variant/10" id="contacto">
-    <div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
-      <div class="space-y-10 sr-left">
-        <div class="space-y-4">
-          <h3 class="text-4xl md:text-5xl font-headline font-light tracking-tight">Visítanos</h3>
-          <p class="text-on-surface-variant leading-relaxed font-light text-base md:text-lg">Un refugio en el corazón de la ciudad. Encuentra tu momento de paz.</p>
-        </div>
-        <div class="space-y-8">
-          <div class="flex items-start gap-5">
-            <span class="material-symbols-outlined text-primary mt-0.5">location_on</span>
-            <div>
-              <h5 class="font-label text-xs uppercase tracking-widest text-outline mb-2">Ubicación</h5>
-              <p class="text-on-surface">Calle de la Serenidad 124, Barrio Alto</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-5">
-            <span class="material-symbols-outlined text-primary mt-0.5">schedule</span>
-            <div>
-              <h5 class="font-label text-xs uppercase tracking-widest text-outline mb-2">Horarios</h5>
-              <p class="text-on-surface">Lun – Vie: 08:00 — 20:00</p>
-              <p class="text-on-surface">Sáb – Dom: 09:00 — 21:00</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-5">
-            <span class="material-symbols-outlined text-primary mt-0.5">mail</span>
-            <div>
-              <h5 class="font-label text-xs uppercase tracking-widest text-outline mb-2">Contacto</h5>
-              <p class="text-on-surface">hola@bawicoffee.com</p>
-              <p class="text-on-surface">+34 900 123 456</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-5">
-            <span class="material-symbols-outlined text-primary mt-0.5">photo_camera</span>
-            <div>
-              <h5 class="font-label text-xs uppercase tracking-widest text-outline mb-2">Instagram</h5>
-              <a href="#" class="text-on-surface hover:text-primary transition-colors duration-200">@bawicoffee</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Map placeholder -->
-      <div class="sr-right">
-        <div class="bg-surface-container-high rounded-sm min-h-[420px] relative overflow-hidden grayscale contrast-75 opacity-75 hover:grayscale-0 hover:opacity-100 transition-all duration-700">
-          <div class="absolute inset-0 flex items-center justify-center z-10">
-            <span class="material-symbols-outlined text-outline-variant" style="font-size:80px; opacity:.2">map</span>
-          </div>
-          <img
-            class="w-full h-full object-cover mix-blend-overlay"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZPXdizPFvE0GZaYfIK_S9dbPty1Z_I0LR8wPbUCfyEe3rY__Om_ReubMY9odUUlgbSgZaIYvyoNVTUKNCZkVsN0DRsOXCskbl3wQyMg8lYXIIdO5wqdYPDUhbHTdRTSE1TmFkDYsF8LYnyhXK63VKW1gZLMV101aw2rJ6wUBFgzpjspbOxYYt2jSc0b-1Cqq1KFNozechLrIXosH37CDs0sw3X9pkwU-L31K2cq-bEmJppl6JRxBIS7dqIWglouvnJ862zGl5acSl"
-            alt="Mapa"
-          />
-        </div>
-        <!-- Quick contact form -->
-        <form class="mt-6 space-y-3" onsubmit="submitContact(event)">
-          <p class="text-xs font-label uppercase tracking-widest text-outline mb-4">Envíanos un mensaje</p>
-          <input
-            type="text" placeholder="Tu nombre"
-            class="w-full bg-surface-container border border-outline-variant/30 px-4 py-3 text-sm font-body text-on-surface placeholder-outline/50 rounded-sm focus:outline-none focus:border-primary/50 transition-colors duration-200"
-          />
-          <input
-            type="email" placeholder="Tu email"
-            class="w-full bg-surface-container border border-outline-variant/30 px-4 py-3 text-sm font-body text-on-surface placeholder-outline/50 rounded-sm focus:outline-none focus:border-primary/50 transition-colors duration-200"
-          />
-          <textarea
-            rows="3" placeholder="Tu mensaje..."
-            class="w-full bg-surface-container border border-outline-variant/30 px-4 py-3 text-sm font-body text-on-surface placeholder-outline/50 rounded-sm focus:outline-none focus:border-primary/50 transition-colors duration-200 resize-none"
-          ></textarea>
-          <button type="submit" class="w-full bg-primary text-on-primary py-3 text-xs font-label tracking-widest uppercase rounded-sm hover:brightness-110 active:scale-95 transition-all duration-200">
-            Enviar mensaje
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-</main>
+  </div>
+</section>
 
 <!-- ══ FOOTER ══ -->
-<footer class="bg-stone-50 border-t border-stone-100 py-10">
-  <div class="flex flex-col md:flex-row justify-between items-center px-6 md:px-12 gap-6 max-w-screen-2xl mx-auto">
-    <div class="flex items-center gap-3">
-      <img
-        alt="Bawi Logo"
-        class="h-7 w-7 object-contain rounded-full"
-        src="https://lh3.googleusercontent.com/aida/ADBb0ujEPYT_GOA9MzpAwHtpkzfQ4mUun5XHTZYk5MnlnukhackpKc2AALhxM3UsVEjrsauSIP3PK3QoK7t5dxcVnxi7PgIcoP2Xxdh9_Ez1Apr4eQpOZRSmOjdqRSpQq1XQBEJxZdGbUQjhnWc6mgx2FEGrWtvsgVAE81_WubxWVJQYIneDrq2lJde0sXFMQeTVy2ESxtmXfSs5T2xQSh2pobuZDo0JkTdVztDiTqiEcyP4Vpwcs4H6lZcZmArxx1MFnRWwBo4h_bTbqg"
-        onerror="this.style.display='none'"
-      />
-      <span class="text-stone-500 font-label text-xs tracking-widest uppercase">© 2024 Bawi Coffee Shop. El Arte del Momento.</span>
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand">BAWi Coffee Shop</div>
+      <div class="foot-slogan">"Todo el placer, cero drama"</div>
+      <p class="foot-desc">Café de especialidad, bebidas wellness y productos naturales hechos en casa. Nuestra cocina es alquimia de amor. Arequipa, Perú.</p>
     </div>
-    <div class="flex space-x-8">
-      <a class="text-stone-400 font-label text-xs tracking-widest uppercase hover:text-stone-700 transition-colors duration-200" href="#">Privacidad</a>
-      <a class="text-stone-400 font-label text-xs tracking-widest uppercase hover:text-stone-700 transition-colors duration-200" href="#">Términos</a>
-      <a class="text-stone-400 font-label text-xs tracking-widest uppercase hover:text-stone-700 transition-colors duration-200" href="#">Instagram</a>
-      <a class="text-stone-400 font-label text-xs tracking-widest uppercase hover:text-stone-700 transition-colors duration-200" href="#">Facebook</a>
+    <div class="foot-col">
+      <div class="foot-col-title">Menú</div>
+      <ul>
+        <li><a href="#menu">Café</a></li>
+        <li><a href="#menu">Bebidas Wellness</a></li>
+        <li><a href="#menu">Detox</a></li>
+        <li><a href="#menu">Brunch</a></li>
+        <li><a href="#menu">Postres</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <div class="foot-col-title">Horarios</div>
+      <ul>
+        <li><a href="#">Lun – Vie: 8am – 8pm</a></li>
+        <li><a href="#">Sáb – Dom: 9am – 9pm</a></li>
+        <li><a href="#" style="color:rgba(127,212,184,.7);">🐾 Dog Friendly</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <div class="foot-col-title">Contacto</div>
+      <div class="foot-contact-item"><span class="foot-contact-icon">📱</span><span>+51 966 465 547</span></div>
+      <div class="foot-contact-item"><span class="foot-contact-icon">📱</span><span>+51 952 387 311</span></div>
+      <div class="foot-contact-item"><span class="foot-contact-icon">📍</span><span>Arequipa, Perú</span></div>
+      <div class="foot-contact-item"><span class="foot-contact-icon">📸</span><span>@bawi.coffee.shop</span></div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span class="foot-copy">© 2024 BAWi Coffee Shop · Naturalmente hecho en casa</span>
+    <div class="foot-social">
+      <a href="https://www.instagram.com/bawi.coffee.shop/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+      <a href="https://wa.me/51966465547" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
     </div>
   </div>
 </footer>
 
 <script>
-/* ── Cursor ── */
-const dot  = document.getElementById('cursor-dot');
-const ring = document.getElementById('cursor-ring');
-let rx = 0, ry = 0;
-document.addEventListener('mousemove', e => {
-  dot.style.left  = e.clientX + 'px';
-  dot.style.top   = e.clientY + 'px';
-  rx += (e.clientX - rx) * .12;
-  ry += (e.clientY - ry) * .12;
-  ring.style.left = rx + 'px';
-  ring.style.top  = ry + 'px';
-});
-requestAnimationFrame(function raf() {
-  rx += (parseFloat(dot.style.left || 0) - rx) * .12;
-  ry += (parseFloat(dot.style.top  || 0) - ry) * .12;
-  ring.style.left = rx + 'px';
-  ring.style.top  = ry + 'px';
-  requestAnimationFrame(raf);
-});
-document.querySelectorAll('a, button').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    ring.style.width  = '48px';
-    ring.style.height = '48px';
-    ring.style.borderColor = 'rgba(89,97,76,.8)';
-  });
-  el.addEventListener('mouseleave', () => {
-    ring.style.width  = '32px';
-    ring.style.height = '32px';
-    ring.style.borderColor = 'rgba(89,97,76,.5)';
-  });
-});
-
-/* ── Navbar shadow on scroll ── */
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  if (scrollY > 20) {
-    navbar.classList.add('shadow-md', 'shadow-stone-200/30');
-  } else {
-    navbar.classList.remove('shadow-md', 'shadow-stone-200/30');
-  }
-}, { passive: true });
-
-/* ── Active nav highlight ── */
-const sections = document.querySelectorAll('section[id], main');
-const navLinks = document.querySelectorAll('.nav-link');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navLinks.forEach(l => l.classList.remove('active'));
-      const id = entry.target.id;
-      const active = document.querySelector(`.nav-link[href="#${id}"]`);
-      if (active) active.classList.add('active');
-    }
-  });
-}, { threshold: 0.4 });
-document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
-
-/* ── Scroll reveal ── */
-const srObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      srObserver.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.12 });
-document.querySelectorAll('.sr, .sr-left, .sr-right').forEach(el => srObserver.observe(el));
-
-/* ── Mobile menu ── */
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobile-menu');
-let menuOpen = false;
-hamburger.addEventListener('click', () => {
-  menuOpen = !menuOpen;
-  mobileMenu.classList.toggle('open', menuOpen);
-  const spans = hamburger.querySelectorAll('span');
-  if (menuOpen) {
-    spans[0].style.transform = 'translateY(6.5px) rotate(45deg)';
-    spans[1].style.opacity = '0';
-    spans[2].style.transform = 'translateY(-6.5px) rotate(-45deg)';
-  } else {
-    spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-  }
-});
-function closeMobile() {
-  menuOpen = false;
-  mobileMenu.classList.remove('open');
-  hamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-}
-
-/* ── Hero parallax ── */
-const heroImg = document.getElementById('hero-img');
-window.addEventListener('scroll', () => {
-  if (heroImg) {
-    heroImg.style.transform = `translateY(${scrollY * 0.18}px)`;
-  }
-}, { passive: true });
-
-/* ── Contact form ── */
-function submitContact(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('button');
-  btn.textContent = '✓ Mensaje enviado';
-  btn.style.background = '#4a7c59';
+/* ── PRELOADER ── */
+window.addEventListener('load', () => {
   setTimeout(() => {
-    btn.textContent = 'Enviar mensaje';
-    btn.style.background = '';
+    document.getElementById('preloader').classList.add('hide');
+  }, 1800);
+});
+
+/* ── CURSOR ── */
+const dot = document.getElementById('cur-dot');
+const ring = document.getElementById('cur-ring');
+let tx=0,ty=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  tx=e.clientX; ty=e.clientY;
+  dot.style.left=tx+'px'; dot.style.top=ty+'px';
+});
+(function rafLoop(){
+  rx+=(tx-rx)*.15; ry+=(ty-ry)*.15;
+  ring.style.left=rx+'px'; ring.style.top=ry+'px';
+  requestAnimationFrame(rafLoop);
+})();
+document.querySelectorAll('a,button,.mi,.bi,.nos-feat,.prod-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{ dot.classList.add('big'); ring.classList.add('big'); });
+  el.addEventListener('mouseleave',()=>{ dot.classList.remove('big'); ring.classList.remove('big'); });
+});
+
+/* ── NAVBAR ── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>60),{passive:true});
+
+/* ── HERO PARALLAX ── */
+const heroImg = document.getElementById('hero-img');
+window.addEventListener('scroll',()=>{
+  if(heroImg) heroImg.style.transform=`translateY(${scrollY*.2}px)`;
+},{passive:true});
+
+/* ── MOBILE MENU ── */
+const burger=document.getElementById('burger');
+const mob=document.getElementById('mob-menu');
+burger.addEventListener('click',()=>{
+  burger.classList.toggle('open');
+  mob.classList.toggle('open');
+});
+function closeMob(){ burger.classList.remove('open'); mob.classList.remove('open'); }
+
+/* ── MENU TABS ── */
+document.querySelectorAll('.tab').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));
+    document.querySelectorAll('.mpanel').forEach(p=>p.classList.remove('on'));
+    btn.classList.add('on');
+    const panel=document.getElementById('tab-'+btn.dataset.tab);
+    if(panel){
+      panel.classList.add('on');
+      const items=panel.querySelectorAll('.mi');
+      items.forEach((it,i)=>{
+        it.style.opacity='0'; it.style.transform='translateY(12px)';
+        requestAnimationFrame(()=>{
+          it.style.transition=`opacity .3s ${i*.04}s, transform .3s ${i*.04}s`;
+          it.style.opacity='1'; it.style.transform='none';
+        });
+      });
+    }
+  });
+});
+
+/* ── SCROLL REVEAL ── */
+const revealObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('on'); revealObs.unobserve(e.target); }
+  });
+},{threshold:.1});
+document.querySelectorAll('.rv,.rvl,.rvr,.rvs').forEach(el=>revealObs.observe(el));
+
+/* ── COUNTERS ── */
+document.querySelectorAll('[data-target]').forEach(el=>{
+  const target=+el.dataset.target;
+  const counterObs=new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting){
+      let v=0; const step=target/60;
+      const interval=setInterval(()=>{
+        v=Math.min(v+step,target);
+        el.textContent=Math.round(v)+(target===100?'+':'');
+        if(v>=target) clearInterval(interval);
+      },16);
+      counterObs.unobserve(el);
+    }
+  },{threshold:.5});
+  counterObs.observe(el);
+});
+
+/* ── FORM ── */
+function submitForm(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('button');
+  btn.textContent='✓ Mensaje enviado — ¡Nos vemos pronto!';
+  btn.style.background='#3a7a55';
+  setTimeout(()=>{
+    btn.textContent='Enviar mensaje ✉';
+    btn.style.background='';
     e.target.reset();
-  }, 3500);
+  },4000);
 }
 </script>
 </body>
