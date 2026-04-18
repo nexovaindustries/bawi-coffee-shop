@@ -28,6 +28,12 @@
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
+/* Nitidez global en todas las imágenes */
+img {
+  display: block;
+  image-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
 
 /* ══════════════════════════════
    PRELOADER
@@ -67,158 +73,79 @@ html { scroll-behavior: smooth; font-size: 16px; }
 @keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:1} }
 
 /* ══════════════════════════════
-   BACKGROUND CANVAS & BLOBS
+   BACKGROUND — todos los efectos borrosos eliminados
 ══════════════════════════════ */
+/* Canvas ilustrado — detrás de todo, dibuja su propio fondo */
 #bg-canvas {
-  position: fixed; inset: 0; z-index: 0;
-  pointer-events: none; opacity: .75;
+  display: block;
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1; pointer-events: none;
 }
-
-/* ── Static decorative bg shapes ── */
-#bg-deco {
-  position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
-}
-.deco-ring {
-  position: absolute; border-radius: 50%; border: 1.5px solid;
-  animation: decoSpin linear infinite;
-}
-.deco-ring:nth-child(1) {
-  width: 420px; height: 420px; top: -180px; left: -120px;
-  border-color: rgba(42,82,73,.28); border-width: 2px;
-  animation-duration: 60s;
-}
-.deco-ring:nth-child(2) {
-  width: 280px; height: 280px; top: 8%; right: 5%;
-  border-color: rgba(160,118,74,.32); border-width: 2px;
-  animation-duration: 45s; animation-direction: reverse;
-}
-.deco-ring:nth-child(3) {
-  width: 200px; height: 200px; top: 40%; left: 50%;
-  border-color: rgba(127,212,184,.30); border-width: 1.5px;
-  animation-duration: 35s;
-}
-.deco-ring:nth-child(4) {
-  width: 500px; height: 500px; bottom: -200px; right: -150px;
-  border-color: rgba(42,82,73,.22); border-width: 2px;
-  animation-duration: 80s; animation-direction: reverse;
-}
-.deco-ring:nth-child(5) {
-  width: 160px; height: 160px; bottom: 15%; left: 8%;
-  border-color: rgba(200,151,106,.38); border-width: 2px;
-  animation-duration: 28s;
-}
-@keyframes decoSpin { to { transform: rotate(360deg); } }
-
-/* ── Cross / plus decorations ── */
-.deco-cross {
-  position: absolute; pointer-events: none;
-  animation: decoCross 12s ease-in-out infinite alternate;
-}
-.deco-cross::before, .deco-cross::after {
-  content: ''; position: absolute; background: currentColor; border-radius: 2px;
-}
-.deco-cross::before { width: 1.5px; height: 18px; top: 0; left: 8px; }
-.deco-cross::after  { width: 18px; height: 1.5px; top: 8px; left: 0; }
-.deco-cross:nth-child(6)  { color: rgba(42,82,73,.2);   top:12%; left:18%;  animation-delay:0s; }
-.deco-cross:nth-child(7)  { color: rgba(160,118,74,.2); top:28%; right:22%; animation-delay:-3s; }
-.deco-cross:nth-child(8)  { color: rgba(127,212,184,.25); top:55%; left:35%; animation-delay:-6s; }
-.deco-cross:nth-child(9)  { color: rgba(42,82,73,.15);  bottom:20%; right:12%; animation-delay:-2s; }
-.deco-cross:nth-child(10) { color: rgba(200,151,106,.2); bottom:35%; left:55%; animation-delay:-4s; }
-@keyframes decoCross {
-  0%   { transform: rotate(0deg)   scale(1); opacity: .7; }
-  50%  { transform: rotate(45deg)  scale(1.4); opacity: 1; }
-  100% { transform: rotate(90deg)  scale(.9); opacity: .5; }
-}
-
-/* ── Dot grid overlay ── */
-#bg-dots {
-  position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background-image: radial-gradient(circle, rgba(42,82,73,.18) 1.5px, transparent 1.5px);
-  background-size: 28px 28px;
-}
-
-/* Animated colour blobs — vivid, move through the page */
-.blob {
-  position: fixed; border-radius: 50%; pointer-events: none;
-  filter: blur(55px); z-index: 0; animation: blobDrift ease-in-out infinite alternate;
-  mix-blend-mode: multiply;
-}
-.blob-1  { width:620px; height:620px; background:radial-gradient(circle,rgba(42,82,73,.55),transparent 60%);    top:-200px; left:-180px;  animation-duration:22s; }
-.blob-2  { width:520px; height:520px; background:radial-gradient(circle,rgba(160,118,74,.5),transparent 60%);   top:20%;  right:-120px; animation-duration:18s; animation-delay:-5s; }
-.blob-3  { width:700px; height:700px; background:radial-gradient(circle,rgba(200,151,106,.45),transparent 60%); bottom:-200px; left:10%; animation-duration:25s; animation-delay:-10s; }
-.blob-4  { width:420px; height:420px; background:radial-gradient(circle,rgba(127,212,184,.45),transparent 60%); top:52%;  left:2%;     animation-duration:20s; animation-delay:-3s; }
-.blob-5  { width:460px; height:460px; background:radial-gradient(circle,rgba(42,82,73,.40),transparent 60%);    top:5%;   left:40%;    animation-duration:28s; animation-delay:-8s; }
-.blob-6  { width:360px; height:360px; background:radial-gradient(circle,rgba(200,151,106,.48),transparent 60%); top:32%;  left:20%;    animation-duration:16s; animation-delay:-12s; }
-.blob-7  { width:400px; height:400px; background:radial-gradient(circle,rgba(127,212,184,.38),transparent 60%); bottom:3%; right:3%;    animation-duration:24s; animation-delay:-7s; }
-@keyframes blobDrift {
-  0%   { transform: translate(0,0) scale(1); }
-  25%  { transform: translate(45px,-35px) scale(1.1); }
-  50%  { transform: translate(-30px,55px) scale(.93); }
-  75%  { transform: translate(55px,25px) scale(1.06); }
-  100% { transform: translate(-20px,-20px) scale(1.03); }
-}
+/* El resto sigue oculto */
+#bg-deco   { display: none; }
+#bg-dots   { display: none; }
+.blob      { display: none; }
+.deco-ring { display: none; }
+.deco-cross { display: none; }
 
 /* ══════════════════════════════
-   VIVID FIXED BACKGROUND
+   FONDO — papel crema, canvas ilustrado encima
 ══════════════════════════════ */
 body {
   font-family: 'Nunito', sans-serif;
   color: var(--text);
   overflow-x: hidden;
-  /* This gradient stays fixed — always visible through transparent sections */
-  background:
-    radial-gradient(ellipse 70% 55% at 0%   0%,   rgba(42,82,73,.32),    transparent 58%),
-    radial-gradient(ellipse 60% 50% at 100% 0%,   rgba(160,118,74,.28),  transparent 58%),
-    radial-gradient(ellipse 80% 60% at 50%  50%,  rgba(127,212,184,.18), transparent 60%),
-    radial-gradient(ellipse 60% 50% at 0%   100%, rgba(200,151,106,.28), transparent 58%),
-    radial-gradient(ellipse 65% 55% at 100% 100%, rgba(42,82,73,.30),    transparent 58%),
-    radial-gradient(ellipse 40% 35% at 25%  65%,  rgba(160,118,74,.16),  transparent 55%),
-    radial-gradient(ellipse 35% 30% at 75%  35%,  rgba(42,82,73,.14),    transparent 55%),
-    #EDE7D5;
-  background-attachment: fixed;
+  background: transparent; /* canvas dibuja su propio fondo crema */
 }
 
-/* ALL content sections: transparent so body gradient shows through */
+/* Secciones TRANSPARENTES — el canvas se ve en toda la página */
 #nosotros { background: transparent; position: relative; }
 #galeria  { background: transparent; position: relative; }
 #contacto { background: transparent; position: relative; }
+#menu     { padding: 8rem 3rem; background: transparent !important; position: relative; }
+#menu > * { position: relative; }
+#productos { background: transparent !important; position: relative; }
+#productos > * { position: relative; }
+#nosotros > * { position: relative; }
 
-/* Menu gets a warm translucent wash — keeps body gradient visible */
-#menu {
-  padding: 8rem 3rem;
-  background: rgba(237,228,210,.72) !important;
-  backdrop-filter: blur(0px);
-  position: relative;
-}
-#menu::before {
-  content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
-  background:
-    radial-gradient(circle 400px at 5%  20%, rgba(42,82,73,.12),    transparent),
-    radial-gradient(circle 350px at 95% 80%, rgba(160,118,74,.12),  transparent);
-}
-#menu > * { position: relative; z-index: 1; }
+/* ══════════════════════════════
+   DECORACIONES ILUSTRADAS — estilo sketch/línea
+══════════════════════════════ */
 
-/* Productos: slightly different warm tint */
-#productos {
-  background: rgba(228,218,200,.68) !important;
-  position: relative;
-}
-#productos::before {
-  content: ''; position: absolute; inset: 0; pointer-events: none;
-  background:
-    radial-gradient(circle 500px at 100% 50%, rgba(160,118,74,.14), transparent),
-    radial-gradient(circle 400px at 0%   50%, rgba(42,82,73,.10),   transparent);
-}
-#productos > * { position: relative; z-index: 1; }
-
-/* Nosotros subtle accent */
+/* Decoraciones de taza de café en secciones */
 #nosotros::before {
-  content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
-  background:
-    radial-gradient(circle 500px at 0%   50%, rgba(42,82,73,.1),   transparent),
-    radial-gradient(circle 400px at 100% 50%, rgba(160,118,74,.1), transparent);
+  content: '';
+  position: absolute; top: 3rem; right: 3rem;
+  width: 80px; height: 80px; pointer-events: none; opacity: .06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' fill='none' stroke='%232A5249' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M15 28 L65 28 L58 58 L22 58 Z'/%3E%3Crect x='13' y='22' width='54' height='8' rx='4'/%3E%3Cpath d='M58 36 Q72 36 72 46 Q72 56 58 56'/%3E%3Cpath d='M30 15 Q28 10 30 5'/%3E%3Cpath d='M40 15 Q38 10 40 5'/%3E%3Cpath d='M50 15 Q48 10 50 5'/%3E%3C/svg%3E");
+  background-size: contain; background-repeat: no-repeat;
 }
-#nosotros > * { position: relative; z-index: 1; }
+
+/* Hojas decorativas en galería */
+#galeria::before {
+  content: '';
+  position: absolute; top: 2rem; left: 2rem;
+  width: 100px; height: 100px; pointer-events: none; opacity: .055;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%232A5249' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M50 85 C50 85 20 65 20 40 C20 20 35 10 50 15 C65 10 80 20 80 40 C80 65 50 85 50 85Z'/%3E%3Cpath d='M50 85 L50 15'/%3E%3Cpath d='M50 55 Q35 48 28 35'/%3E%3Cpath d='M50 55 Q65 48 72 35'/%3E%3C/svg%3E");
+  background-size: contain; background-repeat: no-repeat;
+}
+
+/* Estrellitas decorativas en productos */
+#productos::after {
+  content: '✦  ✦  ✦';
+  position: absolute; bottom: 3rem; right: 3rem;
+  font-size: 1rem; letter-spacing: 1rem;
+  color: rgba(42,82,73,.07); pointer-events: none;
+}
+
+/* Línea decorativa tipo sketch antes del footer */
+footer::before {
+  content: '';
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 80px; height: 2px;
+  background: var(--kraft); border-radius: 2px; opacity: .4;
+}
 
 /* ══════════════════════════════
    CURSOR
@@ -268,24 +195,34 @@ html, body, *, *::before, *::after { cursor: none !important; }
 }
 
 /* ══════════════════════════════
-   SECTION EYE GLOW
+   SECTION EYE — estilo ilustración
 ══════════════════════════════ */
 .sec-eye {
-  display:block; font-size:.65rem; font-weight:700; letter-spacing:.45em;
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-size:.65rem; font-weight:700; letter-spacing:.45em;
   text-transform:uppercase; color:var(--kraft); margin-bottom:.75rem;
   position: relative;
 }
+/* Guioncillo decorativo tipo dibujo a mano antes del label */
+.sec-eye::before {
+  content: '';
+  display: inline-block;
+  width: 20px; height: 1.5px;
+  background: var(--kraft);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
 
-/* Enhanced section titles */
-.sec-title { position: relative; }
+/* Títulos de sección — subrayado ilustrado animado */
+.sec-title { position: relative; display: inline-block; }
 .sec-title::after {
   content: '';
-  position: absolute; left: 0; bottom: -4px; width: 0; height: 2px;
-  background: linear-gradient(to right, var(--teal), var(--kraft));
-  transition: width 1.2s ease;
-  border-radius: 2px;
+  position: absolute; left: 0; bottom: -6px; width: 0; height: 2.5px;
+  background: var(--kraft);
+  transition: width 1.2s cubic-bezier(.22,1,.36,1);
+  border-radius: 3px;
 }
-.sec-title.on::after { width: 60%; }
+.sec-title.on::after { width: 55%; }
 
 /* ══════════════════════════════
    CARD GLOW HOVER
@@ -301,14 +238,17 @@ html, body, *, *::before, *::after { cursor: none !important; }
 .nos-feat:hover::after { opacity: 1; }
 
 /* ══════════════════════════════
-   SHIMMER DIVIDER
+   DIVISOR ILUSTRADO — línea tipo boceto
 ══════════════════════════════ */
 .shimmer-div {
-  height: 2px; margin: 0; border: none;
+  height: 1px; margin: 0; border: none;
   background: linear-gradient(to right,
-    transparent, var(--teal), var(--kraft-lt), var(--teal), transparent);
-  background-size: 300% 100%;
-  animation: shimmerMove 4s linear infinite;
+    transparent 0%,
+    rgba(42,82,73,.15) 20%,
+    rgba(160,118,74,.25) 50%,
+    rgba(42,82,73,.15) 80%,
+    transparent 100%
+  );
 }
 @keyframes shimmerMove {
   0%   { background-position: 100% 0; }
@@ -372,23 +312,6 @@ html, body, *, *::before, *::after { cursor: none !important; }
 /* ══════════════════════════════
    DOG FRIENDLY ENHANCED
 ══════════════════════════════ */
-#doggy {
-  position: relative; overflow: hidden;
-}
-#doggy::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(135deg,
-    var(--teal-dim) 0%, var(--teal) 50%, rgba(160,118,74,.3) 100%);
-}
-#doggy > * { position: relative; z-index: 1; }
-#doggy::after {
-  content: '🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾';
-  position: absolute; bottom: 0.5rem; left: 0; right: 0;
-  text-align: center; font-size: .9rem; letter-spacing: 1.5rem;
-  opacity: .12; pointer-events: none;
-}
-
 /* ══════════════════════════════
    REVEAL ANIMATIONS
 ══════════════════════════════ */
@@ -414,41 +337,31 @@ html, body, *, *::before, *::after { cursor: none !important; }
   box-shadow: 0 1px 0 rgba(42,82,73,.08);
   padding: .7rem 3rem;
 }
-/* LOGO — blends with background, no circle */
+/* LOGO */
 .nav-logo { display:flex; align-items:center; gap:.6rem; text-decoration:none; }
 .logo-svg  { width:58px; height:58px; transition:transform .3s; }
 .nav-logo:hover .logo-svg { transform:rotate(-5deg) scale(1.05); }
-/* Logo text with animated underline glow */
 .logo-text {
   font-family: 'Playfair Display', serif;
   font-size: 1.85rem; font-weight: 800;
-  letter-spacing: .03em; color: var(--teal);
-  position: relative;
-  background: linear-gradient(135deg, var(--teal-dim) 0%, var(--teal) 30%, var(--teal-lt) 60%, var(--kraft) 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  animation: logoShimmer 5s ease-in-out infinite;
-  filter: drop-shadow(0 0 8px rgba(42,82,73,.3));
+  letter-spacing: .03em;
+  color: var(--teal-dim);
+  text-shadow: none;
+  transition: color .3s;
 }
-@keyframes logoShimmer {
-  0%,100% { filter: drop-shadow(0 0 6px rgba(42,82,73,.25)); background-position: 0% 50%; }
-  33%     { filter: drop-shadow(0 0 16px rgba(42,82,73,.6)) drop-shadow(0 0 30px rgba(160,118,74,.35)); }
-  66%     { filter: drop-shadow(0 0 10px rgba(61,112,102,.4)) drop-shadow(0 0 22px rgba(42,82,73,.2)); }
-}
-.logo-text {
-  background-size: 200% 200%;
-  animation: logoShimmer 5s ease-in-out infinite, logoSlide 8s linear infinite;
-}
-@keyframes logoSlide {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+#nav.solid .logo-text {
+  color: var(--teal);
 }
 .logo-sub {
   font-family: 'Nunito', sans-serif; font-size: .55rem; font-weight: 700;
   letter-spacing: .3em; text-transform: uppercase;
   color: var(--kraft);
   display: block; margin-top: -2px;
-  text-shadow: 0 1px 3px rgba(247,242,232,.8);
+  text-shadow: none;
+  transition: color .3s;
+}
+#nav.solid .logo-sub {
+  color: var(--kraft);
 }
 
 .nav-links { display:flex; gap:2rem; list-style:none; }
@@ -457,26 +370,37 @@ html, body, *, *::before, *::after { cursor: none !important; }
   letter-spacing: .12em; text-transform: uppercase; text-decoration: none;
   color: var(--teal); position: relative; padding-bottom: 2px;
   transition: color .3s;
-  text-shadow: 0 1px 4px rgba(42,82,73,.08);
+  text-shadow: none;
 }
 .nav-links a::after {
   content:''; position:absolute; bottom:0; left:0; width:0; height:1.5px;
   background: var(--teal); transition: width .35s ease;
 }
-.nav-links a:hover { color: var(--teal); }
+.nav-links a:hover { color: var(--teal-lt); }
 .nav-links a:hover::after { width:100%; }
+#nav.solid .nav-links a { color: var(--teal); }
+#nav.solid .nav-links a::after { background: var(--teal); }
+#nav.solid .nav-links a:hover { color: var(--teal-lt); }
 .nav-order {
-  padding: .6rem 1.5rem; background: var(--teal); color: var(--white);
+  padding: .6rem 1.5rem; background: var(--teal); color: #fff;
   font-family: 'Nunito', sans-serif; font-size: .72rem; font-weight: 600;
   letter-spacing: .15em; text-transform: uppercase; text-decoration: none;
   border-radius: 50px; transition: all .3s;
+  border: 1.5px solid var(--teal);
+  box-shadow: 0 4px 15px rgba(42,82,73,.25);
+}
+.nav-order:hover { background: var(--teal-lt); border-color: var(--teal-lt); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(42,82,73,.35); }
+#nav.solid .nav-order {
+  background: var(--teal); color: var(--white);
+  border-color: transparent;
   box-shadow: 0 4px 15px rgba(42,82,73,.3);
 }
-.nav-order:hover { background: var(--teal-lt); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(42,82,73,.4); }
+#nav.solid .nav-order:hover { background: var(--teal-lt); box-shadow: 0 8px 25px rgba(42,82,73,.4); }
 
 /* hamburger */
 #burger { display:none; flex-direction:column; gap:5px; background:none; border:none; padding:4px; z-index:9100; }
 #burger span { display:block; width:24px; height:2px; background:var(--teal); transition:.3s; border-radius:2px; }
+#nav.solid #burger span { background:var(--teal); }
 #burger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
 #burger.open span:nth-child(2) { opacity:0; }
 #burger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
@@ -498,95 +422,115 @@ html, body, *, *::before, *::after { cursor: none !important; }
 #hero {
   position:relative; min-height:100vh;
   display:flex; align-items:center; overflow:hidden;
-  padding:0;
+  padding:0; z-index: 1; isolation: isolate;
 }
-#hero-img-wrap {
-  position:absolute; inset:0; z-index:0;
-}
-#hero-img-wrap img {
-  width:100%; height:100%; object-fit:cover; object-position:center 30%;
-  filter:brightness(.6) contrast(1.08) saturate(1.25);
-}
-/* warm teal overlay + animated shimmer */
-#hero-img-wrap::after {
-  content:''; position:absolute; inset:0;
-  background:
-    linear-gradient(to right, rgba(28,56,50,.88) 0%, rgba(28,56,50,.45) 55%, rgba(42,82,73,.1) 100%),
-    linear-gradient(to top, rgba(28,56,50,.75) 0%, transparent 55%),
-    linear-gradient(135deg, rgba(160,118,74,.08) 0%, transparent 50%);
-  animation: heroOverlayShift 12s ease-in-out infinite alternate;
-}
-@keyframes heroOverlayShift {
-  0%   { opacity: 1; }
-  50%  { opacity: .92; }
-  100% { opacity: 1; }
-}
+#hero-img-wrap { display: none; }
 
-/* Hero floating particles */
-#hero::before {
-  content: '✦  ✦  ✦  ✦  ✦  ✦  ✦  ✦';
-  position: absolute; top: 15%; left: 0; right: 0; z-index: 1;
-  text-align: center; font-size: .7rem; letter-spacing: 2.5rem;
-  color: rgba(255,255,255,.06); pointer-events: none;
-  animation: starsFloat 8s ease-in-out infinite alternate;
+/* Panel de ilustración — derecha del hero */
+.hero-illus-panel {
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 52%;
+  display: flex; align-items: center; justify-content: center;
+  padding: 5rem 4rem 5rem 2rem;
+  z-index: 2; pointer-events: none;
 }
-@keyframes starsFloat {
-  0%   { transform: translateY(0); opacity: .06; }
-  100% { transform: translateY(-12px); opacity: .12; }
+.illus-frame {
+  position: relative;
+  max-width: 400px; width: 100%;
+  border-radius: 20px;
+  overflow: visible;
+}
+.illus-main-img {
+  width: 100%; display: block;
+  border-radius: 18px;
+  border: 3px solid rgba(42,82,73,.14);
+  box-shadow:
+    8px 10px 0 rgba(42,82,73,.08),
+    16px 20px 0 rgba(42,82,73,.04);
+  object-fit: contain;
+  image-rendering: auto;
+  filter: contrast(1.04);
+}
+/* Vapor animado encima de la ilustración */
+.illus-steams {
+  position: absolute;
+  top: 36%; left: 18%;
+  width: 60px; height: 80px;
+  pointer-events: none;
+  overflow: visible;
+}
+.is-path { fill:none; stroke:rgba(42,82,73,.55); stroke-linecap:round; stroke-width:2; }
+.is1 { animation: isvap 2.8s ease-in-out infinite; }
+.is2 { animation: isvap 2.8s ease-in-out infinite .7s; }
+.is3 { animation: isvap 2.8s ease-in-out infinite 1.4s; }
+@keyframes isvap {
+  0%   { opacity:0; transform:translateY(0) scaleX(1); }
+  15%  { opacity:1; }
+  80%  { opacity:.5; }
+  100% { opacity:0; transform:translateY(-36px) scaleX(1.4); }
+}
+/* Sutil flotación de la ilustración */
+.illus-frame {
+  animation: illusFloat 6s ease-in-out infinite;
+}
+@keyframes illusFloat {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-8px); }
 }
 
 .hero-inner {
   position:relative; z-index:2;
   padding: 9rem 3rem 5rem;
-  max-width: 720px;
+  max-width: 520px;
 }
 .hero-tag {
   display:inline-flex; align-items:center; gap:.75rem;
-  background: rgba(255,255,255,.1); backdrop-filter:blur(8px);
-  border:1px solid rgba(255,255,255,.2); border-radius:50px;
+  background: rgba(42,82,73,.07);
+  border:1.5px solid rgba(42,82,73,.22); border-radius:50px;
   padding:.4rem 1rem; margin-bottom:2rem;
-  font-size:.68rem; font-weight:600; letter-spacing:.3em; text-transform:uppercase;
-  color:rgba(255,255,255,.85);
+  font-size:.68rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase;
+  color: var(--teal);
 }
-.hero-tag-dot { width:6px; height:6px; border-radius:50%; background:#7FD4B8; animation:blink 2s ease-in-out infinite; }
+.hero-tag-dot { width:6px; height:6px; border-radius:50%; background:var(--teal); animation:blink 2s ease-in-out infinite; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
 
 .hero-title {
   font-family:'Playfair Display',serif;
   font-size: clamp(2.8rem,7vw,5.5rem);
-  font-weight:800; line-height:1.0; color:#FFFFFF;
+  font-weight:800; line-height:1.0; color: var(--teal-dim);
   margin-bottom:1rem; letter-spacing:-.03em;
 }
 .hero-title em {
-  font-style:italic; font-weight:300;
-  background: linear-gradient(135deg,#7FD4B8,#B8E8D8);
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  font-style:italic; font-weight:400;
+  color: var(--kraft);
+  -webkit-text-fill-color: var(--kraft);
 }
 .hero-slogan {
-  font-family:'Caveat',cursive; font-size:1.8rem; font-weight:600;
-  color:rgba(255,255,255,.75); margin-bottom:1.75rem; line-height:1.3;
+  font-family:'Caveat',cursive; font-size:1.9rem; font-weight:600;
+  color: var(--kraft); margin-bottom:1.75rem; line-height:1.3;
 }
 .hero-desc {
-  font-size:.95rem; line-height:1.85; color:rgba(255,255,255,.65);
-  font-weight:300; max-width:480px; margin-bottom:2.5rem;
+  font-size:.95rem; line-height:1.85; color: var(--text-mid);
+  font-weight:400; max-width:480px; margin-bottom:2.5rem;
 }
 .hero-btns { display:flex; gap:.75rem; flex-wrap:wrap; }
 .btn-white {
-  padding:.85rem 2.2rem; background:#FFFFFF; border-radius:50px;
+  padding:.85rem 2.2rem; background: var(--teal); border-radius:50px;
   font-size:.78rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase;
-  text-decoration:none; color:var(--teal);
-  box-shadow: 0 6px 25px rgba(0,0,0,.2);
+  text-decoration:none; color:#fff;
+  box-shadow: 0 6px 25px rgba(42,82,73,.30);
   transition:all .35s;
 }
-.btn-white:hover { transform:translateY(-3px); box-shadow:0 12px 35px rgba(0,0,0,.3); }
+.btn-white:hover { transform:translateY(-3px); background: var(--teal-lt); box-shadow:0 12px 35px rgba(42,82,73,.4); }
 .btn-ghost {
   padding:.85rem 2.2rem; background:transparent; border-radius:50px;
-  border:1.5px solid rgba(255,255,255,.4);
+  border:1.5px solid rgba(42,82,73,.45);
   font-size:.78rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase;
-  text-decoration:none; color:rgba(255,255,255,.85);
+  text-decoration:none; color: var(--teal);
   transition:all .35s;
 }
-.btn-ghost:hover { background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.7); transform:translateY(-3px); }
+.btn-ghost:hover { background:rgba(42,82,73,.07); border-color: var(--teal); transform:translateY(-3px); }
 
 /* floating cards on hero */
 .hero-cards {
@@ -594,15 +538,16 @@ html, body, *, *::before, *::after { cursor: none !important; }
   display:flex; flex-direction:column; gap:1rem; z-index:3;
 }
 .h-card {
-  background:rgba(255,255,255,.12); backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,.2); border-radius:16px;
+  background: rgba(245,240,232,.88);
+  border:1.5px solid rgba(42,82,73,.18); border-radius:16px;
   padding:.9rem 1.2rem; display:flex; align-items:center; gap:.8rem;
   transition:transform .3s;
+  box-shadow: 0 4px 16px rgba(42,82,73,.10);
 }
 .h-card:hover { transform:translateX(-5px); }
 .h-card-icon { font-size:1.5rem; }
-.h-card-text strong { display:block; font-size:.85rem; font-weight:700; color:#fff; }
-.h-card-text span  { font-size:.7rem; color:rgba(255,255,255,.6); font-weight:300; }
+.h-card-text strong { display:block; font-size:.85rem; font-weight:700; color: var(--teal-dim); }
+.h-card-text span  { font-size:.7rem; color: var(--text-mid); font-weight:400; }
 
 /* scroll cue */
 .scroll-cue {
@@ -611,8 +556,8 @@ html, body, *, *::before, *::after { cursor: none !important; }
   opacity:.6; animation:fadeIn 1s ease 2s both;
 }
 @keyframes fadeIn { from{opacity:0} to{opacity:.6} }
-.scroll-cue span { font-size:.6rem; letter-spacing:.3em; text-transform:uppercase; color:rgba(255,255,255,.7); }
-.scroll-bar { width:1px; height:45px; background:linear-gradient(to bottom,rgba(255,255,255,.6),transparent); animation:barAnim 2s ease-in-out infinite; }
+.scroll-cue span { font-size:.6rem; letter-spacing:.3em; text-transform:uppercase; color: var(--teal); }
+.scroll-bar { width:1px; height:45px; background:linear-gradient(to bottom, rgba(42,82,73,.6),transparent); animation:barAnim 2s ease-in-out infinite; }
 @keyframes barAnim { 0%,100%{transform:scaleY(1);opacity:.8} 50%{transform:scaleY(.5);opacity:.3} }
 
 /* ══════════════════════════════
@@ -675,12 +620,11 @@ html, body, *, *::before, *::after { cursor: none !important; }
 .nos-img-col { position:relative; }
 .nos-img-main {
   width:100%; height:550px; object-fit:cover;
-  border-radius:20px;
-  box-shadow:
-    0 30px 80px rgba(42,82,73,.25),
-    0 0 0 1px rgba(42,82,73,.08),
-    0 0 80px -20px rgba(42,82,73,.3);
+  border-radius:14px;
+  box-shadow: 0 16px 50px rgba(28,43,39,.28);
   display:block;
+  filter: contrast(1.1) saturate(1.08);
+  will-change: transform;
   transition: transform .5s ease, box-shadow .5s ease;
 }
 .nos-img-col:hover .nos-img-main {
@@ -690,8 +634,9 @@ html, body, *, *::before, *::after { cursor: none !important; }
 .nos-img-float {
   position:absolute; bottom:-2rem; right:-2rem;
   width:180px; height:180px; object-fit:cover;
-  border-radius:16px; border:4px solid var(--cream);
-  box-shadow:0 12px 40px rgba(0,0,0,.15);
+  border-radius:16px; border:3px solid rgba(42,82,73,.25);
+  box-shadow:0 12px 40px rgba(0,0,0,.2);
+  filter:contrast(1.05) saturate(1.08);
 }
 .nos-pill {
   position:absolute; top:1.5rem; left:-1.5rem;
@@ -707,11 +652,11 @@ html, body, *, *::before, *::after { cursor: none !important; }
 }
 .nos-features { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; margin-top:.5rem; }
 .nos-feat {
-  padding:1rem; border-radius:12px; background:var(--cream-dk);
-  border:1px solid rgba(42,82,73,.08);
+  padding:1rem; border-radius:12px; background:rgba(230,218,198,.85);
+  border:1px solid rgba(42,82,73,.1);
   transition:all .3s;
 }
-.nos-feat:hover { background:#fff; border-color:rgba(42,82,73,.15); transform:translateY(-3px); box-shadow:0 8px 20px rgba(42,82,73,.08); }
+.nos-feat:hover { background:rgba(237,225,205,.95); border-color:rgba(42,82,73,.18); transform:translateY(-3px); box-shadow:0 8px 20px rgba(42,82,73,.1); }
 .nos-feat-icon { font-size:1.4rem; margin-bottom:.35rem; display:block; }
 .nos-feat-title { font-size:.82rem; font-weight:700; color:var(--teal); margin-bottom:.2rem; }
 .nos-feat-sub   { font-size:.73rem; color:var(--text-lt); }
@@ -747,8 +692,8 @@ html, body, *, *::before, *::after { cursor: none !important; }
 .mgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:.7rem; }
 .mi {
   display:flex; justify-content:space-between; align-items:flex-start;
-  padding:1rem 1.25rem; background:#fff; border-radius:12px;
-  border:1px solid rgba(42,82,73,.06);
+  padding:1rem 1.25rem; background:rgba(247,242,232,.9); border-radius:12px;
+  border:1px solid rgba(42,82,73,.08);
   transition:all .3s; position:relative; overflow:hidden;
 }
 .mi::before {
@@ -779,16 +724,17 @@ html, body, *, *::before, *::after { cursor: none !important; }
   display:grid;
   grid-template-columns:repeat(4,1fr);
   grid-template-rows:280px 280px;
-  gap:8px; border-radius:20px; overflow:hidden;
+  gap:3px; border-radius:20px; overflow:hidden;
+  background: var(--teal-dim);
 }
 .bi { overflow:hidden; position:relative; background:var(--cream-dk); }
 .bi img {
   width:100%; height:100%; object-fit:cover;
-  filter:brightness(.9) saturate(1.1);
-  transition:transform .7s cubic-bezier(.4,0,.2,1),filter .5s;
-  display:block;
+  filter: contrast(1.1) saturate(1.08);
+  transition: transform .6s cubic-bezier(.4,0,.2,1);
+  will-change: transform;
 }
-.bi:hover img { transform:scale(1.08); filter:brightness(1) saturate(1.3); }
+.bi:hover img { transform:scale(1.06); filter: contrast(1.14) saturate(1.15); }
 .bi-over {
   position:absolute; inset:0;
   background:linear-gradient(to top,rgba(28,43,39,.75) 0%,transparent 55%);
@@ -802,22 +748,71 @@ html, body, *, *::before, *::after { cursor: none !important; }
 .bi:nth-child(6) { grid-column:span 2; }
 
 /* ══════════════════════════════
-   DOG FRIENDLY STRIP
+   DOG FRIENDLY SECTION
 ══════════════════════════════ */
 #doggy {
-  background:var(--teal); padding:3.5rem 3rem;
-  display:flex; align-items:center; justify-content:center; gap:3rem;
-  flex-wrap:wrap; text-align:center;
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 420px; overflow: hidden;
 }
-.doggy-icon { font-size:3.5rem; animation:waggle 2s ease-in-out infinite; }
+.doggy-photo {
+  position: relative; overflow: hidden;
+}
+.doggy-photo img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
+  filter: contrast(1.08) saturate(1.1);
+  display: block;
+  transition: transform .7s ease;
+}
+#doggy:hover .doggy-photo img { transform: scale(1.04); }
+.doggy-info {
+  background: linear-gradient(135deg, var(--teal-dim) 0%, var(--teal) 60%, rgba(160,118,74,.4) 100%);
+  padding: 4rem 3rem;
+  display: flex; flex-direction: column; justify-content: center; gap: 1.5rem;
+  position: relative; overflow: hidden;
+}
+.doggy-info::before {
+  content: '🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾';
+  position: absolute; bottom: 1rem; left: 0; right: 0;
+  text-align: center; font-size: .9rem; letter-spacing: 1.5rem;
+  opacity: .1; pointer-events: none;
+}
+.doggy-badge {
+  display: inline-flex; align-items: center; gap: .6rem;
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+  border-radius: 50px; padding: .4rem 1rem; align-self: flex-start;
+  font-family: 'Nunito', sans-serif; font-size: .65rem; font-weight: 700;
+  letter-spacing: .25em; text-transform: uppercase; color: rgba(255,255,255,.8);
+}
+.doggy-icon { font-size: 3rem; animation: waggle 2s ease-in-out infinite; line-height: 1; }
 @keyframes waggle {
   0%,100%{transform:rotate(0deg)} 25%{transform:rotate(8deg)} 75%{transform:rotate(-8deg)}
 }
-.doggy-text strong {
-  font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:800;
-  color:#fff; display:block; margin-bottom:.3rem;
+.doggy-title {
+  font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 800; color: #fff; line-height: 1.1;
 }
-.doggy-text span { font-size:.9rem; color:rgba(255,255,255,.7); }
+.doggy-title em { font-style: italic; font-weight: 300; color: #7FD4B8; }
+.doggy-desc { font-size: .92rem; color: rgba(255,255,255,.72); line-height: 1.75; max-width: 340px; }
+.doggy-pills { display: flex; gap: .6rem; flex-wrap: wrap; }
+.doggy-pill {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15);
+  border-radius: 50px; padding: .35rem .85rem;
+  font-family: 'Nunito', sans-serif; font-size: .7rem; font-weight: 600;
+  color: rgba(255,255,255,.85);
+}
+@media (max-width:1100px) {
+  #doggy { grid-template-columns: 1fr; }
+  .doggy-photo { height: 320px; }
+  .doggy-info { padding: 2.5rem 2rem; }
+}
+@media (max-width:767px) {
+  #doggy { grid-template-columns: 1fr; }
+  .doggy-photo { height: 260px; }
+  .doggy-info { padding: 2rem 1.4rem; gap: 1rem; }
+  .doggy-title { font-size: 1.7rem; }
+  .doggy-desc  { font-size: .86rem; }
+}
 
 /* ══════════════════════════════
    PRODUCTOS BAWI
@@ -829,12 +824,12 @@ html, body, *, *::before, *::after { cursor: none !important; }
   display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem;
 }
 .prod-card {
-  background:#fff; border-radius:16px; overflow:hidden;
-  border:1px solid rgba(42,82,73,.07);
+  background:rgba(237,225,205,.92); border-radius:16px; overflow:hidden;
+  border:1px solid rgba(42,82,73,.12);
   transition:all .4s;
 }
 .prod-card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(42,82,73,.12); }
-.prod-img { width:100%; height:240px; object-fit:cover; object-position:center; display:block; filter:brightness(.97); }
+.prod-img { width:100%; height:240px; object-fit:cover; object-position:center; display:block; filter: contrast(1.1) saturate(1.08); will-change: transform; }
 .prod-body { padding:1.25rem 1.4rem; }
 .prod-name { font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:.3rem; }
 .prod-desc { font-size:.8rem; color:var(--text-lt); line-height:1.6; }
@@ -848,8 +843,8 @@ html, body, *, *::before, *::after { cursor: none !important; }
 ══════════════════════════════ */
 #contacto { padding:8rem 3rem; }
 .con-wrap {
-  max-width:1200px; margin:0 auto;
-  display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start;
+  max-width:900px; margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;
 }
 .con-img-wrap { position:relative; border-radius:20px; overflow:hidden; }
 .con-img { width:100%; height:480px; object-fit:cover; display:block; }
@@ -954,6 +949,7 @@ footer {
 }
 #wa-float:hover .wa-tooltip { opacity: 1; }
 
+
 /* ══════════════════════════════
    GOOGLE MAPS
 ══════════════════════════════ */
@@ -1022,17 +1018,9 @@ footer {
   .deco-ring,.deco-cross { display:none; }
   #bg-dots { display:none; }
 
-  /* Mobile: fixed bg-attachment doesn't work on iOS → use inline gradient */
-  body {
-    background:
-      radial-gradient(ellipse 100% 45% at 0%   0%,   rgba(42,82,73,.28),    transparent 60%),
-      radial-gradient(ellipse 80%  40% at 100% 0%,   rgba(160,118,74,.25),  transparent 60%),
-      radial-gradient(ellipse 90%  45% at 0%   100%, rgba(200,151,106,.22), transparent 60%),
-      radial-gradient(ellipse 80%  40% at 100% 100%, rgba(42,82,73,.24),    transparent 60%),
-      radial-gradient(ellipse 60%  35% at 50%  50%,  rgba(127,212,184,.14), transparent 55%),
-      #EDE7D5 !important;
-    background-attachment: scroll !important;
-  }
+  /* Mobile body — canvas dibuja el fondo */
+  body { background: transparent !important; }
+  #bg-canvas { display: block !important; z-index: -1 !important; }
 
   /* ── NAV ── */
   #nav { padding:.8rem 1.2rem; }
@@ -1043,14 +1031,33 @@ footer {
   .logo-sub  { font-size:.48rem; letter-spacing:.2em; }
 
   /* ── HERO ── */
-  #hero { min-height:100svh; }
-  .hero-inner { padding:6.5rem 1.4rem 4rem; }
+  #hero { min-height:100svh; flex-direction:column; justify-content:flex-end; }
+  /* Ilustración al PRINCIPIO en mobile — parte superior del hero */
+  .hero-illus-panel {
+    position: relative;
+    width: 100%; height: 55vw; max-height: 340px;
+    padding: 1rem 1.5rem 0;
+    display: flex; align-items: flex-end; justify-content: center;
+    top: auto; right: auto; left: auto; bottom: auto;
+    order: -1; /* aparece primero */
+    pointer-events: none;
+  }
+  .illus-frame {
+    width: 100%; max-width: 340px;
+    animation: illusFloat 6s ease-in-out infinite;
+  }
+  .illus-main-img { border-radius: 14px; }
+  .illus-steams { top: 32%; left: 16%; }
+  .hero-inner {
+    padding: 1.5rem 1.4rem 4rem;
+    max-width: 100%; width: 100%;
+  }
   .hero-tag   { font-size:.6rem; padding:.35rem .85rem; }
-  .hero-title { font-size: clamp(2.1rem, 9vw, 3.2rem); line-height:1.05; }
-  .hero-slogan { font-size:1.4rem; }
+  .hero-title { font-size: clamp(2rem, 9vw, 3rem); line-height:1.05; }
+  .hero-slogan { font-size:1.35rem; }
   .hero-desc  { font-size:.88rem; max-width:100%; }
   .hero-btns  { flex-direction:column; gap:.6rem; }
-  .btn-white, .btn-ghost { padding:.8rem 1.8rem; width:100%; text-align:center; }
+  .btn-white, .btn-ghost { padding:.9rem 1.8rem; width:100%; text-align:center; font-size:.75rem; min-height:48px; }
   .hero-cards { display:none; }
   .scroll-cue { display:none; }
 
@@ -1112,16 +1119,16 @@ footer {
   .bi:nth-child(6) { grid-column:span 2; height:160px; }
 
   /* ── DOG FRIENDLY ── */
-  #doggy { padding:2.5rem 1.2rem; gap:1rem; flex-direction:column; text-align:center; }
-  .doggy-icon { font-size:2.5rem; }
-  .doggy-text strong { font-size:1.3rem; }
-  .doggy-text span   { font-size:.85rem; }
+  .doggy-icon { font-size: 2rem; }
+  .doggy-badge { font-size: .6rem; }
 
   /* ── PRODUCTOS ── */
-  .prod-grid { grid-template-columns:1fr; gap:1rem; }
-  .prod-img  { height:220px; object-fit:cover; object-position:center; }
-  .prod-body { padding:1rem 1.1rem; }
-  .prod-name { font-size:.95rem; }
+  .prod-grid { grid-template-columns:1fr 1fr; gap:1rem; }
+  .prod-img  { height:180px; object-fit:cover; object-position:center; }
+  .prod-body { padding:.9rem 1rem; }
+  .prod-name { font-size:.9rem; }
+  .prod-desc { font-size:.75rem; }
+  .prod-tag  { font-size:.58rem; }
 
   /* ── CONTACTO ── */
   .con-wrap { grid-template-columns:1fr; gap:2rem; }
@@ -1254,11 +1261,6 @@ footer {
 
 <!-- ══ HERO ══ -->
 <section id="hero">
-  <div id="hero-img-wrap">
-    <img src="./images/exterior.jpg"
-         onerror="this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600';this.onerror=null;"
-         alt="BAWi Coffee Shop exterior" id="hero-img" loading="eager"/>
-  </div>
   <div class="hero-inner">
     <div class="hero-tag rv d1">
       <div class="hero-tag-dot"></div>
@@ -1300,6 +1302,21 @@ footer {
       </div>
     </div>
   </div>
+  <!-- Ilustración animada — panel derecho del hero -->
+  <div class="hero-illus-panel">
+    <div class="illus-frame">
+      <img src="./images/illustration-store.jpg"
+           alt="BAWi Coffee Shop ilustración"
+           class="illus-main-img" loading="eager"/>
+      <!-- Vapor animado encima de la taza -->
+      <svg class="illus-steams" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+        <path class="is-path is1" d="M15 70 Q10 55 15 40 Q20 28 15 15"/>
+        <path class="is-path is2" d="M30 70 Q35 55 30 40 Q25 28 30 15"/>
+        <path class="is-path is3" d="M45 70 Q40 55 45 40 Q50 28 45 15"/>
+      </svg>
+    </div>
+  </div>
+
   <div class="scroll-cue">
     <span>Scroll</span>
     <div class="scroll-bar"></div>
@@ -1317,6 +1334,8 @@ footer {
   </div>
 </div>
 
+
+
 <!-- ══ NOSOTROS ══ -->
 <section id="nosotros">
   <div class="nos-wrap">
@@ -1331,12 +1350,12 @@ footer {
           <strong>2024</strong>
           <span>Fundados</span>
         </div>
-        <img src="./images/interior-lights.jpg"
+        <img src="./images/cuchareable-choco.jpg"
              onerror="this.src='https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=900';this.onerror=null;"
-             alt="Interior BAWi" class="nos-img-main" loading="lazy"/>
-        <img src="./images/table-flowers.jpg"
+             alt="Bebidas BAWi" class="nos-img-main" loading="lazy"/>
+        <img src="./images/tarta-vasca.jpg"
              onerror="this.src='https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400';this.onerror=null;"
-             alt="Mesa BAWi" class="nos-img-float" loading="lazy"/>
+             alt="Tarta Vasca BAWi" class="nos-img-float" loading="lazy"/>
       </div>
     </div>
     <div class="nos-text rvr">
@@ -1579,23 +1598,23 @@ footer {
   </div>
   <div class="bento">
     <div class="bi">
-      <img src="./images/hero-window.jpg" onerror="this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900';this.onerror=null;" alt="Vitrina BAWi" loading="lazy"/>
+      <img src="./images/exterior-new.jpg" onerror="this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900';this.onerror=null;" alt="BAWi Coffee Shop exterior" loading="lazy" style="object-position:center center"/>
       <div class="bi-over"><span class="bi-label">Café para llevar, vida para disfrutar</span></div>
     </div>
     <div class="bi">
-      <img src="./images/pastry-case.jpg" onerror="this.src='https://images.unsplash.com/photo-1586500036706-41963de24d8b?w=600';this.onerror=null;" alt="Postres" loading="lazy" style="object-position:center top"/>
-      <div class="bi-over"><span class="bi-label">Postres artesanales</span></div>
+      <img src="./images/snicker-bites.jpg" onerror="this.src='https://images.unsplash.com/photo-1586500036706-41963de24d8b?w=600';this.onerror=null;" alt="Snicker Bites BAWi" loading="lazy"/>
+      <div class="bi-over"><span class="bi-label">Snicker Vegano — sin culpas</span></div>
     </div>
     <div class="bi">
-      <img src="./images/products-shelf.jpg" onerror="this.src='https://images.unsplash.com/photo-1531525645387-7f14be1bdbbd?w=600';this.onerror=null;" alt="Productos" loading="lazy"/>
-      <div class="bi-over"><span class="bi-label">Productos naturales</span></div>
+      <img src="./images/doggy-bar-real.jpg" onerror="this.src='./images/doggy-bar.jpg';this.onerror=null;" alt="Doggy Bar BAWi" loading="lazy"/>
+      <div class="bi-over"><span class="bi-label">Doggy Bar — todos bienvenidos 🐾</span></div>
     </div>
     <div class="bi">
-      <img src="./images/cookies-display.jpg" onerror="this.src='https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600';this.onerror=null;" alt="Cookies" loading="lazy"/>
-      <div class="bi-over"><span class="bi-label">Cookies artesanales</span></div>
+      <img src="./images/tarta-vasca.jpg" onerror="this.src='https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600';this.onerror=null;" alt="Tarta Vasca" loading="lazy"/>
+      <div class="bi-over"><span class="bi-label">Tarta Vasca artesanal</span></div>
     </div>
     <div class="bi">
-      <img src="./images/cup-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1607867377433-4b1bca38b35b?w=600';this.onerror=null;" alt="Taza BAWi" loading="lazy"/>
+      <img src="./images/cuchareable-choco.jpg" onerror="this.src='https://images.unsplash.com/photo-1607867377433-4b1bca38b35b?w=600';this.onerror=null;" alt="Cuchareable Choco BAWi" loading="lazy"/>
       <div class="bi-over"><span class="bi-label">Todo el placer, cero drama</span></div>
     </div>
     <div class="bi">
@@ -1607,12 +1626,22 @@ footer {
 
 <!-- ══ DOG FRIENDLY ══ -->
 <div id="doggy">
-  <div class="doggy-icon">🐶</div>
-  <div class="doggy-text">
-    <strong>¡Somos Dog Friendly!</strong>
-    <span>Trae a tu mejor amigo — tenemos Doggy Bar con agua fresca esperándolo</span>
+  <div class="doggy-photo">
+    <img src="./images/doggy-bar-real.jpg"
+         onerror="this.src='./images/doggy-bar.jpg';this.onerror=null;"
+         alt="Doggy Bar BAWi" loading="lazy"/>
   </div>
-  <div class="doggy-icon">🐾</div>
+  <div class="doggy-info">
+    <span class="doggy-badge">🐶 Dog Friendly</span>
+    <span class="doggy-icon">🐾</span>
+    <h2 class="doggy-title">Tu perro también<br/>merece su <em>espacio</em></h2>
+    <p class="doggy-desc">Trae a tu mejor amigo — en BAWi lo esperamos con nuestro Doggy Bar y agua fresca. Porque el placer no tiene excusas.</p>
+    <div class="doggy-pills">
+      <span class="doggy-pill">🥣 Agua fresca</span>
+      <span class="doggy-pill">🐕 Todos bienvenidos</span>
+      <span class="doggy-pill">❤️ Pet Friendly</span>
+    </div>
+  </div>
 </div>
 
 <!-- ══ PRODUCTOS BAWI ══ -->
@@ -1624,6 +1653,38 @@ footer {
     <p class="sec-lead" style="max-width:480px;margin:0 auto;">Naturalmente hecho en casa. Granolas, barras energéticas y snacks wellness.</p>
   </div>
   <div class="prod-grid rv">
+    <div class="prod-card">
+      <img src="./images/snicker-bites.jpg" onerror="this.src='https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600';this.onerror=null;" alt="Snicker Bites BAWi" class="prod-img" loading="lazy"/>
+      <div class="prod-body">
+        <div class="prod-name">Snicker Vegano BAWi</div>
+        <div class="prod-desc">Maní, pistacho & limón o chocolúcuma. Placer sin culpas, hecho en nuestra cocina.</div>
+        <span class="prod-tag">Vegano · S/ 7–8</span>
+      </div>
+    </div>
+    <div class="prod-card">
+      <img src="./images/brownie-dubai.jpg" onerror="this.src='https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600';this.onerror=null;" alt="Brownie Dubai BAWi" class="prod-img" loading="lazy"/>
+      <div class="prod-body">
+        <div class="prod-name">Brownie Dubái</div>
+        <div class="prod-desc">Brownie vegano con crema de pistacho y kataifi, bañado en cacao al 53%.</div>
+        <span class="prod-tag">Vegano · S/ 11</span>
+      </div>
+    </div>
+    <div class="prod-card">
+      <img src="./images/cuchareable-choco.jpg" onerror="this.src='https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600';this.onerror=null;" alt="Cuchareable BAWi" class="prod-img" loading="lazy"/>
+      <div class="prod-body">
+        <div class="prod-name">Cuchareable para llevar</div>
+        <div class="prod-desc">Nuestros postres wellness en taza BAWi. Perfectos para llevar y disfrutar en casa.</div>
+        <span class="prod-tag">Hecho en Casa</span>
+      </div>
+    </div>
+    <div class="prod-card">
+      <img src="./images/tarta-vasca.jpg" onerror="this.src='https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600';this.onerror=null;" alt="Tarta Vasca BAWi" class="prod-img" loading="lazy"/>
+      <div class="prod-body">
+        <div class="prod-name">Tarta Vasca</div>
+        <div class="prod-desc">Cheesecake vasco artesanal. Cremoso, dorado y irresistible — sabor de vitrina.</div>
+        <span class="prod-tag">Artesanal · S/ 12</span>
+      </div>
+    </div>
     <div class="prod-card">
       <img src="./images/granola-bag-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600';this.onerror=null;" alt="Granola BAWi" class="prod-img" loading="lazy"/>
       <div class="prod-body">
@@ -1638,14 +1699,6 @@ footer {
         <div class="prod-name">Barras Energéticas</div>
         <div class="prod-desc">Pistacho & Limón · CocaAvellana · Snickers Vegano. Energía limpia para tu día.</div>
         <span class="prod-tag">Sin Aditivos</span>
-      </div>
-    </div>
-    <div class="prod-card">
-      <img src="./images/cups-case.jpg" onerror="this.src='https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600';this.onerror=null;" alt="Postres en tarro" class="prod-img" loading="lazy"/>
-      <div class="prod-body">
-        <div class="prod-name">Cuchareable para llevar</div>
-        <div class="prod-desc">Nuestros famosos postres wellness en tarro. Perfectos para llevar y disfrutar en casa.</div>
-        <span class="prod-tag">Hecho en Casa</span>
       </div>
     </div>
   </div>
@@ -1685,16 +1738,6 @@ footer {
           <div>
             <div class="con-label">Instagram</div>
             <div class="con-val"><a href="https://www.instagram.com/bawi.coffee.shop/" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:none;">@bawi.coffee.shop</a></div>
-          </div>
-        </div>
-      </div>
-      <div class="con-img-wrap">
-        <img src="./images/exterior.jpg" onerror="this.src='https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800';this.onerror=null;" alt="Exterior BAWi" class="con-img" loading="lazy"/>
-        <div class="con-img-badge">
-          <span class="con-badge-icon">🐾</span>
-          <div>
-            <div class="con-badge-title">Dog Friendly · Doggy Bar</div>
-            <div class="con-badge-sub">Trae a tu mascota, también es bienvenida</div>
           </div>
         </div>
       </div>
@@ -1784,136 +1827,239 @@ footer {
 </footer>
 
 <script>
-/* ══ BACKGROUND CANVAS — floating coffee rings, beans & dots ══ */
-(function() {
-  const isMobile = window.innerWidth < 768;
-  if (isMobile) return; // skip canvas on mobile for performance
+/* ══ FONDO ILUSTRADO BAWi — sketch animado, estilo dibujo a mano ══ */
+(function () {
   const canvas = document.getElementById('bg-canvas');
+  if (!canvas) return;
   const ctx = canvas.getContext('2d');
-  let W, H, particles = [];
+  let W, H, items = [];
 
   function resize() {
     W = canvas.width  = window.innerWidth;
     H = canvas.height = window.innerHeight;
   }
   resize();
-  window.addEventListener('resize', resize);
+  window.addEventListener('resize', function () { resize(); init(); });
 
-  const COLORS = [
-    'rgba(42,82,73,',       // teal
-    'rgba(160,118,74,',     // kraft
-    'rgba(200,151,106,',    // kraft-lt
-    'rgba(127,212,184,',    // mint
-    'rgba(61,112,102,',     // teal-lt
-    'rgba(28,56,50,',       // teal-dim
-    'rgba(247,198,120,',    // warm gold
-  ];
+  /* Leve temblor — hace que las líneas parezcan dibujadas a mano */
+  function j(v, a) { return v + (Math.random() - 0.5) * a; }
 
-  function mkParticle() {
-    const rand = Math.random();
-    const type = rand < .35 ? 'ring' : rand < .65 ? 'bean' : rand < .85 ? 'dot' : 'star';
-    const col  = COLORS[Math.floor(Math.random() * COLORS.length)];
+  /* Colores de la marca */
+  const TEAL  = [42, 82, 73];
+  const TDIM  = [28, 56, 50];
+  const KRAFT = [160, 118, 74];
+  const KLITE = [180, 138, 90];
+  const COLS  = [TEAL,TEAL,TEAL,TDIM,KRAFT,KRAFT,KLITE];
+
+  /* Tipos — con pesos para variedad */
+  const TYPES = ['cup','cup','cup','bean','bean','bean','bean','leaf','leaf','leaf',
+                 'ring','ring','paw','flower','star','star'];
+
+  function mkItem() {
+    const col  = COLS[Math.floor(Math.random() * COLS.length)];
+    const type = TYPES[Math.floor(Math.random() * TYPES.length)];
+    const isMob = W < 768;
+    const bases = { cup:28, bean:14, leaf:18, ring:24, paw:16, flower:14, star:9 };
+    const base = isMob ? bases[type] * 0.65 : bases[type];
+    const size = base + Math.random() * base * 0.7;
     return {
-      x: Math.random() * W, y: Math.random() * H,
-      r: type==='ring' ? 18+Math.random()*40 : type==='bean' ? 7+Math.random()*12 : type==='dot' ? 3+Math.random()*7 : 6+Math.random()*10,
-      vx: (Math.random()-.5)*.4, vy: -.25 - Math.random()*.5,
-      rot: Math.random()*Math.PI*2, vr: (Math.random()-.5)*.018,
-      alpha: .06 + Math.random()*.22, color: col, type,
-      life: 1, decay: .0007 + Math.random()*.001
+      x: Math.random() * W,
+      y: H + 50 + Math.random() * 80,
+      size,
+      vx: (Math.random() - 0.5) * 0.22,
+      vy: -0.08 - Math.random() * 0.22,
+      rot: Math.random() * Math.PI * 2,
+      vr: (Math.random() - 0.5) * 0.007,
+      col, type,
+      alpha: 0.16 + Math.random() * 0.20,
+      lw: 1.5 + Math.random() * 0.9,
     };
   }
 
-  const COUNT = Math.min(80, Math.floor(W/18));
-  for (let i = 0; i < COUNT; i++) { const p = mkParticle(); p.y = Math.random()*H; particles.push(p); }
-
-  function drawRing(p) {
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-    ctx.strokeStyle = p.color + p.alpha + ')';
-    ctx.lineWidth = 1.2;
-    ctx.stroke();
-    // inner ring
-    if (p.r > 25) {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r*.6, 0, Math.PI*2);
-      ctx.strokeStyle = p.color + (p.alpha*.4) + ')';
-      ctx.lineWidth = .7;
-      ctx.stroke();
+  function init() {
+    const isMob = W < 768;
+    const n = isMob ? Math.min(28, Math.floor(W / 20)) : Math.min(72, Math.floor(W / 16));
+    items = [];
+    for (let i = 0; i < n; i++) {
+      const it = mkItem();
+      it.y = Math.random() * H;
+      items.push(it);
     }
   }
-  function drawBean(p) {
-    ctx.save();
-    ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+  init();
+
+  function ss(it) {
+    const [r,g,b] = it.col;
+    ctx.strokeStyle = `rgba(${r},${g},${b},${it.alpha})`;
+    ctx.lineWidth   = it.lw;
+    ctx.lineCap     = 'round';
+    ctx.lineJoin    = 'round';
+  }
+
+  /* ══ TAZA CON VAPOR ══ */
+  function drawCup(it) {
+    const s = it.size;
+    ctx.save(); ctx.translate(it.x, it.y); ss(it);
+
+    /* cuerpo trapezoidal con temblor */
     ctx.beginPath();
-    ctx.ellipse(0, 0, p.r*.55, p.r, 0, 0, Math.PI*2);
-    ctx.fillStyle = p.color + p.alpha + ')';
-    ctx.fill();
+    ctx.moveTo(j(-s*.72,1.5), j(-s*.48,1));
+    ctx.lineTo(j(-s*.55,1.5), j( s*.58,1));
+    ctx.lineTo(j( s*.55,1.5), j( s*.58,1));
+    ctx.lineTo(j( s*.72,1.5), j(-s*.48,1));
+    ctx.closePath(); ctx.stroke();
+
+    /* borde rim */
     ctx.beginPath();
-    ctx.moveTo(0,-p.r*.85); ctx.quadraticCurveTo(p.r*.55,0,0,p.r*.85);
-    ctx.strokeStyle = p.color+(p.alpha*.55)+')'; ctx.lineWidth=.9; ctx.stroke();
+    ctx.moveTo(j(-s*.80,1), j(-s*.48,.5));
+    ctx.lineTo(j( s*.80,1), j(-s*.48,.5));
+    ctx.stroke();
+
+    /* plato/base */
+    ctx.beginPath();
+    ctx.moveTo(j(-s*.62,1), j(s*.58,.5));
+    ctx.bezierCurveTo(-s*.75,s*.72, s*.75,s*.72, j(s*.62,1),j(s*.58,.5));
+    ctx.stroke();
+
+    /* asa */
+    ctx.beginPath();
+    ctx.moveTo(s*.55, -s*.12);
+    ctx.bezierCurveTo(j(s*1.12,1.5),j(-s*.12,1), j(s*1.12,1.5),j(s*.40,1), s*.55,s*.40);
+    ctx.stroke();
+
+    /* vapor — 3 ondas */
+    ctx.lineWidth = it.lw * 0.65;
+    [[-s*.28,-s*.55,-s*.42,-s*.85,-s*.28,-s*1.12],
+     [      0,-s*.55,      0,-s*.88,      0,-s*1.18],
+     [ s*.28,-s*.55, s*.42,-s*.85, s*.28,-s*1.12]].forEach(([x1,y1,cx,cy,x2,y2])=>{
+      ctx.beginPath();
+      ctx.moveTo(x1,y1);
+      ctx.quadraticCurveTo(j(cx,1.5),j(cy,1.5),j(x2,1.5),j(y2,1));
+      ctx.stroke();
+    });
     ctx.restore();
   }
-  function drawDot(p) {
-    const g = ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r);
-    g.addColorStop(0, p.color+p.alpha+')');
-    g.addColorStop(1, p.color+'0)');
-    ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fillStyle=g; ctx.fill();
+
+  /* ══ GRANO DE CAFÉ ══ */
+  function drawBean(it) {
+    const s = it.size;
+    ctx.save(); ctx.translate(it.x,it.y); ctx.rotate(it.rot); ss(it);
+    ctx.beginPath();
+    ctx.ellipse(j(0,.5),j(0,.5), s*.52, s, 0, 0, Math.PI*2);
+    ctx.stroke();
+    /* pliegue central curvo */
+    ctx.beginPath();
+    ctx.moveTo(j(0,.5), j(-s*.85,.8));
+    ctx.quadraticCurveTo(j(s*.42,1.5), j(0,1), j(0,.5), j(s*.85,.8));
+    ctx.stroke();
+    ctx.restore();
   }
-  function drawStar(p) {
-    ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot);
-    ctx.strokeStyle = p.color+p.alpha+')'; ctx.lineWidth=1.2;
-    for (let i=0;i<4;i++) {
-      ctx.beginPath(); ctx.moveTo(0,-p.r); ctx.lineTo(0,p.r); ctx.stroke();
+
+  /* ══ HOJA BOTÁNICA ══ */
+  function drawLeaf(it) {
+    const s = it.size;
+    ctx.save(); ctx.translate(it.x,it.y); ctx.rotate(it.rot); ss(it);
+    /* silueta */
+    ctx.beginPath();
+    ctx.moveTo(j(0,.5), -s);
+    ctx.quadraticCurveTo(j(s*.92,1.5), j(-s*.15,1.5), j(0,.5), s);
+    ctx.quadraticCurveTo(j(-s*.92,1.5),j(-s*.15,1.5), j(0,.5),-s);
+    ctx.stroke();
+    /* nervio */
+    ctx.beginPath(); ctx.moveTo(0,-s*.88); ctx.lineTo(0,s*.88); ctx.stroke();
+    /* venitas */
+    ctx.lineWidth = it.lw*.55;
+    [[0,-s*.30, s*.50,-s*.05, s*.65,s*.18],
+     [0,-s*.30,-s*.50,-s*.05,-s*.65,s*.18],
+     [0, s*.15, s*.38, s*.32, s*.48,s*.55],
+     [0, s*.15,-s*.38, s*.32,-s*.48,s*.55]].forEach(([x1,y1,cx,cy,x2,y2])=>{
+      ctx.beginPath(); ctx.moveTo(x1,y1);
+      ctx.quadraticCurveTo(cx,cy,x2,y2); ctx.stroke();
+    });
+    ctx.restore();
+  }
+
+  /* ══ ANILLO / MANCHA DE CAFÉ ══ */
+  function drawRing(it) {
+    const s = it.size;
+    ctx.save(); ctx.translate(it.x,it.y); ss(it);
+    ctx.lineWidth = it.lw * 1.4;
+    /* círculo exterior con leve imperfección */
+    ctx.beginPath();
+    ctx.arc(j(0,1), j(0,1), s, 0, Math.PI*2);
+    ctx.stroke();
+    /* círculo interior tenue */
+    ctx.lineWidth = it.lw * 0.6;
+    ctx.globalAlpha *= 0.45;
+    ctx.beginPath();
+    ctx.arc(j(0,1),j(0,1), s*.68, 0, Math.PI*2);
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+    ctx.restore();
+  }
+
+  /* ══ HUELLA DE PERRO ══ */
+  function drawPaw(it) {
+    const s = it.size;
+    ctx.save(); ctx.translate(it.x,it.y); ctx.rotate(it.rot); ss(it);
+    ctx.lineWidth = it.lw * 0.85;
+    /* almohadilla central */
+    ctx.beginPath();
+    ctx.ellipse(j(0,.5), j(s*.18,.5), s*.44, s*.50, 0, 0, Math.PI*2);
+    ctx.stroke();
+    /* 4 dedos */
+    [[-s*.40,-s*.42], [-s*.14,-s*.58], [s*.14,-s*.58], [s*.40,-s*.42]].forEach(([tx,ty])=>{
+      ctx.beginPath();
+      ctx.ellipse(j(tx,.6),j(ty,.6), s*.19, s*.22, 0, 0, Math.PI*2);
+      ctx.stroke();
+    });
+    ctx.restore();
+  }
+
+  /* ══ FLOR ══ */
+  function drawFlower(it) {
+    const s = it.size;
+    ctx.save(); ctx.translate(it.x,it.y); ctx.rotate(it.rot); ss(it);
+    /* 5 pétalos */
+    for (let i=0; i<5; i++) {
+      ctx.beginPath();
+      ctx.ellipse(0, -s*.58, s*.20, s*.35, 0, 0, Math.PI*2);
+      ctx.stroke();
+      ctx.rotate(Math.PI*2/5);
+    }
+    /* centro */
+    ctx.beginPath(); ctx.arc(0,0,s*.18,0,Math.PI*2); ctx.stroke();
+    ctx.restore();
+  }
+
+  /* ══ ESTRELLA ✦ ══ */
+  function drawStar(it) {
+    const s = it.size;
+    ctx.save(); ctx.translate(it.x,it.y); ctx.rotate(it.rot); ss(it);
+    for (let i=0; i<4; i++) {
+      ctx.beginPath(); ctx.moveTo(0,-s); ctx.lineTo(0,s); ctx.stroke();
       ctx.rotate(Math.PI/4);
     }
     ctx.restore();
   }
 
+  const drawFn = {cup:drawCup,bean:drawBean,leaf:drawLeaf,ring:drawRing,paw:drawPaw,flower:drawFlower,star:drawStar};
+
+  /* ══ LOOP — fondo crema + ilustraciones flotantes ══ */
   function loop() {
-    ctx.clearRect(0,0,W,H);
-    for (let i=particles.length-1;i>=0;i--) {
-      const p=particles[i];
-      p.x+=p.vx; p.y+=p.vy; p.rot+=p.vr; p.life-=p.decay;
-      const fade=p.life<.18?p.life/.18:(p.life>.92?(1-p.life)/.08:1);
-      p.alpha=Math.max(0.03, (.07+Math.random()*.001)*fade*.9+.06);
-      if(p.type==='ring')       drawRing(p);
-      else if(p.type==='bean')  drawBean(p);
-      else if(p.type==='dot')   drawDot(p);
-      else                       drawStar(p);
-      if(p.life<=0||p.y<-80){ particles[i]=mkParticle(); particles[i].y=H+30; }
+    /* El canvas pinta su propio fondo crema — se ve en toda la página */
+    ctx.fillStyle = '#F5F0E8';
+    ctx.fillRect(0, 0, W, H);
+
+    for (let i = items.length-1; i >= 0; i--) {
+      const it = items[i];
+      it.x += it.vx; it.y += it.vy; it.rot += it.vr;
+      if (it.y < -100) { items[i] = mkItem(); items[i].y = H + 20; }
+      drawFn[it.type](it);
     }
     requestAnimationFrame(loop);
   }
   loop();
-})();
-
-/* ══ CSS FLOATING BEANS & SHAPES ══ */
-(function() {
-  if (window.innerWidth < 768) return;
-  const colors = ['#2A5249','#A0764A','#3d7066','#C8976A','#1c3832','#7FD4B8','#F7C678'];
-  const count = 28;
-  for (let i = 0; i < count; i++) {
-    const el = document.createElement('div');
-    el.className = 'bean';
-    const type = Math.random() < .6 ? 'bean' : 'dot';
-    const size = type==='bean' ? 9+Math.random()*16 : 4+Math.random()*10;
-    const left = Math.random()*100;
-    const dur  = 20+Math.random()*35;
-    const del  = Math.random()*30;
-    const col  = colors[Math.floor(Math.random()*colors.length)];
-    const opac = (.12 + Math.random()*.22).toFixed(2);
-    Object.assign(el.style, {
-      left: left+'%',
-      width: size+'px', height: type==='bean'?(size*1.4)+'px':size+'px',
-      background: col, opacity: opac,
-      animationDuration: dur+'s', animationDelay: '-'+del+'s',
-      borderRadius: type==='bean'?'50% 50% 50% 50% / 60% 60% 40% 40%':'50%',
-      filter: 'blur(.8px)',
-      boxShadow: `0 0 ${Math.round(size*1.5)}px ${col}55`,
-    });
-    document.body.appendChild(el);
-  }
 })();
 
 /* ── PRELOADER ── */
@@ -1943,13 +2089,11 @@ document.querySelectorAll('a,button,.mi,.bi,.nos-feat,.prod-card').forEach(el=>{
 
 /* ── NAVBAR ── */
 const nav = document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>60),{passive:true});
+const checkNav = () => nav.classList.toggle('solid', scrollY > 60);
+window.addEventListener('scroll', checkNav, {passive:true});
+checkNav(); // Fix initial state if browser restores scroll position
 
-/* ── HERO PARALLAX ── */
-const heroImg = document.getElementById('hero-img');
-window.addEventListener('scroll',()=>{
-  if(heroImg) heroImg.style.transform=`translateY(${scrollY*.2}px)`;
-},{passive:true});
+/* hero parallax eliminado — sin foto de fondo */
 
 /* ── MOBILE MENU ── */
 const burger=document.getElementById('burger');
