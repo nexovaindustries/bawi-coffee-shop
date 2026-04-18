@@ -1078,9 +1078,9 @@ footer {
   .deco-ring,.deco-cross { display:none; }
   #bg-dots { display:none; }
 
-  /* Mobile body — canvas dibuja el fondo */
-  body { background: transparent !important; }
-  #bg-canvas { display: block !important; z-index: -1 !important; }
+  /* Mobile body — usar color sólido crema, ocultar canvas para mejor rendimiento y evitar errores */
+  body { background: var(--cream) !important; }
+  #bg-canvas { display: none !important; }
 
   /* ── NAV ── */
   #nav { padding:.8rem 1.2rem; }
