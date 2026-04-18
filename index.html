@@ -992,11 +992,10 @@ footer {
 }
 
 /* ══════════════════════════════════════
-   RESPONSIVE — MOBILE HERO IMAGES (≤900px)
-   En móvil las fotos van apiladas encima del texto
+   RESPONSIVE — MOBILE (≤900px)
 ══════════════════════════════════════ */
 @media (max-width:900px) {
-  /* Resetear el hero para layout vertical */
+  /* Hero: layout vertical — imágenes arriba, texto abajo */
   #hero {
     flex-direction: column;
     align-items: stretch;
@@ -1004,20 +1003,21 @@ footer {
     padding-top: 0;
   }
 
-  /* Las fotos ocupan la mitad superior */
+  /* order:-1 hace que las fotos aparezcan ANTES del texto
+     aunque en el DOM vienen después del .hero-inner */
   #hero-img-wrap {
+    order: -1;
     position: relative !important;
     width: 100% !important;
-    height: 55vw !important;
-    min-height: 220px;
-    max-height: 340px;
+    height: 52vw !important;
+    min-height: 200px;
+    max-height: 320px;
     flex-direction: row;
     flex-shrink: 0;
     display: flex !important;
-    margin-top: 60px; /* espacio para la navbar */
+    margin-top: 60px; /* navbar height */
   }
 
-  /* Cada foto ocupa el 50% del ancho */
   .hero-img-panel {
     flex: 1;
     height: 100%;
@@ -1030,12 +1030,11 @@ footer {
     height: 100%;
   }
 
-  /* Gradiente hacia abajo en móvil (bottom fade) */
+  /* Fade inferior para transición suave al texto */
   .hero-img-panel::after {
     background: linear-gradient(to bottom,
-      transparent 0%,
-      transparent 55%,
-      rgba(247,242,232,.85) 85%,
+      transparent 60%,
+      rgba(247,242,232,.9) 92%,
       rgba(247,242,232,1) 100%
     );
   }
@@ -1046,17 +1045,26 @@ footer {
     border-right: 3px solid rgba(247,242,232,.8);
   }
 
-  /* El texto va debajo de las fotos */
+  /* Texto — va debajo de las fotos, padding normal (no navbar) */
   .hero-inner {
+    order: 0;
     position: relative !important;
     z-index: 2;
-    padding: 1.5rem 1.4rem 4.5rem;
+    padding: 1.2rem 1.4rem 4rem;
     max-width: 100%;
     width: 100%;
     flex-shrink: 0;
   }
 
-  .hero-cards { display: none; }
+  .hero-title  { font-size: clamp(1.9rem, 8vw, 2.8rem); line-height: 1.05; }
+  .hero-slogan { font-size: 1.25rem; margin-bottom: 1rem; }
+  .hero-desc   { font-size: .88rem; margin-bottom: 1.5rem; }
+  .hero-btns   { flex-direction: column; gap: .6rem; }
+  .btn-white, .btn-ghost {
+    width: 100%; text-align: center;
+    padding: .85rem 1.6rem; font-size: .74rem; min-height: 48px;
+  }
+  .hero-cards { display: none !important; }
   .scroll-cue { display: none; }
 }
 
@@ -1082,29 +1090,13 @@ footer {
   .logo-text { font-size:1.5rem; }
   .logo-sub  { font-size:.48rem; letter-spacing:.2em; }
 
-  /* ── HERO ── */
-  /* hero-img-wrap ya maneja la foto en 900px, refinar tamaños */
+  /* ── HERO (ajustes adicionales ≤767px) ── */
   #hero-img-wrap {
-    height: 52vw !important;
-    min-height: 200px;
-    max-height: 300px;
+    height: 50vw !important;
+    min-height: 190px;
+    max-height: 280px;
     margin-top: 56px;
   }
-  .hero-inner {
-    padding: 1.2rem 1.2rem 4rem;
-    text-align: left;
-  }
-  .hero-tag   { font-size:.6rem; padding:.35rem .85rem; margin-bottom:1.2rem; }
-  .hero-title { font-size: clamp(1.9rem, 8.5vw, 2.8rem); line-height:1.05; margin-bottom:.7rem; }
-  .hero-slogan { font-size:1.25rem; margin-bottom:1rem; }
-  .hero-desc  { font-size:.86rem; max-width:100%; margin-bottom:1.5rem; line-height:1.7; }
-  .hero-btns  { flex-direction:column; gap:.6rem; }
-  .btn-white, .btn-ghost {
-    padding:.85rem 1.6rem; width:100%; text-align:center;
-    font-size:.73rem; min-height:48px; border-radius:50px;
-  }
-  .hero-cards { display:none !important; }
-  .scroll-cue { display:none; }
 
   /* ── STATS ── */
   #stats { padding:2.5rem 1rem; }
