@@ -424,7 +424,44 @@ html, body, *, *::before, *::after { cursor: none !important; }
   display:flex; align-items:center; overflow:hidden;
   padding:0; z-index: 1; isolation: isolate;
 }
-#hero-img-wrap { display: none; }
+/* ── Hero image panel (right side) ── */
+#hero-img-wrap {
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  overflow: hidden;
+}
+.hero-img-panel {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+.hero-img-panel img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  display: block;
+  transition: transform 0.8s cubic-bezier(.4,0,.2,1);
+  filter: contrast(1.06) saturate(1.04);
+}
+.hero-img-panel:hover img { transform: scale(1.05); }
+/* Gradiente izq para blend con el texto */
+.hero-img-panel::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(247,242,232,1) 0%, rgba(247,242,232,.45) 22%, transparent 55%);
+  pointer-events: none;
+}
+/* Separador sutil entre las dos fotos */
+.hero-img-panel:first-child {
+  border-bottom: 3px solid rgba(247,242,232,.7);
+}
+/* Ocultar en móvil */
+@media (max-width: 900px) {
+  #hero-img-wrap { display: none !important; }
+}
 
 
 .hero-inner {
@@ -1210,6 +1247,20 @@ footer {
       <a href="#contacto" class="btn-ghost">Visítanos</a>
     </div>
   </div>
+  <!-- ══ Hero image panel — dos fotos apiladas a la derecha ══ -->
+  <div id="hero-img-wrap">
+    <div class="hero-img-panel">
+      <img src="./images/hero-ilustracion.jpg"
+           onerror="this.src='./images/illustration-store.jpg';this.onerror=null;"
+           alt="BAWi Coffee Shop — ilustración" loading="eager"/>
+    </div>
+    <div class="hero-img-panel">
+      <img src="./images/hero-exterior.jpg"
+           onerror="this.src='./images/exterior-new.jpg';this.onerror=null;"
+           alt="BAWi Coffee Shop — fachada" loading="eager"/>
+    </div>
+  </div>
+
   <!-- Floating info cards -->
   <div class="hero-cards">
     <div class="h-card">
