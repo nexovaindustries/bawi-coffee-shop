@@ -450,11 +450,13 @@ html, body, *, *::before, *::after { cursor: none !important; }
   filter: contrast(1.06) saturate(1.04);
 }
 .hero-img-panel:hover img { transform: scale(1.03); }
-/* Gradiente izq para blend con el texto */
+/* Gradiente multi-dirección para difuminar todos los bordes */
 .hero-img-panel::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(to right, rgba(247,242,232,1) 0%, rgba(247,242,232,.95) 25%, rgba(247,242,232,.5) 45%, transparent 70%);
+  background:
+    linear-gradient(to right,  rgba(247,242,232,1) 0%, rgba(247,242,232,.92) 22%, rgba(247,242,232,.4) 42%, transparent 62%, rgba(247,242,232,.5) 82%, rgba(247,242,232,.95) 100%),
+    linear-gradient(to bottom, rgba(247,242,232,.7) 0%, transparent 18%, transparent 80%, rgba(247,242,232,.7) 100%);
   pointer-events: none;
 }
 
