@@ -705,8 +705,8 @@ html, body, *, *::before, *::after { cursor: none !important; }
   max-width:1300px; margin:0 auto;
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  grid-template-rows:260px 260px 260px;
-  grid-auto-rows: 260px;
+  grid-template-rows:280px 280px;
+  grid-auto-rows: 0;
   gap:3px; border-radius:20px; overflow:hidden;
   background: var(--teal-dim);
 }
@@ -736,18 +736,18 @@ html, body, *, *::before, *::after { cursor: none !important; }
 ══════════════════════════════ */
 #doggy {
   display: grid; grid-template-columns: 1fr 1fr;
-  min-height: 560px; overflow: hidden;
+  min-height: 420px; overflow: hidden;
 }
-.doggy-photos {
-  display: grid; grid-template-rows: 1fr 1fr;
-  height: 100%; min-height: 560px; overflow: hidden;
+.doggy-photo {
+  position: relative; overflow: hidden;
 }
-.doggy-photos img {
-  width: 100%; height: 100%; object-fit: cover; object-position: center;
-  filter: contrast(1.08) saturate(1.1); display: block;
+.doggy-photo img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center bottom;
+  filter: contrast(1.08) saturate(1.1);
+  display: block;
   transition: transform .7s ease;
 }
-#doggy:hover .doggy-photos img { transform: scale(1.04); }
+#doggy:hover .doggy-photo img { transform: scale(1.04); }
 .doggy-info {
   background: linear-gradient(135deg, var(--teal-dim) 0%, var(--teal) 60%, rgba(160,118,74,.4) 100%);
   padding: 4rem 3rem;
@@ -785,36 +785,17 @@ html, body, *, *::before, *::after { cursor: none !important; }
   font-family: 'Nunito', sans-serif; font-size: .7rem; font-weight: 600;
   color: rgba(255,255,255,.85);
 }
-.doggy-stats {
-  display: flex; gap: 1.5rem; margin-top: .25rem;
-}
-.doggy-stat { display: flex; flex-direction: column; }
-.doggy-stat-n {
-  font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 800;
-  color: #7FD4B8; line-height: 1;
-}
-.doggy-stat-l {
-  font-size: .6rem; letter-spacing: .12em; text-transform: uppercase;
-  color: rgba(255,255,255,.5); margin-top: .15rem;
-}
-.doggy-quote {
-  font-family: 'Caveat', cursive; font-size: 1.15rem;
-  color: rgba(255,255,255,.5); border-left: 2px solid rgba(127,212,184,.35);
-  padding-left: .85rem; line-height: 1.45; margin-top: .25rem;
-}
 @media (max-width:1100px) {
   #doggy { grid-template-columns: 1fr; }
-  .doggy-photos { min-height: 360px; height: 360px; }
+  .doggy-photo { height: 320px; }
   .doggy-info { padding: 2.5rem 2rem; }
 }
 @media (max-width:767px) {
   #doggy { grid-template-columns: 1fr; }
-  .doggy-photos { min-height: 300px; height: 300px; }
-  .doggy-info { padding: 2rem 1.4rem; gap: .85rem; }
+  .doggy-photo { height: 240px; }
+  .doggy-info { padding: 2rem 1.4rem; gap: 1rem; }
   .doggy-title { font-size: 1.7rem; }
   .doggy-desc  { font-size: .86rem; }
-  .doggy-stats { gap: 1rem; }
-  .doggy-stat-n { font-size: 1.35rem; }
   .doggy-icon { font-size: 2rem; }
   .doggy-badge { font-size: .6rem; }
 }
@@ -1889,86 +1870,50 @@ footer {
     <div class="sec-line c"></div>
   </div>
   <div class="bento">
-    <!-- 1: hero grande 2col x 2row -->
+    <!-- 1: exterior grande (2 cols x 2 rows) -->
     <div class="bi">
       <img src="./images/exterior-new.jpg" onerror="this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900';this.onerror=null;" alt="BAWi exterior" loading="lazy" style="object-position:center center"/>
       <div class="bi-over"><span class="bi-label">Café para llevar, vida para disfrutar</span></div>
     </div>
-    <!-- 2,3: fila 1 derecha -->
+    <!-- Fila 1 derecha -->
     <div class="bi">
-      <img src="./images/cups-case.jpg" onerror="this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600';this.onerror=null;" alt="Tazas BAWi" loading="lazy"/>
-      <div class="bi-over"><span class="bi-label">Nuestras bebidas de especialidad</span></div>
+      <img src="./images/cuchareable-choco.jpg" onerror="this.src='https://images.unsplash.com/photo-1607867377433-4b1bca38b35b?w=600';this.onerror=null;" alt="Cuchareable BAWi" loading="lazy"/>
+      <div class="bi-over"><span class="bi-label">Todo el placer, cero drama</span></div>
     </div>
     <div class="bi">
-      <img src="./images/pastry-case.jpg" onerror="this.src='https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600';this.onerror=null;" alt="Vitrina de postres" loading="lazy"/>
-      <div class="bi-over"><span class="bi-label">Vitrina artesanal</span></div>
+      <img src="./images/tarta-vasca.jpg" onerror="this.src='https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600';this.onerror=null;" alt="Tarta Vasca" loading="lazy"/>
+      <div class="bi-over"><span class="bi-label">Tarta Vasca artesanal</span></div>
     </div>
-    <!-- 4,5: fila 2 derecha -->
+    <!-- Fila 2 derecha -->
     <div class="bi">
       <img src="./images/snicker-bites.jpg" onerror="this.src='https://images.unsplash.com/photo-1586500036706-41963de24d8b?w=600';this.onerror=null;" alt="Snicker Bites BAWi" loading="lazy"/>
       <div class="bi-over"><span class="bi-label">Snicker Vegano — sin culpas</span></div>
     </div>
     <div class="bi">
-      <img src="./images/cuchareable-choco.jpg" onerror="this.src='https://images.unsplash.com/photo-1607867377433-4b1bca38b35b?w=600';this.onerror=null;" alt="Cuchareable" loading="lazy"/>
-      <div class="bi-over"><span class="bi-label">Todo el placer, cero drama</span></div>
-    </div>
-    <!-- 6: fila 3 col span 2 -->
-    <div class="bi">
-      <img src="./images/interior-lights.jpg" onerror="this.src='https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=900';this.onerror=null;" alt="Interior BAWi" loading="lazy" style="object-position:center center"/>
-      <div class="bi-over"><span class="bi-label">Un espacio para ti</span></div>
-    </div>
-    <!-- 7,8: fila 3 derecha -->
-    <div class="bi">
-      <img src="./images/tarta-vasca.jpg" onerror="this.src='https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600';this.onerror=null;" alt="Tarta Vasca" loading="lazy"/>
-      <div class="bi-over"><span class="bi-label">Tarta Vasca artesanal</span></div>
-    </div>
-    <div class="bi">
-      <img src="./images/granola-shelf.jpg" onerror="this.src='https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600';this.onerror=null;" alt="Granolas BAWi" loading="lazy"/>
-      <div class="bi-over"><span class="bi-label">Granolas hechas en casa</span></div>
+      <img src="./images/brownie-dubai.jpg" onerror="this.src='https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600';this.onerror=null;" alt="Brownie Dubai BAWi" loading="lazy"/>
+      <div class="bi-over"><span class="bi-label">Brownie Dubái vegano</span></div>
     </div>
   </div>
 </section>
 
 <!-- ══ DOG FRIENDLY ══ -->
 <div id="doggy">
-  <!-- 2 fotos apiladas -->
-  <div class="doggy-photos">
-    <img src="./images/doggy-bar-real.jpg"
-         onerror="this.src='./images/doggy-bar.jpg';this.onerror=null;"
-         alt="Doggy Bar BAWi" loading="lazy"
-         style="object-position:center top"/>
+  <div class="doggy-photo">
     <img src="./images/doggy-bar.jpg"
-         onerror="this.src='./images/exterior-new.jpg';this.onerror=null;"
-         alt="BAWi Dog Friendly" loading="lazy"
+         onerror="this.src='./images/doggy-bar-real.jpg';this.onerror=null;"
+         alt="Doggy Bar BAWi" loading="lazy"
          style="object-position:center center"/>
   </div>
   <div class="doggy-info">
-    <span class="doggy-badge">🐶 Dog Friendly · BAWi</span>
+    <span class="doggy-badge">🐶 Dog Friendly</span>
     <span class="doggy-icon">🐾</span>
     <h2 class="doggy-title">Tu perro también<br/>merece su <em>espacio</em></h2>
-    <p class="doggy-desc">Trae a tu mejor amigo — en BAWi lo esperamos con nuestro Doggy Bar, agua fresca y mucho amor. Porque el placer no tiene excusas.</p>
-    <div class="doggy-stats">
-      <div class="doggy-stat">
-        <span class="doggy-stat-n">🐕</span>
-        <span class="doggy-stat-l">Mascotas bienvenidas</span>
-      </div>
-      <div class="doggy-stat">
-        <span class="doggy-stat-n">100%</span>
-        <span class="doggy-stat-l">Pet friendly</span>
-      </div>
-      <div class="doggy-stat">
-        <span class="doggy-stat-n">♥</span>
-        <span class="doggy-stat-l">Con amor BAWi</span>
-      </div>
-    </div>
+    <p class="doggy-desc">Trae a tu mejor amigo — en BAWi lo esperamos con agua fresca y todo el amor. Porque el placer no tiene excusas.</p>
     <div class="doggy-pills">
-      <span class="doggy-pill">🥣 Agua fresca gratis</span>
-      <span class="doggy-pill">🐕 Perros de todo tamaño</span>
-      <span class="doggy-pill">❤️ Espacio seguro</span>
-      <span class="doggy-pill">🌿 Ambiente tranquilo</span>
-      <span class="doggy-pill">☕ Tomar café con tu fiel amigo</span>
+      <span class="doggy-pill">🥣 Agua fresca</span>
+      <span class="doggy-pill">🐕 Todos bienvenidos</span>
+      <span class="doggy-pill">❤️ Pet Friendly</span>
     </div>
-    <p class="doggy-quote">"Porque los mejores momentos son los que se comparten… con correa y todo"</p>
   </div>
 </div>
 
