@@ -827,8 +827,8 @@ html, body, *, *::before, *::after { cursor: none !important; }
 #distribuidores > * { position: relative; }
 .dist-head { text-align:center; margin-bottom:4rem; }
 .dist-grid {
-  max-width:1100px; margin:0 auto;
-  display:grid; grid-template-columns:repeat(3,1fr); gap:2rem;
+  max-width:1200px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(4,1fr); gap:2rem;
 }
 .dist-card {
   background:rgba(237,225,205,.9); border-radius:20px; overflow:hidden;
@@ -895,7 +895,7 @@ html, body, *, *::before, *::after { cursor: none !important; }
   color:var(--teal);
 }
 .dist-footer-dot { width:6px; height:6px; border-radius:50%; background:var(--teal); flex-shrink:0; }
-@media (max-width:1100px) {
+@media (max-width:1200px) {
   .dist-grid { grid-template-columns:1fr 1fr; }
 }
 @media (max-width:767px) {
@@ -1968,6 +1968,50 @@ footer {
             <span class="dist-pill"><span class="dist-pill-icon">🌾</span>Granolas</span>
           </div>
         </div>
+      </div>
+      <div class="dist-footer">
+        <div class="dist-footer-dot"></div>
+        Punto de venta · Arequipa
+      </div>
+    </div>
+
+    <!-- Corner Shop -->
+    <div class="dist-card rv d4">
+      <div class="dist-card-top" style="background:linear-gradient(135deg,#3d2c1e,#6b3f2a)">
+        <div class="dist-name">Corner Shop</div>
+        <span class="dist-tag">🏬 Tienda Multimarca</span>
+      </div>
+      <div class="dist-body">
+
+        <!-- Marca BAWi -->
+        <div>
+          <div class="dist-products-title">☕ Marca BAWi</div>
+          <div class="dist-products">
+            <span class="dist-pill"><span class="dist-pill-icon">🍵</span>Matcha</span>
+            <span class="dist-pill"><span class="dist-pill-icon">☕</span>Café Molido</span>
+            <span class="dist-pill"><span class="dist-pill-icon">🫘</span>Café en Grano</span>
+          </div>
+        </div>
+
+        <!-- Just -->
+        <div>
+          <div class="dist-products-title">⚗️ Marca Just</div>
+          <div class="dist-products">
+            <span class="dist-pill"><span class="dist-pill-icon">✨</span>Productos Just</span>
+          </div>
+        </div>
+
+        <!-- Hampuy -->
+        <div>
+          <div class="dist-products-title">🌸 Hampuy — Karina Salazar</div>
+          <div class="dist-products">
+            <span class="dist-pill"><span class="dist-pill-icon">🛋️</span>Almohadilla Terapéutica</span>
+            <span class="dist-pill"><span class="dist-pill-icon">🌺</span>Perfumes Terapéuticos</span>
+            <span class="dist-pill"><span class="dist-pill-icon">🌿</span>Ramitos Sahumadores</span>
+            <span class="dist-pill"><span class="dist-pill-icon">🧂</span>Baños de Sal y Flores</span>
+          </div>
+        </div>
+
       </div>
       <div class="dist-footer">
         <div class="dist-footer-dot"></div>
