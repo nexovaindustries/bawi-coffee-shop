@@ -821,6 +821,93 @@ html, body, *, *::before, *::after { cursor: none !important; }
 }
 
 /* ══════════════════════════════
+   DISTRIBUIDORES
+══════════════════════════════ */
+#distribuidores { padding:8rem 3rem; background: transparent; position: relative; }
+#distribuidores > * { position: relative; }
+.dist-head { text-align:center; margin-bottom:4rem; }
+.dist-grid {
+  max-width:1100px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:2rem;
+}
+.dist-card {
+  background:rgba(237,225,205,.9); border-radius:20px; overflow:hidden;
+  border:1px solid rgba(42,82,73,.12);
+  transition:all .4s; position:relative;
+  display:flex; flex-direction:column;
+}
+.dist-card:hover { transform:translateY(-8px); box-shadow:0 24px 60px rgba(42,82,73,.14); }
+.dist-card-top {
+  background:linear-gradient(135deg, var(--teal-dim), var(--teal));
+  padding:2rem 1.75rem 1.5rem;
+  display:flex; flex-direction:column; gap:.75rem;
+  position:relative; overflow:hidden;
+}
+.dist-card-top::before {
+  content:''; position:absolute; top:-30px; right:-30px;
+  width:100px; height:100px; border-radius:50%;
+  background:rgba(255,255,255,.06); pointer-events:none;
+}
+.dist-card-top::after {
+  content:''; position:absolute; bottom:-20px; left:-20px;
+  width:70px; height:70px; border-radius:50%;
+  background:rgba(160,118,74,.15); pointer-events:none;
+}
+.dist-name {
+  font-family:'Playfair Display',serif;
+  font-size:1.6rem; font-weight:800; color:#fff;
+  line-height:1.1; position:relative; z-index:1;
+}
+.dist-tag {
+  display:inline-flex; align-items:center; gap:.4rem;
+  background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2);
+  border-radius:50px; padding:.3rem .85rem; align-self:flex-start;
+  font-family:'Nunito',sans-serif; font-size:.62rem; font-weight:700;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:rgba(255,255,255,.85); position:relative; z-index:1;
+}
+.dist-body {
+  padding:1.5rem 1.75rem; display:flex; flex-direction:column;
+  gap:1rem; flex:1;
+}
+.dist-products-title {
+  font-size:.62rem; font-weight:700; letter-spacing:.25em; text-transform:uppercase;
+  color:var(--kraft); margin-bottom:.25rem;
+}
+.dist-products {
+  display:flex; flex-wrap:wrap; gap:.45rem;
+}
+.dist-pill {
+  display:inline-flex; align-items:center; gap:.35rem;
+  background:rgba(42,82,73,.07); border:1px solid rgba(42,82,73,.14);
+  border-radius:50px; padding:.3rem .75rem;
+  font-family:'Nunito',sans-serif; font-size:.72rem; font-weight:600;
+  color:var(--text);
+  transition:all .25s;
+}
+.dist-card:hover .dist-pill { background:rgba(42,82,73,.12); border-color:rgba(42,82,73,.22); }
+.dist-pill-icon { font-size:.8rem; }
+.dist-footer {
+  padding:.9rem 1.75rem 1.25rem;
+  border-top:1px solid rgba(42,82,73,.08);
+  display:flex; align-items:center; gap:.5rem;
+  font-family:'Nunito',sans-serif; font-size:.72rem; font-weight:600;
+  color:var(--teal);
+}
+.dist-footer-dot { width:6px; height:6px; border-radius:50%; background:var(--teal); flex-shrink:0; }
+@media (max-width:1100px) {
+  .dist-grid { grid-template-columns:1fr 1fr; }
+}
+@media (max-width:767px) {
+  #distribuidores { padding:4rem 1.2rem; }
+  .dist-grid { grid-template-columns:1fr; gap:1.25rem; }
+  .dist-card-top { padding:1.5rem 1.25rem 1.25rem; }
+  .dist-body { padding:1.25rem; }
+  .dist-footer { padding:.75rem 1.25rem 1rem; }
+  .dist-name { font-size:1.35rem; }
+}
+
+/* ══════════════════════════════
    CONTACTO
 ══════════════════════════════ */
 #contacto { padding:8rem 3rem; }
@@ -1345,6 +1432,7 @@ footer {
     <li><a href="#menu">Menú</a></li>
     <li><a href="#galeria">Galería</a></li>
     <li><a href="#productos">Productos</a></li>
+    <li><a href="#distribuidores">Distribuidores</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
   <a class="nav-order" href="#contacto">Visítanos</a>
@@ -1353,11 +1441,12 @@ footer {
 
 <!-- MOBILE MENU -->
 <div id="mob-menu">
-  <a href="#nosotros"  onclick="closeMob()">Nosotros</a>
-  <a href="#menu"      onclick="closeMob()">Menú</a>
-  <a href="#galeria"   onclick="closeMob()">Galería</a>
-  <a href="#productos" onclick="closeMob()">Productos</a>
-  <a href="#contacto"  onclick="closeMob()">Contacto</a>
+  <a href="#nosotros"       onclick="closeMob()">Nosotros</a>
+  <a href="#menu"           onclick="closeMob()">Menú</a>
+  <a href="#galeria"        onclick="closeMob()">Galería</a>
+  <a href="#productos"      onclick="closeMob()">Productos</a>
+  <a href="#distribuidores" onclick="closeMob()">Distribuidores</a>
+  <a href="#contacto"       onclick="closeMob()">Contacto</a>
 </div>
 
 <!-- ══ HERO ══ -->
@@ -1800,6 +1889,96 @@ footer {
   </div>
 </section>
 
+<hr class="shimmer-div"/>
+<!-- ══ DISTRIBUIDORES ══ -->
+<section id="distribuidores">
+  <div class="dist-head rv">
+    <span class="sec-eye">Encuéntranos también en</span>
+    <h2 class="sec-title">Nuestros <em>Distribuidores</em></h2>
+    <div class="sec-line c"></div>
+    <p class="sec-lead" style="max-width:520px;margin:0 auto;">Puedes encontrar los productos BAWi en estos puntos de venta en Arequipa. ¡Snacks, granolas y más al alcance de tu mano!</p>
+  </div>
+  <div class="dist-grid">
+
+    <!-- Doorganic -->
+    <div class="dist-card rv d1">
+      <div class="dist-card-top">
+        <div class="dist-name">Doorganic</div>
+        <span class="dist-tag">🌿 Tienda Natural</span>
+      </div>
+      <div class="dist-body">
+        <div>
+          <div class="dist-products-title">Productos disponibles</div>
+          <div class="dist-products">
+            <span class="dist-pill"><span class="dist-pill-icon">🍫</span>Snickers Veganos</span>
+            <span class="dist-pill"><span class="dist-pill-icon">⚡</span>Barras Energéticas</span>
+            <span class="dist-pill"><span class="dist-pill-icon">🥜</span>Mantequilla de Maní</span>
+            <span class="dist-pill"><span class="dist-pill-icon">🌰</span>Mantequilla de Almendra</span>
+            <span class="dist-pill"><span class="dist-pill-icon">🟫</span>Brownies Dubái</span>
+            <span class="dist-pill"><span class="dist-pill-icon">🌾</span>Granolas</span>
+          </div>
+        </div>
+      </div>
+      <div class="dist-footer">
+        <div class="dist-footer-dot"></div>
+        Punto de venta · Arequipa
+      </div>
+    </div>
+
+    <!-- Qiwa -->
+    <div class="dist-card rv d2">
+      <div class="dist-card-top" style="background:linear-gradient(135deg,#1c3832,#2A5249)">
+        <div class="dist-name">Qiwa</div>
+        <span class="dist-tag">🏪 Tienda Saludable</span>
+      </div>
+      <div class="dist-body">
+        <div>
+          <div class="dist-products-title">Productos disponibles</div>
+          <div class="dist-products">
+            <span class="dist-pill"><span class="dist-pill-icon">🍫</span>Snickers Veganos</span>
+            <span class="dist-pill"><span class="dist-pill-icon">⚡</span>Barras Energéticas</span>
+            <span class="dist-pill"><span class="dist-pill-icon">🥜</span>Mantequilla de Maní</span>
+            <span class="dist-pill"><span class="dist-pill-icon">🌰</span>Mantequilla de Almendra</span>
+            <span class="dist-pill"><span class="dist-pill-icon">🟫</span>Brownies Dubái</span>
+            <span class="dist-pill"><span class="dist-pill-icon">🌾</span>Granolas</span>
+          </div>
+        </div>
+      </div>
+      <div class="dist-footer">
+        <div class="dist-footer-dot"></div>
+        Punto de venta · Arequipa
+      </div>
+    </div>
+
+    <!-- Cafetal -->
+    <div class="dist-card rv d3">
+      <div class="dist-card-top" style="background:linear-gradient(135deg,#7a5230,#A0764A)">
+        <div class="dist-name">Cafetal</div>
+        <span class="dist-tag">☕ Café & Tienda</span>
+      </div>
+      <div class="dist-body">
+        <div>
+          <div class="dist-products-title">Productos disponibles</div>
+          <div class="dist-products">
+            <span class="dist-pill"><span class="dist-pill-icon">🍫</span>Snickers Veganos</span>
+            <span class="dist-pill"><span class="dist-pill-icon">⚡</span>Barras Energéticas</span>
+            <span class="dist-pill"><span class="dist-pill-icon">🥜</span>Mantequilla de Maní</span>
+            <span class="dist-pill"><span class="dist-pill-icon">🌰</span>Mantequilla de Almendra</span>
+            <span class="dist-pill"><span class="dist-pill-icon">🟫</span>Brownies Dubái</span>
+            <span class="dist-pill"><span class="dist-pill-icon">🌾</span>Granolas</span>
+          </div>
+        </div>
+      </div>
+      <div class="dist-footer">
+        <div class="dist-footer-dot"></div>
+        Punto de venta · Arequipa
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="shimmer-div"/>
 <!-- ══ CONTACTO ══ -->
 <section id="contacto">
   <div class="con-wrap">
@@ -1895,6 +2074,7 @@ footer {
         <li><a href="#menu">Detox</a></li>
         <li><a href="#menu">Brunch</a></li>
         <li><a href="#menu">Postres</a></li>
+        <li><a href="#distribuidores">Distribuidores</a></li>
       </ul>
     </div>
     <div class="foot-col">
