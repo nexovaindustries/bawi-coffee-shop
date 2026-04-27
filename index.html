@@ -827,8 +827,8 @@ html, body, *, *::before, *::after { cursor: none !important; }
 #distribuidores > * { position: relative; }
 .dist-head { text-align:center; margin-bottom:4rem; }
 .dist-grid {
-  max-width:1200px; margin:0 auto;
-  display:grid; grid-template-columns:repeat(4,1fr); gap:2rem;
+  max-width:1100px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:2rem;
 }
 .dist-card {
   background:rgba(237,225,205,.9); border-radius:20px; overflow:hidden;
@@ -895,7 +895,7 @@ html, body, *, *::before, *::after { cursor: none !important; }
   color:var(--teal);
 }
 .dist-footer-dot { width:6px; height:6px; border-radius:50%; background:var(--teal); flex-shrink:0; }
-@media (max-width:1200px) {
+@media (max-width:1100px) {
   .dist-grid { grid-template-columns:1fr 1fr; }
 }
 @media (max-width:767px) {
@@ -905,6 +905,88 @@ html, body, *, *::before, *::after { cursor: none !important; }
   .dist-body { padding:1.25rem; }
   .dist-footer { padding:.75rem 1.25rem 1rem; }
   .dist-name { font-size:1.35rem; }
+}
+
+/* ══════════════════════════════
+   CORNER SHOP
+══════════════════════════════ */
+#cornershop { padding: 8rem 3rem; background: transparent; position: relative; }
+#cornershop > * { position: relative; }
+.cs-wrap {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1.6fr; gap: 5rem; align-items: start;
+}
+.cs-left { display: flex; flex-direction: column; gap: 1.5rem; }
+.cs-badge {
+  display: inline-flex; align-items: center; gap: .6rem; align-self: flex-start;
+  background: rgba(42,82,73,.08); border: 1.5px solid rgba(42,82,73,.2);
+  border-radius: 50px; padding: .4rem 1.1rem;
+  font-family: 'Nunito', sans-serif; font-size: .65rem; font-weight: 700;
+  letter-spacing: .25em; text-transform: uppercase; color: var(--teal);
+}
+.cs-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); animation: blink 2s ease-in-out infinite; }
+.cs-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1.1;
+  color: var(--text); letter-spacing: -.02em;
+}
+.cs-title em { font-style: italic; font-weight: 300; color: var(--teal); }
+.cs-desc { font-size: .95rem; line-height: 1.85; color: var(--text-mid); }
+.cs-highlights { display: flex; flex-direction: column; gap: .6rem; margin-top: .5rem; }
+.cs-hi {
+  display: flex; align-items: center; gap: .75rem;
+  font-family: 'Nunito', sans-serif; font-size: .88rem; font-weight: 600; color: var(--text);
+}
+.cs-hi-icon {
+  width: 34px; height: 34px; border-radius: 10px;
+  background: linear-gradient(135deg, var(--teal-dim), var(--teal));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0;
+}
+.cs-right { display: flex; flex-direction: column; gap: 1.5rem; }
+.cs-brand-card {
+  background: rgba(237,225,205,.85); border-radius: 18px; overflow: hidden;
+  border: 1px solid rgba(42,82,73,.1);
+  transition: all .35s;
+}
+.cs-brand-card:hover { transform: translateY(-4px); box-shadow: 0 16px 45px rgba(42,82,73,.12); }
+.cs-brand-header {
+  display: flex; align-items: center; gap: .9rem;
+  padding: 1.1rem 1.4rem;
+  border-bottom: 1px solid rgba(42,82,73,.08);
+}
+.cs-brand-icon {
+  width: 42px; height: 42px; border-radius: 12px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+}
+.cs-brand-icon.teal  { background: linear-gradient(135deg, var(--teal-dim), var(--teal)); }
+.cs-brand-icon.kraft { background: linear-gradient(135deg, #7a5230, var(--kraft-lt)); }
+.cs-brand-icon.rose  { background: linear-gradient(135deg, #7a3050, #b85080); }
+.cs-brand-icon.just  { background: linear-gradient(135deg, #2a4a7a, #3d6ab0); }
+.cs-brand-name {
+  font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--text);
+}
+.cs-brand-sub { font-size: .72rem; color: var(--text-lt); margin-top: .1rem; }
+.cs-brand-pills {
+  padding: .9rem 1.4rem; display: flex; flex-wrap: wrap; gap: .4rem;
+}
+.cs-brand-pill {
+  display: inline-flex; align-items: center; gap: .3rem;
+  background: rgba(42,82,73,.07); border: 1px solid rgba(42,82,73,.13);
+  border-radius: 50px; padding: .28rem .7rem;
+  font-family: 'Nunito', sans-serif; font-size: .72rem; font-weight: 600; color: var(--text);
+  transition: all .25s;
+}
+.cs-brand-card:hover .cs-brand-pill { background: rgba(42,82,73,.12); }
+@media (max-width: 1100px) {
+  .cs-wrap { grid-template-columns: 1fr; gap: 3rem; }
+}
+@media (max-width: 767px) {
+  #cornershop { padding: 4rem 1.2rem; }
+  .cs-title { font-size: clamp(1.7rem, 8vw, 2.4rem); }
+  .cs-wrap { gap: 2rem; }
+  .cs-brand-header { padding: .9rem 1.1rem; }
+  .cs-brand-pills { padding: .75rem 1.1rem; }
 }
 
 /* ══════════════════════════════
@@ -1432,6 +1514,7 @@ footer {
     <li><a href="#menu">Menú</a></li>
     <li><a href="#galeria">Galería</a></li>
     <li><a href="#productos">Productos</a></li>
+    <li><a href="#cornershop">Corner Shop</a></li>
     <li><a href="#distribuidores">Distribuidores</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
@@ -1445,6 +1528,7 @@ footer {
   <a href="#menu"           onclick="closeMob()">Menú</a>
   <a href="#galeria"        onclick="closeMob()">Galería</a>
   <a href="#productos"      onclick="closeMob()">Productos</a>
+  <a href="#cornershop"     onclick="closeMob()">Corner Shop</a>
   <a href="#distribuidores" onclick="closeMob()">Distribuidores</a>
   <a href="#contacto"       onclick="closeMob()">Contacto</a>
 </div>
@@ -1975,50 +2059,80 @@ footer {
       </div>
     </div>
 
-    <!-- Corner Shop -->
-    <div class="dist-card rv d4">
-      <div class="dist-card-top" style="background:linear-gradient(135deg,#3d2c1e,#6b3f2a)">
-        <div class="dist-name">Corner Shop</div>
-        <span class="dist-tag">🏬 Tienda Multimarca</span>
-      </div>
-      <div class="dist-body">
+  </div>
+</section>
 
-        <!-- Marca BAWi -->
-        <div>
-          <div class="dist-products-title">☕ Marca BAWi</div>
-          <div class="dist-products">
-            <span class="dist-pill"><span class="dist-pill-icon">🍵</span>Matcha</span>
-            <span class="dist-pill"><span class="dist-pill-icon">☕</span>Café Molido</span>
-            <span class="dist-pill"><span class="dist-pill-icon">🫘</span>Café en Grano</span>
-          </div>
-        </div>
+<hr class="shimmer-div"/>
+<!-- ══ CORNER SHOP ══ -->
+<section id="cornershop">
+  <div class="cs-wrap">
 
-        <!-- Just -->
-        <div>
-          <div class="dist-products-title">⚗️ Marca Just</div>
-          <div class="dist-products">
-            <span class="dist-pill"><span class="dist-pill-icon">✨</span>Productos Just</span>
-          </div>
-        </div>
-
-        <!-- Hampuy -->
-        <div>
-          <div class="dist-products-title">🌸 Hampuy — Karina Salazar</div>
-          <div class="dist-products">
-            <span class="dist-pill"><span class="dist-pill-icon">🛋️</span>Almohadilla Terapéutica</span>
-            <span class="dist-pill"><span class="dist-pill-icon">🌺</span>Perfumes Terapéuticos</span>
-            <span class="dist-pill"><span class="dist-pill-icon">🌿</span>Ramitos Sahumadores</span>
-            <span class="dist-pill"><span class="dist-pill-icon">🧂</span>Baños de Sal y Flores</span>
-          </div>
-        </div>
-
-      </div>
-      <div class="dist-footer">
-        <div class="dist-footer-dot"></div>
-        Punto de venta · Arequipa
+    <!-- Columna izquierda: info -->
+    <div class="cs-left rv">
+      <div class="cs-badge"><div class="cs-badge-dot"></div> Nuestro Espacio Multimarca</div>
+      <h2 class="cs-title">Corner <em>Shop</em> BAWi</h2>
+      <div class="sec-line"></div>
+      <p class="cs-desc">
+        Más que un café — un espacio curado donde encontrarás nuestras propias marcas junto a productos de bienestar seleccionados. Todo bajo el mismo techo, con el sello BAWi.
+      </p>
+      <div class="cs-highlights">
+        <div class="cs-hi"><div class="cs-hi-icon">☕</div> Café BAWi de especialidad para llevar a casa</div>
+        <div class="cs-hi"><div class="cs-hi-icon">✨</div> Productos seleccionados de la marca Just</div>
+        <div class="cs-hi"><div class="cs-hi-icon">🌸</div> Bienestar natural con Hampuy · Karina Salazar</div>
       </div>
     </div>
 
+    <!-- Columna derecha: tarjetas de marcas -->
+    <div class="cs-right">
+
+      <!-- BAWi -->
+      <div class="cs-brand-card rvr d1">
+        <div class="cs-brand-header">
+          <div class="cs-brand-icon teal">☕</div>
+          <div>
+            <div class="cs-brand-name">Marca BAWi</div>
+            <div class="cs-brand-sub">Café de especialidad — hecho en casa</div>
+          </div>
+        </div>
+        <div class="cs-brand-pills">
+          <span class="cs-brand-pill">🍵 Matcha</span>
+          <span class="cs-brand-pill">☕ Café Molido</span>
+          <span class="cs-brand-pill">🫘 Café en Grano</span>
+        </div>
+      </div>
+
+      <!-- Just -->
+      <div class="cs-brand-card rvr d2">
+        <div class="cs-brand-header">
+          <div class="cs-brand-icon just">✨</div>
+          <div>
+            <div class="cs-brand-name">Marca Just</div>
+            <div class="cs-brand-sub">Productos de calidad seleccionados</div>
+          </div>
+        </div>
+        <div class="cs-brand-pills">
+          <span class="cs-brand-pill">✨ Productos Just</span>
+        </div>
+      </div>
+
+      <!-- Hampuy -->
+      <div class="cs-brand-card rvr d3">
+        <div class="cs-brand-header">
+          <div class="cs-brand-icon rose">🌸</div>
+          <div>
+            <div class="cs-brand-name">Hampuy</div>
+            <div class="cs-brand-sub">por Karina Salazar — bienestar terapéutico</div>
+          </div>
+        </div>
+        <div class="cs-brand-pills">
+          <span class="cs-brand-pill">🛋️ Almohadilla Terapéutica</span>
+          <span class="cs-brand-pill">🌺 Perfumes Terapéuticos</span>
+          <span class="cs-brand-pill">🌿 Ramitos Sahumadores</span>
+          <span class="cs-brand-pill">🧂 Baños de Sal y Flores</span>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
