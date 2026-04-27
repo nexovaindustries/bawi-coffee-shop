@@ -420,126 +420,137 @@ html, body, *, *::before, *::after { cursor: none !important; }
 /* ══════════════════════════════
    HERO
 ══════════════════════════════ */
+/* ══════════════════════════════
+   HERO (Minimalist 2-Column)
+══════════════════════════════ */
 #hero {
   position:relative; min-height:100vh;
-  display:flex; align-items:center; overflow:hidden;
+  display:grid; grid-template-columns: 1.1fr 1fr;
+  align-items:center;
   padding:0; z-index: 1; isolation: isolate;
+  background: #ffffff; /* Clean white base */
+  overflow:hidden;
 }
 
-/* ── Hero image panel — desktop: right side absolute ── */
-#hero-img-wrap {
-  position: absolute;
-  left: 0; right: 0; top: 0; bottom: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  z-index: 1;
-  overflow: hidden;
-}
-.hero-img-panel {
-  flex: 1;
-  overflow: hidden;
-  position: relative;
-}
-.hero-img-panel img {
-  width: 100%; height: 100%;
-  object-fit: contain;
-  object-position: right center;
-  display: block;
-  transition: transform 0.8s cubic-bezier(.4,0,.2,1);
-  filter: contrast(1.06) saturate(1.04);
-}
-.hero-img-panel:hover img { transform: scale(1.03); }
-/* Gradiente multi-dirección para difuminar todos los bordes */
-.hero-img-panel::after {
-  content: '';
-  position: absolute; inset: 0;
-  background:
-    linear-gradient(to right,  rgba(247,242,232,1) 0%, rgba(247,242,232,.92) 22%, rgba(247,242,232,.4) 42%, transparent 62%, rgba(247,242,232,.5) 82%, rgba(247,242,232,.95) 100%),
-    linear-gradient(to bottom, rgba(247,242,232,.7) 0%, transparent 18%, transparent 80%, rgba(247,242,232,.7) 100%);
+/* Subtle background & decorations on the left */
+.hero-left-bg {
+  position: absolute; top: 0; left: 0; bottom: 0; width: 55%;
+  background: radial-gradient(circle at -10% 50%, rgba(200, 151, 106, 0.05) 0%, transparent 60%);
+  z-index: -1;
   pointer-events: none;
 }
-
+.hero-deco-lines {
+  position: absolute; left: -80px; top: 15%;
+  width: 400px; height: 400px;
+  background-image: repeating-linear-gradient(45deg, rgba(200,151,106,0.06) 0, rgba(200,151,106,0.06) 1px, transparent 1px, transparent 24px);
+  border-radius: 50%;
+  z-index: -1;
+}
+.hero-deco-bean {
+  position: absolute; left: 45%; top: 25%;
+  font-size: 2rem; opacity: 0.05; transform: rotate(15deg);
+}
+.hero-deco-bean2 {
+  position: absolute; left: 10%; bottom: 20%;
+  font-size: 3rem; opacity: 0.03; transform: rotate(-25deg);
+}
 
 .hero-inner {
   position:relative; z-index:2;
-  padding: 9rem 3rem 5rem;
-  max-width: 520px;
+  padding: 8rem 2rem 5rem 8vw;
+  max-width: 680px;
 }
+
 .hero-tag {
   display:inline-flex; align-items:center; gap:.75rem;
-  background: rgba(42,82,73,.07);
-  border:1.5px solid rgba(42,82,73,.22); border-radius:50px;
-  padding:.4rem 1rem; margin-bottom:2rem;
+  background: rgba(200,151,106,.08);
+  border:1px solid rgba(200,151,106,.2); border-radius:50px;
+  padding:.4rem 1.2rem; margin-bottom:1.5rem;
   font-size:.68rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase;
-  color: var(--teal);
+  color: var(--kraft);
 }
-.hero-tag-dot { width:6px; height:6px; border-radius:50%; background:var(--teal); animation:blink 2s ease-in-out infinite; }
+.hero-tag-dot { width:6px; height:6px; border-radius:50%; background:var(--kraft); animation:blink 2s ease-in-out infinite; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
 
 .hero-title {
   font-family:'Playfair Display',serif;
-  font-size: clamp(2.8rem,7vw,5.5rem);
-  font-weight:800; line-height:1.0; color: var(--teal-dim);
-  margin-bottom:1rem; letter-spacing:-.03em;
+  font-size: clamp(3.2rem, 5vw, 4.8rem);
+  font-weight:800; line-height:1.05; color: #111111;
+  margin-bottom:1.2rem; letter-spacing:-.02em;
 }
 .hero-title em {
   font-style:italic; font-weight:400;
-  color: var(--kraft);
-  -webkit-text-fill-color: var(--kraft);
+  color: var(--kraft); /* Gold accent */
 }
+
 .hero-slogan {
-  font-family:'Caveat',cursive; font-size:1.9rem; font-weight:600;
-  color: var(--kraft); margin-bottom:1.75rem; line-height:1.3;
+  font-family:'Nunito',sans-serif; font-size:1.1rem; font-weight:400;
+  color: #555555; margin-bottom:2.5rem; line-height:1.7;
+  max-width:440px;
 }
-.hero-desc {
-  font-size:.95rem; line-height:1.85; color: var(--text-mid);
-  font-weight:400; max-width:480px; margin-bottom:2.5rem;
-}
-.hero-btns { display:flex; gap:.75rem; flex-wrap:wrap; }
-.btn-white {
-  padding:.85rem 2.2rem; background: var(--teal); border-radius:50px;
+
+.hero-btns { display:flex; gap:1rem; flex-wrap:wrap; align-items: center; }
+.btn-black {
+  padding:.9rem 2.4rem; background: #111111; border-radius:50px;
   font-size:.78rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase;
-  text-decoration:none; color:#fff;
-  box-shadow: 0 6px 25px rgba(42,82,73,.30);
+  text-decoration:none; color:#ffffff;
+  box-shadow: 0 8px 25px rgba(0,0,0,.15);
   transition:all .35s;
 }
-.btn-white:hover { transform:translateY(-3px); background: var(--teal-lt); box-shadow:0 12px 35px rgba(42,82,73,.4); }
-.btn-ghost {
-  padding:.85rem 2.2rem; background:transparent; border-radius:50px;
-  border:1.5px solid rgba(42,82,73,.45);
+.btn-black:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(0,0,0,.25); background: #000; }
+.btn-outline {
+  padding:.9rem 2.4rem; background:transparent; border-radius:50px;
+  border:1.5px solid #dddddd;
   font-size:.78rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase;
-  text-decoration:none; color: var(--teal);
+  text-decoration:none; color: #111111;
   transition:all .35s;
 }
-.btn-ghost:hover { background:rgba(42,82,73,.07); border-color: var(--teal); transform:translateY(-3px); }
+.btn-outline:hover { border-color: var(--kraft); color: var(--kraft); transform:translateY(-3px); }
 
-/* floating cards on hero */
-.hero-cards {
-  position:absolute; right:4rem; top:50%; transform:translateY(-50%);
-  display:flex; flex-direction:column; gap:1rem; z-index:3;
+/* Right Column - Illustration */
+.hero-img-col {
+  position: relative;
+  height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  padding: 4rem 4rem 4rem 0;
+  z-index: 2;
 }
-.h-card {
-  background: rgba(245,240,232,.88);
-  border:1.5px solid rgba(42,82,73,.18); border-radius:16px;
-  padding:.9rem 1.2rem; display:flex; align-items:center; gap:.8rem;
-  transition:transform .3s;
-  box-shadow: 0 4px 16px rgba(42,82,73,.10);
-}
-.h-card:hover { transform:translateX(-5px); }
-.h-card-icon { font-size:1.5rem; }
-.h-card-text strong { display:block; font-size:.85rem; font-weight:700; color: var(--teal-dim); }
-.h-card-text span  { font-size:.7rem; color: var(--text-mid); font-weight:400; }
 
-/* scroll cue */
+.hero-img-col::before {
+  content: '';
+  position: absolute; right: 0; top: 0; bottom: 0; width: 80%;
+  background: linear-gradient(to right, transparent, rgba(247,242,232,0.4));
+  z-index: -1; pointer-events: none;
+}
+
+.hero-img-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  display: flex; justify-content: center;
+}
+
+.hero-img-wrapper img {
+  width: 100%; height: auto; object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.06));
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Scroll cue */
 .scroll-cue {
   position:absolute; bottom:2rem; left:50%; transform:translateX(-50%);
   z-index:3; display:flex; flex-direction:column; align-items:center; gap:.5rem;
   opacity:.6; animation:fadeIn 1s ease 2s both;
 }
 @keyframes fadeIn { from{opacity:0} to{opacity:.6} }
-.scroll-cue span { font-size:.6rem; letter-spacing:.3em; text-transform:uppercase; color: var(--teal); }
-.scroll-bar { width:1px; height:45px; background:linear-gradient(to bottom, rgba(42,82,73,.6),transparent); animation:barAnim 2s ease-in-out infinite; }
+.scroll-cue span { font-size:.6rem; letter-spacing:.3em; text-transform:uppercase; color: #111; }
+.scroll-bar { width:1px; height:45px; background:linear-gradient(to bottom, #111,transparent); animation:barAnim 2s ease-in-out infinite; }
 @keyframes barAnim { 0%,100%{transform:scaleY(1);opacity:.8} 50%{transform:scaleY(.5);opacity:.3} }
 
 /* ══════════════════════════════
@@ -1419,14 +1430,16 @@ footer {
 /* ══════════════════════════════════════
    RESPONSIVE — SMALL MOBILE (≤420px)
 ══════════════════════════════════════ */
+@media (max-width:1100px) {
+  #hero { grid-template-columns: 1fr; padding-top: 6rem; }
+  .hero-img-col { height: auto; padding: 2rem 2rem 4rem; }
+  .hero-inner { padding: 4rem 2rem 2rem; max-width: 100%; text-align: center; }
+  .hero-tag, .hero-btns { justify-content: center; margin-left: auto; margin-right: auto; }
+  .hero-slogan { margin-left: auto; margin-right: auto; }
+  .scroll-cue { display: none; }
+}
 @media (max-width:420px) {
-  #hero-img-wrap {
-    height: 58vw !important;
-    min-height: 180px;
-    max-height: 260px;
-    margin-top: 52px;
-  }
-  .hero-title { font-size: clamp(1.7rem, 8vw, 2.4rem); }
+  .hero-title { font-size: clamp(2.4rem, 10vw, 3rem); }
   .bento .bi { height: 180px; }
   .bento .bi:nth-child(1) { height: 200px; }
   .prod-img { aspect-ratio: 3/2; max-height: 200px; }
@@ -1538,55 +1551,39 @@ footer {
 </div>
 
 <!-- ══ HERO ══ -->
+<!-- ══ HERO ══ -->
 <section id="hero">
+  <!-- Subtle left background & decos -->
+  <div class="hero-left-bg"></div>
+  <div class="hero-deco-lines"></div>
+  <div class="hero-deco-bean">☕</div>
+  <div class="hero-deco-bean2">☕</div>
+
   <div class="hero-inner">
     <div class="hero-tag rv d1">
       <div class="hero-tag-dot"></div>
       <span>Arequipa, Perú · Abierto ahora</span>
     </div>
+    
     <h1 class="hero-title rv d2">
-      Todo el placer,<br/><em>cero drama.</em>
+      Café para llevar,<br/><em>vida para disfrutar.</em>
     </h1>
-    <p class="hero-slogan rv d3">"Café para llevar, vida para disfrutar"</p>
-    <p class="hero-desc rv d4">
-      Café de especialidad, postres wellness y productos naturales hechos en casa. Nuestra cocina es alquimia de amor.
+    
+    <p class="hero-slogan rv d3">
+      Tu pausa perfecta. Café de especialidad y opciones naturales hechas en casa, listas para acompañar tu ritmo. Rapidez y comodidad sin comprometer el sabor.
     </p>
-    <div class="hero-btns rv d5">
-      <a href="#menu" class="btn-white">Ver el Menú</a>
-      <a href="#contacto" class="btn-ghost">Visítanos</a>
-    </div>
-  </div>
-  <!-- ══ Hero image panel — dos fotos apiladas a la derecha ══ -->
-  <div id="hero-img-wrap">
-    <div class="hero-img-panel">
-      <img src="./images/hero-ilustracion.jpg"
-           onerror="this.src='./images/illustration-store.jpg';this.onerror=null;"
-           alt="BAWi Coffee Shop — ilustración" loading="eager"/>
+    
+    <div class="hero-btns rv d4">
+      <a href="#contacto" class="btn-black">Ordenar ahora</a>
+      <a href="#menu" class="btn-outline">Ver menú</a>
     </div>
   </div>
 
-  <!-- Floating info cards -->
-  <div class="hero-cards">
-    <div class="h-card">
-      <span class="h-card-icon">🐾</span>
-      <div class="h-card-text">
-        <strong>Dog Friendly</strong>
-        <span>Doggy Bar incluido</span>
-      </div>
-    </div>
-    <div class="h-card">
-      <span class="h-card-icon">🌿</span>
-      <div class="h-card-text">
-        <strong>100% Natural</strong>
-        <span>Hecho en casa</span>
-      </div>
-    </div>
-    <div class="h-card">
-      <span class="h-card-icon">☕</span>
-      <div class="h-card-text">
-        <strong>Para llevar</strong>
-        <span>Rápido y delicioso</span>
-      </div>
+  <div class="hero-img-col rv d5">
+    <div class="hero-img-wrapper">
+      <img src="./images/hero-ilustracion.jpg"
+           onerror="this.src='./images/illustration-store.jpg';this.onerror=null;"
+           alt="BAWi Coffee Shop — ilustración de fachada" loading="eager"/>
     </div>
   </div>
 
