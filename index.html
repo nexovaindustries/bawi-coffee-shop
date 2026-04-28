@@ -780,9 +780,6 @@ html, body, *, *::before, *::after { cursor: none !important; }
 }
 .mgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:.7rem; }
 .mi {
-  display:flex; justify-content:space-between; align-items:flex-start;
-  padding:1rem 1.25rem; background:rgba(247,242,232,.9); border-radius:12px;
-  border:1px solid rgba(42,82,73,.08);
   transition:all .3s; position:relative; overflow:hidden;
 }
 .mi::before {
@@ -842,79 +839,10 @@ html, body, *, *::before, *::after { cursor: none !important; }
   will-change: transform;
 }
 
-.gal-item:hover img { transform: scale(1.08); }
-
-.gal-over {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(28,43,39,0.85) 0%, transparent 60%);
-  opacity: 0; transition: opacity 0.4s;
-  display: flex; align-items: flex-end; padding: 1.2rem;
-}
-.gal-item:hover .gal-over { opacity: 1; }
-.gal-label { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: #fff; line-height: 1.2; }
-
-@media (max-width: 767px) {
-  #galeria { padding: 4rem 0; }
-  .gal-head { padding: 0 1.5rem; margin-bottom: 2rem; }
-  .gal-slider { padding: 0 1.5rem 1rem; scroll-padding: 0 1.5rem; gap: .75rem; }
-  .gal-item { width: 220px; }
-}
-
 /* ══════════════════════════════
    DOG FRIENDLY SECTION (Banner)
 ══════════════════════════════ */
-#doggy {
-  position: relative;
-  padding: 5rem 3rem;
-  display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
-}
-.doggy-bg {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%; object-fit: cover; object-position: center 35%;
-  z-index: 0;
-}
-.doggy-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(28,43,39,0.95) 0%, rgba(42,82,73,0.85) 45%, transparent 100%);
-  z-index: 1;
-}
-.doggy-content {
-  position: relative; z-index: 2;
-  width: 100%; max-width: 1100px;
-  display: flex; flex-direction: column; align-items: flex-start; gap: 1.2rem;
-}
-.doggy-badge {
-  display: inline-flex; align-items: center; gap: .5rem;
-  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
-  border-radius: 50px; padding: .3rem .9rem;
-  font-family: 'Nunito', sans-serif; font-size: .65rem; font-weight: 700;
-  letter-spacing: .25em; text-transform: uppercase; color: #fff;
-}
-.doggy-title {
-  font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800; color: #fff; line-height: 1.1; max-width: 500px;
-}
-.doggy-title em { font-style: italic; font-weight: 300; color: var(--kraft); }
-.doggy-desc { font-size: .95rem; color: rgba(255,255,255,.8); line-height: 1.7; max-width: 440px; margin-bottom: .5rem; }
-.doggy-pills { display: flex; gap: .6rem; flex-wrap: wrap; }
-.doggy-pill {
-  display: inline-flex; align-items: center; gap: .4rem;
-  background: rgba(255,255,255,.15); backdrop-filter: blur(4px);
-  border-radius: 50px; padding: .3rem .8rem;
-  font-family: 'Nunito', sans-serif; font-size: .75rem; font-weight: 700;
-  color: #fff;
-}
-@media (max-width:1100px) {
-  .doggy-overlay { background: linear-gradient(to top, rgba(28,43,39,0.95) 0%, rgba(42,82,73,0.85) 60%, transparent 100%); }
-  .doggy-content { align-items: center; text-align: center; margin-top: 10rem; }
-}
-@media (max-width:767px) {
-  #doggy { padding: 4rem 1.5rem; }
-  .doggy-content { margin-top: 8rem; }
-  .doggy-title { font-size: 1.8rem; }
-  .doggy-pills { justify-content: center; }
-}
+
 
 /* ══════════════════════════════
    PRODUCTOS BAWI
@@ -2088,23 +2016,7 @@ footer {
   </div>
 </section>
 
-<!-- ══ DOG FRIENDLY ══ -->
-<div id="doggy">
-  <img src="./images/doggy-bar.jpg" class="doggy-bg"
-       onerror="this.src='./images/doggy-bar-real.jpg';this.onerror=null;"
-       alt="Doggy Bar BAWi" loading="lazy"/>
-  <div class="doggy-overlay"></div>
-  <div class="doggy-content rv">
-    <span class="doggy-badge">🐶 Dog Friendly</span>
-    <h2 class="doggy-title">Tu perro también<br/>merece su <em>espacio</em></h2>
-    <p class="doggy-desc">En BAWi lo esperamos con agua fresca y todo el amor. Porque el placer de un buen café se comparte con los mejores amigos.</p>
-    <div class="doggy-pills">
-      <span class="doggy-pill">🥣 Agua fresca</span>
-      <span class="doggy-pill">🐕 Todos bienvenidos</span>
-      <span class="doggy-pill">❤️ Pet friendly</span>
-    </div>
-  </div>
-</div>
+
 
 <!-- ══ PRODUCTOS BAWI ══ -->
 <section id="productos">
@@ -2433,7 +2345,7 @@ footer {
       <ul>
         <li><a href="#">Lun – Vie: 8am – 8pm</a></li>
         <li><a href="#">Sáb – Dom: 9am – 9pm</a></li>
-        <li><a href="#" style="color:rgba(127,212,184,.7);">🐾 Dog Friendly</a></li>
+        
       </ul>
     </div>
     <div class="foot-col">
