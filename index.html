@@ -678,39 +678,61 @@ html, body, *, *::before, *::after { cursor: none !important; }
 .mnote { text-align:center; font-size:.78rem; color:var(--text-lt); font-style:italic; margin-bottom:1.5rem; margin-top:-.5rem; }
 
 /* ══════════════════════════════
-   GALLERY BENTO
+   GALLERY CAROUSEL
 ══════════════════════════════ */
-#galeria { padding:8rem 3rem; }
-.gal-head { text-align:center; margin-bottom:4rem; }
-.bento {
-  max-width:1300px; margin:0 auto;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  grid-template-rows:280px 280px;
-  grid-auto-rows: 0;
-  gap:3px; border-radius:20px; overflow:hidden;
-  background: var(--teal-dim);
+#galeria { padding: 8rem 0; overflow: hidden; }
+.gal-head { text-align:center; margin-bottom: 3rem; padding: 0 3rem; }
+
+.gal-slider {
+  display: flex; gap: 1.2rem;
+  padding: 0 3rem 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 3rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--teal) rgba(42,82,73,0.1);
+  -webkit-overflow-scrolling: touch;
 }
-.bi { overflow:hidden; position:relative; background:var(--cream-dk); }
-.bi img {
-  width:100%; height:100%; object-fit:cover;
-  filter: contrast(1.1) saturate(1.08);
-  transition: transform .6s cubic-bezier(.4,0,.2,1);
+
+.gal-slider::-webkit-scrollbar { height: 6px; }
+.gal-slider::-webkit-scrollbar-track { background: rgba(42,82,73,0.05); border-radius: 10px; margin: 0 3rem; }
+.gal-slider::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 10px; }
+
+.gal-item {
+  flex: 0 0 auto;
+  width: 280px;
+  aspect-ratio: 4 / 5;
+  scroll-snap-align: start;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  background: var(--cream-dk);
+  box-shadow: 0 10px 30px rgba(42,82,73,0.08);
+}
+
+.gal-item img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
 }
-.bi:hover img { transform:scale(1.06); filter: contrast(1.14) saturate(1.15); }
-.bi-over {
-  position:absolute; inset:0;
-  background:linear-gradient(to top,rgba(28,43,39,.75) 0%,transparent 55%);
-  opacity:0; transition:opacity .4s;
-  display:flex; align-items:flex-end; padding:.9rem 1rem;
+
+.gal-item:hover img { transform: scale(1.08); }
+
+.gal-over {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(28,43,39,0.85) 0%, transparent 60%);
+  opacity: 0; transition: opacity 0.4s;
+  display: flex; align-items: flex-end; padding: 1.2rem;
 }
-.bi:hover .bi-over { opacity:1; }
-.bi-label { font-family:'Caveat',cursive; font-size:1.1rem; color:#fff; }
-/* bento layout */
-.bi:nth-child(1) { grid-column:span 2; grid-row:span 2; }
-.bi:nth-child(6) { grid-column:span 2; }
-.bi:nth-child(7), .bi:nth-child(8) { }
+.gal-item:hover .gal-over { opacity: 1; }
+.gal-label { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: #fff; line-height: 1.2; }
+
+@media (max-width: 767px) {
+  #galeria { padding: 4rem 0; }
+  .gal-head { padding: 0 1.5rem; margin-bottom: 2rem; }
+  .gal-slider { padding: 0 1.5rem 1rem; scroll-padding: 0 1.5rem; gap: .75rem; }
+  .gal-item { width: 220px; }
+}
 
 /* ══════════════════════════════
    DOG FRIENDLY SECTION (Banner)
@@ -1826,33 +1848,61 @@ footer {
 <!-- ══ GALERÍA BENTO ══ -->
 <section id="galeria">
   <div class="gal-head rv">
-    <span class="sec-eye">Nuestro Espacio</span>
-    <h2 class="sec-title">La <em>atmósfera</em> BAWi</h2>
+    <span class="sec-eye">Nuestro Espacio & Creaciones</span>
+    <h2 class="sec-title">La <em>experiencia</em> BAWi</h2>
     <div class="sec-line c"></div>
+    <p class="sec-lead" style="max-width:500px;margin:0 auto;font-size:.9rem;color:var(--text-mid);">Desliza para explorar nuestros postres wellness, bebidas de especialidad y cada rincón pensado para ti.</p>
   </div>
-  <div class="bento">
-    <!-- 1: exterior grande (2 cols x 2 rows) -->
-    <div class="bi">
-      <img src="./images/exterior-new.jpg" onerror="this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900';this.onerror=null;" alt="BAWi exterior" loading="lazy" style="object-position:center center"/>
-      <div class="bi-over"><span class="bi-label">Café para llevar, vida para disfrutar</span></div>
+  
+  <div class="gal-slider">
+    <!-- 12 placeholders for the gallery -->
+    <div class="gal-item rv d1">
+      <img src="./images/gal-bawi-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <div class="gal-over"><span class="gal-label">Postres Wellness</span></div>
     </div>
-    <!-- Fila 1 derecha -->
-    <div class="bi">
-      <img src="./images/cuchareable-choco.jpg" onerror="this.src='https://images.unsplash.com/photo-1607867377433-4b1bca38b35b?w=600';this.onerror=null;" alt="Cuchareable BAWi" loading="lazy"/>
-      <div class="bi-over"><span class="bi-label">Todo el placer, cero drama</span></div>
+    <div class="gal-item rv d2">
+      <img src="./images/gal-bawi-2.jpg" onerror="this.src='https://images.unsplash.com/photo-1607867377433-4b1bca38b35b?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <div class="gal-over"><span class="gal-label">Cuchareables de Chocolate</span></div>
     </div>
-    <div class="bi">
-      <img src="./images/tarta-vasca.jpg" onerror="this.src='https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600';this.onerror=null;" alt="Tarta Vasca" loading="lazy"/>
-      <div class="bi-over"><span class="bi-label">Tarta Vasca artesanal</span></div>
+    <div class="gal-item rv d3">
+      <img src="./images/gal-bawi-3.jpg" onerror="this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <div class="gal-over"><span class="gal-label">Bebidas Detox & Proteicos</span></div>
     </div>
-    <!-- Fila 2 derecha -->
-    <div class="bi">
-      <img src="./images/snicker-bites.jpg" onerror="this.src='https://images.unsplash.com/photo-1586500036706-41963de24d8b?w=600';this.onerror=null;" alt="Snicker Bites BAWi" loading="lazy"/>
-      <div class="bi-over"><span class="bi-label">Snicker Vegano — sin culpas</span></div>
+    <div class="gal-item rv d4">
+      <img src="./images/gal-bawi-4.jpg" onerror="this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <div class="gal-over"><span class="gal-label">Ensaladas Frescas</span></div>
     </div>
-    <div class="bi">
-      <img src="./images/brownie-dubai.jpg" onerror="this.src='https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600';this.onerror=null;" alt="Brownie Dubai BAWi" loading="lazy"/>
-      <div class="bi-over"><span class="bi-label">Brownie Dubái vegano</span></div>
+    <div class="gal-item rv d5">
+      <img src="./images/gal-bawi-5.jpg" onerror="this.src='https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <div class="gal-over"><span class="gal-label">Menú de Especialidad</span></div>
+    </div>
+    <div class="gal-item">
+      <img src="./images/gal-bawi-6.jpg" onerror="this.src='https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <div class="gal-over"><span class="gal-label">Momentos BAWi</span></div>
+    </div>
+    <div class="gal-item">
+      <img src="./images/gal-bawi-7.jpg" onerror="this.src='https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <div class="gal-over"><span class="gal-label">Momentos BAWi</span></div>
+    </div>
+    <div class="gal-item">
+      <img src="./images/gal-bawi-8.jpg" onerror="this.src='https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <div class="gal-over"><span class="gal-label">Momentos BAWi</span></div>
+    </div>
+    <div class="gal-item">
+      <img src="./images/gal-bawi-9.jpg" onerror="this.src='https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <div class="gal-over"><span class="gal-label">Momentos BAWi</span></div>
+    </div>
+    <div class="gal-item">
+      <img src="./images/gal-bawi-10.jpg" onerror="this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <div class="gal-over"><span class="gal-label">Momentos BAWi</span></div>
+    </div>
+    <div class="gal-item">
+      <img src="./images/gal-bawi-11.jpg" onerror="this.src='https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <div class="gal-over"><span class="gal-label">Momentos BAWi</span></div>
+    </div>
+    <div class="gal-item">
+      <img src="./images/gal-bawi-12.jpg" onerror="this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <div class="gal-over"><span class="gal-label">Momentos BAWi</span></div>
     </div>
   </div>
 </section>
