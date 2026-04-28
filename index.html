@@ -423,104 +423,112 @@ html, body, *, *::before, *::after { cursor: none !important; }
 /* ══════════════════════════════
    HERO (Elegant Editorial)
 ══════════════════════════════ */
+/* ══════════════════════════════
+   HERO (Premium Hand-Drawn Vibe)
+══════════════════════════════ */
 #hero {
   position:relative; min-height:100vh;
   display:flex; align-items: stretch;
-  background: var(--cream);
+  background: #FCF9F2; /* Soft cream from image */
   overflow:hidden;
 }
 
-.hero-pattern {
-  position: absolute; inset: 0; opacity: 0.03;
-  background-image: radial-gradient(#2A5249 1px, transparent 1px);
-  background-size: 24px 24px;
-  z-index: 0; pointer-events: none;
+/* Background Abstract Shapes */
+.hero-bg-shapes {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+}
+.hero-bg-blob {
+  position: absolute; top: -10%; left: -5%;
+  width: 40vw; height: 40vw; min-width: 400px; min-height: 400px;
+  background: radial-gradient(circle, rgba(195,154,107,0.06) 0%, transparent 60%);
+  border-radius: 50%;
+}
+.hero-bg-blob-2 {
+  position: absolute; bottom: -5%; left: 35%;
+  width: 45vw; height: 45vw; min-width: 500px; min-height: 500px;
+  background: radial-gradient(circle, rgba(195,154,107,0.04) 0%, transparent 60%);
+  border-radius: 50%;
 }
 
 .hero-left {
-  flex: 1.3;
+  flex: 1.1;
   display: flex; align-items: center; justify-content: flex-end;
-  padding: 8rem 4rem 4rem 2rem;
+  padding: 8rem 2rem 4rem 2rem;
   position: relative; z-index: 2;
-  border-right: 1px solid rgba(42,82,73,0.1);
 }
 
 .hero-content {
-  width: 100%; max-width: 650px;
+  width: 100%; max-width: 540px; margin-right: 2rem;
 }
 
-.hero-tag {
-  display:inline-flex; align-items:center; gap:.5rem;
-  font-size:.65rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase;
-  color: var(--kraft); margin-bottom: 2rem;
+/* Logo in Hero */
+.hero-logo-box {
+  display: flex; flex-direction: column; align-items: center; margin-bottom: 2.5rem; width: fit-content;
 }
-.hero-tag .dot { width:6px; height:6px; border-radius:50%; background:var(--kraft); animation:blink 2s infinite; }
+.hero-logo-paw { font-size: 1.1rem; color: #C39A6B; line-height: 1; }
+.hero-logo-text { font-family: 'Nunito', sans-serif; font-size: 1.9rem; font-weight: 900; color: #2A5249; line-height: 1; letter-spacing: -0.02em; margin-top: 0.2rem; }
+.hero-logo-sub { font-family: 'Nunito', sans-serif; font-size: 0.5rem; font-weight: 800; letter-spacing: 0.25em; color: #2A5249; margin-top: 0.2rem; }
 
 .hero-title {
   font-family:'Playfair Display',serif;
-  font-size: clamp(3rem, 5vw, 5rem);
-  font-weight:800; line-height:1.05; color: var(--teal-dim);
-  margin-bottom:1.5rem; letter-spacing:-.02em;
+  font-size: clamp(2.8rem, 4.5vw, 3.8rem);
+  font-weight:700; line-height:1.15; color: #2A5249;
+  margin-bottom:1.5rem; letter-spacing:-0.01em;
 }
 .hero-title em {
-  font-style:italic; font-weight:400; color: var(--kraft); display: block;
+  font-style:normal; color: #C39A6B; display: block; margin-top: 0.2rem;
 }
-
-.hero-divider {
-  width: 60px; height: 2px; background: var(--kraft); margin-bottom: 1.5rem;
-}
+.hero-title-heart { font-size: 0.6em; vertical-align: super; font-family: sans-serif; font-weight: 300; margin-left: 0.2rem; }
 
 .hero-slogan {
-  font-family:'Nunito',sans-serif; font-size:1.15rem; font-weight:400;
-  color: var(--text-mid); margin-bottom:2.5rem; line-height:1.8;
-  max-width: 500px;
+  font-family:'Nunito',sans-serif; font-size:1.05rem; font-weight:500;
+  color: #4a5d58; margin-bottom:2.5rem; line-height:1.7;
+  max-width: 400px;
 }
 
-.hero-btns { display:flex; gap:2rem; align-items: center; margin-bottom: 4rem; flex-wrap: wrap; }
+.hero-btns { display:flex; gap:1.2rem; align-items: center; margin-bottom: 4rem; flex-wrap: wrap; }
 .btn-primary {
-  padding:1rem 2.5rem; background: var(--teal); border-radius:50px;
-  font-size:.8rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase;
-  text-decoration:none; color:#ffffff;
-  box-shadow: 0 8px 25px rgba(42,82,73,.25); transition:all .3s;
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.95rem 1.8rem; background: #C39A6B; border-radius: 12px;
+  font-family: 'Nunito', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  text-decoration: none; color: #ffffff;
+  transition: all 0.3s;
 }
-.btn-primary:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(42,82,73,.35); background: var(--teal-dim); }
-.btn-link {
-  font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
-  color: var(--teal); text-decoration: none; position: relative;
+.btn-primary:hover { background: #b08759; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(195,154,107,0.3); }
+
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.95rem 1.8rem; background: transparent; border: 1.5px solid #C39A6B; border-radius: 12px;
+  font-family: 'Nunito', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  text-decoration: none; color: #C39A6B;
+  transition: all 0.3s;
 }
-.btn-link::after {
-  content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 1.5px; background: var(--teal); transition: width .3s;
-}
-.btn-link:hover::after { width: 100%; }
+.btn-secondary:hover { background: rgba(195,154,107,0.06); transform: translateY(-2px); }
 
 .hero-features {
   display: flex; gap: 2.5rem; flex-wrap: wrap;
-  border-top: 1px solid rgba(42,82,73,0.1);
-  padding-top: 2rem;
 }
-.hf-item { display: flex; align-items: flex-start; gap: .75rem; }
-.hf-icon { font-size: 1.5rem; line-height: 1; }
-.hf-text { font-size: .75rem; color: var(--teal-dim); font-weight: 700; line-height: 1.4; text-transform: uppercase; letter-spacing: .05em; }
+.hf-item { display: flex; flex-direction: column; align-items: flex-start; gap: 0.7rem; }
+.hf-icon-wrap {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: #F3EFE6; border: 1px solid rgba(195,154,107,0.25);
+  display: flex; align-items: center; justify-content: center;
+  color: #C39A6B; font-size: 1.1rem;
+}
+.hf-text { font-family: 'Nunito', sans-serif; font-size: 0.8rem; color: #2A5249; font-weight: 800; line-height: 1.35; }
+.hf-text span { display: block; font-size: 0.72rem; font-weight: 500; color: #6b7a75; margin-top: 0.15rem; }
 
 /* Right Column */
 .hero-right {
-  flex: 1;
-  display: flex; align-items: center; justify-content: center;
+  flex: 1.3;
+  display: flex; align-items: center; justify-content: flex-start;
   position: relative; z-index: 1;
-  background: rgba(255,255,255,0.3);
 }
 
 .hero-illustration {
-  width: 90%; max-width: 600px; height: auto; object-fit: contain;
+  width: 100%; max-width: 850px; height: auto; object-fit: contain;
   mix-blend-mode: multiply;
-  filter: grayscale(100%) contrast(1.2) brightness(1.05);
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0px); }
+  filter: grayscale(100%) contrast(1.1) brightness(1.02);
 }
 
 /* ══════════════════════════════
@@ -1411,10 +1419,12 @@ footer {
 ══════════════════════════════════════ */
 @media (max-width:1100px) {
   #hero { flex-direction: column; }
-  .hero-left { border-right: none; border-bottom: 1px solid rgba(42,82,73,0.1); padding: 8rem 2rem 4rem; justify-content: center; text-align: center; }
-  .hero-content { display: flex; flex-direction: column; align-items: center; }
-  .hero-features { justify-content: center; flex-wrap: wrap; }
-  .hero-right { padding: 4rem 2rem; width: 100%; }
+  .hero-left { border-right: none; padding: 8rem 2rem 2rem; justify-content: center; text-align: center; }
+  .hero-content { display: flex; flex-direction: column; align-items: center; margin-right: 0; }
+  .hero-features { justify-content: center; }
+  .hero-logo-box { align-items: center; }
+  .hf-item { align-items: center; text-align: center; }
+  .hero-right { padding: 2rem 2rem 4rem; width: 100%; justify-content: center; }
 }
 @media (max-width:420px) {
   .hero-title { font-size: clamp(2.4rem, 10vw, 3rem); }
@@ -1530,51 +1540,55 @@ footer {
 
 <!-- ══ HERO ══ -->
 <!-- ══ HERO ══ -->
+<!-- ══ HERO ══ -->
 <section id="hero">
-  <!-- Subtle background pattern -->
-  <div class="hero-pattern"></div>
+  <!-- Background Art -->
+  <div class="hero-bg-shapes">
+    <div class="hero-bg-blob"></div>
+    <div class="hero-bg-blob-2"></div>
+  </div>
 
   <div class="hero-left">
-    <div class="hero-content">
-      <div class="hero-tag rv d1">
-        <span class="dot"></span> Arequipa, Perú
+    <div class="hero-content rv">
+      <!-- Logo inside hero -->
+      <div class="hero-logo-box">
+        <span class="hero-logo-paw">🐾</span>
+        <div class="hero-logo-text">BAWi</div>
+        <div class="hero-logo-sub">COFFEE TO GO</div>
       </div>
       
-      <h1 class="hero-title rv d2">
-        Café para llevar,<br/>
-        <em>vida para disfrutar.</em>
+      <h1 class="hero-title">
+        Café para ti,<br/>
+        <em>un treat para tu mejor amigo<span class="hero-title-heart">♡</span></em>
       </h1>
       
-      <div class="hero-divider rv d3"></div>
-      
-      <p class="hero-slogan rv d4">
-        Tu pausa perfecta. Café de especialidad y opciones naturales hechas en casa. Rapidez y comodidad sin comprometer el sabor.
+      <p class="hero-slogan">
+        Disfruta tu café mientras tu mascota también vive la experiencia.
       </p>
       
-      <div class="hero-btns rv d5">
-        <a href="#contacto" class="btn-primary">Ordenar ahora</a>
-        <a href="#menu" class="btn-link">Ver el menú completo →</a>
+      <div class="hero-btns">
+        <a href="#contacto" class="btn-primary">ORDENAR AHORA <span style="font-size:1.1rem">☕</span></a>
+        <a href="#menu" class="btn-secondary">VER MENÚ <span style="font-size:1.1rem">📄</span></a>
       </div>
 
-      <!-- Features to fill the space elegantly -->
-      <div class="hero-features rv d6">
+      <div class="hero-features">
         <div class="hf-item">
-          <span class="hf-icon">🌿</span>
-          <span class="hf-text">100% Natural<br/>Hecho en casa</span>
+          <div class="hf-icon-wrap">🐾</div>
+          <div class="hf-text">Doggy Bar<span>Snacks & Agua</span></div>
         </div>
         <div class="hf-item">
-          <span class="hf-icon">🐾</span>
-          <span class="hf-text">Dog Friendly<br/>Todos bienvenidos</span>
+          <div class="hf-icon-wrap">♡</div>
+          <div class="hf-text">Pet Friendly<span>Siempre</span></div>
         </div>
         <div class="hf-item">
-          <span class="hf-icon">☕</span>
-          <span class="hf-text">Especialidad<br/>Grano premium</span>
+          <div class="hf-icon-wrap">☕</div>
+          <div class="hf-text">Café de Especialidad<span>Hecho con amor</span></div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="hero-right rv d7">
+  <div class="hero-right rv d3">
     <img src="./images/hero-ilustracion.jpg" class="hero-illustration" alt="BAWi Coffee Shop" onerror="this.src='./images/illustration-store.jpg';this.onerror=null;"/>
   </div>
 </section>
