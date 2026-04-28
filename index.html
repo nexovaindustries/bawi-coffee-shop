@@ -426,29 +426,21 @@ html, body, *, *::before, *::after { cursor: none !important; }
 #hero {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  background-image: url('./images/hero-bg.jpg');
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
   overflow: hidden;
+  display: block;
+  background: #F7F2E8;
+}
+.hero-img-full {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 /* All old hero child elements hidden — image has the content */
 .hero-bg-shapes, .hero-left, .hero-right { display: none; }
-
 /* Accessible hidden text for SEO */
 .hero-seo-text {
   position: absolute; width: 1px; height: 1px;
   overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
-}
-
-@media (max-width: 768px) {
-  #hero {
-    min-height: 56vw; /* maintain 16:9 ratio on mobile */
-    background-position: left top;
-  }
 }
 
 /* ══════════════════════════════
@@ -1459,58 +1451,11 @@ footer {
 </div>
 
 <!-- ══ HERO ══ -->
-<!-- ══ HERO ══ -->
-<!-- ══ HERO ══ -->
 <section id="hero">
-  <!-- Background Art -->
-  <div class="hero-bg-shapes">
-    <div class="hero-bg-blob"></div>
-    <div class="hero-bg-blob-2"></div>
-  </div>
-
-  <div class="hero-left">
-    <div class="hero-content rv">
-      <!-- Logo inside hero -->
-      <div class="hero-logo-box">
-        <span class="hero-logo-paw">🐾</span>
-        <div class="hero-logo-text">BAWi</div>
-        <div class="hero-logo-sub">COFFEE TO GO</div>
-      </div>
-      
-      <h1 class="hero-title">
-        Café para ti,<br/>
-        <em>un treat para tu mejor amigo<span class="hero-title-heart">♡</span></em>
-      </h1>
-      
-      <p class="hero-slogan">
-        Disfruta tu café mientras tu mascota también vive la experiencia.
-      </p>
-      
-      <div class="hero-btns">
-        <a href="#contacto" class="btn-primary">ORDENAR AHORA <span style="font-size:1.1rem">☕</span></a>
-        <a href="#menu" class="btn-secondary">VER MENÚ <span style="font-size:1.1rem">📄</span></a>
-      </div>
-
-      <div class="hero-features">
-        <div class="hf-item">
-          <div class="hf-icon-wrap">🐾</div>
-          <div class="hf-text">Doggy Bar<span>Snacks & Agua</span></div>
-        </div>
-        <div class="hf-item">
-          <div class="hf-icon-wrap">♡</div>
-          <div class="hf-text">Pet Friendly<span>Siempre</span></div>
-        </div>
-        <div class="hf-item">
-          <div class="hf-icon-wrap">☕</div>
-          <div class="hf-text">Café de Especialidad<span>Hecho con amor</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero-right rv d3">
-    <img src="./images/hero-ilustracion.jpg" class="hero-illustration" alt="BAWi Coffee Shop" onerror="this.src='./images/illustration-store.jpg';this.onerror=null;"/>
-  </div>
+  <span class="hero-seo-text">
+    <h1>BAWi Coffee Shop — Café para llevar, vida para disfrutar. Todo el placer, cero drama.</h1>
+  </span>
+  <img src="./images/hero-bg.jpg" class="hero-img-full" alt="BAWi Coffee Shop — Café para llevar, vida para disfrutar" loading="eager"/>
 </section>
 
 <hr class="shimmer-div"/>
