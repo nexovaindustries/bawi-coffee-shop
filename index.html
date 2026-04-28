@@ -432,28 +432,36 @@ html, body, *, *::before, *::after { cursor: none !important; }
   overflow: hidden;
 }
 
-/* === Subtle background decorative SVG doodles === */
-.hero-doodles {
+/* === Refined background decorations === */
+.hero-deco {
   position: absolute; inset: 0;
   pointer-events: none; z-index: 0;
   overflow: hidden;
 }
-.hero-doodle {
-  position: absolute;
-  opacity: 0.06;
-  color: #8B6A3E;
-  font-size: 1.4rem;
-  animation: doodleDrift 12s ease-in-out infinite alternate;
+.deco-blob {
+  position: absolute; border-radius: 50%;
+  filter: blur(80px); opacity: 0.4;
+  background: #EEDCC6;
 }
-.hero-doodle:nth-child(1)  { top: 12%; left: 3%;  font-size:1rem;  animation-delay:0s;  }
-.hero-doodle:nth-child(2)  { top: 28%; left: 18%; font-size:.8rem; animation-delay:2s;  }
-.hero-doodle:nth-child(3)  { top: 72%; left: 6%;  font-size:1.2rem;animation-delay:4s;  }
-.hero-doodle:nth-child(4)  { top: 85%; left: 30%; font-size:.9rem; animation-delay:1s;  }
-.hero-doodle:nth-child(5)  { top: 55%; left: 42%; font-size:.7rem; animation-delay:3s;  }
-.hero-doodle:nth-child(6)  { top: 8%;  left: 38%; font-size:.8rem; animation-delay:5s;  }
-@keyframes doodleDrift {
-  0%   { transform: translateY(0) rotate(0deg);   }
-  100% { transform: translateY(-8px) rotate(8deg); }
+.blob-tl { width: 400px; height: 400px; top: -100px; left: -100px; }
+.blob-br { width: 600px; height: 600px; bottom: -200px; right: 10%; }
+.blob-mid { width: 300px; height: 300px; top: 30%; left: 20%; opacity: 0.2; }
+
+.deco-lines {
+  position: absolute; top: 0; left: 0;
+  width: 400px; height: 400px;
+  opacity: 0.15;
+}
+.deco-leaf {
+  position: absolute; bottom: -20px; left: -40px;
+  width: 320px; height: 320px;
+  opacity: 0.08;
+  transform: rotate(-15deg);
+}
+.deco-bean {
+  position: absolute;
+  width: 20px; height: 20px;
+  opacity: 0.1;
 }
 
 /* === Left column === */
@@ -588,22 +596,21 @@ html, body, *, *::before, *::after { cursor: none !important; }
 
 /* === Right column === */
 .hero-right {
-  flex: 1.2;
-  display: flex; align-items: center; justify-content: center;
+  flex: 1.15;
   position: relative; z-index: 1;
-  padding: 6rem 2rem 4rem 0;
+  align-self: stretch;
+  overflow: hidden;
+  min-height: 100vh;
 }
 .hero-illustration {
-  width: 100%; max-width: 780px; height: auto;
-  object-fit: contain;
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
   mix-blend-mode: multiply;
-  filter: contrast(1.08) brightness(1.02);
-  animation: heroFloat 6s ease-in-out infinite;
-  transform-origin: center bottom;
-}
-@keyframes heroFloat {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-14px); }
+  filter: contrast(1.05) brightness(1.03);
+  animation: none;
 }
 
 /* Entrance animations */
@@ -621,8 +628,19 @@ html, body, *, *::before, *::after { cursor: none !important; }
   .hero-logo-tagline { margin-left: 0; }
   .hero-features { justify-content: center; }
   .hf-item { align-items: center; text-align: center; }
-  .hero-right { padding: 0 2rem 4rem; width: 100%; }
-  .hero-illustration { max-width: 500px; }
+  .hero-right {
+    position: relative;
+    min-height: 480px;
+    width: 100%;
+    align-self: auto;
+  }
+  .hero-illustration {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
 }
 
 /* ══════════════════════════════
@@ -1635,14 +1653,33 @@ footer {
 <!-- ══ HERO ══ -->
 <section id="hero">
 
-  <!-- Doodles decorativos de fondo -->
-  <div class="hero-doodles" aria-hidden="true">
-    <span class="hero-doodle">☕</span>
-    <span class="hero-doodle">🐾</span>
-    <span class="hero-doodle">🌱</span>
-    <span class="hero-doodle">♥</span>
-    <span class="hero-doodle">🌿</span>
-    <span class="hero-doodle">☕</span>
+  <!-- Background Decorations (Matching Reference) -->
+  <div class="hero-deco" aria-hidden="true">
+    <div class="deco-blob blob-tl"></div>
+    <div class="deco-blob blob-br"></div>
+    <div class="deco-blob blob-mid"></div>
+    
+    <!-- Wavy Lines Top Left -->
+    <svg class="deco-lines" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M-20 40C20 40 40 20 80 20C120 20 140 40 180 40" stroke="#8B6A3E" stroke-width="0.5"/>
+      <path d="M-20 60C20 60 40 40 80 40C120 40 140 60 180 60" stroke="#8B6A3E" stroke-width="0.5"/>
+      <path d="M-20 80C20 80 40 60 80 60C120 60 140 80 180 80" stroke="#8B6A3E" stroke-width="0.5"/>
+    </svg>
+
+    <!-- Large Leaf Bottom Left -->
+    <svg class="deco-leaf" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 90C50 90 20 70 20 45C20 25 35 15 50 20C65 15 80 25 80 45C80 70 50 90 50 90Z" stroke="#2A5249" stroke-width="1.5"/>
+      <path d="M50 90L50 20" stroke="#2A5249" stroke-width="1.5"/>
+      <path d="M50 60Q35 53 28 40" stroke="#2A5249" stroke-width="1.5"/>
+      <path d="M50 60Q65 53 72 40" stroke="#2A5249" stroke-width="1.5"/>
+      <path d="M50 45Q40 40 35 30" stroke="#2A5249" stroke-width="1.5"/>
+      <path d="M50 45Q60 40 65 30" stroke="#2A5249" stroke-width="1.5"/>
+    </svg>
+
+    <!-- Scattered Beans -->
+    <svg class="deco-bean" style="top: 15%; left: 25%;" viewBox="0 0 20 20"><ellipse cx="10" cy="10" rx="4" ry="6" fill="#8B6A3E" transform="rotate(30 10 10)"/></svg>
+    <svg class="deco-bean" style="top: 45%; left: 5%;" viewBox="0 0 20 20"><ellipse cx="10" cy="10" rx="4" ry="6" fill="#8B6A3E" transform="rotate(-20 10 10)"/></svg>
+    <svg class="deco-bean" style="top: 80%; left: 40%;" viewBox="0 0 20 20"><ellipse cx="10" cy="10" rx="4" ry="6" fill="#8B6A3E" transform="rotate(15 10 10)"/></svg>
   </div>
 
   <!-- Columna Izquierda -->
