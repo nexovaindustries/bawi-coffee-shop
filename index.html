@@ -421,26 +421,208 @@ html, body, *, *::before, *::after { cursor: none !important; }
    HERO
 ══════════════════════════════ */
 /* ══════════════════════════════
-   HERO (Full Image Background)
+   HERO — Functional & Animated
 ══════════════════════════════ */
 #hero {
   position: relative;
-  width: 100%;
-  overflow: hidden;
-  display: block;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
   background: #F7F2E8;
+  overflow: hidden;
 }
-.hero-img-full {
-  width: 100%;
-  height: auto;
-  display: block;
+
+/* === Subtle background decorative SVG doodles === */
+.hero-doodles {
+  position: absolute; inset: 0;
+  pointer-events: none; z-index: 0;
+  overflow: hidden;
 }
-/* All old hero child elements hidden — image has the content */
-.hero-bg-shapes, .hero-left, .hero-right { display: none; }
-/* Accessible hidden text for SEO */
-.hero-seo-text {
-  position: absolute; width: 1px; height: 1px;
-  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
+.hero-doodle {
+  position: absolute;
+  opacity: 0.06;
+  color: #8B6A3E;
+  font-size: 1.4rem;
+  animation: doodleDrift 12s ease-in-out infinite alternate;
+}
+.hero-doodle:nth-child(1)  { top: 12%; left: 3%;  font-size:1rem;  animation-delay:0s;  }
+.hero-doodle:nth-child(2)  { top: 28%; left: 18%; font-size:.8rem; animation-delay:2s;  }
+.hero-doodle:nth-child(3)  { top: 72%; left: 6%;  font-size:1.2rem;animation-delay:4s;  }
+.hero-doodle:nth-child(4)  { top: 85%; left: 30%; font-size:.9rem; animation-delay:1s;  }
+.hero-doodle:nth-child(5)  { top: 55%; left: 42%; font-size:.7rem; animation-delay:3s;  }
+.hero-doodle:nth-child(6)  { top: 8%;  left: 38%; font-size:.8rem; animation-delay:5s;  }
+@keyframes doodleDrift {
+  0%   { transform: translateY(0) rotate(0deg);   }
+  100% { transform: translateY(-8px) rotate(8deg); }
+}
+
+/* === Left column === */
+.hero-left {
+  flex: 1.1;
+  display: flex; align-items: center; justify-content: flex-end;
+  padding: 8rem 3rem 5rem 4rem;
+  position: relative; z-index: 2;
+}
+.hero-content { width: 100%; max-width: 560px; }
+
+/* Logo block */
+.hero-logo-box {
+  display: flex; flex-direction: column; align-items: flex-start;
+  margin-bottom: 2.5rem;
+  animation: heroFadeUp .7s ease both;
+}
+.hero-logo-row {
+  display: flex; align-items: center; gap: .5rem;
+}
+.hero-logo-paw { font-size: 1.3rem; line-height: 1; }
+.hero-logo-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 800;
+  color: #2A5249; line-height: 1; letter-spacing: -.02em;
+}
+.hero-logo-tagline {
+  font-family: 'Nunito', sans-serif;
+  font-size: .6rem; font-weight: 800;
+  letter-spacing: .3em; text-transform: uppercase;
+  color: #2A5249; opacity: .7; margin-top: .25rem; margin-left: 1.8rem;
+}
+
+/* Title */
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 4vw, 4rem);
+  font-weight: 700; line-height: 1.15;
+  color: #2A5249; margin-bottom: .5rem;
+  animation: heroFadeUp .7s ease .1s both;
+}
+.hero-title em {
+  display: block; font-style: italic; font-weight: 400;
+  color: #C39A6B;
+}
+.hero-tagline-small {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem; font-weight: 600;
+  color: #2A5249; opacity: .7;
+  margin-bottom: 1.2rem;
+  animation: heroFadeUp .7s ease .15s both;
+}
+.hero-desc {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.05rem; font-weight: 400;
+  color: #5a6e69; line-height: 1.75;
+  max-width: 430px; margin-bottom: 2.5rem;
+  animation: heroFadeUp .7s ease .2s both;
+}
+
+/* Buttons */
+.hero-btns {
+  display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
+  margin-bottom: 3rem;
+  animation: heroFadeUp .7s ease .25s both;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: .6rem;
+  padding: .9rem 2rem;
+  background: #C39A6B; border-radius: 10px;
+  font-family: 'Nunito', sans-serif; font-size: .78rem;
+  font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+  text-decoration: none; color: #fff;
+  border: 2px solid #C39A6B;
+  transition: all .3s ease;
+  box-shadow: 0 6px 20px rgba(195,154,107,.3);
+}
+.btn-primary:hover {
+  background: #b08759; border-color: #b08759;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(195,154,107,.4);
+}
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: .6rem;
+  padding: .9rem 2rem;
+  background: transparent; border-radius: 10px;
+  font-family: 'Nunito', sans-serif; font-size: .78rem;
+  font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+  text-decoration: none; color: #C39A6B;
+  border: 2px solid #C39A6B;
+  transition: all .3s ease;
+}
+.btn-secondary:hover {
+  background: #C39A6B; color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(195,154,107,.25);
+}
+
+/* Feature items */
+.hero-features {
+  display: flex; gap: 2rem; flex-wrap: wrap;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(42,82,73,.1);
+  animation: heroFadeUp .7s ease .35s both;
+}
+.hf-item {
+  display: flex; flex-direction: column;
+  align-items: flex-start; gap: .5rem;
+}
+.hf-icon-wrap {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: #EDE4D4;
+  border: 1.5px solid rgba(195,154,107,.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  transition: transform .3s, box-shadow .3s;
+}
+.hf-item:hover .hf-icon-wrap {
+  transform: scale(1.12);
+  box-shadow: 0 6px 16px rgba(195,154,107,.25);
+}
+.hf-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: .82rem; font-weight: 800;
+  color: #2A5249; line-height: 1.3;
+}
+.hf-sub {
+  font-family: 'Nunito', sans-serif;
+  font-size: .72rem; font-weight: 500;
+  color: #8a9e98;
+}
+
+/* === Right column === */
+.hero-right {
+  flex: 1.2;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 1;
+  padding: 6rem 2rem 4rem 0;
+}
+.hero-illustration {
+  width: 100%; max-width: 780px; height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: contrast(1.08) brightness(1.02);
+  animation: heroFloat 6s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-14px); }
+}
+
+/* Entrance animations */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  #hero { flex-direction: column; padding-top: 6rem; }
+  .hero-left { justify-content: center; text-align: center; padding: 4rem 2rem 2rem; }
+  .hero-content { display: flex; flex-direction: column; align-items: center; }
+  .hero-logo-box { align-items: center; }
+  .hero-logo-tagline { margin-left: 0; }
+  .hero-features { justify-content: center; }
+  .hf-item { align-items: center; text-align: center; }
+  .hero-right { padding: 0 2rem 4rem; width: 100%; }
+  .hero-illustration { max-width: 500px; }
 }
 
 /* ══════════════════════════════
@@ -1452,10 +1634,84 @@ footer {
 
 <!-- ══ HERO ══ -->
 <section id="hero">
-  <span class="hero-seo-text">
-    <h1>BAWi Coffee Shop — Café para llevar, vida para disfrutar. Todo el placer, cero drama.</h1>
-  </span>
-  <img src="./images/hero-bg.jpg" class="hero-img-full" alt="BAWi Coffee Shop — Café para llevar, vida para disfrutar" loading="eager"/>
+
+  <!-- Doodles decorativos de fondo -->
+  <div class="hero-doodles" aria-hidden="true">
+    <span class="hero-doodle">☕</span>
+    <span class="hero-doodle">🐾</span>
+    <span class="hero-doodle">🌱</span>
+    <span class="hero-doodle">♥</span>
+    <span class="hero-doodle">🌿</span>
+    <span class="hero-doodle">☕</span>
+  </div>
+
+  <!-- Columna Izquierda -->
+  <div class="hero-left">
+    <div class="hero-content">
+
+      <!-- Logo -->
+      <div class="hero-logo-box">
+        <div class="hero-logo-row">
+          <span class="hero-logo-paw">🐾</span>
+          <span class="hero-logo-name">BAWi</span>
+        </div>
+        <div class="hero-logo-tagline">Coffee to go</div>
+      </div>
+
+      <!-- Título -->
+      <h1 class="hero-title">
+        Café para llevar,
+        <em>vida para disfrutar.</em>
+      </h1>
+
+      <!-- Tagline -->
+      <p class="hero-tagline-small">Todo el placer, cero drama.</p>
+
+      <!-- Descripción -->
+      <p class="hero-desc">
+        Disfruta tu café mientras tu mascota también vive la experiencia.
+        Abiertos todos los días para ti y tu mejor amigo.
+      </p>
+
+      <!-- Botones -->
+      <div class="hero-btns">
+        <a href="#contacto" class="btn-primary">☕ Ordenar ahora</a>
+        <a href="#menu" class="btn-secondary">📄 Ver menú</a>
+      </div>
+
+      <!-- Features -->
+      <div class="hero-features">
+        <div class="hf-item">
+          <div class="hf-icon-wrap">🐾</div>
+          <div class="hf-title">Doggy Bar</div>
+          <div class="hf-sub">Snacks &amp; Agua</div>
+        </div>
+        <div class="hf-item">
+          <div class="hf-icon-wrap">♥</div>
+          <div class="hf-title">Pet Friendly</div>
+          <div class="hf-sub">Siempre</div>
+        </div>
+        <div class="hf-item">
+          <div class="hf-icon-wrap">☕</div>
+          <div class="hf-title">Café de Especialidad</div>
+          <div class="hf-sub">Hecho con amor</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Columna Derecha: Ilustración -->
+  <div class="hero-right">
+    <img
+      src="./images/hero-ilustracion.jpg"
+      class="hero-illustration"
+      alt="Fachada de BAWi Coffee Shop con Doggy Bar"
+      loading="eager"
+      onerror="this.src='./images/illustration-store.jpg';this.onerror=null;"
+    />
+  </div>
+
 </section>
 
 <hr class="shimmer-div"/>
