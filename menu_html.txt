@@ -1,0 +1,239 @@
+<!-- ══ MENÚ ══ -->
+<section id="menu">
+  <div class="menu-head rv">
+    <span class="sec-eye">Carta Completa</span>
+    <h2 class="sec-title">Nuestra <em>Carta</em></h2>
+    <div class="sec-line c"></div>
+    <p class="sec-lead" style="max-width:500px;margin:0 auto;">Todo artesanal, todo con amor. Precios en soles peruanos · S/</p>
+  </div>
+  <div class="menu-tabs rv">
+    <button class="tab on"  data-tab="bebidas">☕ Bebidas</button>
+    <button class="tab"     data-tab="frias">🥤 Bebidas Frías</button>
+    <button class="tab"     data-tab="carta">🌅 Carta</button>
+    <button class="tab"     data-tab="salados">🥪 Salados</button>
+    <button class="tab"     data-tab="dulces">🍰 Dulces</button>
+  </div>
+
+  <!-- ── TAB 1: BEBIDAS ── -->
+  <div class="mpanel on" id="tab-bebidas">
+    <div class="m-acc">
+      <!-- Bebidas Calientes -->
+      <div class="m-acc-item">
+        <div class="m-acc-trigger"><span>Bebidas Calientes</span><div class="m-acc-icon"></div></div>
+        <div class="m-acc-content">
+          <div class="mgrid">
+            <div class="mi"><div><div class="mi-name">Espresso</div></div><div class="mi-price">S/ 7.00</div></div>
+            <div class="mi"><div><div class="mi-name">Americano</div></div><div class="mi-price">S/ 8.00</div></div>
+            <div class="mi"><div><div class="mi-name">Flat White</div></div><div class="mi-price">S/ 10.00</div></div>
+            <div class="mi"><div><div class="mi-name">Capuccino / Latte</div></div><div class="mi-price">S/ 12.00</div></div>
+            <div class="mi"><div><div class="mi-name">Caramel Latte / Mocaccino</div></div><div class="mi-price">S/ 14.00</div></div>
+            <div class="mi"><div><div class="mi-name">Orange Coffee</div></div><div class="mi-price">S/ 12.00</div></div>
+            <div class="mi"><div><div class="mi-name">Coffee Tonic</div></div><div class="mi-price">S/ 12.00</div></div>
+            <div class="mi"><div><div class="mi-name">Tiramisú Latte / Cinnamon Latte</div></div><div class="mi-price">S/ 17.00</div></div>
+            <div class="mi"><div><div class="mi-name">Chai Latte</div></div><div class="mi-price">S/ 12.00</div></div>
+            <div class="mi"><div><div class="mi-name">Golden Milk</div></div><div class="mi-price">S/ 14.00</div></div>
+            <div class="mi"><div><div class="mi-name">Matcha Latte</div></div><div class="mi-price">S/ 12.00</div></div>
+            <div class="mi"><div><div class="mi-name">Infusión "La Fidelia"</div></div><div class="mi-price">S/ 9.00</div></div>
+            <div class="mi"><div><div class="mi-name">Chocolate Caliente</div></div><div class="mi-price">S/ 10.00</div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Bebidas Wellness -->
+      <div class="m-acc-item">
+        <div class="m-acc-trigger"><span>Bebidas Wellness</span><div class="m-acc-icon"></div></div>
+        <div class="m-acc-content">
+          <div class="mgrid">
+            <div class="mi"><div><div class="mi-name">Matcha Latte: Mango o Fresa</div></div><div class="mi-price">S/ 14.00</div></div>
+            <div class="mi"><div><div class="mi-name">Butterfly Pea Tea Latte: Fresa o Mango</div><div class="mi-desc">Infusión de butterfly pea tea, pulpa de fruta y leche cremosa</div></div><div class="mi-price">S/ 14.00</div></div>
+            <div class="mi"><div><div class="mi-name">Blue Latte</div></div><div class="mi-price">S/ 14.00</div></div>
+            <div class="mi"><div><div class="mi-name">Limonada: Blue Power</div><div class="mi-desc">Refrescante limonada con espirulina azul</div></div><div class="mi-price">S/ 12.00</div></div>
+            <div class="mi"><div><div class="mi-name">Pink Dragon Sparkle</div><div class="mi-desc">Burbujeante limonada de pitahaya rosa</div></div><div class="mi-price">S/ 12.00</div></div>
+            <div class="mi"><div><div class="mi-name">Indigo Serenity Tea</div><div class="mi-desc">Infusión de butterfly pea tea con pulpa de maracuyá</div></div><div class="mi-price">S/ 12.00</div></div>
+            <div class="mi"><div><div class="mi-name">Blue Volcano Refresh</div><div class="mi-desc">Refrescante bebida de cold brew, espirulina azul y limón</div></div><div class="mi-price">S/ 12.00</div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Jugos -->
+      <div class="m-acc-item">
+        <div class="m-acc-trigger"><span>Jugos</span><div class="m-acc-icon"></div></div>
+        <div class="m-acc-content">
+          <div class="mgrid">
+            <div class="mi"><div><div class="mi-name">Piña, Papaya o Fresa</div></div><div class="mi-price">S/ 8.00</div></div>
+            <div class="mi"><div><div class="mi-name">Coco - Piña y Leche</div></div><div class="mi-price">S/ 12.00</div></div>
+            <div class="mi"><div><div class="mi-name">Chirimoya con Leche</div></div><div class="mi-price">S/ 12.00</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TAB 2: BEBIDAS FRÍAS ── -->
+  <div class="mpanel" id="tab-frias">
+    <div class="m-acc">
+      <!-- Bebidas Frías -->
+      <div class="m-acc-item">
+        <div class="m-acc-trigger"><span>Bebidas Frías</span><div class="m-acc-icon"></div></div>
+        <div class="m-acc-content">
+          <div class="mgrid">
+            <div class="mi"><div><div class="mi-name">Batido Protéico</div><div class="mi-desc">Proteína de vainilla o chocolate con leche vegetal y lúcuma/fresa/plátano</div></div><div class="mi-price">S/ 18.00</div></div>
+            <div class="mi"><div><div class="mi-name">Frappé de Fresa</div></div><div class="mi-price">S/ 16.00</div></div>
+            <div class="mi"><div><div class="mi-name">Frappuccino</div></div><div class="mi-price">S/ 16.00</div></div>
+            <div class="mi"><div><div class="mi-name">Frappé de Nutella / Caramel / Frutos Rojos</div></div><div class="mi-price">S/ 18.00</div></div>
+            <div class="mi"><div><div class="mi-name">Milkshake de Fresa / Plátano</div></div><div class="mi-price">S/ 16.00</div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Detox -->
+      <div class="m-acc-item">
+        <div class="m-acc-trigger"><span>Detox <small>S/ 15.00</small></span><div class="m-acc-icon"></div></div>
+        <div class="m-acc-content">
+          <div class="mgrid">
+            <div class="mi"><div><div class="mi-name">Fresa Salvaje</div><div class="mi-desc">Fresa, papaya y jamaica</div></div><div class="mi-price">S/ 15.00</div></div>
+            <div class="mi"><div><div class="mi-name">Green Detox</div><div class="mi-desc">Apio, manzana, pepino, jengibre, espinaca, limón</div></div><div class="mi-price">S/ 15.00</div></div>
+            <div class="mi"><div><div class="mi-name">Inmune Boost</div><div class="mi-desc">Naranja, jengibre, zanahoria, cúrcuma y limón</div></div><div class="mi-price">S/ 15.00</div></div>
+            <div class="mi"><div><div class="mi-name">Energy Plus</div><div class="mi-desc">Espinaca, zanahoria, beterraga y naranja</div></div><div class="mi-price">S/ 15.00</div></div>
+            <div class="mi"><div><div class="mi-name">Golden Tropic</div><div class="mi-desc">Cúrcuma, piña y maracuyá</div></div><div class="mi-price">S/ 15.00</div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Embotellados -->
+      <div class="m-acc-item">
+        <div class="m-acc-trigger"><span>Embotellados</span><div class="m-acc-icon"></div></div>
+        <div class="m-acc-content">
+          <div class="mgrid">
+            <div class="mi"><div><div class="mi-name">Agua con Gas Socosani</div></div><div class="mi-price">S/ 4.00</div></div>
+            <div class="mi"><div><div class="mi-name">Agua con Gas Socosani (vidrio)</div></div><div class="mi-price">S/ 5.00</div></div>
+            <div class="mi"><div><div class="mi-name">Agua Sin Gas San Luis</div></div><div class="mi-price">S/ 4.00</div></div>
+            <div class="mi"><div><div class="mi-name">Agua Sin Gas Fontevita (vidrio)</div></div><div class="mi-price">S/ 5.00</div></div>
+            <div class="mi"><div><div class="mi-name">Powerade</div></div><div class="mi-price">S/ 5.00</div></div>
+            <div class="mi"><div><div class="mi-name">Kombucha</div></div><div class="mi-price">S/ 14.00</div></div>
+            <div class="mi"><div><div class="mi-name">Cerveza Artesanal</div></div><div class="mi-price">S/ 14.00</div></div>
+            <div class="mi"><div><div class="mi-name">Cerveza 0° Alcohol</div></div><div class="mi-price">S/ 9.00</div></div>
+            <div class="mi"><div><div class="mi-name">Red Bull</div></div><div class="mi-price">S/ 9.00</div></div>
+          </div>
+          <p class="mcat-note" style="margin-top:1rem">* En nuestras bebidas puede seleccionar si desea endulzar con stevia, azúcar o panela.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TAB 3: CARTA (Desayunos & Brunch) ── -->
+  <div class="mpanel" id="tab-carta">
+    <div class="m-acc">
+      <!-- Desayunos -->
+      <div class="m-acc-item">
+        <div class="m-acc-trigger"><span>Desayunos</span><div class="m-acc-icon"></div></div>
+        <div class="m-acc-content">
+          <div class="mgrid">
+            <div class="mi"><div><div class="mi-name">Amanecer Fit</div><div class="mi-desc">Huevos revueltos, pan campesino, mix de hojas, jugo de estación, café o infusión</div></div><div class="mi-price">S/ 16.00</div></div>
+            <div class="mi"><div><div class="mi-name">Equilibrio Perfecto</div><div class="mi-desc">Huevos revueltos, pan campesino, mix de hojas, bowl de avena, café o infusión</div></div><div class="mi-price">S/ 20.00</div></div>
+            <div class="mi"><div><div class="mi-name">American Power</div><div class="mi-desc">Huevos revueltos, jamón inglés, pan campesino, mix de hojas, jugo de estación, café o infusión</div></div><div class="mi-price">S/ 20.00</div></div>
+            <div class="mi"><div><div class="mi-name">Desayuno Veggie</div><div class="mi-desc">Pan de semillas, champiñones salteados, tomate y palta, jugo de estación y café</div></div><div class="mi-price">S/ 21.00</div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Brunch -->
+      <div class="m-acc-item">
+        <div class="m-acc-trigger"><span>Brunch</span><div class="m-acc-icon"></div></div>
+        <div class="m-acc-content">
+          <div class="mgrid">
+            <div class="mi"><div><div class="mi-name">Focaccia de Peperoni</div><div class="mi-desc">Pepperoni, queso andino, queso tilsit, tomate, lechuga y alioli</div></div><div class="mi-price">S/ 18.00</div></div>
+            <div class="mi"><div><div class="mi-name">Focaccia de Pollo y Palta</div><div class="mi-desc">Pollo deshilachado, palta, tomate confitado, lechuga y mayonesa de la casa</div></div><div class="mi-price">S/ 18.00</div></div>
+            <div class="mi"><div><div class="mi-name">Focaccia Mixto</div><div class="mi-desc">Lonjas de pavita y queso fundido, espinaca</div></div><div class="mi-price">S/ 15.00</div></div>
+            <div class="mi"><div><div class="mi-name">Focaccia de Jamón Serrano & Pesto</div><div class="mi-desc">Jamón serrano, queso fundido, salsa pesto y tomate</div></div><div class="mi-price">S/ 20.00</div></div>
+            <div class="mi"><div><div class="mi-name">Focaccia Roast Beef</div><div class="mi-desc">Tierno roast beef, lechuga, alcaparras, tomate, salsa vitel toné</div></div><div class="mi-price">S/ 22.00</div></div>
+            <div class="mi"><div><div class="mi-name">Focaccia Veggie</div><div class="mi-desc">Champiñones salteados, palta, lechuga y tomate</div></div><div class="mi-price">S/ 21.00</div></div>
+            <div class="mi"><div><div class="mi-name">Wrap Fit</div><div class="mi-desc">Wrap relleno de pollo, pepino, lechuga, tomate y queso</div></div><div class="mi-price">S/ 18.00</div></div>
+            <div class="mi"><div><div class="mi-name">Empanadas</div><div class="mi-desc">Sabores en vitrina</div></div><div class="mi-price">S/ 7.00</div></div>
+            <div class="mi"><div><div class="mi-name">Bowl de Avena, Chía, Frutas y Granola</div></div><div class="mi-price">S/ 15.00</div></div>
+            <div class="mi"><div><div class="mi-name">Ensalada de Frutas, Yogurt Griego, Granola y Miel</div></div><div class="mi-price">S/ 15.00</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TAB 4: SALADOS (Compartir, Ensaladas, Fondos) ── -->
+  <div class="mpanel" id="tab-salados">
+    <div class="m-acc">
+      <!-- Para Compartir -->
+      <div class="m-acc-item">
+        <div class="m-acc-trigger"><span>Para Compartir</span><div class="m-acc-icon"></div></div>
+        <div class="m-acc-content">
+          <div class="mgrid">
+            <div class="mi"><div><div class="mi-name">Trío Perfecto</div><div class="mi-desc">Americano, keke artesanal y sándwich de pollo</div></div><div class="mi-price">S/ 20.00</div></div>
+            <div class="mi"><div><div class="mi-name">Club Sándwich BAWi</div><div class="mi-desc">Focaccia de masa madre relleno de pollo, jamón, queso y tomate</div></div><div class="mi-price">S/ 28.00</div></div>
+            <div class="mi"><div><div class="mi-name">Tequeños de Queso</div></div><div class="mi-price">S/ 20.00</div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Ensaladas -->
+      <div class="m-acc-item">
+        <div class="m-acc-trigger"><span>Ensaladas</span><div class="m-acc-icon"></div></div>
+        <div class="m-acc-content">
+          <div class="mgrid">
+            <div class="mi"><div><div class="mi-name">Hawaiana</div><div class="mi-desc">Lechuga, piña, naranja, palta, pollo y salsa agridulce</div></div><div class="mi-price">S/ 21.00</div></div>
+            <div class="mi"><div><div class="mi-name">Andina Quinua</div><div class="mi-desc">Quinua, zanahoria, pimiento, aceituna, pollo y salsa de mostaza</div></div><div class="mi-price">S/ 21.00</div></div>
+            <div class="mi"><div><div class="mi-name">Gaucha</div><div class="mi-desc">Lechuga, palta, choclito, tomate, pepinillo, res y aceite de oliva</div></div><div class="mi-price">S/ 28.00</div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Fondos -->
+      <div class="m-acc-item">
+        <div class="m-acc-trigger"><span>Fondos <small>S/ 21.00</small></span><div class="m-acc-icon"></div></div>
+        <div class="m-acc-content">
+          <div class="mgrid">
+            <div class="mi"><div><div class="mi-name">Filete de Pollo</div></div><div class="mi-price">S/ 21.00</div></div>
+            <div class="mi"><div><div class="mi-name">Pollo en Salsa Teriyaki</div></div><div class="mi-price">S/ 21.00</div></div>
+            <div class="mi"><div><div class="mi-name">Lasaña Napolitana o Fiorentina</div></div><div class="mi-price">S/ 21.00</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TAB 5: DULCES & POSTRES WELLNESS ── -->
+  <div class="mpanel" id="tab-dulces">
+    <div class="m-acc">
+      <!-- Dulces -->
+      <div class="m-acc-item">
+        <div class="m-acc-trigger"><span>Dulces</span><div class="m-acc-icon"></div></div>
+        <div class="m-acc-content">
+          <div class="mgrid">
+            <div class="mi"><div><div class="mi-name">Keke Artesanal - Saludable</div><div class="mi-desc">Endulzado con azúcar de coco</div></div><div class="mi-price">S/ 10.00</div></div>
+            <div class="mi"><div><div class="mi-name">Molde - Keke Artesanal</div></div><div class="mi-price">S/ 64.00</div></div>
+            <div class="mi"><div><div class="mi-name">Brownie de Avena</div><div class="mi-desc">Endulzado con azúcar de coco</div></div><div class="mi-price">S/ 9.00</div></div>
+            <div class="mi"><div><div class="mi-name">Porción de Torta</div><div class="mi-desc">De almendra, de avena, alulosa, stevia. Sabor en vitrina.</div></div><div class="mi-price">S/ 14.00</div></div>
+            <div class="mi"><div><div class="mi-name">Tarta Vasca</div><div class="mi-desc">Endulzada con alulosa</div></div><div class="mi-price">S/ 16.00</div></div>
+            <div class="mi"><div><div class="mi-name">Galletas de Avena</div><div class="mi-desc">Endulzadas con azúcar de coco</div></div><div class="mi-price">S/ 4.00</div></div>
+            <div class="mi"><div><div class="mi-name">Galletas Rellenas</div><div class="mi-desc">Almendra, avena, arroz, endulzada con alulosa</div></div><div class="mi-price">S/ 8.00</div></div>
+            <div class="mi"><div><div class="mi-name">Snicker Vegano - Maní</div></div><div class="mi-price">S/ 8.00</div></div>
+            <div class="mi"><div><div class="mi-name">Snicker Vegano - Pistacho y Limón o Chocolúcuma</div></div><div class="mi-price">S/ 9.00</div></div>
+            <div class="mi"><div><div class="mi-name">Snicker Dubái</div><div class="mi-desc">Vegano relleno de crema de pistacho, kataifi bañado en cacao al 53%</div></div><div class="mi-price">S/ 11.00</div></div>
+            <div class="mi"><div><div class="mi-name">Brownie Dubái</div><div class="mi-desc">Vegano relleno de crema de pistacho, kataifi bañado en cacao al 53%</div></div><div class="mi-price">S/ 11.00</div></div>
+            <div class="mi"><div><div class="mi-name">Focaccia Doble Chocolate</div><div class="mi-desc">Focaccia de masa madre relleno de Nutella o crema de pistacho</div></div><div class="mi-price">S/ 14.00</div></div>
+            <div class="mi"><div><div class="mi-name">Torta Vasca Dulce de Leche o Cacao 80%</div></div><div class="mi-price">S/ 18.00</div></div>
+            <div class="mi"><div><div class="mi-name">Tiramisú Clásico</div><div class="mi-desc">Bizcotelas embebidas en café con crema de tiramisú y cacao orgánico</div></div><div class="mi-price">S/ 15.00</div></div>
+            <div class="mi"><div><div class="mi-name">Bowl de Snicker Bites (6 und)</div></div><div class="mi-price">S/ 22.00</div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Postres Wellness -->
+      <div class="m-acc-item">
+        <div class="m-acc-trigger"><span>Postres Wellness</span><div class="m-acc-icon"></div></div>
+        <div class="m-acc-content">
+          <p class="mcat-note" style="margin-bottom:1.5rem">Postres libres de gluten y sin azúcar. Hechos con harina de almendra, harina de avena sin gluten y endulzados con alulosa, stevia.</p>
+          <div class="mgrid">
+            <div class="mi"><div><div class="mi-name">Purple Chia Pudding</div><div class="mi-desc">Chía pudding de butterfly pea tea, yogurt griego, pulpa de fruta, granola y fruta fresca</div></div><div class="mi-price">S/ 18.00</div></div>
+            <div class="mi"><div><div class="mi-name">Tiramisú de Pistacho</div><div class="mi-desc">Bizcotelas embebidas en café con crema de tiramisú y pistacho, cacao orgánico</div></div><div class="mi-price">S/ 16.00</div></div>
+            <div class="mi"><div><div class="mi-name">Cuchareable Chocomanjar</div></div><div class="mi-price">S/ 16.00</div></div>
+            <div class="mi"><div><div class="mi-name">Cuchareable Doble Chocolate</div></div><div class="mi-price">S/ 16.00</div></div>
+            <div class="mi"><div><div class="mi-name">Cuchareable Chocopistacho</div><div class="mi-desc">Capas de húmedo bizcocho de cacao, fudge casero, crema de pistacho y pistachos crocantes</div></div><div class="mi-price">S/ 16.00</div></div>
+            <div class="mi"><div><div class="mi-name">Cuchareable Dubái</div><div class="mi-desc">Capas de húmedo bizcocho de cacao, fudge casero, crema de dubai y pistachos tostados</div></div><div class="mi-price">S/ 18.00</div></div>
+            <div class="mi"><div><div class="mi-name">Cuchareable Chocoteja</div><div class="mi-desc">Capas de húmedo bizcocho de cacao, manjar de olla, pecanas tostadas y cacao al 80%</div></div><div class="mi-price">S/ 18.00</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

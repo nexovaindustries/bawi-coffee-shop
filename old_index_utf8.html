@@ -1,19 +1,19 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>BAWi Coffee Shop | Todo el placer, cero drama</title>
-<meta name="description" content="BAWi Coffee Shop — Café de especialidad, postres wellness y productos naturales. Arequipa, Perú."/>
+<meta name="description" content="BAWi Coffee Shop ÔÇö Caf├® de especialidad, postres wellness y productos naturales. Arequipa, Per├║."/>
 <link rel="icon" type="image/svg+xml" href="./images/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Nunito:wght@300;400;500;600;700;800&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet"/>
 
 <style>
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    VARIABLES & RESET
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 :root {
   --teal:     #2A5249;
   --teal-lt:  #3d7066;
@@ -29,16 +29,16 @@
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
-/* Nitidez global en todas las imágenes */
+/* Nitidez global en todas las im├ígenes */
 img {
   display: block;
   image-rendering: auto;
   -webkit-font-smoothing: antialiased;
 }
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    PRELOADER
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 #preloader {
   position: fixed; inset: 0; z-index: 99999;
   background: var(--cream);
@@ -73,10 +73,10 @@ img {
 }
 @keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:1} }
 
-/* ══════════════════════════════
-   BACKGROUND — todos los efectos borrosos eliminados
-══════════════════════════════ */
-/* Canvas ilustrado — detrás de todo, dibuja su propio fondo */
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+   BACKGROUND ÔÇö todos los efectos borrosos eliminados
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
+/* Canvas ilustrado ÔÇö detr├ís de todo, dibuja su propio fondo */
 #bg-canvas {
   display: block;
   position: fixed; top: 0; left: 0;
@@ -90,9 +90,9 @@ img {
 .deco-ring { display: none; }
 .deco-cross { display: none; }
 
-/* ══════════════════════════════
-   FONDO — papel crema, canvas ilustrado encima
-══════════════════════════════ */
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+   FONDO ÔÇö papel crema, canvas ilustrado encima
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 body {
   font-family: 'Nunito', sans-serif;
   color: var(--text);
@@ -100,7 +100,7 @@ body {
   background: transparent; /* canvas dibuja su propio fondo crema */
 }
 
-/* Secciones TRANSPARENTES — el canvas se ve en toda la página */
+/* Secciones TRANSPARENTES ÔÇö el canvas se ve en toda la p├ígina */
 #nosotros { background: transparent; position: relative; }
 #galeria  { background: transparent; position: relative; }
 #contacto { background: transparent; position: relative; }
@@ -110,11 +110,11 @@ body {
 #productos > * { position: relative; }
 #nosotros > * { position: relative; }
 
-/* ══════════════════════════════
-   DECORACIONES ILUSTRADAS — estilo sketch/línea
-══════════════════════════════ */
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+   DECORACIONES ILUSTRADAS ÔÇö estilo sketch/l├¡nea
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 
-/* Decoraciones de taza de café en secciones */
+/* Decoraciones de taza de caf├® en secciones */
 #nosotros::before {
   content: '';
   position: absolute; top: 3rem; right: 3rem;
@@ -123,7 +123,7 @@ body {
   background-size: contain; background-repeat: no-repeat;
 }
 
-/* Hojas decorativas en galería */
+/* Hojas decorativas en galer├¡a */
 #galeria::before {
   content: '';
   position: absolute; top: 2rem; left: 2rem;
@@ -134,13 +134,13 @@ body {
 
 /* Estrellitas decorativas en productos */
 #productos::after {
-  content: '✦  ✦  ✦';
+  content: 'Ô£ª  Ô£ª  Ô£ª';
   position: absolute; bottom: 3rem; right: 3rem;
   font-size: 1rem; letter-spacing: 1rem;
   color: rgba(42,82,73,.07); pointer-events: none;
 }
 
-/* Línea decorativa tipo sketch antes del footer */
+/* L├¡nea decorativa tipo sketch antes del footer */
 footer::before {
   content: '';
   position: absolute; top: 0; left: 50%; transform: translateX(-50%);
@@ -148,9 +148,9 @@ footer::before {
   background: var(--kraft); border-radius: 2px; opacity: .4;
 }
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    CURSOR
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 html, body, *, *::before, *::after { cursor: none !important; }
 @media (hover:none),(pointer:coarse) { html,body,*,*::before,*::after { cursor: auto !important; } #cur-dot,#cur-ring { display:none!important; } }
 #cur-dot {
@@ -168,9 +168,9 @@ html, body, *, *::before, *::after { cursor: none !important; }
 #cur-dot.big { transform: translate(-50%,-50%) scale(3); opacity: .3; }
 #cur-ring.big { width: 50px; height: 50px; }
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    FLOATING COFFEE BEANS (CSS)
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .bean {
   position: fixed; width: 14px; height: 18px; border-radius: 50%;
   pointer-events: none; z-index: 0; opacity: 0;
@@ -183,9 +183,9 @@ html, body, *, *::before, *::after { cursor: none !important; }
   100% { transform: translateY(-10vh) rotate(540deg) scale(1.1); opacity: 0; }
 }
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    SECTION GLOW RINGS
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .sec-glow {
   position: absolute; border-radius: 50%; pointer-events: none;
   filter: blur(60px); animation: glowPulse 6s ease-in-out infinite alternate;
@@ -195,9 +195,9 @@ html, body, *, *::before, *::after { cursor: none !important; }
   100% { transform: scale(1.15); opacity: 1; }
 }
 
-/* ══════════════════════════════
-   SECTION EYE — estilo ilustración
-══════════════════════════════ */
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+   SECTION EYE ÔÇö estilo ilustraci├│n
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .sec-eye {
   display:inline-flex; align-items:center; gap:.5rem;
   font-size:.65rem; font-weight:700; letter-spacing:.45em;
@@ -214,7 +214,7 @@ html, body, *, *::before, *::after { cursor: none !important; }
   flex-shrink: 0;
 }
 
-/* Títulos de sección — subrayado ilustrado animado */
+/* T├¡tulos de secci├│n ÔÇö subrayado ilustrado animado */
 .sec-title { position: relative; display: inline-block; }
 .sec-title::after {
   content: '';
@@ -225,9 +225,9 @@ html, body, *, *::before, *::after { cursor: none !important; }
 }
 .sec-title.on::after { width: 55%; }
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    CARD GLOW HOVER
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .nos-feat {
   position: relative; overflow: hidden;
 }
@@ -238,9 +238,9 @@ html, body, *, *::before, *::after { cursor: none !important; }
 }
 .nos-feat:hover::after { opacity: 1; }
 
-/* ══════════════════════════════
-   DIVISOR ILUSTRADO — línea tipo boceto
-══════════════════════════════ */
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+   DIVISOR ILUSTRADO ÔÇö l├¡nea tipo boceto
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .shimmer-div {
   height: 1px; margin: 0; border: none;
   background: linear-gradient(to right,
@@ -256,9 +256,9 @@ html, body, *, *::before, *::after { cursor: none !important; }
   100% { background-position: -100% 0; }
 }
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    ORBIT DECORATION (Nosotros)
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .orbit-wrap {
   position: absolute; top: -40px; right: -40px;
   width: 200px; height: 200px; pointer-events: none;
@@ -277,9 +277,9 @@ html, body, *, *::before, *::after { cursor: none !important; }
 .orbit-dot-2 { top: auto; bottom: -4px; background: var(--kraft); box-shadow: 0 0 10px rgba(160,118,74,.5); }
 @keyframes orbitSpin { to { transform: rotate(360deg); } }
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    STATS STRIP ENHANCED
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 #stats { position: relative; overflow: hidden; }
 #stats::after {
   content: '';
@@ -290,9 +290,9 @@ html, body, *, *::before, *::after { cursor: none !important; }
 }
 @keyframes statSheen { to { left: 120%; } }
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    MENU ENHANCED
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 #menu { overflow: hidden; }
 #menu::after {
   content: '';
@@ -301,21 +301,21 @@ html, body, *, *::before, *::after { cursor: none !important; }
   z-index: 2;
 }
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    GALLERY ENHANCED
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .bi::after {
   content: ''; position: absolute; inset: 0;
   background: linear-gradient(135deg, rgba(42,82,73,.08) 0%, transparent 60%);
   pointer-events: none;
 }
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    DOG FRIENDLY ENHANCED
-══════════════════════════════ */
-/* ══════════════════════════════
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    REVEAL ANIMATIONS
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .rv  { opacity:0; transform:translateY(32px); transition:opacity .75s ease,transform .75s ease; }
 .rvl { opacity:0; transform:translateX(-32px); transition:opacity .75s ease,transform .75s ease; }
 .rvr { opacity:0; transform:translateX(32px);  transition:opacity .75s ease,transform .75s ease; }
@@ -323,21 +323,20 @@ html, body, *, *::before, *::after { cursor: none !important; }
 .rv.on,.rvl.on,.rvr.on,.rvs.on { opacity:1; transform:none; }
 .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s} .d4{transition-delay:.4s} .d5{transition-delay:.5s}
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    NAVBAR
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 #nav {
   position: fixed; top:0; left:0; right:0; z-index:9000;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0.8rem 3rem;
-  background: rgba(247, 242, 232, 0.98);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 15px rgba(42, 82, 73, 0.1);
-  transition: padding 0.3s ease;
+  padding: 1rem 3rem;
+  transition: background .4s, backdrop-filter .4s, box-shadow .4s, padding .3s;
 }
 #nav.solid {
-  padding: 0.7rem 3rem;
-  background: rgba(247, 242, 232, 0.98);
+  background: rgba(247,242,232,.94);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(42,82,73,.08);
+  padding: .7rem 3rem;
 }
 /* LOGO */
 .nav-logo { display:flex; align-items:center; gap:.6rem; text-decoration:none; }
@@ -372,9 +371,7 @@ html, body, *, *::before, *::after { cursor: none !important; }
   letter-spacing: .12em; text-transform: uppercase; text-decoration: none;
   color: var(--teal); position: relative; padding-bottom: 2px;
   transition: color .3s;
-}
-#nav.solid .nav-links a {
-  color: var(--teal);
+  text-shadow: none;
 }
 .nav-links a::after {
   content:''; position:absolute; bottom:0; left:0; width:0; height:1.5px;
@@ -420,12 +417,12 @@ html, body, *, *::before, *::after { cursor: none !important; }
 }
 #mob-menu a:hover { color:var(--kraft); }
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    HERO
-══════════════════════════════ */
-/* ══════════════════════════════
-   HERO — Functional & Animated
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+   HERO ÔÇö Functional & Animated
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 #hero {
   position: relative;
   min-height: 100vh;
@@ -652,9 +649,9 @@ html, body, *, *::before, *::after { cursor: none !important; }
   }
 }
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    STATS STRIP
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 #stats {
   background: var(--teal); padding:3rem 2rem; position:relative; z-index:2;
   overflow:hidden;
@@ -680,9 +677,9 @@ html, body, *, *::before, *::after { cursor: none !important; }
 }
 .stat-l { font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.6); margin-top:.35rem; display:block; }
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    SECTION HELPERS
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .sec-eye {
   display:block; font-size:.65rem; font-weight:700; letter-spacing:.45em;
   text-transform:uppercase; color:var(--kraft); margin-bottom:.75rem;
@@ -701,9 +698,9 @@ html, body, *, *::before, *::after { cursor: none !important; }
 .sec-lead { font-size:1.05rem; line-height:1.75; color:var(--text-mid); font-weight:300; }
 .sec-body { font-size:.9rem; line-height:1.9; color:var(--text-lt); font-weight:300; }
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    NOSOTROS
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 #nosotros { padding:8rem 3rem; }
 .nos-wrap {
   max-width:1200px; margin:0 auto;
@@ -753,9 +750,9 @@ html, body, *, *::before, *::after { cursor: none !important; }
 .nos-feat-title { font-size:.82rem; font-weight:700; color:var(--teal); margin-bottom:.2rem; }
 .nos-feat-sub   { font-size:.73rem; color:var(--text-lt); }
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    MENU
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .menu-head { text-align:center; margin-bottom:4rem; }
 .menu-tabs {
   display:flex; flex-wrap:wrap; gap:.5rem; justify-content:center;
@@ -772,8 +769,19 @@ html, body, *, *::before, *::after { cursor: none !important; }
 .tab.on { background:var(--teal); border-color:var(--teal); color:#fff; box-shadow:0 6px 20px rgba(42,82,73,.35); }
 .mpanel { display:none; max-width:1100px; margin:0 auto; }
 .mpanel.on { display:block; }
+.mpanel-title {
+  text-align:center; font-family:'Playfair Display',serif;
+  font-size:1.3rem; font-weight:700; color:var(--teal); margin-bottom:2rem;
+}
+.mpanel-title .tag {
+  display:inline-block; font-size:.6rem; font-weight:700; letter-spacing:.2em;
+  text-transform:uppercase; background:var(--teal); color:#fff;
+  padding:.25rem .7rem; border-radius:50px; vertical-align:middle; margin-right:.5rem;
+}
 .mgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:.7rem; }
-.mi { transition:all .3s; position:relative; overflow:hidden; display:flex; align-items:baseline; }
+.mi {
+  transition:all .3s; position:relative; overflow:hidden;
+}
 .mi::before {
   content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
   background:linear-gradient(to bottom,var(--teal),var(--kraft));
@@ -781,7 +789,6 @@ html, body, *, *::before, *::after { cursor: none !important; }
 }
 .mi:hover { box-shadow:0 8px 25px rgba(42,82,73,.1); transform:translateY(-2px); }
 .mi:hover::before { transform:scaleY(1); }
-.mi > div:first-child { flex:1; }
 .mi-name { font-family:'Nunito',sans-serif; font-size:.95rem; font-weight:700; color:var(--text); line-height:1.3; }
 .mi-desc { font-size:.75rem; color:var(--text-lt); margin-top:.2rem; font-style:italic; }
 .mi-price {
@@ -792,9 +799,8 @@ html, body, *, *::before, *::after { cursor: none !important; }
 .mi:hover .mi-price { color:var(--kraft); }
 .mi.star { background:linear-gradient(135deg,rgba(42,82,73,.04),rgba(160,118,74,.04)); }
 .mnote { text-align:center; font-size:.78rem; color:var(--text-lt); font-style:italic; margin-bottom:1.5rem; margin-top:-.5rem; }
-.mcat-note { font-size:.78rem; color:var(--text-lt); font-style:italic; line-height:1.5; }
 
-/* ── ACCORDION ── */
+/* ÔöÇÔöÇ ACCORDION ÔöÇÔöÇ */
 .m-acc { display: flex; flex-direction: column; gap: 1rem; max-width: 1100px; margin: 0 auto; }
 .m-acc-item { background: rgba(247,242,232,.6); border: 1px solid rgba(42,82,73,.08); border-radius: 16px; overflow: hidden; transition: all .3s; }
 .m-acc-item.on { background: rgba(247,242,232,.95); border-color: rgba(42,82,73,.15); box-shadow: 0 10px 30px rgba(42,82,73,.05); }
@@ -825,9 +831,9 @@ html, body, *, *::before, *::after { cursor: none !important; }
 .m-acc-item.on .m-acc-content { max-height: 2000px; padding-bottom: 2rem; }
 
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    GALLERY CAROUSEL
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 #galeria { padding: 8rem 0; overflow: hidden; }
 .gal-head { text-align:center; margin-bottom: 3rem; padding: 0 3rem; }
 
@@ -863,41 +869,20 @@ html, body, *, *::before, *::after { cursor: none !important; }
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
 }
-.gal-item:hover img { transform: scale(1.08); }
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    DOG FRIENDLY SECTION (Banner)
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    PRODUCTOS BAWI
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 #productos { padding:8rem 3rem; }
 .prod-head { text-align:center; margin-bottom:4rem; }
-
-/* PRODUCTOS ACCORDION */
-.prod-acc-wrap { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
-.prod-acc { border: 1px solid rgba(42,82,73,.15); border-radius: 12px; background: rgba(247,242,232,0.6); overflow: hidden; transition: all .3s; }
-.prod-acc[open] { background: rgba(247,242,232,0.9); box-shadow: 0 10px 30px rgba(42,82,73,.08); }
-.prod-acc-summary { 
-  padding: 1.5rem 2rem; cursor: pointer; font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--teal-dim);
-  display: flex; justify-content: space-between; align-items: center; list-style: none; transition: background .3s;
-}
-.prod-acc-summary::-webkit-details-marker { display: none; }
-.prod-acc-summary::after {
-  content: '+'; font-family: 'Nunito', sans-serif; font-size: 1.8rem; font-weight: 300; line-height: 1; transition: transform .3s; color: var(--kraft);
-}
-.prod-acc[open] .prod-acc-summary::after { transform: rotate(45deg); color: var(--teal); }
-.prod-acc-summary:hover { background: rgba(247,242,232,0.9); }
-.prod-acc-content { padding: 2rem; border-top: 1px solid rgba(42,82,73,.1); animation: fadeInMenu .4s ease; }
-
-.prod-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
-
-@media (max-width: 767px) {
-  .prod-acc-summary { font-size: 1.1rem; padding: 1.2rem 1.4rem; }
-  .prod-acc-content { padding: 1.5rem 1rem; }
-  .prod-grid { grid-template-columns: 1fr; }
+.prod-grid {
+  max-width:1200px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem;
 }
 .prod-card {
   background:rgba(237,225,205,.92); border-radius:16px; overflow:hidden;
@@ -905,9 +890,8 @@ html, body, *, *::before, *::after { cursor: none !important; }
   transition:all .4s;
 }
 .prod-card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(42,82,73,.12); }
-.prod-card:hover .prod-img { transform: scale(1.06); }
-.prod-img { width:100%; height:240px; object-fit:cover; object-position:center; display:block; filter: contrast(1.05) saturate(1.1); transition: transform 0.5s ease; will-change: transform; }
-.prod-body { padding:1.25rem 1.4rem; position: relative; z-index: 1; background: rgba(237,225,205,1); }
+.prod-img { width:100%; height:240px; object-fit:cover; object-position:center; display:block; filter: contrast(1.1) saturate(1.08); will-change: transform; }
+.prod-body { padding:1.25rem 1.4rem; }
 .prod-name { font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:.3rem; }
 .prod-desc { font-size:.8rem; color:var(--text-lt); line-height:1.6; }
 .prod-tag {
@@ -915,9 +899,9 @@ html, body, *, *::before, *::after { cursor: none !important; }
   background:var(--cream-dk); color:var(--teal); padding:.25rem .7rem; border-radius:50px; margin-top:.6rem;
 }
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    DISTRIBUIDORES
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 #distribuidores { padding:8rem 3rem; background: transparent; position: relative; }
 #distribuidores > * { position: relative; }
 .dist-head { text-align:center; margin-bottom:4rem; }
@@ -1002,9 +986,9 @@ html, body, *, *::before, *::after { cursor: none !important; }
   .dist-name { font-size:1.35rem; }
 }
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    CORNER SHOP
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 #cornershop { padding: 8rem 3rem; background: transparent; position: relative; }
 #cornershop > * { position: relative; }
 .cs-wrap {
@@ -1084,9 +1068,9 @@ html, body, *, *::before, *::after { cursor: none !important; }
   .cs-brand-pills { padding: .75rem 1.1rem; }
 }
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    CONTACTO
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 #contacto { padding:8rem 3rem; }
 .con-wrap {
   max-width:900px; margin:0 auto;
@@ -1112,9 +1096,9 @@ html, body, *, *::before, *::after { cursor: none !important; }
 .con-label { font-size:.65rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--kraft); margin-bottom:.2rem; }
 .con-val   { font-size:.9rem; color:var(--text); line-height:1.55; }
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    FOOTER
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 footer {
   background:var(--teal-dim); padding:4rem 3rem 2rem;
   color:rgba(255,255,255,.7);
@@ -1147,9 +1131,9 @@ footer {
 }
 .foot-social a:hover { background:rgba(255,255,255,.1); color:#fff; border-color:rgba(255,255,255,.4); }
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    FLOATING WHATSAPP BUTTON
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 #wa-float {
   position: fixed; bottom: 2rem; right: 2rem; z-index: 9990;
   width: 58px; height: 58px; border-radius: 50%;
@@ -1196,9 +1180,9 @@ footer {
 #wa-float:hover .wa-tooltip { opacity: 1; }
 
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    GOOGLE MAPS
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .map-wrap {
   border-radius: 20px; overflow: hidden;
   box-shadow: 0 20px 60px rgba(42,82,73,.18);
@@ -1220,9 +1204,9 @@ footer {
 .map-badge-title { font-size: .82rem; font-weight: 800; color: var(--teal); line-height: 1.2; }
 .map-badge-sub   { font-size: .7rem; color: var(--text-lt); }
 
-/* ══════════════════════════════
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
    MENU CATEGORY HEADER
-══════════════════════════════ */
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .mcat-header {
   display: flex; align-items: center; gap: 1rem;
   margin: 2.5rem 0 1.2rem; padding-bottom: .8rem;
@@ -1241,9 +1225,9 @@ footer {
   border-radius: 0 8px 8px 0;
 }
 
-/* ══════════════════════════════════════
-   RESPONSIVE — TABLET (≤1100px)
-══════════════════════════════════════ */
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+   RESPONSIVE ÔÇö TABLET (Ôëñ1100px)
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 @media (max-width:1100px) {
   .nos-wrap  { grid-template-columns:1fr; gap:3rem; }
   .con-wrap  { grid-template-columns:1fr; gap:3rem; }
@@ -1254,11 +1238,11 @@ footer {
   .map-wrap  { height:340px; }
 }
 
-/* ══════════════════════════════════════
-   RESPONSIVE — MOBILE (≤900px)
-══════════════════════════════════════ */
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+   RESPONSIVE ÔÇö MOBILE (Ôëñ900px)
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 @media (max-width:900px) {
-  /* Hero: layout vertical — imágenes arriba, texto abajo */
+  /* Hero: layout vertical ÔÇö im├ígenes arriba, texto abajo */
   #hero {
     flex-direction: column;
     align-items: stretch;
@@ -1267,7 +1251,7 @@ footer {
   }
 
   /* order:-1 hace que las fotos aparezcan ANTES del texto
-     aunque en el DOM vienen después del .hero-inner */
+     aunque en el DOM vienen despu├®s del .hero-inner */
   #hero-img-wrap {
     order: -1;
     position: relative !important;
@@ -1293,7 +1277,7 @@ footer {
     height: 100%;
   }
 
-  /* Fade inferior para transición suave al texto */
+  /* Fade inferior para transici├│n suave al texto */
   .hero-img-panel::after {
     background: linear-gradient(to bottom,
       transparent 60%,
@@ -1302,13 +1286,13 @@ footer {
     );
   }
 
-  /* Solo hay un panel — sin separador */
+  /* Solo hay un panel ÔÇö sin separador */
   .hero-img-panel:first-child {
     border-bottom: none;
     border-right: none;
   }
 
-  /* Texto — va debajo de las fotos, padding normal (no navbar) */
+  /* Texto ÔÇö va debajo de las fotos, padding normal (no navbar) */
   .hero-inner {
     order: 0;
     position: relative !important;
@@ -1331,21 +1315,21 @@ footer {
   .scroll-cue { display: none; }
 }
 
-/* ══════════════════════════════════════
-   RESPONSIVE — MOBILE (≤767px)
-══════════════════════════════════════ */
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+   RESPONSIVE ÔÇö MOBILE (Ôëñ767px)
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 @media (max-width:767px) {
-  /* ── Animations disabled for performance ── */
+  /* ÔöÇÔöÇ Animations disabled for performance ÔöÇÔöÇ */
   .rv,.rvl,.rvr,.rvs { opacity:1!important; transform:none!important; }
   .blob { display:none; }
   .deco-ring,.deco-cross { display:none; }
   #bg-dots { display:none; }
 
-  /* Mobile body — usar color sólido crema, ocultar canvas para mejor rendimiento y evitar errores */
+  /* Mobile body ÔÇö usar color s├│lido crema, ocultar canvas para mejor rendimiento y evitar errores */
   body { background: var(--cream) !important; }
   #bg-canvas { display: none !important; }
 
-  /* ── NAV ── */
+  /* ÔöÇÔöÇ NAV ÔöÇÔöÇ */
   #nav { padding:.8rem 1.2rem; }
   .nav-links, .nav-order { display:none!important; }
   #burger { display:flex!important; }
@@ -1353,7 +1337,7 @@ footer {
   .logo-text { font-size:1.5rem; }
   .logo-sub  { font-size:.48rem; letter-spacing:.2em; }
 
-  /* ── HERO (ajustes adicionales ≤767px) ── */
+  /* ÔöÇÔöÇ HERO (ajustes adicionales Ôëñ767px) ÔöÇÔöÇ */
   #hero-img-wrap {
     height: 50vw !important;
     min-height: 190px;
@@ -1361,20 +1345,20 @@ footer {
     margin-top: 56px;
   }
 
-  /* ── STATS ── */
+  /* ÔöÇÔöÇ STATS ÔöÇÔöÇ */
   #stats { padding:2.5rem 1rem; }
   .stats-grid { grid-template-columns:repeat(2,1fr); gap:.5rem 1rem; }
   .stat-n { font-size:2.2rem; }
   .stat-l { font-size:.6rem; }
 
-  /* ── SECTION GLOBALS ── */
+  /* ÔöÇÔöÇ SECTION GLOBALS ÔöÇÔöÇ */
   #nosotros, #menu, #galeria, #productos, #contacto {
     padding: 4rem 1.2rem;
   }
   .sec-title { font-size: clamp(1.6rem,8vw,2.4rem); }
   .sec-lead  { font-size:.93rem; }
 
-  /* ── NOSOTROS ── */
+  /* ÔöÇÔöÇ NOSOTROS ÔöÇÔöÇ */
   .nos-wrap  { grid-template-columns:1fr; gap:2rem; }
   .nos-img-col { width:100%; }
   .nos-img-main {
@@ -1393,9 +1377,8 @@ footer {
   .nos-feat-title { font-size:.75rem; }
   .nos-feat-sub   { font-size:.68rem; }
 
-  /* ── MENU ── */
+  /* ÔöÇÔöÇ MENU ÔöÇÔöÇ */
   #menu { padding:4rem 1rem; }
-  .coffee-stain { display: none; } /* Ocultar manchas en móvil para evitar scroll horizontal extra si es necesario */
   .menu-head { margin-bottom:2.5rem; }
   .menu-tabs {
     display:flex; flex-wrap:nowrap; overflow-x:auto; gap:.4rem;
@@ -1405,20 +1388,15 @@ footer {
   }
   .menu-tabs::-webkit-scrollbar { height:3px; }
   .menu-tabs::-webkit-scrollbar-thumb { background:rgba(42,82,73,.25); border-radius:2px; }
-  .tab { flex-shrink:0; font-size:.7rem; padding:.6rem 1.2rem; }
-  
-  .menu-paper { padding: 2rem 0; }
-  .menu-masonry { flex-direction: column; gap: 2rem; padding: 0 1rem; }
-  .menu-col { gap: 2rem; }
-  .menu-col-alt { padding: 1.5rem; margin-top: 0; }
-  
-  .mgrid { gap:.8rem; }
-  .mi-name  { font-size:.95rem; }
-  .mi-price { font-size:.95rem; }
-  .mcat-title  { font-size:1.3rem; margin-bottom: 1rem; }
-  .mcat-flex-title { margin-bottom: 1rem; }
+  .tab { flex-shrink:0; font-size:.65rem; padding:.5rem 1rem; }
+  .mgrid { grid-template-columns:1fr; gap:.6rem; }
+  .mi { padding:.85rem 1rem; }
+  .mi-name  { font-size:.88rem; }
+  .mi-price { font-size:.92rem; }
+  .mcat-header { margin:1.8rem 0 .9rem; }
+  .mcat-title  { font-size:1.1rem; }
 
-  /* ── GALLERY BENTO ── */
+  /* ÔöÇÔöÇ GALLERY BENTO ÔöÇÔöÇ */
   #galeria { padding:4rem 1rem; }
   .bento {
     grid-template-columns: 1fr;
@@ -1440,7 +1418,7 @@ footer {
   .bi:nth-child(1) { grid-column: 1; height: 240px; }
   .bi:nth-child(6) { grid-column: 1; height: 200px; }
 
-  /* ── DOG FRIENDLY ── */
+  /* ÔöÇÔöÇ DOG FRIENDLY ÔöÇÔöÇ */
   #doggy {
     grid-template-columns: 1fr;
   }
@@ -1460,7 +1438,7 @@ footer {
   .doggy-icon { font-size: 2rem; }
   .doggy-badge { font-size: .6rem; }
 
-  /* ── PRODUCTOS ── */
+  /* ÔöÇÔöÇ PRODUCTOS ÔöÇÔöÇ */
   .prod-grid { grid-template-columns:1fr; gap:1.2rem; }
   .prod-img  {
     height: auto;
@@ -1475,7 +1453,7 @@ footer {
   .prod-desc { font-size:.78rem; }
   .prod-tag  { font-size:.6rem; }
 
-  /* ── CONTACTO ── */
+  /* ÔöÇÔöÇ CONTACTO ÔöÇÔöÇ */
   .con-wrap { grid-template-columns:1fr; gap:2rem; }
   .con-img-wrap { border-radius: 14px; overflow: hidden; }
   .con-img  {
@@ -1495,27 +1473,27 @@ footer {
   .con-info  { gap:1rem; margin:1.5rem 0; }
   .con-icon  { width:34px; height:34px; font-size:1rem; }
 
-  /* ── SHIMMER DIVIDERS ── */
+  /* ÔöÇÔöÇ SHIMMER DIVIDERS ÔöÇÔöÇ */
   .shimmer-div { display:none; }
 
-  /* ── FOOTER ── */
+  /* ÔöÇÔöÇ FOOTER ÔöÇÔöÇ */
   footer { padding:3rem 1.2rem 1.5rem; }
   .foot-grid { grid-template-columns:1fr; gap:1.5rem; }
   .foot-bottom { flex-direction:column; text-align:center; gap:.75rem; }
   .foot-brand { font-size:1.1rem; }
 
-  /* ── FLOATING WA BUTTON ── */
+  /* ÔöÇÔöÇ FLOATING WA BUTTON ÔöÇÔöÇ */
   #wa-float { width:52px; height:52px; bottom:1.2rem; right:1.2rem; }
   #wa-float svg { width:26px; height:26px; }
   .wa-tooltip { display:none; }
 
-  /* ── ORBIT (hide on mobile) ── */
+  /* ÔöÇÔöÇ ORBIT (hide on mobile) ÔöÇÔöÇ */
   .orbit-wrap { display:none; }
 }
 
-/* ══════════════════════════════════════
-   RESPONSIVE — SMALL MOBILE (≤420px)
-══════════════════════════════════════ */
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+   RESPONSIVE ÔÇö SMALL MOBILE (Ôëñ420px)
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 @media (max-width:1100px) {
   #hero { flex-direction: column; }
   .hero-left { border-right: none; padding: 8rem 2rem 2rem; justify-content: center; text-align: center; }
@@ -1559,7 +1537,7 @@ footer {
 <div class="blob blob-6"></div>
 <div class="blob blob-7"></div>
 
-<!-- ══ PRELOADER ══ -->
+<!-- ÔòÉÔòÉ PRELOADER ÔòÉÔòÉ -->
 <div id="preloader">
   <div class="pre-cup">
     <!-- Steam lines -->
@@ -1595,12 +1573,12 @@ footer {
 <div id="cur-dot"></div>
 <div id="cur-ring"></div>
 
-<!-- ══ NAVBAR ══ -->
+<!-- ÔòÉÔòÉ NAVBAR ÔòÉÔòÉ -->
 <nav id="nav">
   <a class="nav-logo" href="#">
     <!-- Logo: leaf icon + text, no circle ring, blends with page -->
     <svg class="logo-svg" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none">
-      <!-- Coffee bean / leaf shape — matches brand -->
+      <!-- Coffee bean / leaf shape ÔÇö matches brand -->
       <path d="M24 6 C14 6 6 14 6 24 C6 34 14 42 24 42 C34 42 42 34 42 24 C42 14 34 6 24 6Z" fill="#2A5249" opacity=".12"/>
       <!-- Two leaves (brand icon) -->
       <path d="M20 30 C20 30 16 22 20 16 C24 10 30 14 28 22 C26 28 20 30 20 30Z" fill="#2A5249"/>
@@ -1614,28 +1592,28 @@ footer {
     </div>
   </a>
   <ul class="nav-links">
-    <li><a href="#menu">Menú</a></li>
-    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#menu">Men├║</a></li>
+    <li><a href="#galeria">Galer├¡a</a></li>
     <li><a href="#productos">Productos</a></li>
     <li><a href="#distribuidores">Distribuidores</a></li>
     <li><a href="#cornershop">Corner Shop</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
-  <a class="nav-order" href="#contacto">Visítanos</a>
-  <button id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+  <a class="nav-order" href="#contacto">Vis├¡tanos</a>
+  <button id="burger" aria-label="Men├║"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- MOBILE MENU -->
 <div id="mob-menu">
-  <a href="#menu"           onclick="closeMob()">Menú</a>
-  <a href="#galeria"        onclick="closeMob()">Galería</a>
+  <a href="#menu"           onclick="closeMob()">Men├║</a>
+  <a href="#galeria"        onclick="closeMob()">Galer├¡a</a>
   <a href="#productos"      onclick="closeMob()">Productos</a>
   <a href="#distribuidores" onclick="closeMob()">Distribuidores</a>
   <a href="#cornershop"     onclick="closeMob()">Corner Shop</a>
   <a href="#contacto"       onclick="closeMob()">Contacto</a>
 </div>
 
-<!-- ══ HERO ══ -->
+<!-- ÔòÉÔòÉ HERO ÔòÉÔòÉ -->
 <section id="hero">
 
   <!-- Background Decorations (Matching Reference) -->
@@ -1674,50 +1652,50 @@ footer {
       <!-- Logo -->
       <div class="hero-logo-box">
         <div class="hero-logo-row">
-          <span class="hero-logo-paw">🐾</span>
+          <span class="hero-logo-paw">­ƒÉ¥</span>
           <span class="hero-logo-name">BAWi</span>
         </div>
         <div class="hero-logo-tagline">COFFEE TO GO</div>
       </div>
 
-      <!-- Título -->
+      <!-- T├¡tulo -->
       <h1 class="hero-title">
-        <span>Café para ti,</span>
+        <span>Caf├® para ti,</span>
         <span class="accent">un treat para</span>
-        <span class="accent">tu mejor amigo <span class="heart-deco">♡</span></span>
+        <span class="accent">tu mejor amigo <span class="heart-deco">ÔÖí</span></span>
       </h1>
 
-      <!-- Descripción -->
+      <!-- Descripci├│n -->
       <p class="hero-desc">
-        Disfruta tu café mientras tu mascota también vive la experiencia.
+        Disfruta tu caf├® mientras tu mascota tambi├®n vive la experiencia.
       </p>
 
       <!-- Botones -->
       <div class="hero-btns">
-        <a href="#contacto" class="btn-primary">ORDENAR AHORA ☕</a>
-        <a href="#menu" class="btn-secondary">VER MENÚ 📋</a>
+        <a href="#contacto" class="btn-primary">ORDENAR AHORA Ôÿò</a>
+        <a href="#menu" class="btn-secondary">VER MEN├Ü ­ƒôï</a>
       </div>
 
       <!-- Features -->
       <div class="hero-features">
         <div class="hf-item">
-          <div class="hf-icon-wrap">🐾</div>
+          <div class="hf-icon-wrap">­ƒÉ¥</div>
           <div class="hf-text">
             <div class="hf-title">Doggy Bar</div>
             <div class="hf-sub">Snacks &amp; Agua</div>
           </div>
         </div>
         <div class="hf-item">
-          <div class="hf-icon-wrap">♡</div>
+          <div class="hf-icon-wrap">ÔÖí</div>
           <div class="hf-text">
             <div class="hf-title">Pet Friendly</div>
             <div class="hf-sub">Siempre</div>
           </div>
         </div>
         <div class="hf-item">
-          <div class="hf-icon-wrap">☕</div>
+          <div class="hf-icon-wrap">Ôÿò</div>
           <div class="hf-text">
-            <div class="hf-title">Café de Especialidad</div>
+            <div class="hf-title">Caf├® de Especialidad</div>
             <div class="hf-sub">Hecho con amor</div>
           </div>
         </div>
@@ -1726,7 +1704,7 @@ footer {
     </div>
   </div>
 
-  <!-- Columna Derecha: Ilustración -->
+  <!-- Columna Derecha: Ilustraci├│n -->
   <div class="hero-right">
     <img
       src="./images/hero-ilustracion.jpg"
@@ -1740,19 +1718,19 @@ footer {
 </section>
 
 <hr class="shimmer-div"/>
-<!-- ══ STATS ══ -->
+<!-- ÔòÉÔòÉ STATS ÔòÉÔòÉ -->
 <div id="stats">
   <div class="stats-grid">
-    <div class="rv"><span class="stat-n" data-target="5">0</span><span class="stat-l">Cafés de especialidad</span></div>
+    <div class="rv"><span class="stat-n" data-target="5">0</span><span class="stat-l">Caf├®s de especialidad</span></div>
     <div class="rv d1"><span class="stat-n" data-target="12">0</span><span class="stat-l">Postres Wellness</span></div>
     <div class="rv d2"><span class="stat-n" data-target="100">0</span><span class="stat-l">% Natural</span></div>
-    <div class="rv d3"><span class="stat-n">🐾</span><span class="stat-l">Dog Friendly</span></div>
+    <div class="rv d3"><span class="stat-n">­ƒÉ¥</span><span class="stat-l">Dog Friendly</span></div>
   </div>
 </div>
 
 
 
-<!-- ══ NOSOTROS ══ -->
+<!-- ÔòÉÔòÉ NOSOTROS ÔòÉÔòÉ -->
 <section id="nosotros">
   <div class="nos-wrap">
     <div class="rvl">
@@ -1776,30 +1754,30 @@ footer {
     </div>
     <div class="nos-text rvr">
       <span class="sec-eye">Nuestra Historia</span>
-      <h2 class="sec-title">Un café donde la <em>naturaleza</em> se sirve en taza</h2>
+      <h2 class="sec-title">Un caf├® donde la <em>naturaleza</em> se sirve en taza</h2>
       <div class="sec-line"></div>
       <p class="nos-slogan">"Nuestra cocina es alquimia de amor"</p>
       <p class="sec-body">
-        BAWi Coffee Shop nació con una misión simple: hacer que cada visita sea un placer sin complicaciones. Café de especialidad, bebidas wellness, postres artesanales y productos 100% naturales hechos en nuestra cocina. Somos un espacio para todos — incluyendo a tus mascotas.
+        BAWi Coffee Shop naci├│ con una misi├│n simple: hacer que cada visita sea un placer sin complicaciones. Caf├® de especialidad, bebidas wellness, postres artesanales y productos 100% naturales hechos en nuestra cocina. Somos un espacio para todos ÔÇö incluyendo a tus mascotas.
       </p>
       <div class="nos-features">
         <div class="nos-feat">
-          <span class="nos-feat-icon">☕</span>
-          <div class="nos-feat-title">Café de Especialidad</div>
-          <div class="nos-feat-sub">Espresso · Flat White · Cold Brew</div>
+          <span class="nos-feat-icon">Ôÿò</span>
+          <div class="nos-feat-title">Caf├® de Especialidad</div>
+          <div class="nos-feat-sub">Espresso ┬À Flat White ┬À Cold Brew</div>
         </div>
         <div class="nos-feat">
-          <span class="nos-feat-icon">🌿</span>
+          <span class="nos-feat-icon">­ƒî┐</span>
           <div class="nos-feat-title">Bebidas Wellness</div>
-          <div class="nos-feat-sub">Matcha · Butterfly Tea · Blue Latte</div>
+          <div class="nos-feat-sub">Matcha ┬À Butterfly Tea ┬À Blue Latte</div>
         </div>
         <div class="nos-feat">
-          <span class="nos-feat-icon">🎂</span>
+          <span class="nos-feat-icon">­ƒÄé</span>
           <div class="nos-feat-title">Postres Artesanales</div>
-          <div class="nos-feat-sub">Tiramisú · Cuchareable · Pudding</div>
+          <div class="nos-feat-sub">Tiramis├║ ┬À Cuchareable ┬À Pudding</div>
         </div>
         <div class="nos-feat">
-          <span class="nos-feat-icon">🐶</span>
+          <span class="nos-feat-icon">­ƒÉÂ</span>
           <div class="nos-feat-title">Dog Friendly</div>
           <div class="nos-feat-sub">Doggy Bar con agua fresca</div>
         </div>
@@ -1809,25 +1787,26 @@ footer {
 </section>
 
 <hr class="shimmer-div"/>
-<!-- ══ MENÚ ══ -->
+<!-- ÔòÉÔòÉ MEN├Ü ÔòÉÔòÉ -->
 <section id="menu">
   <div class="menu-head rv">
     <span class="sec-eye">Carta Completa</span>
     <h2 class="sec-title">Nuestra <em>Carta</em></h2>
     <div class="sec-line c"></div>
-    <p class="sec-lead" style="max-width:500px;margin:0 auto;">Todo artesanal, todo con amor. Precios en soles peruanos · S/</p>
+    <p class="sec-lead" style="max-width:500px;margin:0 auto;">Todo artesanal, todo con amor. Precios en soles peruanos ┬À S/</p>
   </div>
   <div class="menu-tabs rv">
-    <button class="tab on"  data-tab="bebidas">☕ Bebidas</button>
-    <button class="tab"     data-tab="frias">🥤 Bebidas Frías</button>
-    <button class="tab"     data-tab="carta">🌅 Carta</button>
-    <button class="tab"     data-tab="salados">🥪 Salados</button>
-    <button class="tab"     data-tab="dulces">🍰 Dulces</button>
+    <button class="tab on"  data-tab="bebidas">Ôÿò Bebidas</button>
+    <button class="tab"     data-tab="frias">­ƒÑñ Bebidas Fr├¡as</button>
+    <button class="tab"     data-tab="carta">­ƒîà Carta</button>
+    <button class="tab"     data-tab="salados">­ƒÑ¬ Salados</button>
+    <button class="tab"     data-tab="dulces">­ƒì░ Dulces</button>
   </div>
 
-  <!-- ── TAB 1: BEBIDAS ── -->
+  <!-- ÔöÇÔöÇ TAB 1: BEBIDAS ÔöÇÔöÇ -->
   <div class="mpanel on" id="tab-bebidas">
     <div class="m-acc">
+      <!-- Bebidas Calientes -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Bebidas Calientes</span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
@@ -1839,35 +1818,37 @@ footer {
             <div class="mi"><div><div class="mi-name">Caramel Latte / Mocaccino</div></div><div class="mi-price">S/ 14.00</div></div>
             <div class="mi"><div><div class="mi-name">Orange Coffee</div></div><div class="mi-price">S/ 12.00</div></div>
             <div class="mi"><div><div class="mi-name">Coffee Tonic</div></div><div class="mi-price">S/ 12.00</div></div>
-            <div class="mi"><div><div class="mi-name">Tiramisú Latte / Cinnamon Latte</div></div><div class="mi-price">S/ 17.00</div></div>
+            <div class="mi"><div><div class="mi-name">Tiramis├║ Latte / Cinnamon Latte</div></div><div class="mi-price">S/ 17.00</div></div>
             <div class="mi"><div><div class="mi-name">Chai Latte</div></div><div class="mi-price">S/ 12.00</div></div>
             <div class="mi"><div><div class="mi-name">Golden Milk</div></div><div class="mi-price">S/ 14.00</div></div>
             <div class="mi"><div><div class="mi-name">Matcha Latte</div></div><div class="mi-price">S/ 12.00</div></div>
-            <div class="mi"><div><div class="mi-name">Infusión "La Fidelia"</div></div><div class="mi-price">S/ 9.00</div></div>
+            <div class="mi"><div><div class="mi-name">Infusi├│n "La Fidelia"</div></div><div class="mi-price">S/ 9.00</div></div>
             <div class="mi"><div><div class="mi-name">Chocolate Caliente</div></div><div class="mi-price">S/ 10.00</div></div>
           </div>
         </div>
       </div>
+      <!-- Bebidas Wellness -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Bebidas Wellness</span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
           <div class="mgrid">
             <div class="mi"><div><div class="mi-name">Matcha Latte: Mango o Fresa</div></div><div class="mi-price">S/ 14.00</div></div>
-            <div class="mi"><div><div class="mi-name">Butterfly Pea Tea Latte: Fresa o Mango</div><div class="mi-desc">Infusión de butterfly pea tea, pulpa de fruta y leche cremosa</div></div><div class="mi-price">S/ 14.00</div></div>
+            <div class="mi"><div><div class="mi-name">Butterfly Pea Tea Latte: Fresa o Mango</div><div class="mi-desc">Infusi├│n de butterfly pea tea, pulpa de fruta y leche cremosa</div></div><div class="mi-price">S/ 14.00</div></div>
             <div class="mi"><div><div class="mi-name">Blue Latte</div></div><div class="mi-price">S/ 14.00</div></div>
             <div class="mi"><div><div class="mi-name">Limonada: Blue Power</div><div class="mi-desc">Refrescante limonada con espirulina azul</div></div><div class="mi-price">S/ 12.00</div></div>
             <div class="mi"><div><div class="mi-name">Pink Dragon Sparkle</div><div class="mi-desc">Burbujeante limonada de pitahaya rosa</div></div><div class="mi-price">S/ 12.00</div></div>
-            <div class="mi"><div><div class="mi-name">Indigo Serenity Tea</div><div class="mi-desc">Infusión de butterfly pea tea con pulpa de maracuyá</div></div><div class="mi-price">S/ 12.00</div></div>
-            <div class="mi"><div><div class="mi-name">Blue Volcano Refresh</div><div class="mi-desc">Refrescante bebida de cold brew, espirulina azul y limón</div></div><div class="mi-price">S/ 12.00</div></div>
+            <div class="mi"><div><div class="mi-name">Indigo Serenity Tea</div><div class="mi-desc">Infusi├│n de butterfly pea tea con pulpa de maracuy├í</div></div><div class="mi-price">S/ 12.00</div></div>
+            <div class="mi"><div><div class="mi-name">Blue Volcano Refresh</div><div class="mi-desc">Refrescante bebida de cold brew, espirulina azul y lim├│n</div></div><div class="mi-price">S/ 12.00</div></div>
           </div>
         </div>
       </div>
+      <!-- Jugos -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Jugos</span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
           <div class="mgrid">
-            <div class="mi"><div><div class="mi-name">Piña, Papaya o Fresa</div></div><div class="mi-price">S/ 8.00</div></div>
-            <div class="mi"><div><div class="mi-name">Coco - Piña y Leche</div></div><div class="mi-price">S/ 12.00</div></div>
+            <div class="mi"><div><div class="mi-name">Pi├▒a, Papaya o Fresa</div></div><div class="mi-price">S/ 8.00</div></div>
+            <div class="mi"><div><div class="mi-name">Coco - Pi├▒a y Leche</div></div><div class="mi-price">S/ 12.00</div></div>
             <div class="mi"><div><div class="mi-name">Chirimoya con Leche</div></div><div class="mi-price">S/ 12.00</div></div>
           </div>
         </div>
@@ -1875,33 +1856,36 @@ footer {
     </div>
   </div>
 
-  <!-- ── TAB 2: BEBIDAS FRÍAS ── -->
+  <!-- ÔöÇÔöÇ TAB 2: BEBIDAS FR├ìAS ÔöÇÔöÇ -->
   <div class="mpanel" id="tab-frias">
     <div class="m-acc">
+      <!-- Bebidas Fr├¡as -->
       <div class="m-acc-item">
-        <div class="m-acc-trigger"><span>Bebidas Frías</span><div class="m-acc-icon"></div></div>
+        <div class="m-acc-trigger"><span>Bebidas Fr├¡as</span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
           <div class="mgrid">
-            <div class="mi"><div><div class="mi-name">Batido Protéico</div><div class="mi-desc">Proteína de vainilla o chocolate con leche vegetal y lúcuma/fresa/plátano</div></div><div class="mi-price">S/ 18.00</div></div>
-            <div class="mi"><div><div class="mi-name">Frappé de Fresa</div></div><div class="mi-price">S/ 16.00</div></div>
+            <div class="mi"><div><div class="mi-name">Batido Prot├®ico</div><div class="mi-desc">Prote├¡na de vainilla o chocolate con leche vegetal y l├║cuma/fresa/pl├ítano</div></div><div class="mi-price">S/ 18.00</div></div>
+            <div class="mi"><div><div class="mi-name">Frapp├® de Fresa</div></div><div class="mi-price">S/ 16.00</div></div>
             <div class="mi"><div><div class="mi-name">Frappuccino</div></div><div class="mi-price">S/ 16.00</div></div>
-            <div class="mi"><div><div class="mi-name">Frappé de Nutella / Caramel / Frutos Rojos</div></div><div class="mi-price">S/ 18.00</div></div>
-            <div class="mi"><div><div class="mi-name">Milkshake de Fresa / Plátano</div></div><div class="mi-price">S/ 16.00</div></div>
+            <div class="mi"><div><div class="mi-name">Frapp├® de Nutella / Caramel / Frutos Rojos</div></div><div class="mi-price">S/ 18.00</div></div>
+            <div class="mi"><div><div class="mi-name">Milkshake de Fresa / Pl├ítano</div></div><div class="mi-price">S/ 16.00</div></div>
           </div>
         </div>
       </div>
+      <!-- Detox -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Detox <small>S/ 15.00</small></span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
           <div class="mgrid">
             <div class="mi"><div><div class="mi-name">Fresa Salvaje</div><div class="mi-desc">Fresa, papaya y jamaica</div></div><div class="mi-price">S/ 15.00</div></div>
-            <div class="mi"><div><div class="mi-name">Green Detox</div><div class="mi-desc">Apio, manzana, pepino, jengibre, espinaca, limón</div></div><div class="mi-price">S/ 15.00</div></div>
-            <div class="mi"><div><div class="mi-name">Inmune Boost</div><div class="mi-desc">Naranja, jengibre, zanahoria, cúrcuma y limón</div></div><div class="mi-price">S/ 15.00</div></div>
+            <div class="mi"><div><div class="mi-name">Green Detox</div><div class="mi-desc">Apio, manzana, pepino, jengibre, espinaca, lim├│n</div></div><div class="mi-price">S/ 15.00</div></div>
+            <div class="mi"><div><div class="mi-name">Inmune Boost</div><div class="mi-desc">Naranja, jengibre, zanahoria, c├║rcuma y lim├│n</div></div><div class="mi-price">S/ 15.00</div></div>
             <div class="mi"><div><div class="mi-name">Energy Plus</div><div class="mi-desc">Espinaca, zanahoria, beterraga y naranja</div></div><div class="mi-price">S/ 15.00</div></div>
-            <div class="mi"><div><div class="mi-name">Golden Tropic</div><div class="mi-desc">Cúrcuma, piña y maracuyá</div></div><div class="mi-price">S/ 15.00</div></div>
+            <div class="mi"><div><div class="mi-name">Golden Tropic</div><div class="mi-desc">C├║rcuma, pi├▒a y maracuy├í</div></div><div class="mi-price">S/ 15.00</div></div>
           </div>
         </div>
       </div>
+      <!-- Embotellados -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Embotellados</span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
@@ -1913,29 +1897,31 @@ footer {
             <div class="mi"><div><div class="mi-name">Powerade</div></div><div class="mi-price">S/ 5.00</div></div>
             <div class="mi"><div><div class="mi-name">Kombucha</div></div><div class="mi-price">S/ 14.00</div></div>
             <div class="mi"><div><div class="mi-name">Cerveza Artesanal</div></div><div class="mi-price">S/ 14.00</div></div>
-            <div class="mi"><div><div class="mi-name">Cerveza 0° Alcohol</div></div><div class="mi-price">S/ 9.00</div></div>
+            <div class="mi"><div><div class="mi-name">Cerveza 0┬░ Alcohol</div></div><div class="mi-price">S/ 9.00</div></div>
             <div class="mi"><div><div class="mi-name">Red Bull</div></div><div class="mi-price">S/ 9.00</div></div>
           </div>
-          <p class="mcat-note" style="margin-top:1rem">* En nuestras bebidas puede seleccionar si desea endulzar con stevia, azúcar o panela.</p>
+          <p class="mcat-note" style="margin-top:1rem">* En nuestras bebidas puede seleccionar si desea endulzar con stevia, az├║car o panela.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ── TAB 3: CARTA ── -->
+  <!-- ÔöÇÔöÇ TAB 3: CARTA (Desayunos & Brunch) ÔöÇÔöÇ -->
   <div class="mpanel" id="tab-carta">
     <div class="m-acc">
+      <!-- Desayunos -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Desayunos</span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
           <div class="mgrid">
-            <div class="mi"><div><div class="mi-name">Amanecer Fit</div><div class="mi-desc">Huevos revueltos, pan campesino, mix de hojas, jugo de estación, café o infusión</div></div><div class="mi-price">S/ 16.00</div></div>
-            <div class="mi"><div><div class="mi-name">Equilibrio Perfecto</div><div class="mi-desc">Huevos revueltos, pan campesino, mix de hojas, bowl de avena, café o infusión</div></div><div class="mi-price">S/ 20.00</div></div>
-            <div class="mi"><div><div class="mi-name">American Power</div><div class="mi-desc">Huevos revueltos, jamón inglés, pan campesino, mix de hojas, jugo de estación, café o infusión</div></div><div class="mi-price">S/ 20.00</div></div>
-            <div class="mi"><div><div class="mi-name">Desayuno Veggie</div><div class="mi-desc">Pan de semillas, champiñones salteados, tomate y palta, jugo de estación y café</div></div><div class="mi-price">S/ 21.00</div></div>
+            <div class="mi"><div><div class="mi-name">Amanecer Fit</div><div class="mi-desc">Huevos revueltos, pan campesino, mix de hojas, jugo de estaci├│n, caf├® o infusi├│n</div></div><div class="mi-price">S/ 16.00</div></div>
+            <div class="mi"><div><div class="mi-name">Equilibrio Perfecto</div><div class="mi-desc">Huevos revueltos, pan campesino, mix de hojas, bowl de avena, caf├® o infusi├│n</div></div><div class="mi-price">S/ 20.00</div></div>
+            <div class="mi"><div><div class="mi-name">American Power</div><div class="mi-desc">Huevos revueltos, jam├│n ingl├®s, pan campesino, mix de hojas, jugo de estaci├│n, caf├® o infusi├│n</div></div><div class="mi-price">S/ 20.00</div></div>
+            <div class="mi"><div><div class="mi-name">Desayuno Veggie</div><div class="mi-desc">Pan de semillas, champi├▒ones salteados, tomate y palta, jugo de estaci├│n y caf├®</div></div><div class="mi-price">S/ 21.00</div></div>
           </div>
         </div>
       </div>
+      <!-- Brunch -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Brunch</span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
@@ -1943,12 +1929,12 @@ footer {
             <div class="mi"><div><div class="mi-name">Focaccia de Peperoni</div><div class="mi-desc">Pepperoni, queso andino, queso tilsit, tomate, lechuga y alioli</div></div><div class="mi-price">S/ 18.00</div></div>
             <div class="mi"><div><div class="mi-name">Focaccia de Pollo y Palta</div><div class="mi-desc">Pollo deshilachado, palta, tomate confitado, lechuga y mayonesa de la casa</div></div><div class="mi-price">S/ 18.00</div></div>
             <div class="mi"><div><div class="mi-name">Focaccia Mixto</div><div class="mi-desc">Lonjas de pavita y queso fundido, espinaca</div></div><div class="mi-price">S/ 15.00</div></div>
-            <div class="mi"><div><div class="mi-name">Focaccia de Jamón Serrano &amp; Pesto</div><div class="mi-desc">Jamón serrano, queso fundido, salsa pesto y tomate</div></div><div class="mi-price">S/ 20.00</div></div>
-            <div class="mi"><div><div class="mi-name">Focaccia Roast Beef</div><div class="mi-desc">Tierno roast beef, lechuga, alcaparras, tomate, salsa vitel toné</div></div><div class="mi-price">S/ 22.00</div></div>
-            <div class="mi"><div><div class="mi-name">Focaccia Veggie</div><div class="mi-desc">Champiñones salteados, palta, lechuga y tomate</div></div><div class="mi-price">S/ 21.00</div></div>
+            <div class="mi"><div><div class="mi-name">Focaccia de Jam├│n Serrano & Pesto</div><div class="mi-desc">Jam├│n serrano, queso fundido, salsa pesto y tomate</div></div><div class="mi-price">S/ 20.00</div></div>
+            <div class="mi"><div><div class="mi-name">Focaccia Roast Beef</div><div class="mi-desc">Tierno roast beef, lechuga, alcaparras, tomate, salsa vitel ton├®</div></div><div class="mi-price">S/ 22.00</div></div>
+            <div class="mi"><div><div class="mi-name">Focaccia Veggie</div><div class="mi-desc">Champi├▒ones salteados, palta, lechuga y tomate</div></div><div class="mi-price">S/ 21.00</div></div>
             <div class="mi"><div><div class="mi-name">Wrap Fit</div><div class="mi-desc">Wrap relleno de pollo, pepino, lechuga, tomate y queso</div></div><div class="mi-price">S/ 18.00</div></div>
             <div class="mi"><div><div class="mi-name">Empanadas</div><div class="mi-desc">Sabores en vitrina</div></div><div class="mi-price">S/ 7.00</div></div>
-            <div class="mi"><div><div class="mi-name">Bowl de Avena, Chía, Frutas y Granola</div></div><div class="mi-price">S/ 15.00</div></div>
+            <div class="mi"><div><div class="mi-name">Bowl de Avena, Ch├¡a, Frutas y Granola</div></div><div class="mi-price">S/ 15.00</div></div>
             <div class="mi"><div><div class="mi-name">Ensalada de Frutas, Yogurt Griego, Granola y Miel</div></div><div class="mi-price">S/ 15.00</div></div>
           </div>
         </div>
@@ -1956,79 +1942,84 @@ footer {
     </div>
   </div>
 
-  <!-- ── TAB 4: SALADOS ── -->
+  <!-- ÔöÇÔöÇ TAB 4: SALADOS (Compartir, Ensaladas, Fondos) ÔöÇÔöÇ -->
   <div class="mpanel" id="tab-salados">
     <div class="m-acc">
+      <!-- Para Compartir -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Para Compartir</span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
           <div class="mgrid">
-            <div class="mi"><div><div class="mi-name">Trío Perfecto</div><div class="mi-desc">Americano, keke artesanal y sándwich de pollo</div></div><div class="mi-price">S/ 20.00</div></div>
-            <div class="mi"><div><div class="mi-name">Club Sándwich BAWi</div><div class="mi-desc">Focaccia de masa madre relleno de pollo, jamón, queso y tomate</div></div><div class="mi-price">S/ 28.00</div></div>
-            <div class="mi"><div><div class="mi-name">Tequeños de Queso</div></div><div class="mi-price">S/ 20.00</div></div>
+            <div class="mi"><div><div class="mi-name">Tr├¡o Perfecto</div><div class="mi-desc">Americano, keke artesanal y s├índwich de pollo</div></div><div class="mi-price">S/ 20.00</div></div>
+            <div class="mi"><div><div class="mi-name">Club S├índwich BAWi</div><div class="mi-desc">Focaccia de masa madre relleno de pollo, jam├│n, queso y tomate</div></div><div class="mi-price">S/ 28.00</div></div>
+            <div class="mi"><div><div class="mi-name">Teque├▒os de Queso</div></div><div class="mi-price">S/ 20.00</div></div>
           </div>
         </div>
       </div>
+      <!-- Ensaladas -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Ensaladas</span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
           <div class="mgrid">
-            <div class="mi"><div><div class="mi-name">Hawaiana</div><div class="mi-desc">Lechuga, piña, naranja, palta, pollo y salsa agridulce</div></div><div class="mi-price">S/ 21.00</div></div>
+            <div class="mi"><div><div class="mi-name">Hawaiana</div><div class="mi-desc">Lechuga, pi├▒a, naranja, palta, pollo y salsa agridulce</div></div><div class="mi-price">S/ 21.00</div></div>
             <div class="mi"><div><div class="mi-name">Andina Quinua</div><div class="mi-desc">Quinua, zanahoria, pimiento, aceituna, pollo y salsa de mostaza</div></div><div class="mi-price">S/ 21.00</div></div>
             <div class="mi"><div><div class="mi-name">Gaucha</div><div class="mi-desc">Lechuga, palta, choclito, tomate, pepinillo, res y aceite de oliva</div></div><div class="mi-price">S/ 28.00</div></div>
           </div>
         </div>
       </div>
+      <!-- Fondos -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Fondos <small>S/ 21.00</small></span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
           <div class="mgrid">
             <div class="mi"><div><div class="mi-name">Filete de Pollo</div></div><div class="mi-price">S/ 21.00</div></div>
             <div class="mi"><div><div class="mi-name">Pollo en Salsa Teriyaki</div></div><div class="mi-price">S/ 21.00</div></div>
-            <div class="mi"><div><div class="mi-name">Lasaña Napolitana o Fiorentina</div></div><div class="mi-price">S/ 21.00</div></div>
+            <div class="mi"><div><div class="mi-name">Lasa├▒a Napolitana o Fiorentina</div></div><div class="mi-price">S/ 21.00</div></div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ── TAB 5: DULCES ── -->
+  <!-- ÔöÇÔöÇ TAB 5: DULCES & POSTRES WELLNESS ÔöÇÔöÇ -->
   <div class="mpanel" id="tab-dulces">
     <div class="m-acc">
+      <!-- Dulces -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Dulces</span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
           <div class="mgrid">
-            <div class="mi"><div><div class="mi-name">Keke Artesanal - Saludable</div><div class="mi-desc">Endulzado con azúcar de coco</div></div><div class="mi-price">S/ 10.00</div></div>
+            <div class="mi"><div><div class="mi-name">Keke Artesanal - Saludable</div><div class="mi-desc">Endulzado con az├║car de coco</div></div><div class="mi-price">S/ 10.00</div></div>
             <div class="mi"><div><div class="mi-name">Molde - Keke Artesanal</div></div><div class="mi-price">S/ 64.00</div></div>
-            <div class="mi"><div><div class="mi-name">Brownie de Avena</div><div class="mi-desc">Endulzado con azúcar de coco</div></div><div class="mi-price">S/ 9.00</div></div>
-            <div class="mi"><div><div class="mi-name">Porción de Torta</div><div class="mi-desc">De almendra, de avena, alulosa, stevia. Sabor en vitrina.</div></div><div class="mi-price">S/ 14.00</div></div>
+            <div class="mi"><div><div class="mi-name">Brownie de Avena</div><div class="mi-desc">Endulzado con az├║car de coco</div></div><div class="mi-price">S/ 9.00</div></div>
+            <div class="mi"><div><div class="mi-name">Porci├│n de Torta</div><div class="mi-desc">De almendra, de avena, alulosa, stevia. Sabor en vitrina.</div></div><div class="mi-price">S/ 14.00</div></div>
             <div class="mi"><div><div class="mi-name">Tarta Vasca</div><div class="mi-desc">Endulzada con alulosa</div></div><div class="mi-price">S/ 16.00</div></div>
-            <div class="mi"><div><div class="mi-name">Galletas de Avena</div><div class="mi-desc">Endulzadas con azúcar de coco</div></div><div class="mi-price">S/ 4.00</div></div>
+            <div class="mi"><div><div class="mi-name">Galletas de Avena</div><div class="mi-desc">Endulzadas con az├║car de coco</div></div><div class="mi-price">S/ 4.00</div></div>
             <div class="mi"><div><div class="mi-name">Galletas Rellenas</div><div class="mi-desc">Almendra, avena, arroz, endulzada con alulosa</div></div><div class="mi-price">S/ 8.00</div></div>
-            <div class="mi"><div><div class="mi-name">Snicker Vegano - Maní</div></div><div class="mi-price">S/ 8.00</div></div>
-            <div class="mi"><div><div class="mi-name">Snicker Vegano - Pistacho y Limón o Chocolúcuma</div></div><div class="mi-price">S/ 9.00</div></div>
-            <div class="mi"><div><div class="mi-name">Snicker Dubái</div><div class="mi-desc">Vegano relleno de crema de pistacho, kataifi bañado en cacao al 53%</div></div><div class="mi-price">S/ 11.00</div></div>
-            <div class="mi"><div><div class="mi-name">Brownie Dubái</div><div class="mi-desc">Vegano relleno de crema de pistacho, kataifi bañado en cacao al 53%</div></div><div class="mi-price">S/ 11.00</div></div>
+            <div class="mi"><div><div class="mi-name">Snicker Vegano - Man├¡</div></div><div class="mi-price">S/ 8.00</div></div>
+            <div class="mi"><div><div class="mi-name">Snicker Vegano - Pistacho y Lim├│n o Chocol├║cuma</div></div><div class="mi-price">S/ 9.00</div></div>
+            <div class="mi"><div><div class="mi-name">Snicker Dub├íi</div><div class="mi-desc">Vegano relleno de crema de pistacho, kataifi ba├▒ado en cacao al 53%</div></div><div class="mi-price">S/ 11.00</div></div>
+            <div class="mi"><div><div class="mi-name">Brownie Dub├íi</div><div class="mi-desc">Vegano relleno de crema de pistacho, kataifi ba├▒ado en cacao al 53%</div></div><div class="mi-price">S/ 11.00</div></div>
             <div class="mi"><div><div class="mi-name">Focaccia Doble Chocolate</div><div class="mi-desc">Focaccia de masa madre relleno de Nutella o crema de pistacho</div></div><div class="mi-price">S/ 14.00</div></div>
             <div class="mi"><div><div class="mi-name">Torta Vasca Dulce de Leche o Cacao 80%</div></div><div class="mi-price">S/ 18.00</div></div>
-            <div class="mi"><div><div class="mi-name">Tiramisú Clásico</div><div class="mi-desc">Bizcotelas embebidas en café con crema de tiramisú y cacao orgánico</div></div><div class="mi-price">S/ 15.00</div></div>
+            <div class="mi"><div><div class="mi-name">Tiramis├║ Cl├ísico</div><div class="mi-desc">Bizcotelas embebidas en caf├® con crema de tiramis├║ y cacao org├ínico</div></div><div class="mi-price">S/ 15.00</div></div>
             <div class="mi"><div><div class="mi-name">Bowl de Snicker Bites (6 und)</div></div><div class="mi-price">S/ 22.00</div></div>
           </div>
         </div>
       </div>
+      <!-- Postres Wellness -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Postres Wellness</span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
-          <p class="mcat-note" style="margin-bottom:1.5rem">Postres libres de gluten y sin azúcar. Hechos con harina de almendra, harina de avena sin gluten y endulzados con alulosa, stevia.</p>
+          <p class="mcat-note" style="margin-bottom:1.5rem">Postres libres de gluten y sin az├║car. Hechos con harina de almendra, harina de avena sin gluten y endulzados con alulosa, stevia.</p>
           <div class="mgrid">
-            <div class="mi"><div><div class="mi-name">Purple Chia Pudding</div><div class="mi-desc">Chía pudding de butterfly pea tea, yogurt griego, pulpa de fruta, granola y fruta fresca</div></div><div class="mi-price">S/ 18.00</div></div>
-            <div class="mi"><div><div class="mi-name">Tiramisú de Pistacho</div><div class="mi-desc">Bizcotelas embebidas en café con crema de tiramisú y pistacho, cacao orgánico</div></div><div class="mi-price">S/ 16.00</div></div>
+            <div class="mi"><div><div class="mi-name">Purple Chia Pudding</div><div class="mi-desc">Ch├¡a pudding de butterfly pea tea, yogurt griego, pulpa de fruta, granola y fruta fresca</div></div><div class="mi-price">S/ 18.00</div></div>
+            <div class="mi"><div><div class="mi-name">Tiramis├║ de Pistacho</div><div class="mi-desc">Bizcotelas embebidas en caf├® con crema de tiramis├║ y pistacho, cacao org├ínico</div></div><div class="mi-price">S/ 16.00</div></div>
             <div class="mi"><div><div class="mi-name">Cuchareable Chocomanjar</div></div><div class="mi-price">S/ 16.00</div></div>
             <div class="mi"><div><div class="mi-name">Cuchareable Doble Chocolate</div></div><div class="mi-price">S/ 16.00</div></div>
-            <div class="mi"><div><div class="mi-name">Cuchareable Chocopistacho</div><div class="mi-desc">Capas de húmedo bizcocho de cacao, fudge casero, crema de pistacho y pistachos crocantes</div></div><div class="mi-price">S/ 16.00</div></div>
-            <div class="mi"><div><div class="mi-name">Cuchareable Dubái</div><div class="mi-desc">Capas de húmedo bizcocho de cacao, fudge casero, crema de dubai y pistachos tostados</div></div><div class="mi-price">S/ 18.00</div></div>
-            <div class="mi"><div><div class="mi-name">Cuchareable Chocoteja</div><div class="mi-desc">Capas de húmedo bizcocho de cacao, manjar de olla, pecanas tostadas y cacao al 80%</div></div><div class="mi-price">S/ 18.00</div></div>
+            <div class="mi"><div><div class="mi-name">Cuchareable Chocopistacho</div><div class="mi-desc">Capas de h├║medo bizcocho de cacao, fudge casero, crema de pistacho y pistachos crocantes</div></div><div class="mi-price">S/ 16.00</div></div>
+            <div class="mi"><div><div class="mi-name">Cuchareable Dub├íi</div><div class="mi-desc">Capas de h├║medo bizcocho de cacao, fudge casero, crema de dubai y pistachos tostados</div></div><div class="mi-price">S/ 18.00</div></div>
+            <div class="mi"><div><div class="mi-name">Cuchareable Chocoteja</div><div class="mi-desc">Capas de h├║medo bizcocho de cacao, manjar de olla, pecanas tostadas y cacao al 80%</div></div><div class="mi-price">S/ 18.00</div></div>
           </div>
         </div>
       </div>
@@ -2036,50 +2027,64 @@ footer {
   </div>
 </section>
 
-
-
-
-
-
 <hr class="shimmer-div"/>
-<!-- ══ GALERÍA BENTO ══ -->
+<!-- ÔòÉÔòÉ GALER├ìA BENTO ÔòÉÔòÉ -->
 <section id="galeria">
   <div class="gal-head rv">
     <span class="sec-eye">Nuestro Espacio & Creaciones</span>
     <h2 class="sec-title">La <em>experiencia</em> BAWi</h2>
     <div class="sec-line c"></div>
-    <p class="sec-lead" style="max-width:500px;margin:0 auto;font-size:.9rem;color:var(--text-mid);">Desliza para explorar nuestros postres wellness, bebidas de especialidad y cada rincón pensado para ti.</p>
+    <p class="sec-lead" style="max-width:500px;margin:0 auto;font-size:.9rem;color:var(--text-mid);">Desliza para explorar nuestros postres wellness, bebidas de especialidad y cada rinc├│n pensado para ti.</p>
   </div>
   
   <div class="gal-slider">
     <!-- 12 placeholders for the gallery -->
-
+    <div class="gal-item rv d1">
+      <img src="./images/gal-bawi-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600';this.onerror=null;" alt="Galer├¡a BAWi" loading="lazy"/>
+      <div class="gal-over"><span class="gal-label">Postres Wellness</span></div>
+    </div>
+    <div class="gal-item rv d2">
+      <img src="./images/gal-bawi-2.jpg" onerror="this.src='https://images.unsplash.com/photo-1607867377433-4b1bca38b35b?w=600';this.onerror=null;" alt="Galer├¡a BAWi" loading="lazy"/>
+      <div class="gal-over"><span class="gal-label">Cuchareables de Chocolate</span></div>
+    </div>
+    <div class="gal-item rv d3">
+      <img src="./images/gal-bawi-3.jpg" onerror="this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600';this.onerror=null;" alt="Galer├¡a BAWi" loading="lazy"/>
+      <div class="gal-over"><span class="gal-label">Bebidas Detox & Proteicos</span></div>
+    </div>
+    <div class="gal-item rv d4">
+      <img src="./images/gal-bawi-4.jpg" onerror="this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600';this.onerror=null;" alt="Galer├¡a BAWi" loading="lazy"/>
+      <div class="gal-over"><span class="gal-label">Ensaladas Frescas</span></div>
+    </div>
+    <div class="gal-item rv d5">
+      <img src="./images/gal-bawi-5.jpg" onerror="this.src='https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600';this.onerror=null;" alt="Galer├¡a BAWi" loading="lazy"/>
+      <div class="gal-over"><span class="gal-label">Men├║ de Especialidad</span></div>
+    </div>
     <div class="gal-item">
-      <img src="./images/gal-bawi-6.jpg" onerror="this.src='https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <img src="./images/gal-bawi-6.jpg" onerror="this.src='https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600';this.onerror=null;" alt="Galer├¡a BAWi" loading="lazy"/>
       <div class="gal-over"><span class="gal-label">Momentos BAWi</span></div>
     </div>
     <div class="gal-item">
-      <img src="./images/gal-bawi-7.jpg" onerror="this.src='https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <img src="./images/gal-bawi-7.jpg" onerror="this.src='https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600';this.onerror=null;" alt="Galer├¡a BAWi" loading="lazy"/>
       <div class="gal-over"><span class="gal-label">Momentos BAWi</span></div>
     </div>
     <div class="gal-item">
-      <img src="./images/gal-bawi-8.jpg" onerror="this.src='https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <img src="./images/gal-bawi-8.jpg" onerror="this.src='https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600';this.onerror=null;" alt="Galer├¡a BAWi" loading="lazy"/>
       <div class="gal-over"><span class="gal-label">Momentos BAWi</span></div>
     </div>
     <div class="gal-item">
-      <img src="./images/gal-bawi-9.jpg" onerror="this.src='https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <img src="./images/gal-bawi-9.jpg" onerror="this.src='https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600';this.onerror=null;" alt="Galer├¡a BAWi" loading="lazy"/>
       <div class="gal-over"><span class="gal-label">Momentos BAWi</span></div>
     </div>
     <div class="gal-item">
-      <img src="./images/gal-bawi-10.jpg" onerror="this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <img src="./images/gal-bawi-10.jpg" onerror="this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600';this.onerror=null;" alt="Galer├¡a BAWi" loading="lazy"/>
       <div class="gal-over"><span class="gal-label">Momentos BAWi</span></div>
     </div>
     <div class="gal-item">
-      <img src="./images/gal-bawi-11.jpg" onerror="this.src='https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <img src="./images/gal-bawi-11.jpg" onerror="this.src='https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600';this.onerror=null;" alt="Galer├¡a BAWi" loading="lazy"/>
       <div class="gal-over"><span class="gal-label">Momentos BAWi</span></div>
     </div>
     <div class="gal-item">
-      <img src="./images/gal-bawi-12.jpg" onerror="this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <img src="./images/gal-bawi-12.jpg" onerror="this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600';this.onerror=null;" alt="Galer├¡a BAWi" loading="lazy"/>
       <div class="gal-over"><span class="gal-label">Momentos BAWi</span></div>
     </div>
   </div>
@@ -2087,126 +2092,74 @@ footer {
 
 
 
-<!-- ══ PRODUCTOS BAWI ══ -->
+<!-- ÔòÉÔòÉ PRODUCTOS BAWI ÔòÉÔòÉ -->
 <section id="productos">
   <div class="prod-head rv">
     <span class="sec-eye">Llevar a Casa</span>
     <h2 class="sec-title">Productos <em>BAWi</em></h2>
     <div class="sec-line c"></div>
-    <p class="sec-lead" style="max-width:480px;margin:0 auto;">Naturalmente hecho en casa. Granolas, barras energéticas y snacks wellness.</p>
+    <p class="sec-lead" style="max-width:480px;margin:0 auto;">Naturalmente hecho en casa. Granolas, barras energ├®ticas y snacks wellness.</p>
   </div>
-  <div class="prod-acc-wrap">
-    
-    <!-- ACCORDION 1: Postres & Snacks Veganos -->
-    <details class="prod-acc rv d1" name="productos" open>
-      <summary class="prod-acc-summary">Postres & Snacks Veganos</summary>
-      <div class="prod-acc-content">
-        <div class="prod-grid">
-          <div class="prod-card">
-            <img src="./images/prod-snickers-boxes.jpg" onerror="this.src='https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600';this.onerror=null;" alt="Snickers Veganos BAWi" class="prod-img" loading="lazy"/>
-            <div class="prod-body">
-              <div class="prod-name">Snickers Veganos BAWi</div>
-              <div class="prod-desc">Tradicional, Dubái, Chocolúcuma, o Pistacho & Limón. Placer sin culpas, libres de azúcar.</div>
-              <span class="prod-tag">Vegano · S/ 8–11</span>
-            </div>
-          </div>
-          <div class="prod-card">
-            <img src="./images/brownie-dubai.jpg" onerror="this.src='https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600';this.onerror=null;" alt="Brownie Dubai BAWi" class="prod-img" loading="lazy"/>
-            <div class="prod-body">
-              <div class="prod-name">Brownie Dubái</div>
-              <div class="prod-desc">Brownie vegano con crema de pistacho y kataifi, bañado en cacao al 53%.</div>
-              <span class="prod-tag">Vegano · S/ 11</span>
-            </div>
-          </div>
-          <div class="prod-card">
-            <img src="./images/prod-energy-bars.jpg" onerror="this.src='https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600';this.onerror=null;" alt="Barras Energéticas" class="prod-img" loading="lazy"/>
-            <div class="prod-body">
-              <div class="prod-name">Barras Energéticas</div>
-              <div class="prod-desc">Chocoavellana & Café, Chocobawi con Cushuro. Energía limpia para tu día a día.</div>
-              <span class="prod-tag">Sin Aditivos</span>
-            </div>
-          </div>
-        </div>
+  <div class="prod-grid rv">
+    <div class="prod-card">
+      <img src="./images/snicker-bites.jpg" onerror="this.src='https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600';this.onerror=null;" alt="Snicker Bites BAWi" class="prod-img" loading="lazy"/>
+      <div class="prod-body">
+        <div class="prod-name">Snicker Vegano BAWi</div>
+        <div class="prod-desc">Man├¡, pistacho & lim├│n o chocol├║cuma. Placer sin culpas, hecho en nuestra cocina.</div>
+        <span class="prod-tag">Vegano ┬À S/ 7ÔÇô8</span>
       </div>
-    </details>
-
-    <!-- ACCORDION 2: Granolas & Mantequillas -->
-    <details class="prod-acc rv d2" name="productos">
-      <summary class="prod-acc-summary">Granolas & Mantequillas</summary>
-      <div class="prod-acc-content">
-        <div class="prod-grid">
-          <div class="prod-card">
-            <img src="./images/prod-granola-jars.jpg" onerror="this.src='https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600';this.onerror=null;" alt="Granolas Naturales" class="prod-img" loading="lazy"/>
-            <div class="prod-body">
-              <div class="prod-name">Granolas y Más</div>
-              <div class="prod-desc">Nuestra granola natural hecha en casa, mermeladas y mantequilla de maní sin conservantes.</div>
-              <span class="prod-tag">Hecho en Casa</span>
-            </div>
-          </div>
-          <div class="prod-card">
-            <img src="./images/prod-snickers-granola.jpg" onerror="this.src='https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600';this.onerror=null;" alt="Packs BAWi" class="prod-img" loading="lazy"/>
-            <div class="prod-body">
-              <div class="prod-name">Mix Artesanal BAWi</div>
-              <div class="prod-desc">Lleva la alquimia de amor de nuestra cocina a tu hogar. Perfecto para desayunos nutritivos.</div>
-              <span class="prod-tag">Artesanal</span>
-            </div>
-          </div>
-          <div class="prod-card">
-            <img src="./images/prod-granola-snickers.jpg" onerror="this.src='https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600';this.onerror=null;" alt="Packs de Bienestar" class="prod-img" loading="lazy"/>
-            <div class="prod-body">
-              <div class="prod-name">Packs de Bienestar</div>
-              <div class="prod-desc">Combina tus granolas favoritas con nuestra mantequilla de maní y postres veganos.</div>
-              <span class="prod-tag">Arma tu Pack</span>
-            </div>
-          </div>
-        </div>
+    </div>
+    <div class="prod-card">
+      <img src="./images/brownie-dubai.jpg" onerror="this.src='https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600';this.onerror=null;" alt="Brownie Dubai BAWi" class="prod-img" loading="lazy"/>
+      <div class="prod-body">
+        <div class="prod-name">Brownie Dub├íi</div>
+        <div class="prod-desc">Brownie vegano con crema de pistacho y kataifi, ba├▒ado en cacao al 53%.</div>
+        <span class="prod-tag">Vegano ┬À S/ 11</span>
       </div>
-    </details>
-
-    <!-- ACCORDION 3: Café & Bienestar Natural -->
-    <details class="prod-acc rv d3" name="productos">
-      <summary class="prod-acc-summary">Café & Bienestar Natural</summary>
-      <div class="prod-acc-content">
-        <div class="prod-grid">
-          <div class="prod-card">
-            <img src="./images/prod-tabi-coffee.jpg" onerror="this.src='https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600';this.onerror=null;" alt="Café Peruano TABI" class="prod-img" loading="lazy"/>
-            <div class="prod-body">
-              <div class="prod-name">Café de Especialidad TABI</div>
-              <div class="prod-desc">Café Peruano en grano entero o molido. Directo de Jaén, Cajamarca (Altura: 1800 msnm).</div>
-              <span class="prod-tag">100% Natural</span>
-            </div>
-          </div>
-          <div class="prod-card">
-            <img src="./images/prod-moland-matcha.jpg" onerror="this.src='https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600';this.onerror=null;" alt="Matcha Premium Moland" class="prod-img" loading="lazy"/>
-            <div class="prod-body">
-              <div class="prod-name">Matcha Premium Moland</div>
-              <div class="prod-desc">Matcha Culinario Japonés. Energía natural, antioxidantes y fortalece el sistema inmune.</div>
-              <span class="prod-tag">Calidad Premium</span>
-            </div>
-          </div>
-          <div class="prod-card">
-            <img src="./images/prod-hampuy-sprays.jpg" onerror="this.src='https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600';this.onerror=null;" alt="Armonía Hampuy" class="prod-img" loading="lazy"/>
-            <div class="prod-body">
-              <div class="prod-name">Armonía Hampuy</div>
-              <div class="prod-desc">Elixires energéticos, spray de la abundancia, palo santo y sales de rosas artesanales.</div>
-              <span class="prod-tag">Hecho a Mano</span>
-            </div>
-          </div>
-        </div>
+    </div>
+    <div class="prod-card">
+      <img src="./images/cuchareable-choco.jpg" onerror="this.src='https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600';this.onerror=null;" alt="Cuchareable BAWi" class="prod-img" loading="lazy"/>
+      <div class="prod-body">
+        <div class="prod-name">Cuchareable para llevar</div>
+        <div class="prod-desc">Nuestros postres wellness en taza BAWi. Perfectos para llevar y disfrutar en casa.</div>
+        <span class="prod-tag">Hecho en Casa</span>
       </div>
-    </details>
-
+    </div>
+    <div class="prod-card">
+      <img src="./images/tarta-vasca.jpg" onerror="this.src='https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600';this.onerror=null;" alt="Tarta Vasca BAWi" class="prod-img" loading="lazy"/>
+      <div class="prod-body">
+        <div class="prod-name">Tarta Vasca</div>
+        <div class="prod-desc">Cheesecake vasco artesanal. Cremoso, dorado y irresistible ÔÇö sabor de vitrina.</div>
+        <span class="prod-tag">Artesanal ┬À S/ 12</span>
+      </div>
+    </div>
+    <div class="prod-card">
+      <img src="./images/granola-bag-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600';this.onerror=null;" alt="Granola BAWi" class="prod-img" loading="lazy"/>
+      <div class="prod-body">
+        <div class="prod-name">Granola BAWi</div>
+        <div class="prod-desc">Granola artesanal con ingredientes 100% naturales. Hecha en nuestra cocina con amor.</div>
+        <span class="prod-tag">100% Natural</span>
+      </div>
+    </div>
+    <div class="prod-card">
+      <img src="./images/granola-bag-2.jpg" onerror="this.src='https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600';this.onerror=null;" alt="Barras Energ├®ticas" class="prod-img" loading="lazy" style="object-position:center top"/>
+      <div class="prod-body">
+        <div class="prod-name">Barras Energ├®ticas</div>
+        <div class="prod-desc">Pistacho & Lim├│n ┬À CocaAvellana ┬À Snickers Vegano. Energ├¡a limpia para tu d├¡a.</div>
+        <span class="prod-tag">Sin Aditivos</span>
+      </div>
+    </div>
   </div>
 </section>
 
 <hr class="shimmer-div"/>
-<!-- ══ DISTRIBUIDORES ══ -->
+<!-- ÔòÉÔòÉ DISTRIBUIDORES ÔòÉÔòÉ -->
 <section id="distribuidores">
   <div class="dist-head rv">
-    <span class="sec-eye">Encuéntranos también en</span>
+    <span class="sec-eye">Encu├®ntranos tambi├®n en</span>
     <h2 class="sec-title">Nuestros <em>Distribuidores</em></h2>
     <div class="sec-line c"></div>
-    <p class="sec-lead" style="max-width:520px;margin:0 auto;">Puedes encontrar los productos BAWi en estos puntos de venta en Arequipa. ¡Snacks, granolas y más al alcance de tu mano!</p>
+    <p class="sec-lead" style="max-width:520px;margin:0 auto;">Puedes encontrar los productos BAWi en estos puntos de venta en Arequipa. ┬íSnacks, granolas y m├ís al alcance de tu mano!</p>
   </div>
   <div class="dist-grid">
 
@@ -2214,24 +2167,24 @@ footer {
     <div class="dist-card rv d1">
       <div class="dist-card-top">
         <div class="dist-name">Doorganic</div>
-        <span class="dist-tag">🌿 Tienda Natural</span>
+        <span class="dist-tag">­ƒî┐ Tienda Natural</span>
       </div>
       <div class="dist-body">
         <div>
           <div class="dist-products-title">Productos disponibles</div>
           <div class="dist-products">
-            <span class="dist-pill"><span class="dist-pill-icon">🍫</span>Snickers Veganos</span>
-            <span class="dist-pill"><span class="dist-pill-icon">⚡</span>Barras Energéticas</span>
-            <span class="dist-pill"><span class="dist-pill-icon">🥜</span>Mantequilla de Maní</span>
-            <span class="dist-pill"><span class="dist-pill-icon">🌰</span>Mantequilla de Almendra</span>
-            <span class="dist-pill"><span class="dist-pill-icon">🟫</span>Brownies Dubái</span>
-            <span class="dist-pill"><span class="dist-pill-icon">🌾</span>Granolas</span>
+            <span class="dist-pill"><span class="dist-pill-icon">­ƒì½</span>Snickers Veganos</span>
+            <span class="dist-pill"><span class="dist-pill-icon">ÔÜí</span>Barras Energ├®ticas</span>
+            <span class="dist-pill"><span class="dist-pill-icon">­ƒÑ£</span>Mantequilla de Man├¡</span>
+            <span class="dist-pill"><span class="dist-pill-icon">­ƒî░</span>Mantequilla de Almendra</span>
+            <span class="dist-pill"><span class="dist-pill-icon">­ƒƒ½</span>Brownies Dub├íi</span>
+            <span class="dist-pill"><span class="dist-pill-icon">­ƒî¥</span>Granolas</span>
           </div>
         </div>
       </div>
       <div class="dist-footer">
         <div class="dist-footer-dot"></div>
-        Punto de venta · Arequipa
+        Punto de venta ┬À Arequipa
       </div>
     </div>
 
@@ -2239,24 +2192,24 @@ footer {
     <div class="dist-card rv d2">
       <div class="dist-card-top" style="background:linear-gradient(135deg,#1c3832,#2A5249)">
         <div class="dist-name">Qiwa</div>
-        <span class="dist-tag">🏪 Tienda Saludable</span>
+        <span class="dist-tag">­ƒÅ¬ Tienda Saludable</span>
       </div>
       <div class="dist-body">
         <div>
           <div class="dist-products-title">Productos disponibles</div>
           <div class="dist-products">
-            <span class="dist-pill"><span class="dist-pill-icon">🍫</span>Snickers Veganos</span>
-            <span class="dist-pill"><span class="dist-pill-icon">⚡</span>Barras Energéticas</span>
-            <span class="dist-pill"><span class="dist-pill-icon">🥜</span>Mantequilla de Maní</span>
-            <span class="dist-pill"><span class="dist-pill-icon">🌰</span>Mantequilla de Almendra</span>
-            <span class="dist-pill"><span class="dist-pill-icon">🟫</span>Brownies Dubái</span>
-            <span class="dist-pill"><span class="dist-pill-icon">🌾</span>Granolas</span>
+            <span class="dist-pill"><span class="dist-pill-icon">­ƒì½</span>Snickers Veganos</span>
+            <span class="dist-pill"><span class="dist-pill-icon">ÔÜí</span>Barras Energ├®ticas</span>
+            <span class="dist-pill"><span class="dist-pill-icon">­ƒÑ£</span>Mantequilla de Man├¡</span>
+            <span class="dist-pill"><span class="dist-pill-icon">­ƒî░</span>Mantequilla de Almendra</span>
+            <span class="dist-pill"><span class="dist-pill-icon">­ƒƒ½</span>Brownies Dub├íi</span>
+            <span class="dist-pill"><span class="dist-pill-icon">­ƒî¥</span>Granolas</span>
           </div>
         </div>
       </div>
       <div class="dist-footer">
         <div class="dist-footer-dot"></div>
-        Punto de venta · Arequipa
+        Punto de venta ┬À Arequipa
       </div>
     </div>
 
@@ -2264,24 +2217,24 @@ footer {
     <div class="dist-card rv d3">
       <div class="dist-card-top" style="background:linear-gradient(135deg,#7a5230,#A0764A)">
         <div class="dist-name">Cafetal</div>
-        <span class="dist-tag">☕ Café & Tienda</span>
+        <span class="dist-tag">Ôÿò Caf├® & Tienda</span>
       </div>
       <div class="dist-body">
         <div>
           <div class="dist-products-title">Productos disponibles</div>
           <div class="dist-products">
-            <span class="dist-pill"><span class="dist-pill-icon">🍫</span>Snickers Veganos</span>
-            <span class="dist-pill"><span class="dist-pill-icon">⚡</span>Barras Energéticas</span>
-            <span class="dist-pill"><span class="dist-pill-icon">🥜</span>Mantequilla de Maní</span>
-            <span class="dist-pill"><span class="dist-pill-icon">🌰</span>Mantequilla de Almendra</span>
-            <span class="dist-pill"><span class="dist-pill-icon">🟫</span>Brownies Dubái</span>
-            <span class="dist-pill"><span class="dist-pill-icon">🌾</span>Granolas</span>
+            <span class="dist-pill"><span class="dist-pill-icon">­ƒì½</span>Snickers Veganos</span>
+            <span class="dist-pill"><span class="dist-pill-icon">ÔÜí</span>Barras Energ├®ticas</span>
+            <span class="dist-pill"><span class="dist-pill-icon">­ƒÑ£</span>Mantequilla de Man├¡</span>
+            <span class="dist-pill"><span class="dist-pill-icon">­ƒî░</span>Mantequilla de Almendra</span>
+            <span class="dist-pill"><span class="dist-pill-icon">­ƒƒ½</span>Brownies Dub├íi</span>
+            <span class="dist-pill"><span class="dist-pill-icon">­ƒî¥</span>Granolas</span>
           </div>
         </div>
       </div>
       <div class="dist-footer">
         <div class="dist-footer-dot"></div>
-        Punto de venta · Arequipa
+        Punto de venta ┬À Arequipa
       </div>
     </div>
 
@@ -2289,7 +2242,7 @@ footer {
 </section>
 
 <hr class="shimmer-div"/>
-<!-- ══ CORNER SHOP ══ -->
+<!-- ÔòÉÔòÉ CORNER SHOP ÔòÉÔòÉ -->
 <section id="cornershop">
   <div class="cs-wrap">
 
@@ -2299,12 +2252,12 @@ footer {
       <h2 class="cs-title">Corner <em>Shop</em> BAWi</h2>
       <div class="sec-line"></div>
       <p class="cs-desc">
-        Más que un café — un espacio curado donde encontrarás nuestras propias marcas junto a productos de bienestar seleccionados. Todo bajo el mismo techo, con el sello BAWi.
+        M├ís que un caf├® ÔÇö un espacio curado donde encontrar├ís nuestras propias marcas junto a productos de bienestar seleccionados. Todo bajo el mismo techo, con el sello BAWi.
       </p>
       <div class="cs-highlights">
-        <div class="cs-hi"><div class="cs-hi-icon">☕</div> Café BAWi de especialidad para llevar a casa</div>
-        <div class="cs-hi"><div class="cs-hi-icon">✨</div> Productos seleccionados de la marca Just</div>
-        <div class="cs-hi"><div class="cs-hi-icon">🌸</div> Bienestar natural con Hampuy · Karina Salazar</div>
+        <div class="cs-hi"><div class="cs-hi-icon">Ôÿò</div> Caf├® BAWi de especialidad para llevar a casa</div>
+        <div class="cs-hi"><div class="cs-hi-icon">Ô£¿</div> Productos seleccionados de la marca Just</div>
+        <div class="cs-hi"><div class="cs-hi-icon">­ƒî©</div> Bienestar natural con Hampuy ┬À Karina Salazar</div>
       </div>
     </div>
 
@@ -2314,47 +2267,47 @@ footer {
       <!-- BAWi -->
       <div class="cs-brand-card rvr d1">
         <div class="cs-brand-header">
-          <div class="cs-brand-icon teal">☕</div>
+          <div class="cs-brand-icon teal">Ôÿò</div>
           <div>
             <div class="cs-brand-name">Marca BAWi</div>
-            <div class="cs-brand-sub">Café de especialidad — hecho en casa</div>
+            <div class="cs-brand-sub">Caf├® de especialidad ÔÇö hecho en casa</div>
           </div>
         </div>
         <div class="cs-brand-pills">
-          <span class="cs-brand-pill">🍵 Matcha</span>
-          <span class="cs-brand-pill">☕ Café Molido</span>
-          <span class="cs-brand-pill">🫘 Café en Grano</span>
+          <span class="cs-brand-pill">­ƒìÁ Matcha</span>
+          <span class="cs-brand-pill">Ôÿò Caf├® Molido</span>
+          <span class="cs-brand-pill">­ƒ½ÿ Caf├® en Grano</span>
         </div>
       </div>
 
       <!-- Just -->
       <div class="cs-brand-card rvr d2">
         <div class="cs-brand-header">
-          <div class="cs-brand-icon just">✨</div>
+          <div class="cs-brand-icon just">Ô£¿</div>
           <div>
             <div class="cs-brand-name">Marca Just</div>
             <div class="cs-brand-sub">Productos de calidad seleccionados</div>
           </div>
         </div>
         <div class="cs-brand-pills">
-          <span class="cs-brand-pill">✨ Productos Just</span>
+          <span class="cs-brand-pill">Ô£¿ Productos Just</span>
         </div>
       </div>
 
       <!-- Hampuy -->
       <div class="cs-brand-card rvr d3">
         <div class="cs-brand-header">
-          <div class="cs-brand-icon rose">🌸</div>
+          <div class="cs-brand-icon rose">­ƒî©</div>
           <div>
             <div class="cs-brand-name">Hampuy</div>
-            <div class="cs-brand-sub">por Karina Salazar — bienestar terapéutico</div>
+            <div class="cs-brand-sub">por Karina Salazar ÔÇö bienestar terap├®utico</div>
           </div>
         </div>
         <div class="cs-brand-pills">
-          <span class="cs-brand-pill">🛋️ Almohadilla Terapéutica</span>
-          <span class="cs-brand-pill">🌺 Perfumes Terapéuticos</span>
-          <span class="cs-brand-pill">🌿 Ramitos Sahumadores</span>
-          <span class="cs-brand-pill">🧂 Baños de Sal y Flores</span>
+          <span class="cs-brand-pill">­ƒøï´©Å Almohadilla Terap├®utica</span>
+          <span class="cs-brand-pill">­ƒî║ Perfumes Terap├®uticos</span>
+          <span class="cs-brand-pill">­ƒî┐ Ramitos Sahumadores</span>
+          <span class="cs-brand-pill">­ƒºé Ba├▒os de Sal y Flores</span>
         </div>
       </div>
 
@@ -2363,37 +2316,37 @@ footer {
 </section>
 
 <hr class="shimmer-div"/>
-<!-- ══ CONTACTO ══ -->
+<!-- ÔòÉÔòÉ CONTACTO ÔòÉÔòÉ -->
 <section id="contacto">
   <div class="con-wrap">
     <div class="rvl">
-      <span class="sec-eye">Visítanos</span>
-      <h2 class="sec-title">Encuéntranos en <em>Arequipa</em></h2>
+      <span class="sec-eye">Vis├¡tanos</span>
+      <h2 class="sec-title">Encu├®ntranos en <em>Arequipa</em></h2>
       <div class="sec-line"></div>
       <div class="con-info">
         <div class="con-item">
-          <div class="con-icon">📍</div>
+          <div class="con-icon">­ƒôì</div>
           <div>
-            <div class="con-label">Dirección</div>
-            <div class="con-val">Av. Víctor Andrés Belaunde 245<br/><span style="font-size:.85rem;color:var(--text-lt);">Arequipa, Perú</span></div>
+            <div class="con-label">Direcci├│n</div>
+            <div class="con-val">Av. V├¡ctor Andr├®s Belaunde 245<br/><span style="font-size:.85rem;color:var(--text-lt);">Arequipa, Per├║</span></div>
           </div>
         </div>
         <div class="con-item">
-          <div class="con-icon">🕐</div>
+          <div class="con-icon">­ƒòÉ</div>
           <div>
             <div class="con-label">Horarios</div>
-            <div class="con-val">Lunes – Viernes: 8:00am – 8:00pm<br/>Sábados y Domingos: 9:00am – 9:00pm</div>
+            <div class="con-val">Lunes ÔÇô Viernes: 8:00am ÔÇô 8:00pm<br/>S├íbados y Domingos: 9:00am ÔÇô 9:00pm</div>
           </div>
         </div>
         <div class="con-item">
-          <div class="con-icon">📱</div>
+          <div class="con-icon">­ƒô▒</div>
           <div>
             <div class="con-label">WhatsApp</div>
             <div class="con-val"><a href="https://wa.me/51941616620" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:none;font-weight:700;">+51 941 616 620</a></div>
           </div>
         </div>
         <div class="con-item">
-          <div class="con-icon">📸</div>
+          <div class="con-icon">­ƒô©</div>
           <div>
             <div class="con-label">Instagram</div>
             <div class="con-val"><a href="https://www.instagram.com/bawi.coffee.shop/" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:none;">@bawi.coffee.shop</a></div>
@@ -2402,7 +2355,7 @@ footer {
       </div>
     </div>
     <div class="rvr">
-      <p style="font-size:.65rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--kraft);margin-bottom:1.2rem;">Cómo llegar</p>
+      <p style="font-size:.65rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--kraft);margin-bottom:1.2rem;">C├│mo llegar</p>
       <div class="map-wrap">
         <iframe
           src="https://maps.google.com/maps?q=Av.+Victor+Andr%C3%A9s+Belaunde+245,+Arequipa,+Peru&t=&z=17&ie=UTF8&iwloc=&output=embed"
@@ -2412,48 +2365,48 @@ footer {
           allowfullscreen>
         </iframe>
         <div class="map-badge">
-          <span class="map-badge-icon">📍</span>
+          <span class="map-badge-icon">­ƒôì</span>
           <div>
             <div class="map-badge-title">BAWi Coffee Shop</div>
-            <div class="map-badge-sub">Av. Víctor Andrés Belaunde 245, Arequipa</div>
+            <div class="map-badge-sub">Av. V├¡ctor Andr├®s Belaunde 245, Arequipa</div>
           </div>
         </div>
       </div>
       <!-- Quote card -->
       <div style="margin-top:1.5rem;background:linear-gradient(135deg,var(--teal-dim),var(--teal));border-radius:16px;padding:1.75rem;text-align:center;box-shadow:0 12px 40px rgba(42,82,73,.25);">
-        <p style="font-family:'Caveat',cursive;font-size:1.6rem;color:#fff;line-height:1.4;">"Disfruta las pequeñas cosas"</p>
-        <p style="font-family:'Nunito',sans-serif;font-size:.68rem;color:rgba(255,255,255,.5);margin-top:.6rem;letter-spacing:.2em;text-transform:uppercase;">BAWi Coffee Shop · Arequipa</p>
+        <p style="font-family:'Caveat',cursive;font-size:1.6rem;color:#fff;line-height:1.4;">"Disfruta las peque├▒as cosas"</p>
+        <p style="font-family:'Nunito',sans-serif;font-size:.68rem;color:rgba(255,255,255,.5);margin-top:.6rem;letter-spacing:.2em;text-transform:uppercase;">BAWi Coffee Shop ┬À Arequipa</p>
         <a href="https://wa.me/51941616620" target="_blank" rel="noopener"
           style="display:inline-flex;align-items:center;gap:.5rem;margin-top:1rem;background:#25d366;color:#fff;text-decoration:none;padding:.65rem 1.5rem;border-radius:50px;font-family:'Nunito',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.1em;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:all .3s;">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.656 1.432 5.165L2 22l4.954-1.414C8.38 21.467 10.14 22 11.999 22 17.523 22 22 17.523 22 12S17.523 2 11.999 2z" fill-rule="evenodd" clip-rule="evenodd" opacity=".3"/></svg>
-          Escríbenos por WhatsApp
+          Escr├¡benos por WhatsApp
         </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ FLOATING WHATSAPP ══ -->
-<a id="wa-float" href="https://wa.me/51941616620?text=Hola%20BAWi%20Coffee%20Shop!%20Quisiera%20más%20información%20🌿☕"
-   target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
-  <span class="wa-tooltip">¡Escríbenos!</span>
+<!-- ÔòÉÔòÉ FLOATING WHATSAPP ÔòÉÔòÉ -->
+<a id="wa-float" href="https://wa.me/51941616620?text=Hola%20BAWi%20Coffee%20Shop!%20Quisiera%20m├ís%20informaci├│n%20­ƒî┐Ôÿò"
+   target="_blank" rel="noopener" aria-label="Escr├¡benos por WhatsApp">
+  <span class="wa-tooltip">┬íEscr├¡benos!</span>
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741 1.026 1-3.658-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
   </svg>
 </a>
 
-<!-- ══ FOOTER ══ -->
+<!-- ÔòÉÔòÉ FOOTER ÔòÉÔòÉ -->
 <footer>
   <div class="foot-grid">
     <div>
       <div class="foot-brand">BAWi Coffee Shop</div>
       <div class="foot-slogan">"Todo el placer, cero drama"</div>
-      <p class="foot-desc">Café de especialidad, bebidas wellness y productos naturales hechos en casa. Nuestra cocina es alquimia de amor. Arequipa, Perú.</p>
+      <p class="foot-desc">Caf├® de especialidad, bebidas wellness y productos naturales hechos en casa. Nuestra cocina es alquimia de amor. Arequipa, Per├║.</p>
     </div>
     <div class="foot-col">
-      <div class="foot-col-title">Menú</div>
+      <div class="foot-col-title">Men├║</div>
       <ul>
-        <li><a href="#menu">Café</a></li>
+        <li><a href="#menu">Caf├®</a></li>
         <li><a href="#menu">Bebidas Wellness</a></li>
         <li><a href="#menu">Detox</a></li>
         <li><a href="#menu">Brunch</a></li>
@@ -2464,21 +2417,21 @@ footer {
     <div class="foot-col">
       <div class="foot-col-title">Horarios</div>
       <ul>
-        <li><a href="#">Lun – Vie: 8am – 8pm</a></li>
-        <li><a href="#">Sáb – Dom: 9am – 9pm</a></li>
+        <li><a href="#">Lun ÔÇô Vie: 8am ÔÇô 8pm</a></li>
+        <li><a href="#">S├íb ÔÇô Dom: 9am ÔÇô 9pm</a></li>
         
       </ul>
     </div>
     <div class="foot-col">
       <div class="foot-col-title">Contacto</div>
-      <div class="foot-contact-item"><span class="foot-contact-icon">📱</span><span>+51 941 616 620</span></div>
-      <div class="foot-contact-item"><span class="foot-contact-icon">📱</span><span>@bawi.coffee.shop</span></div>
-      <div class="foot-contact-item"><span class="foot-contact-icon">📍</span><span>Arequipa, Perú</span></div>
-      <div class="foot-contact-item"><span class="foot-contact-icon">📸</span><span>@bawi.coffee.shop</span></div>
+      <div class="foot-contact-item"><span class="foot-contact-icon">­ƒô▒</span><span>+51 941 616 620</span></div>
+      <div class="foot-contact-item"><span class="foot-contact-icon">­ƒô▒</span><span>@bawi.coffee.shop</span></div>
+      <div class="foot-contact-item"><span class="foot-contact-icon">­ƒôì</span><span>Arequipa, Per├║</span></div>
+      <div class="foot-contact-item"><span class="foot-contact-icon">­ƒô©</span><span>@bawi.coffee.shop</span></div>
     </div>
   </div>
   <div class="foot-bottom">
-    <span class="foot-copy">© 2024 BAWi Coffee Shop · Naturalmente hecho en casa</span>
+    <span class="foot-copy">┬® 2024 BAWi Coffee Shop ┬À Naturalmente hecho en casa</span>
     <div class="foot-social">
       <a href="https://www.instagram.com/bawi.coffee.shop/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
       <a href="https://wa.me/51941616620" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
@@ -2487,7 +2440,7 @@ footer {
 </footer>
 
 <script>
-/* ══ FONDO ILUSTRADO BAWi — sketch animado, estilo dibujo a mano ══ */
+/* ÔòÉÔòÉ FONDO ILUSTRADO BAWi ÔÇö sketch animado, estilo dibujo a mano ÔòÉÔòÉ */
 (function () {
   const canvas = document.getElementById('bg-canvas');
   if (!canvas) return;
@@ -2501,7 +2454,7 @@ footer {
   resize();
   window.addEventListener('resize', function () { resize(); init(); });
 
-  /* Leve temblor — hace que las líneas parezcan dibujadas a mano */
+  /* Leve temblor ÔÇö hace que las l├¡neas parezcan dibujadas a mano */
   function j(v, a) { return v + (Math.random() - 0.5) * a; }
 
   /* Colores de la marca */
@@ -2511,7 +2464,7 @@ footer {
   const KLITE = [180, 138, 90];
   const COLS  = [TEAL,TEAL,TEAL,TDIM,KRAFT,KRAFT,KLITE];
 
-  /* Tipos — con pesos para variedad */
+  /* Tipos ÔÇö con pesos para variedad */
   const TYPES = ['cup','cup','cup','bean','bean','bean','bean','leaf','leaf','leaf',
                  'ring','ring','paw','flower','star','star'];
 
@@ -2556,7 +2509,7 @@ footer {
     ctx.lineJoin    = 'round';
   }
 
-  /* ══ TAZA CON VAPOR ══ */
+  /* ÔòÉÔòÉ TAZA CON VAPOR ÔòÉÔòÉ */
   function drawCup(it) {
     const s = it.size;
     ctx.save(); ctx.translate(it.x, it.y); ss(it);
@@ -2587,7 +2540,7 @@ footer {
     ctx.bezierCurveTo(j(s*1.12,1.5),j(-s*.12,1), j(s*1.12,1.5),j(s*.40,1), s*.55,s*.40);
     ctx.stroke();
 
-    /* vapor — 3 ondas */
+    /* vapor ÔÇö 3 ondas */
     ctx.lineWidth = it.lw * 0.65;
     [[-s*.28,-s*.55,-s*.42,-s*.85,-s*.28,-s*1.12],
      [      0,-s*.55,      0,-s*.88,      0,-s*1.18],
@@ -2600,7 +2553,7 @@ footer {
     ctx.restore();
   }
 
-  /* ══ GRANO DE CAFÉ ══ */
+  /* ÔòÉÔòÉ GRANO DE CAF├ë ÔòÉÔòÉ */
   function drawBean(it) {
     const s = it.size;
     ctx.save(); ctx.translate(it.x,it.y); ctx.rotate(it.rot); ss(it);
@@ -2615,7 +2568,7 @@ footer {
     ctx.restore();
   }
 
-  /* ══ HOJA BOTÁNICA ══ */
+  /* ÔòÉÔòÉ HOJA BOT├üNICA ÔòÉÔòÉ */
   function drawLeaf(it) {
     const s = it.size;
     ctx.save(); ctx.translate(it.x,it.y); ctx.rotate(it.rot); ss(it);
@@ -2639,16 +2592,16 @@ footer {
     ctx.restore();
   }
 
-  /* ══ ANILLO / MANCHA DE CAFÉ ══ */
+  /* ÔòÉÔòÉ ANILLO / MANCHA DE CAF├ë ÔòÉÔòÉ */
   function drawRing(it) {
     const s = it.size;
     ctx.save(); ctx.translate(it.x,it.y); ss(it);
     ctx.lineWidth = it.lw * 1.4;
-    /* círculo exterior con leve imperfección */
+    /* c├¡rculo exterior con leve imperfecci├│n */
     ctx.beginPath();
     ctx.arc(j(0,1), j(0,1), s, 0, Math.PI*2);
     ctx.stroke();
-    /* círculo interior tenue */
+    /* c├¡rculo interior tenue */
     ctx.lineWidth = it.lw * 0.6;
     ctx.globalAlpha *= 0.45;
     ctx.beginPath();
@@ -2658,7 +2611,7 @@ footer {
     ctx.restore();
   }
 
-  /* ══ HUELLA DE PERRO ══ */
+  /* ÔòÉÔòÉ HUELLA DE PERRO ÔòÉÔòÉ */
   function drawPaw(it) {
     const s = it.size;
     ctx.save(); ctx.translate(it.x,it.y); ctx.rotate(it.rot); ss(it);
@@ -2676,11 +2629,11 @@ footer {
     ctx.restore();
   }
 
-  /* ══ FLOR ══ */
+  /* ÔòÉÔòÉ FLOR ÔòÉÔòÉ */
   function drawFlower(it) {
     const s = it.size;
     ctx.save(); ctx.translate(it.x,it.y); ctx.rotate(it.rot); ss(it);
-    /* 5 pétalos */
+    /* 5 p├®talos */
     for (let i=0; i<5; i++) {
       ctx.beginPath();
       ctx.ellipse(0, -s*.58, s*.20, s*.35, 0, 0, Math.PI*2);
@@ -2692,7 +2645,7 @@ footer {
     ctx.restore();
   }
 
-  /* ══ ESTRELLA ✦ ══ */
+  /* ÔòÉÔòÉ ESTRELLA Ô£ª ÔòÉÔòÉ */
   function drawStar(it) {
     const s = it.size;
     ctx.save(); ctx.translate(it.x,it.y); ctx.rotate(it.rot); ss(it);
@@ -2705,9 +2658,9 @@ footer {
 
   const drawFn = {cup:drawCup,bean:drawBean,leaf:drawLeaf,ring:drawRing,paw:drawPaw,flower:drawFlower,star:drawStar};
 
-  /* ══ LOOP — fondo crema + ilustraciones flotantes ══ */
+  /* ÔòÉÔòÉ LOOP ÔÇö fondo crema + ilustraciones flotantes ÔòÉÔòÉ */
   function loop() {
-    /* El canvas pinta su propio fondo crema — se ve en toda la página */
+    /* El canvas pinta su propio fondo crema ÔÇö se ve en toda la p├ígina */
     ctx.fillStyle = '#F5F0E8';
     ctx.fillRect(0, 0, W, H);
 
@@ -2722,14 +2675,14 @@ footer {
   loop();
 })();
 
-/* ── PRELOADER ── */
+/* ÔöÇÔöÇ PRELOADER ÔöÇÔöÇ */
 window.addEventListener('load', () => {
   setTimeout(() => {
     document.getElementById('preloader').classList.add('hide');
   }, 1800);
 });
 
-/* ── CURSOR ── */
+/* ÔöÇÔöÇ CURSOR ÔöÇÔöÇ */
 const dot = document.getElementById('cur-dot');
 const ring = document.getElementById('cur-ring');
 let tx=0,ty=0,rx=0,ry=0;
@@ -2747,15 +2700,15 @@ document.querySelectorAll('a,button,.mi,.bi,.nos-feat,.prod-card').forEach(el=>{
   el.addEventListener('mouseleave',()=>{ dot.classList.remove('big'); ring.classList.remove('big'); });
 });
 
-/* ── NAVBAR ── */
+/* ÔöÇÔöÇ NAVBAR ÔöÇÔöÇ */
 const nav = document.getElementById('nav');
 const checkNav = () => nav.classList.toggle('solid', scrollY > 60);
 window.addEventListener('scroll', checkNav, {passive:true});
 checkNav(); // Fix initial state if browser restores scroll position
 
-/* hero parallax eliminado — sin foto de fondo */
+/* hero parallax eliminado ÔÇö sin foto de fondo */
 
-/* ── MOBILE MENU ── */
+/* ÔöÇÔöÇ MOBILE MENU ÔöÇÔöÇ */
 const burger=document.getElementById('burger');
 const mob=document.getElementById('mob-menu');
 burger.addEventListener('click',()=>{
@@ -2764,7 +2717,7 @@ burger.addEventListener('click',()=>{
 });
 function closeMob(){ burger.classList.remove('open'); mob.classList.remove('open'); }
 
-/* ── MENU TABS ── */
+/* ÔöÇÔöÇ MENU TABS ÔöÇÔöÇ */
 document.querySelectorAll('.tab').forEach(btn=>{
   btn.addEventListener('click',()=>{
     document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));
@@ -2778,7 +2731,7 @@ document.querySelectorAll('.tab').forEach(btn=>{
   });
 });
 
-/* ── MENU ACCORDION ── */
+/* ÔöÇÔöÇ MENU ACCORDION ÔöÇÔöÇ */
 document.querySelectorAll('.m-acc-trigger').forEach(trigger => {
   trigger.addEventListener('click', () => {
     const item = trigger.parentElement;
@@ -2792,7 +2745,7 @@ document.querySelectorAll('.m-acc-trigger').forEach(trigger => {
   });
 });
 
-/* ── SCROLL REVEAL ── */
+/* ÔöÇÔöÇ SCROLL REVEAL ÔöÇÔöÇ */
 const revealObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){ e.target.classList.add('on'); revealObs.unobserve(e.target); }
@@ -2800,7 +2753,7 @@ const revealObs=new IntersectionObserver(entries=>{
 },{threshold:.1});
 document.querySelectorAll('.rv,.rvl,.rvr,.rvs').forEach(el=>revealObs.observe(el));
 
-/* ── COUNTERS ── */
+/* ÔöÇÔöÇ COUNTERS ÔöÇÔöÇ */
 document.querySelectorAll('[data-target]').forEach(el=>{
   const target=+el.dataset.target;
   const counterObs=new IntersectionObserver(entries=>{

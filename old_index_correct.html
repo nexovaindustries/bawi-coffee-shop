@@ -329,15 +329,14 @@ html, body, *, *::before, *::after { cursor: none !important; }
 #nav {
   position: fixed; top:0; left:0; right:0; z-index:9000;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0.8rem 3rem;
-  background: rgba(247, 242, 232, 0.98);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 15px rgba(42, 82, 73, 0.1);
-  transition: padding 0.3s ease;
+  padding: 1rem 3rem;
+  transition: background .4s, backdrop-filter .4s, box-shadow .4s, padding .3s;
 }
 #nav.solid {
-  padding: 0.7rem 3rem;
-  background: rgba(247, 242, 232, 0.98);
+  background: rgba(247,242,232,.94);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(42,82,73,.08);
+  padding: .7rem 3rem;
 }
 /* LOGO */
 .nav-logo { display:flex; align-items:center; gap:.6rem; text-decoration:none; }
@@ -372,9 +371,7 @@ html, body, *, *::before, *::after { cursor: none !important; }
   letter-spacing: .12em; text-transform: uppercase; text-decoration: none;
   color: var(--teal); position: relative; padding-bottom: 2px;
   transition: color .3s;
-}
-#nav.solid .nav-links a {
-  color: var(--teal);
+  text-shadow: none;
 }
 .nav-links a::after {
   content:''; position:absolute; bottom:0; left:0; width:0; height:1.5px;
@@ -772,8 +769,19 @@ html, body, *, *::before, *::after { cursor: none !important; }
 .tab.on { background:var(--teal); border-color:var(--teal); color:#fff; box-shadow:0 6px 20px rgba(42,82,73,.35); }
 .mpanel { display:none; max-width:1100px; margin:0 auto; }
 .mpanel.on { display:block; }
+.mpanel-title {
+  text-align:center; font-family:'Playfair Display',serif;
+  font-size:1.3rem; font-weight:700; color:var(--teal); margin-bottom:2rem;
+}
+.mpanel-title .tag {
+  display:inline-block; font-size:.6rem; font-weight:700; letter-spacing:.2em;
+  text-transform:uppercase; background:var(--teal); color:#fff;
+  padding:.25rem .7rem; border-radius:50px; vertical-align:middle; margin-right:.5rem;
+}
 .mgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:.7rem; }
-.mi { transition:all .3s; position:relative; overflow:hidden; display:flex; align-items:baseline; }
+.mi {
+  transition:all .3s; position:relative; overflow:hidden;
+}
 .mi::before {
   content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
   background:linear-gradient(to bottom,var(--teal),var(--kraft));
@@ -781,7 +789,6 @@ html, body, *, *::before, *::after { cursor: none !important; }
 }
 .mi:hover { box-shadow:0 8px 25px rgba(42,82,73,.1); transform:translateY(-2px); }
 .mi:hover::before { transform:scaleY(1); }
-.mi > div:first-child { flex:1; }
 .mi-name { font-family:'Nunito',sans-serif; font-size:.95rem; font-weight:700; color:var(--text); line-height:1.3; }
 .mi-desc { font-size:.75rem; color:var(--text-lt); margin-top:.2rem; font-style:italic; }
 .mi-price {
@@ -792,7 +799,6 @@ html, body, *, *::before, *::after { cursor: none !important; }
 .mi:hover .mi-price { color:var(--kraft); }
 .mi.star { background:linear-gradient(135deg,rgba(42,82,73,.04),rgba(160,118,74,.04)); }
 .mnote { text-align:center; font-size:.78rem; color:var(--text-lt); font-style:italic; margin-bottom:1.5rem; margin-top:-.5rem; }
-.mcat-note { font-size:.78rem; color:var(--text-lt); font-style:italic; line-height:1.5; }
 
 /* ── ACCORDION ── */
 .m-acc { display: flex; flex-direction: column; gap: 1rem; max-width: 1100px; margin: 0 auto; }
@@ -863,7 +869,6 @@ html, body, *, *::before, *::after { cursor: none !important; }
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
 }
-.gal-item:hover img { transform: scale(1.08); }
 
 /* ══════════════════════════════
    DOG FRIENDLY SECTION (Banner)
@@ -875,29 +880,9 @@ html, body, *, *::before, *::after { cursor: none !important; }
 ══════════════════════════════ */
 #productos { padding:8rem 3rem; }
 .prod-head { text-align:center; margin-bottom:4rem; }
-
-/* PRODUCTOS ACCORDION */
-.prod-acc-wrap { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
-.prod-acc { border: 1px solid rgba(42,82,73,.15); border-radius: 12px; background: rgba(247,242,232,0.6); overflow: hidden; transition: all .3s; }
-.prod-acc[open] { background: rgba(247,242,232,0.9); box-shadow: 0 10px 30px rgba(42,82,73,.08); }
-.prod-acc-summary { 
-  padding: 1.5rem 2rem; cursor: pointer; font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--teal-dim);
-  display: flex; justify-content: space-between; align-items: center; list-style: none; transition: background .3s;
-}
-.prod-acc-summary::-webkit-details-marker { display: none; }
-.prod-acc-summary::after {
-  content: '+'; font-family: 'Nunito', sans-serif; font-size: 1.8rem; font-weight: 300; line-height: 1; transition: transform .3s; color: var(--kraft);
-}
-.prod-acc[open] .prod-acc-summary::after { transform: rotate(45deg); color: var(--teal); }
-.prod-acc-summary:hover { background: rgba(247,242,232,0.9); }
-.prod-acc-content { padding: 2rem; border-top: 1px solid rgba(42,82,73,.1); animation: fadeInMenu .4s ease; }
-
-.prod-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
-
-@media (max-width: 767px) {
-  .prod-acc-summary { font-size: 1.1rem; padding: 1.2rem 1.4rem; }
-  .prod-acc-content { padding: 1.5rem 1rem; }
-  .prod-grid { grid-template-columns: 1fr; }
+.prod-grid {
+  max-width:1200px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem;
 }
 .prod-card {
   background:rgba(237,225,205,.92); border-radius:16px; overflow:hidden;
@@ -905,9 +890,8 @@ html, body, *, *::before, *::after { cursor: none !important; }
   transition:all .4s;
 }
 .prod-card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(42,82,73,.12); }
-.prod-card:hover .prod-img { transform: scale(1.06); }
-.prod-img { width:100%; height:240px; object-fit:cover; object-position:center; display:block; filter: contrast(1.05) saturate(1.1); transition: transform 0.5s ease; will-change: transform; }
-.prod-body { padding:1.25rem 1.4rem; position: relative; z-index: 1; background: rgba(237,225,205,1); }
+.prod-img { width:100%; height:240px; object-fit:cover; object-position:center; display:block; filter: contrast(1.1) saturate(1.08); will-change: transform; }
+.prod-body { padding:1.25rem 1.4rem; }
 .prod-name { font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:.3rem; }
 .prod-desc { font-size:.8rem; color:var(--text-lt); line-height:1.6; }
 .prod-tag {
@@ -1395,7 +1379,6 @@ footer {
 
   /* ── MENU ── */
   #menu { padding:4rem 1rem; }
-  .coffee-stain { display: none; } /* Ocultar manchas en móvil para evitar scroll horizontal extra si es necesario */
   .menu-head { margin-bottom:2.5rem; }
   .menu-tabs {
     display:flex; flex-wrap:nowrap; overflow-x:auto; gap:.4rem;
@@ -1405,18 +1388,13 @@ footer {
   }
   .menu-tabs::-webkit-scrollbar { height:3px; }
   .menu-tabs::-webkit-scrollbar-thumb { background:rgba(42,82,73,.25); border-radius:2px; }
-  .tab { flex-shrink:0; font-size:.7rem; padding:.6rem 1.2rem; }
-  
-  .menu-paper { padding: 2rem 0; }
-  .menu-masonry { flex-direction: column; gap: 2rem; padding: 0 1rem; }
-  .menu-col { gap: 2rem; }
-  .menu-col-alt { padding: 1.5rem; margin-top: 0; }
-  
-  .mgrid { gap:.8rem; }
-  .mi-name  { font-size:.95rem; }
-  .mi-price { font-size:.95rem; }
-  .mcat-title  { font-size:1.3rem; margin-bottom: 1rem; }
-  .mcat-flex-title { margin-bottom: 1rem; }
+  .tab { flex-shrink:0; font-size:.65rem; padding:.5rem 1rem; }
+  .mgrid { grid-template-columns:1fr; gap:.6rem; }
+  .mi { padding:.85rem 1rem; }
+  .mi-name  { font-size:.88rem; }
+  .mi-price { font-size:.92rem; }
+  .mcat-header { margin:1.8rem 0 .9rem; }
+  .mcat-title  { font-size:1.1rem; }
 
   /* ── GALLERY BENTO ── */
   #galeria { padding:4rem 1rem; }
@@ -1828,6 +1806,7 @@ footer {
   <!-- ── TAB 1: BEBIDAS ── -->
   <div class="mpanel on" id="tab-bebidas">
     <div class="m-acc">
+      <!-- Bebidas Calientes -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Bebidas Calientes</span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
@@ -1848,6 +1827,7 @@ footer {
           </div>
         </div>
       </div>
+      <!-- Bebidas Wellness -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Bebidas Wellness</span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
@@ -1862,6 +1842,7 @@ footer {
           </div>
         </div>
       </div>
+      <!-- Jugos -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Jugos</span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
@@ -1878,6 +1859,7 @@ footer {
   <!-- ── TAB 2: BEBIDAS FRÍAS ── -->
   <div class="mpanel" id="tab-frias">
     <div class="m-acc">
+      <!-- Bebidas Frías -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Bebidas Frías</span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
@@ -1890,6 +1872,7 @@ footer {
           </div>
         </div>
       </div>
+      <!-- Detox -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Detox <small>S/ 15.00</small></span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
@@ -1902,6 +1885,7 @@ footer {
           </div>
         </div>
       </div>
+      <!-- Embotellados -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Embotellados</span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
@@ -1922,9 +1906,10 @@ footer {
     </div>
   </div>
 
-  <!-- ── TAB 3: CARTA ── -->
+  <!-- ── TAB 3: CARTA (Desayunos & Brunch) ── -->
   <div class="mpanel" id="tab-carta">
     <div class="m-acc">
+      <!-- Desayunos -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Desayunos</span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
@@ -1936,6 +1921,7 @@ footer {
           </div>
         </div>
       </div>
+      <!-- Brunch -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Brunch</span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
@@ -1943,7 +1929,7 @@ footer {
             <div class="mi"><div><div class="mi-name">Focaccia de Peperoni</div><div class="mi-desc">Pepperoni, queso andino, queso tilsit, tomate, lechuga y alioli</div></div><div class="mi-price">S/ 18.00</div></div>
             <div class="mi"><div><div class="mi-name">Focaccia de Pollo y Palta</div><div class="mi-desc">Pollo deshilachado, palta, tomate confitado, lechuga y mayonesa de la casa</div></div><div class="mi-price">S/ 18.00</div></div>
             <div class="mi"><div><div class="mi-name">Focaccia Mixto</div><div class="mi-desc">Lonjas de pavita y queso fundido, espinaca</div></div><div class="mi-price">S/ 15.00</div></div>
-            <div class="mi"><div><div class="mi-name">Focaccia de Jamón Serrano &amp; Pesto</div><div class="mi-desc">Jamón serrano, queso fundido, salsa pesto y tomate</div></div><div class="mi-price">S/ 20.00</div></div>
+            <div class="mi"><div><div class="mi-name">Focaccia de Jamón Serrano & Pesto</div><div class="mi-desc">Jamón serrano, queso fundido, salsa pesto y tomate</div></div><div class="mi-price">S/ 20.00</div></div>
             <div class="mi"><div><div class="mi-name">Focaccia Roast Beef</div><div class="mi-desc">Tierno roast beef, lechuga, alcaparras, tomate, salsa vitel toné</div></div><div class="mi-price">S/ 22.00</div></div>
             <div class="mi"><div><div class="mi-name">Focaccia Veggie</div><div class="mi-desc">Champiñones salteados, palta, lechuga y tomate</div></div><div class="mi-price">S/ 21.00</div></div>
             <div class="mi"><div><div class="mi-name">Wrap Fit</div><div class="mi-desc">Wrap relleno de pollo, pepino, lechuga, tomate y queso</div></div><div class="mi-price">S/ 18.00</div></div>
@@ -1956,9 +1942,10 @@ footer {
     </div>
   </div>
 
-  <!-- ── TAB 4: SALADOS ── -->
+  <!-- ── TAB 4: SALADOS (Compartir, Ensaladas, Fondos) ── -->
   <div class="mpanel" id="tab-salados">
     <div class="m-acc">
+      <!-- Para Compartir -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Para Compartir</span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
@@ -1969,6 +1956,7 @@ footer {
           </div>
         </div>
       </div>
+      <!-- Ensaladas -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Ensaladas</span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
@@ -1979,6 +1967,7 @@ footer {
           </div>
         </div>
       </div>
+      <!-- Fondos -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Fondos <small>S/ 21.00</small></span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
@@ -1992,9 +1981,10 @@ footer {
     </div>
   </div>
 
-  <!-- ── TAB 5: DULCES ── -->
+  <!-- ── TAB 5: DULCES & POSTRES WELLNESS ── -->
   <div class="mpanel" id="tab-dulces">
     <div class="m-acc">
+      <!-- Dulces -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Dulces</span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
@@ -2017,6 +2007,7 @@ footer {
           </div>
         </div>
       </div>
+      <!-- Postres Wellness -->
       <div class="m-acc-item">
         <div class="m-acc-trigger"><span>Postres Wellness</span><div class="m-acc-icon"></div></div>
         <div class="m-acc-content">
@@ -2036,11 +2027,6 @@ footer {
   </div>
 </section>
 
-
-
-
-
-
 <hr class="shimmer-div"/>
 <!-- ══ GALERÍA BENTO ══ -->
 <section id="galeria">
@@ -2053,7 +2039,26 @@ footer {
   
   <div class="gal-slider">
     <!-- 12 placeholders for the gallery -->
-
+    <div class="gal-item rv d1">
+      <img src="./images/gal-bawi-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <div class="gal-over"><span class="gal-label">Postres Wellness</span></div>
+    </div>
+    <div class="gal-item rv d2">
+      <img src="./images/gal-bawi-2.jpg" onerror="this.src='https://images.unsplash.com/photo-1607867377433-4b1bca38b35b?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <div class="gal-over"><span class="gal-label">Cuchareables de Chocolate</span></div>
+    </div>
+    <div class="gal-item rv d3">
+      <img src="./images/gal-bawi-3.jpg" onerror="this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <div class="gal-over"><span class="gal-label">Bebidas Detox & Proteicos</span></div>
+    </div>
+    <div class="gal-item rv d4">
+      <img src="./images/gal-bawi-4.jpg" onerror="this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <div class="gal-over"><span class="gal-label">Ensaladas Frescas</span></div>
+    </div>
+    <div class="gal-item rv d5">
+      <img src="./images/gal-bawi-5.jpg" onerror="this.src='https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
+      <div class="gal-over"><span class="gal-label">Menú de Especialidad</span></div>
+    </div>
     <div class="gal-item">
       <img src="./images/gal-bawi-6.jpg" onerror="this.src='https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600';this.onerror=null;" alt="Galería BAWi" loading="lazy"/>
       <div class="gal-over"><span class="gal-label">Momentos BAWi</span></div>
@@ -2095,107 +2100,55 @@ footer {
     <div class="sec-line c"></div>
     <p class="sec-lead" style="max-width:480px;margin:0 auto;">Naturalmente hecho en casa. Granolas, barras energéticas y snacks wellness.</p>
   </div>
-  <div class="prod-acc-wrap">
-    
-    <!-- ACCORDION 1: Postres & Snacks Veganos -->
-    <details class="prod-acc rv d1" name="productos" open>
-      <summary class="prod-acc-summary">Postres & Snacks Veganos</summary>
-      <div class="prod-acc-content">
-        <div class="prod-grid">
-          <div class="prod-card">
-            <img src="./images/prod-snickers-boxes.jpg" onerror="this.src='https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600';this.onerror=null;" alt="Snickers Veganos BAWi" class="prod-img" loading="lazy"/>
-            <div class="prod-body">
-              <div class="prod-name">Snickers Veganos BAWi</div>
-              <div class="prod-desc">Tradicional, Dubái, Chocolúcuma, o Pistacho & Limón. Placer sin culpas, libres de azúcar.</div>
-              <span class="prod-tag">Vegano · S/ 8–11</span>
-            </div>
-          </div>
-          <div class="prod-card">
-            <img src="./images/brownie-dubai.jpg" onerror="this.src='https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600';this.onerror=null;" alt="Brownie Dubai BAWi" class="prod-img" loading="lazy"/>
-            <div class="prod-body">
-              <div class="prod-name">Brownie Dubái</div>
-              <div class="prod-desc">Brownie vegano con crema de pistacho y kataifi, bañado en cacao al 53%.</div>
-              <span class="prod-tag">Vegano · S/ 11</span>
-            </div>
-          </div>
-          <div class="prod-card">
-            <img src="./images/prod-energy-bars.jpg" onerror="this.src='https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600';this.onerror=null;" alt="Barras Energéticas" class="prod-img" loading="lazy"/>
-            <div class="prod-body">
-              <div class="prod-name">Barras Energéticas</div>
-              <div class="prod-desc">Chocoavellana & Café, Chocobawi con Cushuro. Energía limpia para tu día a día.</div>
-              <span class="prod-tag">Sin Aditivos</span>
-            </div>
-          </div>
-        </div>
+  <div class="prod-grid rv">
+    <div class="prod-card">
+      <img src="./images/snicker-bites.jpg" onerror="this.src='https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600';this.onerror=null;" alt="Snicker Bites BAWi" class="prod-img" loading="lazy"/>
+      <div class="prod-body">
+        <div class="prod-name">Snicker Vegano BAWi</div>
+        <div class="prod-desc">Maní, pistacho & limón o chocolúcuma. Placer sin culpas, hecho en nuestra cocina.</div>
+        <span class="prod-tag">Vegano · S/ 7–8</span>
       </div>
-    </details>
-
-    <!-- ACCORDION 2: Granolas & Mantequillas -->
-    <details class="prod-acc rv d2" name="productos">
-      <summary class="prod-acc-summary">Granolas & Mantequillas</summary>
-      <div class="prod-acc-content">
-        <div class="prod-grid">
-          <div class="prod-card">
-            <img src="./images/prod-granola-jars.jpg" onerror="this.src='https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600';this.onerror=null;" alt="Granolas Naturales" class="prod-img" loading="lazy"/>
-            <div class="prod-body">
-              <div class="prod-name">Granolas y Más</div>
-              <div class="prod-desc">Nuestra granola natural hecha en casa, mermeladas y mantequilla de maní sin conservantes.</div>
-              <span class="prod-tag">Hecho en Casa</span>
-            </div>
-          </div>
-          <div class="prod-card">
-            <img src="./images/prod-snickers-granola.jpg" onerror="this.src='https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600';this.onerror=null;" alt="Packs BAWi" class="prod-img" loading="lazy"/>
-            <div class="prod-body">
-              <div class="prod-name">Mix Artesanal BAWi</div>
-              <div class="prod-desc">Lleva la alquimia de amor de nuestra cocina a tu hogar. Perfecto para desayunos nutritivos.</div>
-              <span class="prod-tag">Artesanal</span>
-            </div>
-          </div>
-          <div class="prod-card">
-            <img src="./images/prod-granola-snickers.jpg" onerror="this.src='https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600';this.onerror=null;" alt="Packs de Bienestar" class="prod-img" loading="lazy"/>
-            <div class="prod-body">
-              <div class="prod-name">Packs de Bienestar</div>
-              <div class="prod-desc">Combina tus granolas favoritas con nuestra mantequilla de maní y postres veganos.</div>
-              <span class="prod-tag">Arma tu Pack</span>
-            </div>
-          </div>
-        </div>
+    </div>
+    <div class="prod-card">
+      <img src="./images/brownie-dubai.jpg" onerror="this.src='https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600';this.onerror=null;" alt="Brownie Dubai BAWi" class="prod-img" loading="lazy"/>
+      <div class="prod-body">
+        <div class="prod-name">Brownie Dubái</div>
+        <div class="prod-desc">Brownie vegano con crema de pistacho y kataifi, bañado en cacao al 53%.</div>
+        <span class="prod-tag">Vegano · S/ 11</span>
       </div>
-    </details>
-
-    <!-- ACCORDION 3: Café & Bienestar Natural -->
-    <details class="prod-acc rv d3" name="productos">
-      <summary class="prod-acc-summary">Café & Bienestar Natural</summary>
-      <div class="prod-acc-content">
-        <div class="prod-grid">
-          <div class="prod-card">
-            <img src="./images/prod-tabi-coffee.jpg" onerror="this.src='https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600';this.onerror=null;" alt="Café Peruano TABI" class="prod-img" loading="lazy"/>
-            <div class="prod-body">
-              <div class="prod-name">Café de Especialidad TABI</div>
-              <div class="prod-desc">Café Peruano en grano entero o molido. Directo de Jaén, Cajamarca (Altura: 1800 msnm).</div>
-              <span class="prod-tag">100% Natural</span>
-            </div>
-          </div>
-          <div class="prod-card">
-            <img src="./images/prod-moland-matcha.jpg" onerror="this.src='https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600';this.onerror=null;" alt="Matcha Premium Moland" class="prod-img" loading="lazy"/>
-            <div class="prod-body">
-              <div class="prod-name">Matcha Premium Moland</div>
-              <div class="prod-desc">Matcha Culinario Japonés. Energía natural, antioxidantes y fortalece el sistema inmune.</div>
-              <span class="prod-tag">Calidad Premium</span>
-            </div>
-          </div>
-          <div class="prod-card">
-            <img src="./images/prod-hampuy-sprays.jpg" onerror="this.src='https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600';this.onerror=null;" alt="Armonía Hampuy" class="prod-img" loading="lazy"/>
-            <div class="prod-body">
-              <div class="prod-name">Armonía Hampuy</div>
-              <div class="prod-desc">Elixires energéticos, spray de la abundancia, palo santo y sales de rosas artesanales.</div>
-              <span class="prod-tag">Hecho a Mano</span>
-            </div>
-          </div>
-        </div>
+    </div>
+    <div class="prod-card">
+      <img src="./images/cuchareable-choco.jpg" onerror="this.src='https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600';this.onerror=null;" alt="Cuchareable BAWi" class="prod-img" loading="lazy"/>
+      <div class="prod-body">
+        <div class="prod-name">Cuchareable para llevar</div>
+        <div class="prod-desc">Nuestros postres wellness en taza BAWi. Perfectos para llevar y disfrutar en casa.</div>
+        <span class="prod-tag">Hecho en Casa</span>
       </div>
-    </details>
-
+    </div>
+    <div class="prod-card">
+      <img src="./images/tarta-vasca.jpg" onerror="this.src='https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600';this.onerror=null;" alt="Tarta Vasca BAWi" class="prod-img" loading="lazy"/>
+      <div class="prod-body">
+        <div class="prod-name">Tarta Vasca</div>
+        <div class="prod-desc">Cheesecake vasco artesanal. Cremoso, dorado y irresistible — sabor de vitrina.</div>
+        <span class="prod-tag">Artesanal · S/ 12</span>
+      </div>
+    </div>
+    <div class="prod-card">
+      <img src="./images/granola-bag-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600';this.onerror=null;" alt="Granola BAWi" class="prod-img" loading="lazy"/>
+      <div class="prod-body">
+        <div class="prod-name">Granola BAWi</div>
+        <div class="prod-desc">Granola artesanal con ingredientes 100% naturales. Hecha en nuestra cocina con amor.</div>
+        <span class="prod-tag">100% Natural</span>
+      </div>
+    </div>
+    <div class="prod-card">
+      <img src="./images/granola-bag-2.jpg" onerror="this.src='https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600';this.onerror=null;" alt="Barras Energéticas" class="prod-img" loading="lazy" style="object-position:center top"/>
+      <div class="prod-body">
+        <div class="prod-name">Barras Energéticas</div>
+        <div class="prod-desc">Pistacho & Limón · CocaAvellana · Snickers Vegano. Energía limpia para tu día.</div>
+        <span class="prod-tag">Sin Aditivos</span>
+      </div>
+    </div>
   </div>
 </section>
 
