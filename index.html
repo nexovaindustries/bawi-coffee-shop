@@ -1849,8 +1849,8 @@ footer {
   </div>
 
   <div class="menu-tabs rv">
-    <button class="tab on" onclick="document.getElementById('tab-bebidas').classList.add('on'); document.getElementById('tab-carta').classList.remove('on'); document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on')); this.classList.add('on');">☕ BEBIDAS</button>
-    <button class="tab" onclick="document.getElementById('tab-carta').classList.add('on'); document.getElementById('tab-bebidas').classList.remove('on'); document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on')); this.classList.add('on');">🌅 CARTA</button>
+    <button class="tab on" data-tab="bebidas">☕ BEBIDAS</button>
+    <button class="tab" data-tab="carta">🌅 CARTA</button>
   </div>
 
   <!-- TAB 1: BEBIDAS -->
