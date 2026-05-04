@@ -670,10 +670,11 @@ html, body, *, *::before, *::after { cursor: none !important; }
 
 /* === Hero Badge === */
 .hero-badge {
-  position: absolute; top: 3rem; left: 3rem; z-index: 10;
+  position: fixed; top: 50%; left: 1.5rem; z-index: 9500;
+  transform: translateY(-50%);
   width: 110px; height: 110px;
   background: rgba(247, 242, 232, 0.92); border-radius: 50%;
-  box-shadow: 0 10px 30px rgba(42,82,73,0.15);
+  box-shadow: 0 10px 30px rgba(42,82,73,0.2);
   display: flex; align-items: center; justify-content: center;
   border: 1px solid rgba(195, 154, 107, 0.4);
   animation: badgeFloat 4s ease-in-out infinite alternate;
@@ -1807,15 +1808,15 @@ footer {
       <button class="hc-dot active" data-slide="0"></button>
       <button class="hc-dot" data-slide="1"></button>
     </div>
+  </div>
 
-    <!-- Sello de Calidad -->
-    <div class="hero-badge">
-      <svg viewBox="0 0 100 100" class="hb-text">
-        <path id="curve" fill="transparent" d="M 50 90 A 40 40 0 1 1 50 10 A 40 40 0 1 1 50 90"/>
-        <text><textPath href="#curve" startOffset="50%" text-anchor="middle">GLUTEN FREE &amp; SUGAR FREE</textPath></text>
-      </svg>
-      <div class="hb-inner">✨</div>
-    </div>
+  <!-- Sello de Calidad — esquina izquierda fija de la página -->
+  <div class="hero-badge">
+    <svg viewBox="0 0 100 100" class="hb-text">
+      <path id="curve" fill="transparent" d="M 50 90 A 40 40 0 1 1 50 10 A 40 40 0 1 1 50 90"/>
+      <text><textPath href="#curve" startOffset="50%" text-anchor="middle">GLUTEN FREE &amp; SUGAR FREE</textPath></text>
+    </svg>
+    <div class="hb-inner">✨</div>
   </div>
 
 </section>
