@@ -670,29 +670,48 @@ html, body, *, *::before, *::after { cursor: none !important; }
 
 /* === Hero Badge === */
 .hero-badge {
-  position: fixed; top: 5.5rem; left: 1.5rem; z-index: 99999;
-  width: 100px; height: 100px;
-  background: rgba(247, 242, 232, 0.96); border-radius: 50%;
-  box-shadow: 0 8px 25px rgba(42,82,73,0.22);
-  display: flex; align-items: center; justify-content: center;
-  border: 1.5px solid rgba(195, 154, 107, 0.5);
+  position: fixed; top: 5.5rem; left: 1.5rem; z-index: 99998;
+  width: 108px; height: 108px; border-radius: 50%;
+  background: var(--teal-dim);
+  box-shadow: 0 8px 30px rgba(42,82,73,0.4), 0 0 0 2px rgba(195,154,107,0.6);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 2px;
   animation: badgeFloat 4s ease-in-out infinite alternate;
+  overflow: hidden;
+  text-decoration: none;
+}
+/* Anillo giratorio decorativo */
+.hero-badge::before {
+  content: '';
+  position: absolute; inset: 4px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(195,154,107,0.6);
+  animation: badgeSpin 12s linear infinite;
 }
 .hb-text {
-  position: absolute; inset: 4px;
-  width: calc(100% - 8px); height: calc(100% - 8px);
-  animation: badgeSpin 20s linear infinite;
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  animation: badgeSpin 18s linear infinite;
+  pointer-events: none;
 }
 .hb-text text {
-  font-family: 'Playfair Display', serif; font-size: 13.5px;
-  fill: #C39A6B; font-weight: 800; letter-spacing: 1px;
+  font-size: 10.5px; fill: #C39A6B;
+  font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase;
 }
 .hb-inner {
-  font-size: 1.8rem; color: #C39A6B;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 1px; position: relative; z-index: 2;
+}
+.hb-emoji { font-size: 1.6rem; line-height: 1; }
+.hb-label {
+  font-family: 'Nunito', sans-serif; font-size: 0.45rem;
+  font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(195,154,107,0.9); text-align: center; line-height: 1.3;
 }
 @keyframes badgeFloat {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-12px); }
+  0%   { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-8px) rotate(3deg); }
 }
 @keyframes badgeSpin {
   to { transform: rotate(360deg); }
@@ -1884,13 +1903,22 @@ footer {
 
 <hr class="shimmer-div"/>
 
-<!-- Sello de Calidad — fijo en borde izquierdo de la página -->
+<!-- Sello de Calidad — fijo en esquina superior izquierda -->
 <div class="hero-badge">
-  <svg viewBox="0 0 100 100" class="hb-text">
-    <path id="curve" fill="transparent" d="M 50 90 A 40 40 0 1 1 50 10 A 40 40 0 1 1 50 90"/>
-    <text><textPath href="#curve" startOffset="50%" text-anchor="middle">GLUTEN FREE &amp; SUGAR FREE</textPath></text>
+  <!-- Texto circular giratorio -->
+  <svg viewBox="0 0 100 100" class="hb-text" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <path id="badgeCurve" d="M 50,50 m -35,0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"/>
+    </defs>
+    <text>
+      <textPath href="#badgeCurve" startOffset="0%">✦ GLUTEN FREE ✦ SUGAR FREE ✦ </textPath>
+    </text>
   </svg>
-  <div class="hb-inner">✨</div>
+  <!-- Centro -->
+  <div class="hb-inner">
+    <span class="hb-emoji">🌿</span>
+    <span class="hb-label">Sin Gluten<br/>Sin Azúcar</span>
+  </div>
 </div>
 
 <!-- ══ STATS ══ -->
