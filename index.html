@@ -603,7 +603,20 @@ html, body, *, *::before, *::after { cursor: none !important; }
   color: #5a6e69;
 }
 
-/* === Right column === */
+/* === Hero Icons === */
+.hero-icons {
+  display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center;
+  margin-bottom: 2.5rem;
+  animation: heroFadeUp .7s ease .22s both;
+}
+.hi-item {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-family: 'Nunito', sans-serif; font-size: 0.72rem; font-weight: 800;
+  color: #4A5E58; text-transform: uppercase; letter-spacing: 0.08em;
+}
+.hi-item svg { width: 18px; height: 18px; stroke: #C39A6B; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+/* === Right column & Carousel === */
 .hero-right {
   flex: 1.15;
   position: relative; z-index: 1;
@@ -611,15 +624,78 @@ html, body, *, *::before, *::after { cursor: none !important; }
   overflow: hidden;
   min-height: 100vh;
 }
+.hero-carousel {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+}
+.hc-slide {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  opacity: 0; transition: opacity 1s ease-in-out;
+  visibility: hidden;
+}
+.hc-slide.active {
+  opacity: 1; z-index: 2; visibility: visible;
+}
 .hero-illustration {
-  position: absolute;
-  inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
   object-position: center top;
   mix-blend-mode: multiply;
   filter: contrast(1.05) brightness(1.03);
-  animation: none;
+}
+.hc-caption {
+  position: absolute; bottom: 5rem; left: 0; right: 0;
+  display: flex; justify-content: center; z-index: 3;
+  padding: 0 2rem;
+}
+.hc-caption-inner {
+  background: rgba(247, 242, 232, 0.92);
+  backdrop-filter: blur(12px);
+  padding: 1.2rem 2.5rem; border-radius: 50px;
+  font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700;
+  color: #2A5249; box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  border: 1px solid rgba(195,154,107,0.35);
+  text-align: center;
+  animation: heroFadeUp .7s ease .4s both;
+}
+.hc-controls {
+  position: absolute; bottom: 2.5rem; left: 0; right: 0;
+  display: flex; justify-content: center; gap: 0.8rem; z-index: 10;
+}
+.hc-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(42,82,73,0.25); border: none; cursor: pointer;
+  transition: all 0.3s; padding: 0;
+}
+.hc-dot.active { background: #C39A6B; transform: scale(1.3); }
+
+/* === Hero Badge === */
+.hero-badge {
+  position: absolute; top: 3rem; right: 3rem; z-index: 10;
+  width: 110px; height: 110px;
+  background: rgba(247, 242, 232, 0.92); border-radius: 50%;
+  box-shadow: 0 10px 30px rgba(42,82,73,0.15);
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(195, 154, 107, 0.4);
+  animation: badgeFloat 4s ease-in-out infinite alternate;
+}
+.hb-text {
+  position: absolute; inset: 4px;
+  width: calc(100% - 8px); height: calc(100% - 8px);
+  animation: badgeSpin 20s linear infinite;
+}
+.hb-text text {
+  font-family: 'Playfair Display', serif; font-size: 13.5px;
+  fill: #C39A6B; font-weight: 800; letter-spacing: 1px;
+}
+.hb-inner {
+  font-size: 1.8rem; color: #C39A6B;
+}
+@keyframes badgeFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-12px); }
+}
+@keyframes badgeSpin {
+  to { transform: rotate(360deg); }
 }
 
 /* Entrance animations */
@@ -1650,13 +1726,34 @@ footer {
 
       <!-- Descripción -->
       <p class="hero-desc">
-        Disfruta tu café mientras tu mascota también vive la experiencia.
+        Disfruta tu café mientras tu mascota también vive la experiencia.<br/><br/>
+        <strong>Descubre nuestra pastelería artesanal 100% sin gluten y sin azúcar.</strong>
       </p>
+
+      <!-- Iconos Minimalistas -->
+      <div class="hero-icons">
+        <div class="hi-item" title="Café de Especialidad">
+          <svg viewBox="0 0 24 24"><path d="M17 8C17 13.52 12.52 18 7 18C4 18 2 16 2 16C2 16 4 14 4 11C4 5.48 8.48 1 14 1C17 1 19 3 19 3C19 3 17 5 17 8Z" /><path d="M17 8C17 8 13.5 10.5 7 18" /></svg>
+          <span>Especialidad</span>
+        </div>
+        <div class="hi-item" title="Sin Gluten">
+          <svg viewBox="0 0 24 24"><path d="M2 22L22 2" /><path d="M12 2C12 2 12 7 7 12C2 17 2 22 2 22C2 22 7 22 12 17C17 12 22 12 22 12" /><path d="M12 12L15 9" /><path d="M9 15L12 12" /><path d="M15 15L18 12" /></svg>
+          <span>Sin Gluten</span>
+        </div>
+        <div class="hi-item" title="Sin Azúcar">
+          <svg viewBox="0 0 24 24"><path d="M2 22L22 2" /><rect x="6" y="6" width="12" height="12" rx="2" /><path d="M6 10L18 10" /><path d="M10 6L10 18" /></svg>
+          <span>Sin Azúcar</span>
+        </div>
+        <div class="hi-item" title="Pet Friendly">
+          <svg viewBox="0 0 24 24"><path d="M12 21C16 21 20 18 20 13C20 8 16 7 12 11C8 7 4 8 4 13C4 18 8 21 12 21Z" /><circle cx="7" cy="8" r="2" /><circle cx="11" cy="5" r="2" /><circle cx="16" cy="5" r="2" /><circle cx="20" cy="9" r="2" /></svg>
+          <span>Pet Friendly</span>
+        </div>
+      </div>
 
       <!-- Botones -->
       <div class="hero-btns">
-        <a href="#contacto" class="btn-primary">ORDENAR AHORA ☕</a>
-        <a href="#menu" class="btn-secondary">VER MENÚ 📋</a>
+        <a href="#menu" class="btn-primary" onclick="document.querySelector('[data-tab=\'dulces\']').click()">EXPLORAR PASTELERÍA SALUDABLE 🍰</a>
+        <a href="#menu" class="btn-secondary" onclick="document.querySelector('[data-tab=\'bebidas\']').click()">MENÚ DE CAFETERÍA ☕</a>
       </div>
 
       <!-- Features -->
@@ -1687,15 +1784,38 @@ footer {
     </div>
   </div>
 
-  <!-- Columna Derecha: Ilustración -->
+  <!-- Columna Derecha: Ilustración y Carrusel -->
   <div class="hero-right">
-    <img
-      src="./images/hero-ilustracion.jpg"
-      class="hero-illustration"
-      alt="Fachada de BAWi Coffee Shop con Doggy Bar"
-      loading="eager"
-      onerror="this.src='./images/illustration-store.jpg';this.onerror=null;"
-    />
+    <div class="hero-carousel" id="heroCarousel">
+      <!-- Slide 1: Store/Pet Friendly -->
+      <div class="hc-slide active">
+        <img src="./images/hero-ilustracion.jpg" class="hero-illustration" alt="Fachada de BAWi Coffee Shop con Doggy Bar" loading="eager" onerror="this.src='./images/illustration-store.jpg';this.onerror=null;" />
+      </div>
+      <!-- Slide 2: Pastelería Saludable -->
+      <div class="hc-slide">
+        <img src="./images/hero-pastry.png" class="hero-illustration" alt="Pastelería Saludable BAWi" loading="lazy" />
+        <div class="hc-caption">
+          <div class="hc-caption-inner">
+            Placer sin culpas: Endulzado con alulosa y libre de gluten
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Controles Carrusel -->
+    <div class="hc-controls" id="heroCarouselDots">
+      <button class="hc-dot active" data-slide="0"></button>
+      <button class="hc-dot" data-slide="1"></button>
+    </div>
+
+    <!-- Sello de Calidad -->
+    <div class="hero-badge">
+      <svg viewBox="0 0 100 100" class="hb-text">
+        <path id="curve" fill="transparent" d="M 50 90 A 40 40 0 1 1 50 10 A 40 40 0 1 1 50 90"/>
+        <text><textPath href="#curve" startOffset="50%" text-anchor="middle">GLUTEN FREE &amp; SUGAR FREE</textPath></text>
+      </svg>
+      <div class="hb-inner">✨</div>
+    </div>
   </div>
 
 </section>
@@ -2719,6 +2839,38 @@ document.querySelectorAll('[data-target]').forEach(el=>{
   },{threshold:.5});
   counterObs.observe(el);
 });
+
+/* ── HERO CAROUSEL ── */
+const slides = document.querySelectorAll('.hc-slide');
+const dots = document.querySelectorAll('.hc-dot');
+let currentSlide = 0;
+let slideInterval;
+
+function showSlide(index) {
+  slides.forEach(s => s.classList.remove('active'));
+  dots.forEach(d => d.classList.remove('active'));
+  currentSlide = index;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+}
+
+function nextSlide() {
+  showSlide((currentSlide + 1) % slides.length);
+}
+
+function startCarousel() {
+  slideInterval = setInterval(nextSlide, 5000);
+}
+
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    clearInterval(slideInterval);
+    showSlide(index);
+    startCarousel();
+  });
+});
+
+startCarousel();
 
 
 </script>
